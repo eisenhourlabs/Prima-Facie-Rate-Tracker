@@ -54,4 +54,5 @@ Values file for confirm: `{"records": [{"product": "CL", "change_type": "change"
 One candidate may give several records (for example CL and CD from one bulletin).
 
 ## Status and next steps
-See docs/plan.md. Start by reading it.
+See docs/status.md for where the build stands and notes carried forward, and docs/plan.md
+(section 10) for each stage's work and acceptance tests. Start by reading both.
