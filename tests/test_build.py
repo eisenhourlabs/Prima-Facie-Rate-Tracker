@@ -24,9 +24,20 @@ def rec(state="WI", product="CL", eff="2027-01-01", comm="2026-10-16", **over):
 # --- Boundaries and sorting (acceptance 1) --------------------------------------------------
 
 def test_recent_boundary_365_in_366_out():
-    in_ = rec(comm=(TODAY - dt.timedelta(days=365)).isoformat())
-    out = rec(state="IN", comm=(TODAY - dt.timedelta(days=366)).isoformat())
+    # Effective dates in the past, so only the communicated date decides.
+    in_ = rec(eff="2026-01-01", comm=(TODAY - dt.timedelta(days=365)).isoformat())
+    out = rec(state="IN", eff="2026-01-01", comm=(TODAY - dt.timedelta(days=366)).isoformat())
     assert build_site.select_recent([in_, out], TODAY) == [in_]
+
+
+def test_recent_keeps_upcoming_changes_communicated_long_ago():
+    """A multi-year schedule (Nebraska IGD-A2) announced in 2025 for 2027 stays in Recent until
+    it takes effect; once effective and over a year old it leaves Recent."""
+    upcoming = rec(state="NE", eff="2027-01-01", comm="2025-01-14")
+    effective_today = rec(state="NE", product="CD", eff=TODAY.isoformat(), comm="2025-01-14")
+    past = rec(state="NE", eff="2026-01-01", comm="2025-01-14")
+    no_change = rec(state="NE", product="CD", eff="2027-06-01", comm="2025-01-14", change_type="no_change", rate_items=[])
+    assert build_site.select_recent([upcoming, effective_today, past, no_change], TODAY) == [upcoming]
 
 
 def test_history_boundary_exactly_15_years_in_one_day_earlier_out():

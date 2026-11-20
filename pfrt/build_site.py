@@ -39,10 +39,14 @@ def _years_before(d: dt.date, years: int) -> dt.date:
 
 
 def select_recent(recs: list[dict], today: dt.date) -> list[dict]:
-    """Communicated in the last 365 days, not 'no change', soonest effective date first."""
+    """Changes communicated in the last 365 days, or taking effect after today; not 'no change'.
+
+    Soonest effective date first. A change announced more than a year ahead (for example a
+    multi-year schedule) stays in Recent until it takes effect (owner decision 2026-11-20).
+    """
     since = (today - dt.timedelta(days=RECENT_DAYS)).isoformat()
-    out = [r for r in _confirmed(recs)
-           if (r.get("date_communicated") or "") >= since and r.get("change_type") != "no_change"]
+    out = [r for r in _confirmed(recs) if r.get("change_type") != "no_change"
+           and ((r.get("date_communicated") or "") >= since or r["effective_date"] > today.isoformat())]
     return sorted(out, key=lambda r: (r["effective_date"], r["state"], r["product"]))
 
 
