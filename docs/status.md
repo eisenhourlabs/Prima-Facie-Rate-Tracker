@@ -15,7 +15,7 @@ Last updated: 2026-11-20.
 | 2. Candidates, records, review | Done, pushed | First records: WI-CL and WI-CD, effective 2027-01-01 |
 | 3. Run summary and check workflow | Done, pushed | Notifications built but off (owner choice) |
 | 4. The page | Done, pushed, gate approved | Live at https://eisenhourlabs.github.io/Prima-Facie-Rate-Tracker/ |
-| 5. Seed import | **Next** | See notes below |
+| 5. Seed import | **Built, gate pending, not committed** | Batch 1 (Wisconsin, effective 2009-2024) imported and confirmed: 12 records; WI-CD-2027 amended to 12/60-month rates |
 | 6. All states | Not started | |
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
@@ -23,10 +23,14 @@ Last updated: 2026-11-20.
 ## Notes carried forward
 
 Stage 5 (seed import):
-- `seed scan` must search extracted PDF text and PDF metadata, not raw file bytes. A search of
-  raw compressed PDF bytes gave a false match on a short blocklist term during Stage 2.
-- The owner supplies the first scrubbed batch and decides Q9 (plausible ranges), A5 (headline
-  rates only) and A6 (no-change notices).
+- Built: `seed validate`, `seed import`, `seed scan`, `review confirm --batch`, `review list --batch`.
+  Q9, A5 and A6 decided (see decisions.md, 2026-11-20).
+- Batch 1 (Wisconsin, effective 2009-2024) was drafted by Claude Code from public bulletins and
+  tables downloaded from oci.wi.gov, approved by the owner, imported and confirmed (11 by
+  `--batch`, WI-CD-2024 on its own because of its genuine +102% 30-day changes). The 2009 records
+  are outside the 15-year window and hidden on the page. Wisconsin now has 14 confirmed records.
+- WI-CD-2027-01-01-1 amended to the 12- and 60-month rates (A5).
+- Next batches: one state at a time, same method (Indiana's numbered bulletins are a good next one).
 - `internal/blocklist.txt` is private: report only the names of matching files, never the terms.
 
 Stage 6 (all states):

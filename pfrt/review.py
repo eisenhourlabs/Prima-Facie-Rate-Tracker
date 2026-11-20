@@ -60,8 +60,10 @@ def _require_confirmed(root: Path, rid: str) -> tuple[Path, dict]:
 
 # --- list and show ------------------------------------------------------------------
 
-def list_open(root: Path, origin: str = "") -> list[dict]:
-    return [c for c in candidates.load_all(root) if not origin or c.get("origin") == origin]
+def list_open(root: Path, origin: str = "", batch: str = "") -> list[dict]:
+    """Open candidates, optionally only one origin (monitor, seed, manual) or one seed batch."""
+    return [c for c in candidates.load_all(root)
+            if (not origin or c.get("origin") == origin) and (not batch or c.get("batch") == batch)]
 
 
 def format_list(items: list[dict]) -> str:
@@ -110,7 +112,10 @@ def build_record(cand: dict, entry: dict, existing_ids: set[str], root: Path,
     rec.setdefault("rate_items", [])
     rec["date_communicated_estimated"] = bool(rec.get("date_communicated_estimated"))
     rec["rate_table_note"] = rec.get("rate_table_note") or ""
-    missing = [f for f in REQUIRED if not rec.get(f)]
+    # Plan 7.1: old seed records may have no known date communicated.
+    required = [f for f in REQUIRED if not (f == "date_communicated" and rec.get("origin") == "seed")]
+    rec["date_communicated"] = rec.get("date_communicated") or ""
+    missing = [f for f in required if not rec.get(f)]
     if missing:
         raise ReviewError(f"required field(s) empty: {', '.join(missing)}. Nothing was changed.")
     records.fill_pct_changes(rec["rate_items"])
@@ -149,6 +154,48 @@ def confirm(root: Path, cid: str, entries: list[dict], now: str,
     if next_expected:
         set_next_expected(root, cand["state"], next_expected)
     return built, warnings
+
+
+# --- confirm a whole seed batch ---------------------------------------------------------
+
+def entry_from_candidate(cand: dict) -> dict:
+    """The record values a seed candidate already carries (filled from the batch CSV)."""
+    return {k: cand[k] for k in EDITABLE if k in cand}
+
+
+def confirm_batch(root: Path, batch: str, now: str) -> tuple[list[dict], dict[str, list[records.Issue]]]:
+    """Confirm every candidate of a seed batch that has no errors and no warnings (plan 7.2 step 7).
+
+    A candidate with any issue is left open, to be confirmed one at a time with
+    `review confirm ID`. A record that would be unverified (no saved copy, or a
+    source that is not on an official domain) also counts as a warning here, so
+    an unverified record is never confirmed in bulk.
+    Candidates are taken in effective-date order, so the continuity check of a
+    later one sees the records confirmed just before it.
+    Returns (records written, {candidate id: issues} for those left open).
+    """
+    batch_cands = [c for c in candidates.load_all(root) if c.get("origin") == "seed" and c.get("batch") == batch]
+    if not batch_cands:
+        raise ReviewError(f"no open seed candidates in batch '{batch}'. Nothing was changed.")
+    written, skipped = [], {}
+    for cand in sorted(batch_cands, key=lambda c: (c["state"], c.get("product", ""), c.get("effective_date", ""))):
+        ctx = records.load_context(root)
+        ids = {r.get("record_id", "") for r in ctx.existing}
+        try:
+            rec = build_record(cand, entry_from_candidate(cand), ids, root, ctx.official_domains, now)
+        except ReviewError as err:
+            skipped[cand["candidate_id"]] = [records.Issue("error", "values", str(err))]
+            continue
+        issues = records.validate(rec, ctx)
+        if not rec["verified"]:
+            issues.append(records.Issue("warning", "verified", "record would be unverified; confirm it on its own"))
+        if issues:
+            skipped[cand["candidate_id"]] = issues
+            continue
+        records.save_json(records.record_path(root, rec["state"], rec["record_id"]), rec)
+        candidates.candidate_path(root, cand["candidate_id"]).unlink()
+        written.append(rec)
+    return written, skipped
 
 
 # --- reject, amend, retract ------------------------------------------------------------

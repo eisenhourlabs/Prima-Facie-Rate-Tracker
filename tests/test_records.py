@@ -41,7 +41,7 @@ def test_is_official_includes_subdomains():
 def ctx(existing=None):
     return records.Context(states={"ZZ"}, official_domains={"example.gov"}, existing=existing or [],
                            build_date=dt.date(2026, 11, 20),
-                           plausibility=[(["per $100", "per year"], 0.10, 2.00)])
+                           plausibility=[("", ["per $100", "per year"], 0.10, 2.00)])
 
 
 def good(**over):

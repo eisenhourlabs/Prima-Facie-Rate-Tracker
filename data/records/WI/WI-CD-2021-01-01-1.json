@@ -1,0 +1,95 @@
+{
+  "archived_copy": "archive/WI/2026-11-20_0a6c4070.pdf",
+  "archived_sha256": "0a6c40706677a452975aeb09b7c0805ca2ed98750f380d3f64326f279e39aba8",
+  "candidate_id": "c-20261120-WI-11",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2020-10-15",
+  "date_communicated_estimated": false,
+  "document_url": "https://oci.wi.gov/Documents/Regulation/Bulletin20201015Rates.pdf",
+  "effective_date": "2021-01-01",
+  "history": [
+    {
+      "at": "2026-11-20T21:08:56Z",
+      "batch": "batch_01",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T21:09:05Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Wis. Adm. Code Ins 3.25(13)(c); s. 424.209(1), Wis. Stat.",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 1.01,
+      "old_rate": 1.09,
+      "pct_change": -7.3,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.56,
+      "old_rate": 0.79,
+      "pct_change": -29.1,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.71,
+      "old_rate": 0.58,
+      "pct_change": 22.4,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.52,
+      "old_rate": 0.42,
+      "pct_change": 23.8,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.74,
+      "old_rate": 1.89,
+      "pct_change": -7.9,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.02,
+      "old_rate": 1.44,
+      "pct_change": -29.2,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.13,
+      "old_rate": 0.91,
+      "pct_change": 24.2,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.0,
+      "old_rate": 0.81,
+      "pct_change": 23.5,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from the table Credit Disability Insurance Single Premium Rates per $100 of Initial Insured Indebtedness, effective January 1, 2021 (https://oci.wi.gov/Documents/Regulation/NewRatesTableJanuary2021.pdf), page 1. Old rates are from the table effective January 1, 2018 (https://oci.wi.gov/Documents/Regulation/CredRate2018.pdf). Also saved: archive/WI/2026-11-20_8cad30f7.pdf (NewRatesTableJanuary2021.pdf).",
+  "record_id": "WI-CD-2021-01-01-1",
+  "retrieved_at": "2026-11-20T21:08:56Z",
+  "source_title": "Bulletin, October 15, 2020, Revised Prima Facie Credit Life and Credit Accident and Sickness Insurance Rates",
+  "source_url": "https://oci.wi.gov/Documents/Regulation/Bulletin20201015Rates.pdf",
+  "state": "WI",
+  "status": "confirmed",
+  "summary": "The bulletin of October 15, 2020 sets credit accident and sickness rates for the three-year period beginning January 1, 2021 by adjustment factors applied to the existing prima facie rates, rounded to the nearest cent: 0.92 (14-day retroactive), 0.71 (14-day nonretroactive), 1.24 (30-day retroactive) and 1.24 (30-day nonretroactive). Headline rates are the 12- and 60-month single premium rates from the published table. Some table rates differ by one cent from factor times the previous table; the table is used.",
+  "verified": true
+}

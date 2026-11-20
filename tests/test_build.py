@@ -133,6 +133,16 @@ def test_saved_copies_are_copied_and_note_links_escaped(tmp_path):
 
 
 def test_real_records_build(tmp_path):
+    """The real records build; Wisconsin shows every confirmed record inside the 15-year window.
+
+    The count is worked out from the data, so the test does not break when records are added.
+    Seed records effective before the window (2009) stay in data/ but are hidden (plan A7).
+    """
+    from pfrt import records
+    since = build_site._years_before(TODAY, build_site.HISTORY_YEARS).isoformat()
+    wi = [r for r in records.load_all(REPO) if r.get("state") == "WI" and r.get("status") == "confirmed"]
+    shown = sum(r["effective_date"] >= since for r in wi)
+    assert shown < len(wi) or not wi                 # the 2009 records are hidden
     out = build_site.build(REPO, tmp_path / "site", TODAY)
     page = BeautifulSoup(out.read_text(encoding="utf-8"), "html.parser")
-    assert "Wisconsin (2)" in [d.summary.get_text() for d in page.find_all("details")]
+    assert f"Wisconsin ({shown})" in [d.summary.get_text() for d in page.find_all("details")]

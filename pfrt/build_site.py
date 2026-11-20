@@ -61,7 +61,12 @@ def select_history(recs: list[dict], today: dt.date) -> dict[str, list[dict]]:
 # --- Formatting helpers used by the template -----------------------------------------------
 
 def long_date(iso: str) -> str:
-    """2027-01-01 -> 1 January 2027 (month as a word, plan 8.4)."""
+    """2027-01-01 -> 1 January 2027 (month as a word, plan 8.4).
+
+    A blank date (allowed for old seed records) is shown as "Not stated".
+    """
+    if not iso:
+        return "Not stated"
     d = dt.date.fromisoformat(iso[:10])
     return f"{d.day} {d:%B %Y}"
 

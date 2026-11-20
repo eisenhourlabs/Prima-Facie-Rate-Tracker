@@ -1,0 +1,95 @@
+{
+  "archived_copy": "archive/WI/2026-11-20_9fea5292.pdf",
+  "archived_sha256": "9fea5292526e5d67f795dce1cf5875d7130ab35d7a983bce2a3035fbbec713dd",
+  "candidate_id": "c-20261120-WI-13",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2023-09-28",
+  "date_communicated_estimated": false,
+  "document_url": "https://oci.wi.gov/Documents/Regulation/Bulletin20230928PrimaFacieRates.pdf",
+  "effective_date": "2024-01-01",
+  "history": [
+    {
+      "at": "2026-11-20T21:08:56Z",
+      "batch": "batch_01",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T21:09:17Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Wis. Adm. Code Ins 3.25(13)(c); s. 424.209(1), Wis. Stat.",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.79,
+      "old_rate": 1.01,
+      "pct_change": -21.8,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.45,
+      "old_rate": 0.56,
+      "pct_change": -19.6,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 1.44,
+      "old_rate": 0.71,
+      "pct_change": 102.8,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 1.05,
+      "old_rate": 0.52,
+      "pct_change": 101.9,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.37,
+      "old_rate": 1.74,
+      "pct_change": -21.3,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 0.81,
+      "old_rate": 1.02,
+      "pct_change": -20.6,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 2.28,
+      "old_rate": 1.13,
+      "pct_change": 101.8,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 2.03,
+      "old_rate": 1.0,
+      "pct_change": 103.0,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from the table Credit Disability Insurance Single Premium Rates per $100 of Initial Insured Indebtedness, effective January 1, 2024 (https://oci.wi.gov/Documents/Regulation/2024%20New%20Rates%20Table.pdf), page 1. Old rates are from the table effective January 1, 2021 (https://oci.wi.gov/Documents/Regulation/NewRatesTableJanuary2021.pdf). Also saved: archive/WI/2026-11-20_69f939bc.pdf (2024 New Rates Table.pdf).",
+  "record_id": "WI-CD-2024-01-01-1",
+  "retrieved_at": "2026-11-20T21:08:56Z",
+  "source_title": "Bulletin, September 28, 2023, Revised Prima Facie Credit Life and Credit Accident and Sickness Insurance Rates",
+  "source_url": "https://oci.wi.gov/Documents/Regulation/Bulletin20230928PrimaFacieRates.pdf",
+  "state": "WI",
+  "status": "confirmed",
+  "summary": "The bulletin of September 28, 2023 sets credit accident and sickness rates for the three-year period beginning January 1, 2024 by adjustment factors applied to the existing prima facie rates, rounded to the nearest cent: 0.79 (14-day retroactive), 0.79 (14-day nonretroactive), 2.02 (30-day retroactive) and 2.02 (30-day nonretroactive). Headline rates are the 12- and 60-month single premium rates from the published table. Some table rates differ by one cent from factor times the previous table; the table is used.",
+  "verified": true
+}

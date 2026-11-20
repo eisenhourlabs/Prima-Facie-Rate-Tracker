@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/WI/2026-11-20_f7497369.html",
+  "archived_sha256": "f7497369694c40e247ea2bdfdea52f27272f0cceb669c794afbb61e3b24dc9d0",
+  "candidate_id": "c-20261120-WI-02",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2008-10-01",
+  "date_communicated_estimated": false,
+  "document_url": "https://oci.wi.gov/Pages/Regulation/Bulletin20081001CreditRates.aspx",
+  "effective_date": "2009-01-01",
+  "history": [
+    {
+      "at": "2026-11-20T21:08:56Z",
+      "batch": "batch_01",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T21:09:05Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Wis. Adm. Code Ins 3.25(13)(c); s. 424.209(1), Wis. Stat.",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 0.4,
+      "pct_change": null,
+      "plan": "Single premium straight-line decreasing, single life"
+    },
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 0.74,
+      "pct_change": null,
+      "plan": "Single premium level, single life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 0.616,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 0.67,
+      "pct_change": null,
+      "plan": "Joint uniformly decreasing term"
+    },
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 1.24,
+      "pct_change": null,
+      "plan": "Joint level life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.029,
+      "pct_change": null,
+      "plan": "Joint monthly outstanding balance"
+    }
+  ],
+  "rate_table_note": "Old rates not recorded: the previous (2005) bulletin was not saved.",
+  "record_id": "WI-CL-2009-01-01-1",
+  "retrieved_at": "2026-11-20T21:08:56Z",
+  "source_title": "Bulletin, October 1, 2008, Revised Prima Facie Credit Life and Credit Accident and Sickness Insurance Rates",
+  "source_url": "https://oci.wi.gov/Pages/Regulation/Bulletin20081001CreditRates.aspx",
+  "state": "WI",
+  "status": "confirmed",
+  "summary": "Wisconsin's Commissioner of Insurance gave written notice on October 1, 2008 of a new basic loss ratio of 43% for credit life and new prima facie credit life rates for the three-year period beginning January 1, 2009. Single life: $0.40 per annum per $100 (single premium decreasing), $0.74 (level) and $0.616 per month per $1,000 (outstanding balance). Joint rates are 167% of single.",
+  "verified": true
+}

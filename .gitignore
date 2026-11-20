@@ -4,3 +4,4 @@ __pycache__/
 .env
 site/
 .pytest_cache/
+seed/documents/

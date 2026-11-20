@@ -1,0 +1,16 @@
+state,product,change_type,effective_date,date_communicated,source_url,source_title,plan,basis,old_rate,new_rate,rate_table_note,summary,legal_basis,public_document_file,notes
+ZZ,CL,change,2019-01-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row with a state that is not in states.csv.,Test cite,,state error
+IN,XX,change,2019-01-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row with an unknown product code.,Test cite,,product error
+IN,CL,change,2019-13-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row with an impossible effective date.,Test cite,,date error
+IN,CL,change,1985-01-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row with an effective date before 1990.,Test cite,,range error
+IN,CL,change,1995-01-01,,,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row with no source URL at all.,Test cite,,source error
+IN,CL,change,1996-01-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,-0.45,,TEST VALUES ONLY. Row with a negative rate.,Test cite,,rate error
+IN,CL,change,1997-01-01,,https://www.in.gov/test.pdf,,Test plan,,,0.45,,TEST VALUES ONLY. Row with a rate but no basis.,Test cite,,basis error
+WI,CL,change,2027-01-01,2026-10-16,https://oci.wi.gov/test.pdf,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row that duplicates a confirmed record.,Test cite,,duplicate error
+IN,CL,change,1998-01-01,1997/10/01,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row with a date communicated in the wrong format.,Test cite,,date communicated error
+IN,CL,maybe,1999-01-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row with an unknown change type.,Test cite,,change type error
+IN,CL,change,2000-01-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,abc,,TEST VALUES ONLY. Row with a rate that is not a number.,Test cite,,not a number error
+IN,CL,change,2001-01-01,,https://www.in.gov/test.pdf,,,per $100 per year,,0.45,,TEST VALUES ONLY. Row with a rate but no plan.,Test cite,,plan error
+IN,CL,change,2002-01-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,0.45,,,Test cite,,summary error
+IN,CL,change,2003-01-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row with no legal basis.,,,legal basis error
+IN,CL,change,2004-01-01,,https://www.in.gov/test.pdf,,Test plan,per $100 per year,,0.45,,TEST VALUES ONLY. Row naming a document that is not there.,Test cite,missing.pdf,document error

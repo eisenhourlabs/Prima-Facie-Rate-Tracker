@@ -4,16 +4,23 @@
   check [--dry-run] [--offline] [--states IN,WI] [--include-disabled]
                                      check sources; without --dry-run, save snapshots,
                                      documents, candidates and a run log
-  review list [--origin manual]      open candidates
+  review list [--origin seed] [--batch batch_01]
+                                     open candidates
   review show ID                     every field of a candidate or record
   review add --state WI --url URL [--source-id ID] [--title T]
                                      make a candidate from a document by hand
   review confirm ID [--values FILE] [--next-expected YYYY-MM-DD]
                                      confirm (asks for each field if no --values)
+  review confirm --batch batch_01    confirm the seed candidates of a batch that
+                                     have no warnings; the rest stay open
   review reject ID --reason "..."
   review amend ID --values FILE --reason "..."
   review retract ID --reason "..."
   validate                           check every confirmed record (plan 7.4)
+  seed validate FILE                 check a seed batch CSV row by row; writes nothing
+  seed import FILE                   make seed candidates from a batch (after validate and scan)
+  seed scan FOLDER [--blocklist F]   search names, text, PDF text and metadata for
+                                     blocklisted terms; prints file names only
   notify test                        send a test email if email is configured
   build [--out FOLDER]               build the site into site/ (open site/index.html)
 
@@ -56,7 +63,9 @@ def build_parser() -> argparse.ArgumentParser:
                      help="also check disabled sources that have a URL (only with --dry-run)")
 
     rv = sub.add_parser("review", help="review candidates and records").add_subparsers(dest="action", required=True)
-    rv.add_parser("list").add_argument("--origin", default="", help="monitor, seed or manual")
+    lst = rv.add_parser("list")
+    lst.add_argument("--origin", default="", help="monitor, seed or manual")
+    lst.add_argument("--batch", default="", help="seed batch name, e.g. batch_01")
     rv.add_parser("show").add_argument("id")
     add = rv.add_parser("add")
     add.add_argument("--state", required=True)
@@ -64,7 +73,8 @@ def build_parser() -> argparse.ArgumentParser:
     add.add_argument("--source-id", default="")
     add.add_argument("--title", default="")
     conf = rv.add_parser("confirm")
-    conf.add_argument("id")
+    conf.add_argument("id", nargs="?", default="")
+    conf.add_argument("--batch", default="", help="confirm a whole seed batch instead of one id")
     conf.add_argument("--values", default="", help="JSON file with the record values")
     conf.add_argument("--next-expected", default="", help="state's next expected notice date")
     rej = rv.add_parser("reject")
@@ -79,6 +89,12 @@ def build_parser() -> argparse.ArgumentParser:
     ret.add_argument("--reason", required=True)
 
     sub.add_parser("validate", help="validate every confirmed record")
+    sd = sub.add_parser("seed", help="import past changes from a batch CSV").add_subparsers(dest="action", required=True)
+    sd.add_parser("validate").add_argument("file")
+    sd.add_parser("import").add_argument("file")
+    scn = sd.add_parser("scan")
+    scn.add_argument("folder")
+    scn.add_argument("--blocklist", default="internal/blocklist.txt", help="private list of terms (default: %(default)s)")
     sub.add_parser("build", help="build the site into site/").add_argument("--out", default="", help="output folder")
     nt = sub.add_parser("notify", help="notifications").add_subparsers(dest="action", required=True)
     nt.add_parser("test", help="send a test message if email is configured")
@@ -205,7 +221,7 @@ def _load_values(path: str):
 def cmd_review(args, root: Path) -> int:
     a = args.action
     if a == "list":
-        print(review.format_list(review.list_open(root, args.origin)))
+        print(review.format_list(review.list_open(root, args.origin, args.batch)))
     elif a == "show":
         print(review.show(root, args.id))
     elif a == "add":
@@ -236,6 +252,19 @@ def cmd_review_add(args, root: Path) -> None:
 
 
 def cmd_review_confirm(args, root: Path) -> None:
+    if bool(args.id) == bool(args.batch):
+        raise review.ReviewError("give either a candidate id or --batch NAME, not both and not neither")
+    if args.batch:
+        if args.values or args.next_expected:
+            raise review.ReviewError("--values and --next-expected cannot be used with --batch")
+        written, skipped = review.confirm_batch(root, args.batch, _now())
+        for rec in written:
+            print(f"Confirmed {rec['record_id']} (verified: {rec['verified']})")
+        for cid, issues in skipped.items():
+            print(f"Left open {cid}; confirm it on its own after checking:")
+            print_issues(issues)
+        print(f"{len(written)} confirmed, {len(skipped)} left open.")
+        return
     if args.values:
         data = _load_values(args.values)
         entries = data["records"]
@@ -268,6 +297,29 @@ def cmd_validate(root: Path) -> int:
     return 1 if errors else 0
 
 
+def cmd_seed(args, root: Path) -> int:
+    from pfrt import seed
+    if args.action == "scan":
+        hits = seed.scan(Path(args.folder), root / args.blocklist if not Path(args.blocklist).is_absolute() else args.blocklist)
+        for h in hits:
+            print(f"FAIL: {h.path}: {h.where}")
+        print(f"Scan of {Path(args.folder).as_posix()}: " + (f"{len({h.path for h in hits})} file(s) failed." if hits else "passed."))
+        return 1 if hits else 0
+    if args.action == "validate":
+        drafts, issues = seed.validate(args.file, root)
+        for i in issues:
+            print(i)
+        errors = sum(i.issue.level == "error" for i in issues)
+        print(f"{len(drafts)} record(s) from {Path(args.file).name}: {errors} error(s), {len(issues) - errors} warning(s).")
+        return 1 if errors else 0
+    created = seed.import_batch(args.file, root, _now())
+    for c in created:
+        print(f"Created {c['candidate_id']} ({c['product']} effective {c['effective_date']}, "
+              f"{len(c['rate_items'])} rate item(s), {c['seed_rows']})")
+    print(f"{len(created)} candidate(s) in batch {seed.batch_name(args.file)}.")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     root = Path(args.root)
@@ -280,6 +332,13 @@ def main(argv: list[str] | None = None) -> int:
             return cmd_review(args, root)
         if args.command == "validate":
             return cmd_validate(root)
+        if args.command == "seed":
+            from pfrt import seed
+            try:
+                return cmd_seed(args, root)
+            except seed.SeedError as err:
+                print(f"Not done: {err}", file=sys.stderr)
+                return 1
         if args.command == "notify":
             return cmd_notify_test()
         if args.command == "build":

@@ -19,6 +19,56 @@
       "at": "2026-11-20T15:45:58Z",
       "by": "owner",
       "event": "confirmed"
+    },
+    {
+      "at": "2026-11-20T21:09:41Z",
+      "before": {
+        "rate_items": [
+          {
+            "basis": "adjustment factor applied to the 2024-2026 prima facie rates",
+            "new_rate": 0.85,
+            "note": "Equivalent to a 15% decrease",
+            "pct_change": null,
+            "plan": "14-day coverage, retroactive and nonretroactive"
+          },
+          {
+            "basis": "adjustment factor applied to the 2024-2026 prima facie rates",
+            "new_rate": 1.35,
+            "note": "Equivalent to a 35% increase",
+            "pct_change": null,
+            "plan": "30-day coverage, retroactive and nonretroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
+            "new_rate": 0.98,
+            "pct_change": null,
+            "plan": "Single premium, 36 months, 14-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
+            "new_rate": 0.57,
+            "pct_change": null,
+            "plan": "Single premium, 36 months, 14-day nonretroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
+            "new_rate": 2.68,
+            "pct_change": null,
+            "plan": "Single premium, 36 months, 30-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
+            "new_rate": 2.31,
+            "pct_change": null,
+            "plan": "Single premium, 36 months, 30-day nonretroactive"
+          }
+        ],
+        "rate_table_note": "36-month rates are from the table Credit Disability Insurance Single Premium Rates per $100 of Initial Insured Indebtedness, Rates Effective January 1, 2027 (terms 6 to 120 months), page 1: https://oci.wi.gov/Documents/Regulation/2027%20New%20Rates%20Table.pdf, saved copy archive/WI/2026-11-20_0482b4d2.pdf. Old 36-month rates are not shown because the 2024 table was not saved.",
+        "summary": "The same bulletin sets credit accident and sickness rates for the three-year period beginning January 1, 2027 by adjustment factors applied to the 2024-2026 prima facie rates, rounded to the nearest cent: 0.85 for 14-day coverage (a 15% decrease) and 1.35 for 30-day coverage (a 35% increase), retroactive and nonretroactive alike. Reading 'existing' as the rates in force is the owner's interpretation. Headline rates shown are the 36-month single premium rates from the 2027 table."
+      },
+      "by": "owner",
+      "event": "amended",
+      "reason": "A5: headline rates changed from the 36-month rates to the 12- and 60-month rates of the 2027 table, with old rates from the 2024 table (now saved)"
     }
   ],
   "legal_basis": "Wis. Adm. Code Ins 3.25(13)(c); s. 424.209(1), Wis. Stat.",
@@ -40,37 +90,69 @@
       "plan": "30-day coverage, retroactive and nonretroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
-      "new_rate": 0.98,
-      "pct_change": null,
-      "plan": "Single premium, 36 months, 14-day retroactive"
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.68,
+      "old_rate": 0.79,
+      "pct_change": -13.9,
+      "plan": "Single premium, 12 months, 14-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
-      "new_rate": 0.57,
-      "pct_change": null,
-      "plan": "Single premium, 36 months, 14-day nonretroactive"
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.38,
+      "old_rate": 0.45,
+      "pct_change": -15.6,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
-      "new_rate": 2.68,
-      "pct_change": null,
-      "plan": "Single premium, 36 months, 30-day retroactive"
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 1.95,
+      "old_rate": 1.44,
+      "pct_change": 35.4,
+      "plan": "Single premium, 12 months, 30-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
-      "new_rate": 2.31,
-      "pct_change": null,
-      "plan": "Single premium, 36 months, 30-day nonretroactive"
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 1.42,
+      "old_rate": 1.05,
+      "pct_change": 35.2,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.17,
+      "old_rate": 1.37,
+      "pct_change": -14.6,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 0.69,
+      "old_rate": 0.81,
+      "pct_change": -14.8,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 3.08,
+      "old_rate": 2.28,
+      "pct_change": 35.1,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 2.74,
+      "old_rate": 2.03,
+      "pct_change": 35.0,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
     }
   ],
-  "rate_table_note": "36-month rates are from the table Credit Disability Insurance Single Premium Rates per $100 of Initial Insured Indebtedness, Rates Effective January 1, 2027 (terms 6 to 120 months), page 1: https://oci.wi.gov/Documents/Regulation/2027%20New%20Rates%20Table.pdf, saved copy archive/WI/2026-11-20_0482b4d2.pdf. Old 36-month rates are not shown because the 2024 table was not saved.",
+  "rate_table_note": "12- and 60-month rates are from the table Credit Disability Insurance Single Premium Rates per $100 of Initial Insured Indebtedness, Rates Effective January 1, 2027, page 1: https://oci.wi.gov/Documents/Regulation/2027%20New%20Rates%20Table.pdf, saved copy archive/WI/2026-11-20_0482b4d2.pdf. Old rates are from the table effective January 1, 2024, page 1: https://oci.wi.gov/Documents/Regulation/2024%20New%20Rates%20Table.pdf, saved copy archive/WI/2026-11-20_69f939bc.pdf.",
   "record_id": "WI-CD-2027-01-01-1",
   "retrieved_at": "2026-11-20T15:02:29Z",
   "source_title": "Bulletin, October 16, 2026, Revised Prima Facie Credit Life and Credit Accident and Sickness Insurance Rates",
   "source_url": "https://oci.wi.gov/Documents/Regulation/Bulletin20261016PrimaFacieRates.pdf",
   "state": "WI",
   "status": "confirmed",
-  "summary": "The same bulletin sets credit accident and sickness rates for the three-year period beginning January 1, 2027 by adjustment factors applied to the 2024-2026 prima facie rates, rounded to the nearest cent: 0.85 for 14-day coverage (a 15% decrease) and 1.35 for 30-day coverage (a 35% increase), retroactive and nonretroactive alike. Reading 'existing' as the rates in force is the owner's interpretation. Headline rates shown are the 36-month single premium rates from the 2027 table.",
+  "summary": "The same bulletin sets credit accident and sickness rates for the three-year period beginning January 1, 2027 by adjustment factors applied to the 2024-2026 prima facie rates, rounded to the nearest cent: 0.85 for 14-day coverage (a 15% decrease) and 1.35 for 30-day coverage (a 35% increase), retroactive and nonretroactive alike. Reading 'existing' as the rates in force is the owner's interpretation. Headline rates shown are the 12- and 60-month single premium rates from the 2027 table.",
   "verified": true
 }

@@ -1,0 +1,95 @@
+{
+  "archived_copy": "archive/WI/2026-11-20_e0671ecf.html",
+  "archived_sha256": "e0671ecf5d5f9ff9b585b90618e4715cb83c53dcd9cf46f460f08a906cb9889c",
+  "candidate_id": "c-20261120-WI-05",
+  "change_type": "no_change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2011-09-22",
+  "date_communicated_estimated": false,
+  "document_url": "https://oci.wi.gov/Pages/Regulation/Bulletin20110922CreditIns.aspx",
+  "effective_date": "2012-01-01",
+  "history": [
+    {
+      "at": "2026-11-20T21:08:56Z",
+      "batch": "batch_01",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T21:09:05Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Wis. Adm. Code Ins 3.25(13)(c); s. 424.209(1), Wis. Stat.",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 1.52,
+      "old_rate": 1.52,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 1.31,
+      "old_rate": 1.31,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.96,
+      "old_rate": 0.96,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.7,
+      "old_rate": 0.7,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 2.62,
+      "old_rate": 2.62,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 2.37,
+      "old_rate": 2.37,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.52,
+      "old_rate": 1.52,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.35,
+      "old_rate": 1.35,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from the table Credit Disability Insurance Single Premium Rates per $100 of Initial Insured Indebtedness, effective January 1, 2012 (https://oci.wi.gov/Documents/Regulation/CredRate11.pdf), page 1. Old rates are from the table effective January 1, 2009 (https://oci.wi.gov/Documents/Regulation/CredRate08.pdf). Also saved: archive/WI/2026-11-20_1cb0b155.pdf (CredRate11.pdf).",
+  "record_id": "WI-CD-2012-01-01-1",
+  "retrieved_at": "2026-11-20T21:08:56Z",
+  "source_title": "Bulletin, September 22, 2011, Revised Prima Facie Credit Life and Credit Accident and Sickness Insurance Rates",
+  "source_url": "https://oci.wi.gov/Pages/Regulation/Bulletin20110922CreditIns.aspx",
+  "state": "WI",
+  "status": "confirmed",
+  "summary": "The bulletin of September 22, 2011 states there is no change to the prima facie credit accident and sickness rates for the three-year period beginning January 1, 2012: the adjustment factor is 1.00 for all four coverages. The table rates are the same as those effective January 1, 2009. Headline rates are the 12- and 60-month single premium rates.",
+  "verified": true
+}

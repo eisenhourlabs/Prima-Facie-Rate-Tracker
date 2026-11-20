@@ -1,0 +1,95 @@
+{
+  "archived_copy": "archive/WI/2026-11-20_e65835c4.html",
+  "archived_sha256": "e65835c45d0badd220d5a4392d44d07748cd46aa08122c21db4e38afa43dd072",
+  "candidate_id": "c-20261120-WI-09",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2017-07-21",
+  "date_communicated_estimated": false,
+  "document_url": "https://oci.wi.gov/Pages/Regulation/Bulletin20170721CreditRate.aspx",
+  "effective_date": "2018-01-01",
+  "history": [
+    {
+      "at": "2026-11-20T21:08:56Z",
+      "batch": "batch_01",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T21:09:05Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Wis. Adm. Code Ins 3.25(13)(c); s. 424.209(1), Wis. Stat.",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 1.09,
+      "old_rate": 1.35,
+      "pct_change": -19.3,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.79,
+      "old_rate": 1.24,
+      "pct_change": -36.3,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.58,
+      "old_rate": 0.96,
+      "pct_change": -39.6,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "new_rate": 0.42,
+      "old_rate": 0.7,
+      "pct_change": -40.0,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.89,
+      "old_rate": 2.33,
+      "pct_change": -18.9,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 1.44,
+      "old_rate": 2.25,
+      "pct_change": -36.0,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 0.91,
+      "old_rate": 1.52,
+      "pct_change": -40.1,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "new_rate": 0.81,
+      "old_rate": 1.35,
+      "pct_change": -40.0,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from the table Credit Disability Insurance Single Premium Rates per $100 of Initial Insured Indebtedness, effective January 1, 2018 (https://oci.wi.gov/Documents/Regulation/CredRate2018.pdf), page 1. Old rates are from the table effective January 1, 2015 (https://oci.wi.gov/Documents/Regulation/CredRate14.pdf). Also saved: archive/WI/2026-11-20_f9d13c13.pdf (CredRate2018.pdf).",
+  "record_id": "WI-CD-2018-01-01-1",
+  "retrieved_at": "2026-11-20T21:08:56Z",
+  "source_title": "Bulletin, July 21, 2017, Revised Prima Facie Credit Life and Credit Accident and Sickness Insurance Rates",
+  "source_url": "https://oci.wi.gov/Pages/Regulation/Bulletin20170721CreditRate.aspx",
+  "state": "WI",
+  "status": "confirmed",
+  "summary": "The bulletin of July 21, 2017 sets credit accident and sickness rates for the three-year period beginning January 1, 2018 by adjustment factors applied to the existing prima facie rates, rounded to the nearest cent: 0.81 (14-day retroactive), 0.64 (14-day nonretroactive), 0.60 (30-day retroactive) and 0.60 (30-day nonretroactive). Headline rates are the 12- and 60-month single premium rates from the published table.",
+  "verified": true
+}

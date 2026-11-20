@@ -117,14 +117,21 @@ class Context:
     official_domains: set[str]
     existing: list[dict]                 # other records, to find duplicates and the previous rate
     build_date: dt.date
-    plausibility: list[tuple[list[str], float, float]]
+    plausibility: list[tuple[str, list[str], float, float]]
 
 
-def load_plausibility(path: str | Path) -> list[tuple[list[str], float, float]]:
-    """config/plausibility.csv rows as (terms that must all appear in the basis, low, high)."""
+def load_plausibility(path: str | Path) -> list[tuple[str, list[str], float, float]]:
+    """config/plausibility.csv rows as (product, terms that must all appear in the basis, low, high).
+
+    A blank product applies to every product; a blank basis_contains matches any basis.
+    Rows naming a product are returned first, so they win over the general rows.
+    Example row: IUI, (no terms), 0.50, 10.00 checks every IUI rate.
+    """
     with open(path, encoding="utf-8", newline="") as f:
-        return [([t.strip().lower() for t in r["basis_contains"].split(";")], float(r["low"]), float(r["high"]))
-                for r in csv.DictReader(f)]
+        rows = [((r.get("product") or "").strip().upper(),
+                 [t.strip().lower() for t in r["basis_contains"].split(";") if t.strip()],
+                 float(r["low"]), float(r["high"])) for r in csv.DictReader(f)]
+    return sorted(rows, key=lambda row: row[0] == "")
 
 
 def load_context(root: Path, exclude_id: str = "") -> Context:
@@ -206,11 +213,11 @@ def _check_rates(r: dict, ctx: Context) -> list[Issue]:
     if r.get("change_type") != "no_change" and not items:
         out.append(Issue("error", "rate_items", "at least one rate item is required unless change_type is no_change"))
     for i, item in enumerate(items, 1):
-        out += _check_item(i, item, ctx)
+        out += _check_item(i, item, ctx, r.get("product") or "")
     return out
 
 
-def _check_item(i: int, item: dict, ctx: Context) -> list[Issue]:
+def _check_item(i: int, item: dict, ctx: Context, product: str = "") -> list[Issue]:
     out, where = [], f"rate_items[{i}]"
     for key in ("old_rate", "new_rate"):
         v = item.get(key)
@@ -222,9 +229,12 @@ def _check_item(i: int, item: dict, ctx: Context) -> list[Issue]:
     if not basis:
         out.append(Issue("error", f"{where}.basis", "required when a rate is given"))
     new = item.get("new_rate")
-    for terms, low, high in ctx.plausibility:
-        if basis and all(t in basis for t in terms) and isinstance(new, (int, float)) and not low <= new <= high:
-            out.append(Issue("warning", f"{where}.new_rate", f"{new} is outside the plausible range {low} to {high} for '{basis}'"))
+    # The first range that fits this product and basis is the one used.
+    for prod, terms, low, high in ctx.plausibility:
+        if basis and prod in ("", product) and all(t in basis for t in terms):
+            if isinstance(new, (int, float)) and not isinstance(new, bool) and not low <= new <= high:
+                out.append(Issue("warning", f"{where}.new_rate",
+                                 f"{new} is outside the plausible range {low} to {high} for {product or 'this product'}, '{basis}'"))
             break
     pct = item.get("pct_change")
     if pct is not None and abs(pct) > 50:

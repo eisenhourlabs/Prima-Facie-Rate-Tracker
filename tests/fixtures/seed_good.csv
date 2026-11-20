@@ -1,0 +1,6 @@
+state,product,change_type,effective_date,date_communicated,source_url,source_title,plan,basis,old_rate,new_rate,rate_table_note,summary,legal_basis,public_document_file,notes
+IN,CL,change,2019-01-01,2018-10-01,https://www.in.gov/idoi/files/test-bulletin.pdf,Test bulletin,"Single premium decreasing, single life",per $100 of initial indebtedness per year,0.50,0.45,,TEST VALUES ONLY. Revised credit life rates for the next three years.,760 IAC 1-5.1-9,,
+IN,CL,change,2019-01-01,,,,"Single premium level, single life",per $100 of initial indebtedness per year,0.80,0.75,,,,,
+IN,CL,change,2019-01-01,,,,"Monthly outstanding balance, single life","per $1,000 of outstanding balance per month",0.65,0.60,,,,,
+IN,CD,change,2019-01-01,2018-10-01,https://www.in.gov/idoi/files/test-bulletin.pdf,Test bulletin,"Single premium, 12 months, 14-day retroactive","per $100 of initial indebtedness, 12 monthly installments",,1.20,,TEST VALUES ONLY. Revised credit disability rates for the next three years.,760 IAC 1-5.1-9,,
+IN,CL,no_change,2022-01-01,2021-10-01,https://www.in.gov/idoi/files/test-bulletin-2.pdf,Test bulletin 2,,,,,,TEST VALUES ONLY. Credit life rates were reviewed and are unchanged.,760 IAC 1-5.1-9,,
