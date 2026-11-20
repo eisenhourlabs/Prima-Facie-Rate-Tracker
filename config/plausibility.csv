@@ -3,4 +3,4 @@ IUI,,0.50,10.00,"Any IUI rate, whatever its basis. Set by owner 2026-11-20 (Q9).
 ,per $100;per year,0.10,2.00,"Single premium life. Plan 7.4 range, kept by owner 2026-11-20 (Q9)."
 ,per $100;per annum,0.10,2.00,"Single premium life, written per annum. Same range as per year."
 ,"per $1,000;per month",0.10,3.00,"Outstanding balance life. Plan 7.4 range, kept by owner 2026-11-20 (Q9)."
-,per $100;month,0.25,15.00,"Single premium disability, term in months. Low lowered from 0.50 by owner 2026-11-20 (Q9): real 12-month nonretroactive rates are 0.38 to 0.45."
+CD,per $100,0.25,15.00,"Single premium disability per $100 (term is in the plan, not the basis). Low lowered from 0.50 by owner 2026-11-20 (Q9): real 12-month nonretroactive rates are 0.38 to 0.45."

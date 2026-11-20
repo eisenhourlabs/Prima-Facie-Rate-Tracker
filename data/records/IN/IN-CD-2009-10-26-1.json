@@ -87,6 +87,72 @@
       "by": "owner",
       "event": "amended",
       "reason": "Basis unit added: per $100 of initial insured debt (owner, 2026-11-20; 760 IAC 1-5.1-7). The bulletins do not state the unit."
+    },
+    {
+      "at": "2026-11-20T22:24:43Z",
+      "before": {
+        "rate_items": [
+          {
+            "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+            "new_rate": 1.85,
+            "old_rate": 1.85,
+            "pct_change": 0.0,
+            "plan": "Single premium, 12 months, 14-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+            "new_rate": 1.29,
+            "old_rate": 1.29,
+            "pct_change": 0.0,
+            "plan": "Single premium, 12 months, 14-day nonretroactive"
+          },
+          {
+            "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+            "new_rate": 1.27,
+            "old_rate": 1.27,
+            "pct_change": 0.0,
+            "plan": "Single premium, 12 months, 30-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+            "new_rate": 0.95,
+            "old_rate": 0.95,
+            "pct_change": 0.0,
+            "plan": "Single premium, 12 months, 30-day nonretroactive"
+          },
+          {
+            "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+            "new_rate": 3.7,
+            "old_rate": 3.7,
+            "pct_change": 0.0,
+            "plan": "Single premium, 60 months, 14-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+            "new_rate": 2.98,
+            "old_rate": 2.98,
+            "pct_change": 0.0,
+            "plan": "Single premium, 60 months, 14-day nonretroactive"
+          },
+          {
+            "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+            "new_rate": 2.95,
+            "old_rate": 2.95,
+            "pct_change": 0.0,
+            "plan": "Single premium, 60 months, 30-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+            "new_rate": 2.26,
+            "old_rate": 2.26,
+            "pct_change": 0.0,
+            "plan": "Single premium, 60 months, 30-day nonretroactive"
+          }
+        ]
+      },
+      "by": "owner",
+      "event": "amended",
+      "reason": "Basis is the unit only; the term (number of equal monthly installments) is already in the plan. Owner approved 2026-11-20."
     }
   ],
   "legal_basis": "760 IAC 1-5.1-9",
@@ -94,56 +160,56 @@
   "product": "CD",
   "rate_items": [
     {
-      "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+      "basis": "per $100 of initial insured debt",
       "new_rate": 1.85,
       "old_rate": 1.85,
       "pct_change": 0.0,
       "plan": "Single premium, 12 months, 14-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+      "basis": "per $100 of initial insured debt",
       "new_rate": 1.29,
       "old_rate": 1.29,
       "pct_change": 0.0,
       "plan": "Single premium, 12 months, 14-day nonretroactive"
     },
     {
-      "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+      "basis": "per $100 of initial insured debt",
       "new_rate": 1.27,
       "old_rate": 1.27,
       "pct_change": 0.0,
       "plan": "Single premium, 12 months, 30-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+      "basis": "per $100 of initial insured debt",
       "new_rate": 0.95,
       "old_rate": 0.95,
       "pct_change": 0.0,
       "plan": "Single premium, 12 months, 30-day nonretroactive"
     },
     {
-      "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+      "basis": "per $100 of initial insured debt",
       "new_rate": 3.7,
       "old_rate": 3.7,
       "pct_change": 0.0,
       "plan": "Single premium, 60 months, 14-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+      "basis": "per $100 of initial insured debt",
       "new_rate": 2.98,
       "old_rate": 2.98,
       "pct_change": 0.0,
       "plan": "Single premium, 60 months, 14-day nonretroactive"
     },
     {
-      "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+      "basis": "per $100 of initial insured debt",
       "new_rate": 2.95,
       "old_rate": 2.95,
       "pct_change": 0.0,
       "plan": "Single premium, 60 months, 30-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+      "basis": "per $100 of initial insured debt",
       "new_rate": 2.26,
       "old_rate": 2.26,
       "pct_change": 0.0,

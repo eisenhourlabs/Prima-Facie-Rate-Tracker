@@ -21,7 +21,7 @@ written on the first row of the record only; if two rows give different values, 
 | `source_url` | yes | Primary-source URL; `NONE` if no public source is known (record is unverified) |
 | `source_title` | no | `Bulletin 2020-09-30` |
 | `plan` | yes unless `no_change` | `Single premium, 12 months, 14-day retroactive` |
-| `basis` | yes unless `no_change` | `per $100 of initial insured indebtedness` |
+| `basis` | yes unless `no_change` | `per $100 of initial insured indebtedness`. The unit only, in the state's words: the term and coverage go in `plan`, so the same unit reads the same in every row |
 | `old_rate` | no | `0.50` |
 | `new_rate` | yes unless `no_change` | `0.45` |
 | `rate_table_note` | no | Where the full table is |

@@ -69,6 +69,86 @@
       "by": "owner",
       "event": "amended",
       "reason": "A5: headline rates changed from the 36-month rates to the 12- and 60-month rates of the 2027 table, with old rates from the 2024 table (now saved)"
+    },
+    {
+      "at": "2026-11-20T22:24:44Z",
+      "before": {
+        "rate_items": [
+          {
+            "basis": "adjustment factor applied to the 2024-2026 prima facie rates",
+            "new_rate": 0.85,
+            "note": "Equivalent to a 15% decrease",
+            "pct_change": null,
+            "plan": "14-day coverage, retroactive and nonretroactive"
+          },
+          {
+            "basis": "adjustment factor applied to the 2024-2026 prima facie rates",
+            "new_rate": 1.35,
+            "note": "Equivalent to a 35% increase",
+            "pct_change": null,
+            "plan": "30-day coverage, retroactive and nonretroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+            "new_rate": 0.68,
+            "old_rate": 0.79,
+            "pct_change": -13.9,
+            "plan": "Single premium, 12 months, 14-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+            "new_rate": 0.38,
+            "old_rate": 0.45,
+            "pct_change": -15.6,
+            "plan": "Single premium, 12 months, 14-day nonretroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+            "new_rate": 1.95,
+            "old_rate": 1.44,
+            "pct_change": 35.4,
+            "plan": "Single premium, 12 months, 30-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+            "new_rate": 1.42,
+            "old_rate": 1.05,
+            "pct_change": 35.2,
+            "plan": "Single premium, 12 months, 30-day nonretroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+            "new_rate": 1.17,
+            "old_rate": 1.37,
+            "pct_change": -14.6,
+            "plan": "Single premium, 60 months, 14-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+            "new_rate": 0.69,
+            "old_rate": 0.81,
+            "pct_change": -14.8,
+            "plan": "Single premium, 60 months, 14-day nonretroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+            "new_rate": 3.08,
+            "old_rate": 2.28,
+            "pct_change": 35.1,
+            "plan": "Single premium, 60 months, 30-day retroactive"
+          },
+          {
+            "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+            "new_rate": 2.74,
+            "old_rate": 2.03,
+            "pct_change": 35.0,
+            "plan": "Single premium, 60 months, 30-day nonretroactive"
+          }
+        ]
+      },
+      "by": "owner",
+      "event": "amended",
+      "reason": "Basis is the unit only; the term (number of equal monthly installments) is already in the plan. Owner approved 2026-11-20."
     }
   ],
   "legal_basis": "Wis. Adm. Code Ins 3.25(13)(c); s. 424.209(1), Wis. Stat.",
@@ -90,56 +170,56 @@
       "plan": "30-day coverage, retroactive and nonretroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "basis": "per $100 of initial insured indebtedness",
       "new_rate": 0.68,
       "old_rate": 0.79,
       "pct_change": -13.9,
       "plan": "Single premium, 12 months, 14-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "basis": "per $100 of initial insured indebtedness",
       "new_rate": 0.38,
       "old_rate": 0.45,
       "pct_change": -15.6,
       "plan": "Single premium, 12 months, 14-day nonretroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "basis": "per $100 of initial insured indebtedness",
       "new_rate": 1.95,
       "old_rate": 1.44,
       "pct_change": 35.4,
       "plan": "Single premium, 12 months, 30-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 12 equal monthly installments",
+      "basis": "per $100 of initial insured indebtedness",
       "new_rate": 1.42,
       "old_rate": 1.05,
       "pct_change": 35.2,
       "plan": "Single premium, 12 months, 30-day nonretroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "basis": "per $100 of initial insured indebtedness",
       "new_rate": 1.17,
       "old_rate": 1.37,
       "pct_change": -14.6,
       "plan": "Single premium, 60 months, 14-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "basis": "per $100 of initial insured indebtedness",
       "new_rate": 0.69,
       "old_rate": 0.81,
       "pct_change": -14.8,
       "plan": "Single premium, 60 months, 14-day nonretroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "basis": "per $100 of initial insured indebtedness",
       "new_rate": 3.08,
       "old_rate": 2.28,
       "pct_change": 35.1,
       "plan": "Single premium, 60 months, 30-day retroactive"
     },
     {
-      "basis": "per $100 of initial insured indebtedness, 60 equal monthly installments",
+      "basis": "per $100 of initial insured indebtedness",
       "new_rate": 2.74,
       "old_rate": 2.03,
       "pct_change": 35.0,

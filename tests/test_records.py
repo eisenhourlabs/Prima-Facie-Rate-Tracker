@@ -124,3 +124,24 @@ def test_save_json_is_sorted_and_indented(tmp_path):
     p = tmp_path / "a" / "x.json"
     records.save_json(p, {"b": 1, "a": [1]})
     assert p.read_text(encoding="utf-8") == '{\n  "a": [\n    1\n  ],\n  "b": 1\n}\n'
+
+
+def test_real_plausibility_checks_disability_by_product_not_by_term():
+    """The basis holds the unit only (the term is in the plan), so the disability range
+    must be found by product and 'per $100', not by the word 'month'."""
+    import datetime as dt
+    from tests.conftest import REPO
+    ranges = records.load_plausibility(REPO / "config" / "plausibility.csv")
+    ctx = records.Context(states={"WI"}, official_domains=set(), existing=[], build_date=dt.date(2026, 11, 20),
+                          plausibility=ranges)
+
+    def warnings(product, basis, new):
+        r = {"state": "WI", "product": product, "change_type": "change", "effective_date": "2027-01-01",
+             "source_url": "NONE", "verified": False, "summary": "A summary long enough for the check.",
+             "rate_items": [{"plan": "Single premium, 12 months, 14-day retroactive", "basis": basis, "new_rate": new}]}
+        return [i for i in records.validate(r, ctx) if "plausible range" in i.message]
+
+    assert warnings("CD", "per $100 of initial insured indebtedness", 20.0)          # above 15.00
+    assert warnings("CD", "per $100 of initial insured debt", 0.20)                  # below 0.25
+    assert not warnings("CD", "per $100 of initial insured indebtedness", 0.38)
+    assert not warnings("CD", "adjustment factor applied to the existing rates", 1.35)
