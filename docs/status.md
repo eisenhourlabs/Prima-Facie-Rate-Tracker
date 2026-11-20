@@ -22,6 +22,8 @@ Last updated: 2026-11-20.
 
 ## Notes carried forward
 
+Manual-check states, missing history and tool changes needed to fill gaps: `docs/gaps.md`.
+
 Stage 5 (seed import):
 - Built: `seed validate`, `seed import`, `seed scan`, `review confirm --batch`, `review list --batch`.
   Q9, A5 and A6 decided (see decisions.md, 2026-11-20).
