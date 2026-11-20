@@ -28,11 +28,13 @@ def write(tmp_path: Path, *lines: str, header: str = HEADER) -> Path:
 
 # --- The real config files -------------------------------------------------
 
-def test_real_config_has_44_states_and_no_enabled_sources():
+def test_real_config_has_44_states_and_only_fetched_sources_enabled():
     states = config.load_states(REPO / "config/states.csv")
     sources = config.load_sources(REPO / "config/sources.csv", {s.state for s in states})
     assert len(states) == 44
-    assert not any(s.is_enabled for s in sources)  # Stage 0: everything starts disabled
+    # Plan Stage 6 acceptance 4: no source is enabled unless it was fetched and verified.
+    bad = [s.source_id for s in sources if s.is_enabled and s.verification != "fetched"]
+    assert bad == []
 
 
 def test_cli_config_check_prints_summary(capsys, monkeypatch):

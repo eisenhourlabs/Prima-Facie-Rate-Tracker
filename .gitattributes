@@ -1,0 +1,5 @@
+# Saved source documents must stay byte-for-byte identical to what the state
+# published: their file names and records carry a SHA-256 of the exact bytes.
+# "-text" stops Git from changing line endings in these folders.
+archive/** -text
+tests/fixtures/** -text
