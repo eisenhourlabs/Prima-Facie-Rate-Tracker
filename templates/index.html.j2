@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prima Facie Rate Tracker</title>
+<meta name="description" content="Unofficial compilation of state prima facie rate changes for credit life, credit disability and involuntary unemployment insurance.">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1b1f24; --muted: #4a5360; --line: #d0d7de; --panel: #f6f8fa;
+    --link: #0a58ca; --warn-bg: #fff4d6; --warn-fg: #5c3c00; --warn-line: #d4a72c;
+    --tag-bg: #e7f0ff; --tag-fg: #0a3a8c; --unv-bg: #ffe9e9; --unv-fg: #7a1010;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --fg: #e6edf3; --muted: #9da7b3; --line: #30363d; --panel: #161b22;
+      --link: #79b8ff; --warn-bg: #3a2c00; --warn-fg: #ffe28a; --warn-line: #9e7a00;
+      --tag-bg: #12294d; --tag-fg: #b8d4ff; --unv-bg: #4a1414; --unv-fg: #ffd0d0;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg);
+         font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  main { max-width: 50rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  h1 { font-size: 1.75rem; margin: 0 0 .25rem; }
+  h2 { font-size: 1.35rem; margin: 0 0 .25rem; }
+  h3 { font-size: 1.05rem; margin: 1rem 0 .25rem; }
+  a { color: var(--link); }
+  a:focus-visible, summary:focus-visible { outline: 3px solid var(--link); outline-offset: 2px; }
+  .lede { color: var(--muted); margin: 0 0 1rem; }
+  .status { border: 1px solid var(--line); background: var(--panel); border-radius: 6px; padding: .75rem 1rem; margin: 0 0 1.5rem; }
+  .status p { margin: .25rem 0; }
+  .status .when { font-size: 1.1rem; font-weight: 600; }
+  .warn { background: var(--warn-bg); color: var(--warn-fg); border-color: var(--warn-line); }
+  section.box { border: 1px solid var(--line); border-radius: 6px; padding: 1rem; margin: 0 0 1.5rem; }
+  .sub { color: var(--muted); margin: 0 0 1rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+  caption { text-align: left; color: var(--muted); padding-bottom: .5rem; }
+  th, td { text-align: left; vertical-align: top; padding: .5rem .4rem; border-bottom: 1px solid var(--line); }
+  td.summary { font-size: .88rem; color: var(--muted); padding-top: 0; }
+  .tag { display: inline-block; font-size: .78rem; font-weight: 600; padding: 0 .4rem; border-radius: 4px;
+         background: var(--tag-bg); color: var(--tag-fg); }
+  .unverified { background: var(--unv-bg); color: var(--unv-fg); }
+  details { border-bottom: 1px solid var(--line); }
+  summary { cursor: pointer; padding: .7rem .25rem; min-height: 44px; font-weight: 600; }
+  .record { padding: 0 .25rem 1rem; }
+  .record dl { display: grid; grid-template-columns: max-content 1fr; gap: .15rem .75rem; margin: .5rem 0; }
+  .record dt { color: var(--muted); }
+  .record dd { margin: 0; }
+  .items th, .items td { font-size: .88rem; }
+  footer { color: var(--muted); font-size: .88rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+  @media (max-width: 640px) {
+    .recent thead { position: absolute; left: -9999px; }
+    .recent tr, .recent td { display: block; }
+    .recent tr.row { border-top: 2px solid var(--line); padding-top: .5rem; }
+    .recent td { border: 0; padding: .15rem 0; }
+    .recent td::before { content: attr(data-label) ": "; font-weight: 600; color: var(--muted); }
+    .recent td.summary::before { content: ""; }
+    .recent td.summary { padding-bottom: .75rem; border-bottom: 1px solid var(--line); }
+    .items, .items tbody, .items tr, .items td { display: block; }
+    .items thead { position: absolute; left: -9999px; }
+    .items tr { border-bottom: 1px solid var(--line); padding: .3rem 0; }
+    .items td { border: 0; padding: .05rem 0; }
+    .items td::before { content: attr(data-label) ": "; color: var(--muted); }
+    .record dl { grid-template-columns: 1fr; }
+    .record dt { margin-top: .4rem; }
+  }
+</style>
+</head>
+<body>
+<main>
+<h1>Prima Facie Rate Tracker</h1>
+<p class="lede">State prima facie rate changes for credit life, credit disability and involuntary unemployment insurance, collected from official state sources.</p>
+
+<div class="status{% if status.stale %} warn{% endif %}">
+{% if status.date %}
+  <p class="when">Last checked: {{ status.date }}. {{ status.checked }} of {{ status.monitored }} monitored states checked.</p>
+  {% if status.unchecked %}<p>Not checked in the last run: {{ status.unchecked | join(", ") }}.</p>{% endif %}
+  {% if status.stale %}<p><strong>Warning:</strong> when this page was built ({{ build_date }}), the last check was more than {{ stale_days }} days old. The information below may be out of date.</p>{% endif %}
+  <p>Checks run on the 3rd and 18th of each month. If the date above is more than {{ stale_days }} days ago, the checks have stopped and this page may be out of date.</p>
+{% else %}
+  <p class="when"><strong>Warning:</strong> no check has run yet.</p>
+{% endif %}
+  {% if status.not_monitored %}<p>Not monitored automatically (checked by hand or not yet set up): {{ status.not_monitored | join(", ") }}.</p>{% endif %}
+</div>
+
+<section class="box" aria-labelledby="recent-h">
+  <h2 id="recent-h">Recent changes</h2>
+  <p class="sub">Communicated in the last 12 months, soonest effective date first.</p>
+  {% if recent %}
+  <table class="recent">
+    <caption>Rate changes communicated in the last 12 months</caption>
+    <thead><tr><th scope="col">Effective</th><th scope="col">State</th><th scope="col">Product</th><th scope="col">Change</th><th scope="col">Communicated</th><th scope="col">Source</th></tr></thead>
+    <tbody>
+    {% for r in recent %}
+      {% set state_name = (states | selectattr("state", "equalto", r.state) | first).name %}
+      <tr class="row">
+        <td data-label="Effective">{{ r.effective_date | long_date }}{% if r.effective_date > today %} <span class="tag">Upcoming</span>{% endif %}</td>
+        <td data-label="State">{{ state_name }}</td>
+        <td data-label="Product">{{ products[r.product] }}{% if not r.verified %} <span class="tag unverified">Unverified</span>{% endif %}</td>
+        <td data-label="Change">{{ r | change }}</td>
+        <td data-label="Communicated">{{ r.date_communicated | long_date }}</td>
+        <td data-label="Source">{% include "source_links.j2" %}</td>
+      </tr>
+      <tr><td class="summary" colspan="6">{{ r.summary }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>No changes communicated in the last 12 months.</p>
+  {% endif %}
+</section>
+
+<section class="box" aria-labelledby="history-h">
+  <h2 id="history-h">History by state</h2>
+  <p class="sub">Changes with effective dates in the last 15 years. Select a state to open it.</p>
+  {% for s in states %}
+  {% set recs = history.get(s.state, []) %}
+  <details>
+    <summary>{{ s.name }} ({{ recs | length }})</summary>
+    {% if not recs %}<p class="record">No changes recorded.</p>{% endif %}
+    {% for r in recs %}
+    <div class="record">
+      <h3>{{ r.effective_date | long_date }}: {{ products[r.product] }}{% if r.change_type == "no_change" %}. Reviewed, no change{% endif %}</h3>
+      {% if not r.verified %}<p><span class="tag unverified">Unverified: no primary source located</span></p>{% endif %}
+      {% if r.rate_items %}
+      <table class="items">
+        <thead><tr><th scope="col">Plan</th><th scope="col">Basis</th><th scope="col">Old</th><th scope="col">New</th><th scope="col">Change</th></tr></thead>
+        <tbody>
+        {% for i in r.rate_items %}
+          <tr><td data-label="Plan">{{ i.plan }}</td><td data-label="Basis">{{ i.basis }}</td><td data-label="Old">{{ i.old_rate | rate }}</td><td data-label="New">{{ i.new_rate | rate }}</td><td data-label="Change">{{ i.pct_change | pct }}{% if i.note %} ({{ i.note }}){% endif %}</td></tr>
+        {% endfor %}
+        </tbody>
+      </table>
+      {% endif %}
+      <dl>
+        <dt>Communicated</dt><dd>{{ r.date_communicated | long_date }}{% if r.date_communicated_estimated %} (estimated){% endif %}</dd>
+        <dt>Legal basis</dt><dd>{{ r.legal_basis }}</dd>
+        <dt>Summary</dt><dd>{{ r.summary }}</dd>
+        {% if r.rate_table_note %}<dt>Note</dt><dd>{{ r.rate_table_note | note_html }}</dd>{% endif %}
+        <dt>Source</dt><dd>{% include "source_links.j2" %}</dd>
+      </dl>
+    </div>
+    {% endfor %}
+  </details>
+  {% endfor %}
+</section>
+
+<footer>
+  <p>This page is an unofficial personal compilation. It may be incomplete or out of date, and it is not legal or actuarial advice. The linked official source governs.</p>
+  <p>Source code and data: <a href="{{ repo_url }}">Prima Facie Rate Tracker repository on GitHub</a>. Page built {{ build_date }}.</p>
+</footer>
+</main>
+</body>
+</html>

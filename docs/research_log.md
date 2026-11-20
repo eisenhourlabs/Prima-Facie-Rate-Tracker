@@ -73,6 +73,13 @@ Fetched from the build computer. Each source was fetched once by a probe and aga
   fetched. Status `failed`.
 - Open: retry from GitHub Actions (different network) in Stage 3. No fixture exists; Stage 1
   acceptance test 4 uses the Wisconsin 2023 bulletin PDF in place of the Idaho PDF.
+- **2026-11-20, retried from GitHub Actions** (dry run with `include_disabled`, run
+  https://github.com/eisenhourlabs/Prima-Facie-Rate-Tracker/actions/runs/44773368940): both
+  sources HTTP 200. ID-rates-pdf 213,677 bytes; ID-rules-index 220,775 bytes, 170 links;
+  robots.txt allowed. The block is specific to the build computer's network.
+- Open (Stage 6): choose `must_contain` markers and a selector from the page text, which needs a
+  copy fetched from GitHub's network (for example a dry run that saves the page as a workflow
+  artifact); then enable both sources.
 
 ### Illinois (IL)
 | Source | URL | HTTP | Marker | Robots |

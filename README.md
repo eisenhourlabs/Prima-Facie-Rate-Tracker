@@ -11,6 +11,15 @@ legal or actuarial advice.
 Status: under construction. See [docs/plan.md](docs/plan.md) for the design and build plan
 and [docs/decisions.md](docs/decisions.md) for decisions made.
 
+## The page
+
+The site is one HTML page built from the confirmed records in `data/records/` by
+`python -m pfrt build`, and published on GitHub Pages by `.github/workflows/pages.yml`.
+It shows recent changes (communicated in the last 12 months) and a 15-year history by state,
+with a link to the official source and a saved copy of each document. The "Last checked"
+line shows when the sources were last checked; checks run twice a month, so a date more than
+20 days old means the checks have stopped.
+
 ## Quick start (local)
 
 ```
@@ -19,4 +28,5 @@ python -m venv .venv
 pip install -r requirements.txt
 python -m pfrt config check
 pytest
+python -m pfrt build             # then open site/index.html in a browser
 ```

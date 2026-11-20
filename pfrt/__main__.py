@@ -15,6 +15,7 @@
   review retract ID --reason "..."
   validate                           check every confirmed record (plan 7.4)
   notify test                        send a test email if email is configured
+  build [--out FOLDER]               build the site into site/ (open site/index.html)
 
 Every check run saves a readable summary next to its run log. Email and the
 GitHub issue are off until configured; see pfrt/notify.py.
@@ -78,6 +79,7 @@ def build_parser() -> argparse.ArgumentParser:
     ret.add_argument("--reason", required=True)
 
     sub.add_parser("validate", help="validate every confirmed record")
+    sub.add_parser("build", help="build the site into site/").add_argument("--out", default="", help="output folder")
     nt = sub.add_parser("notify", help="notifications").add_subparsers(dest="action", required=True)
     nt.add_parser("test", help="send a test message if email is configured")
     return parser
@@ -280,6 +282,11 @@ def main(argv: list[str] | None = None) -> int:
             return cmd_validate(root)
         if args.command == "notify":
             return cmd_notify_test()
+        if args.command == "build":
+            from pfrt import build_site
+            out = build_site.build(root, Path(args.out) if args.out else None)
+            print(f"Built {out.as_posix()}")
+            return 0
     except review.ReviewError as err:
         print(f"Not done: {err}", file=sys.stderr)
         return 1
