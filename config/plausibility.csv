@@ -1,0 +1,4 @@
+basis_contains,low,high,notes
+per $100;per year,0.10,2.00,"Single premium life. Placeholder from plan 7.4; owner to set (Q9)."
+"per $1,000;per month",0.10,3.00,"Outstanding balance life. Placeholder from plan 7.4; owner to set (Q9)."
+per $100;month,0.50,15.00,"Single premium disability, term in months. Placeholder from plan 7.4; owner to set (Q9)."

@@ -1,0 +1,4 @@
+# Settings for pytest. "pythonpath" lets the tests import the pfrt package from this folder.
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
