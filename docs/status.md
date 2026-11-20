@@ -33,6 +33,10 @@ Stage 5 (seed import):
 - Batch 2 (Indiana, Bulletins 173 to 277): 12 records confirmed; disability basis amended to
   per $100 of initial insured debt (owner). Follow-up: save an official copy of 760 IAC 1-5.1
   when one can be fetched.
+- Batch 3 (South Carolina): 2 CD records (rates for 2026 and 2027). Earlier years not available
+  to the tool (2025 orders are scanned images; older ones robots-blocked at the State Library).
+- New Mexico and Arizona: not done. osi.state.nm.us disallows all robots; difi.az.gov and
+  publicmeetings.az.gov answer 403. Waiting for the owner's choice (documents saved by hand).
 - Next batches: one state at a time, same method.
 - `internal/blocklist.txt` is private: report only the names of matching files, never the terms.
 
