@@ -35,8 +35,10 @@ Stage 5 (seed import):
   when one can be fetched.
 - Batch 3 (South Carolina): 2 CD records (rates for 2026 and 2027). Earlier years not available
   to the tool (2025 orders are scanned images; older ones robots-blocked at the State Library).
-- New Mexico and Arizona: not done. osi.state.nm.us disallows all robots; difi.az.gov and
-  publicmeetings.az.gov answer 403. Waiting for the owner's choice (documents saved by hand).
+- Batch 4 (New Mexico): 4 records (2022 and 2025 cycles), fetched under the owner's robots.txt
+  override (config/robots_overrides.csv). 2017-012 and 2019-018 are scanned images, not imported.
+- Arizona: not done. difi.az.gov and publicmeetings.az.gov answer 403 (Cloudflare bot check);
+  no workaround. Manual for now.
 - Next batches: one state at a time, same method.
 - `internal/blocklist.txt` is private: report only the names of matching files, never the terms.
 

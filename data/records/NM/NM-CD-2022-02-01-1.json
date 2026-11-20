@@ -1,0 +1,87 @@
+{
+  "archived_copy": "archive/NM/2026-11-20_49ea6252.pdf",
+  "archived_sha256": "49ea62522576f8bd24264fd43c53752fcccd0e107a7d776ba4afbbb68ca37e91",
+  "candidate_id": "c-20261120-NM-02",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2021-12-15",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.osi.state.nm.us/en/wp-content/uploads/2021-0028-Bulletin_CREDIT-LIFE-AND-CREDIT-ACCIDENT-AND-HEALTH-INSURERS.pdf",
+  "effective_date": "2022-02-01",
+  "history": [
+    {
+      "at": "2026-11-20T23:08:08Z",
+      "batch": "batch_04",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T23:08:10Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "13.18.2.44 and 13.18.2.45 NMAC (as in effect 2021); NMSA 1978, Sections 59A-2-8 and 59A-2-10",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 0.69,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 0.57,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 0.55,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 0.44,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.42,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.22,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.32,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.2,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from Table 2 of the bulletin, page 5 (12 months) and page 6 (60 months). Old rates not recorded: the previous bulletin (2019-018) is a scanned image with no text and was not imported.",
+  "record_id": "NM-CD-2022-02-01-1",
+  "retrieved_at": "2026-11-20T23:08:08Z",
+  "source_title": "Bulletin 2021-0028, December 15, 2021: Adjustment of Presumptively Acceptable Credit Life and Credit Accident and Health Insurance Premium Rates",
+  "source_url": "https://www.osi.state.nm.us/en/wp-content/uploads/2021-0028-Bulletin_CREDIT-LIFE-AND-CREDIT-ACCIDENT-AND-HEALTH-INSURERS.pdf",
+  "state": "NM",
+  "status": "confirmed",
+  "summary": "Bulletin 2021-0028 reduced the credit accident and health prima facie rates by 10%, effective February 1, 2022, because credit accident and health loss ratios did not reach 90% of the rule's loss ratio. It rescinded and replaced Bulletin 2021-025 of November 17, 2021, which had set a January 1, 2022 effective date. Headline rates are the 12- and 60-month single premium rates.",
+  "verified": true
+}

@@ -1,0 +1,95 @@
+{
+  "archived_copy": "archive/NM/2026-11-20_530951b9.pdf",
+  "archived_sha256": "530951b978048d022345d38899ade1aa1bbb9ddb5d772169e04914f81223b0ea",
+  "candidate_id": "c-20261120-NM-04",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2025-05-09",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.osi.state.nm.us/wp-content/uploads/2025/07/Updated-Bulletin-2025-002-Credit-Life-and-Credit-Accident-and-Health-Insurance-Premiums-Final-ATK-signed.pdf",
+  "effective_date": "2025-07-01",
+  "history": [
+    {
+      "at": "2026-11-20T23:08:08Z",
+      "batch": "batch_04",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T23:08:10Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "13.18.2.18 and 13.18.2.26 NMAC; NMSA 1978, Sections 59A-2-8 and 59A-2-10",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 0.63,
+      "old_rate": 0.69,
+      "pct_change": -8.7,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 0.52,
+      "old_rate": 0.57,
+      "pct_change": -8.8,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 0.5,
+      "old_rate": 0.55,
+      "pct_change": -9.1,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 0.4,
+      "old_rate": 0.44,
+      "pct_change": -9.1,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.28,
+      "old_rate": 1.42,
+      "pct_change": -9.9,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.1,
+      "old_rate": 1.22,
+      "pct_change": -9.8,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.19,
+      "old_rate": 1.32,
+      "pct_change": -9.8,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.08,
+      "old_rate": 1.2,
+      "pct_change": -10.0,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from the table on page 3 (12 months) and page 4 (60 months) of the updated bulletin; the original of May 9, 2025 (https://www.osi.state.nm.us/wp-content/uploads/Bulletin-2025-002-Credit-Life-and-Credit-Accident-and-Health-Insurance-Premiums-5.8.25-FINAL-ATK-signed.pdf) has the same table. Old rates are from Bulletin 2021-0028 (https://www.osi.state.nm.us/en/wp-content/uploads/2021-0028-Bulletin_CREDIT-LIFE-AND-CREDIT-ACCIDENT-AND-HEALTH-INSURERS.pdf). Also saved: archive/NM/2026-11-20_9a40c4ce.pdf (NM-Bulletin-2025-002.pdf).",
+  "record_id": "NM-CD-2025-07-01-1",
+  "retrieved_at": "2026-11-20T23:08:08Z",
+  "source_title": "(Updated) Bulletin 2025-002, July 23, 2025 (first issued May 9, 2025): Adjustment of Presumptively Acceptable Credit Life and Credit Accident and Health Insurance Premium Rates",
+  "source_url": "https://www.osi.state.nm.us/wp-content/uploads/2025/07/Updated-Bulletin-2025-002-Credit-Life-and-Credit-Accident-and-Health-Insurance-Premiums-Final-ATK-signed.pdf",
+  "state": "NM",
+  "status": "confirmed",
+  "summary": "Bulletin 2025-002 (May 9, 2025) set new credit accident and health prima facie rates effective July 1, 2025, about 9% to 10% lower. The updated bulletin of July 23, 2025 allows 60 days to implement them, on or before September 1, 2025. Headline rates are the 12- and 60-month single premium rates.",
+  "verified": true
+}

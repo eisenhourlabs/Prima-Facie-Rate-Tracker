@@ -1,0 +1,81 @@
+{
+  "archived_copy": "archive/NM/2026-11-20_530951b9.pdf",
+  "archived_sha256": "530951b978048d022345d38899ade1aa1bbb9ddb5d772169e04914f81223b0ea",
+  "candidate_id": "c-20261120-NM-03",
+  "change_type": "no_change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2025-05-09",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.osi.state.nm.us/wp-content/uploads/2025/07/Updated-Bulletin-2025-002-Credit-Life-and-Credit-Accident-and-Health-Insurance-Premiums-Final-ATK-signed.pdf",
+  "effective_date": "2025-07-01",
+  "history": [
+    {
+      "at": "2026-11-20T23:08:08Z",
+      "batch": "batch_04",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T23:08:10Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "13.18.2.18 and 13.18.2.26 NMAC; NMSA 1978, Sections 59A-2-8 and 59A-2-10",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000.00 of outstanding balance indebtedness",
+      "new_rate": 0.39,
+      "old_rate": 0.39,
+      "pct_change": 0.0,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per year of coverage per $100.00 of initial insured indebtedness",
+      "new_rate": 0.25,
+      "old_rate": 0.25,
+      "pct_change": 0.0,
+      "plan": "Single premium, payable in equal monthly installments, single life"
+    },
+    {
+      "basis": "per year of coverage per $100.00 of level life insurance",
+      "new_rate": 0.45,
+      "old_rate": 0.45,
+      "pct_change": 0.0,
+      "plan": "Single premium level, single life"
+    },
+    {
+      "basis": "per month per $1,000.00 of outstanding balance indebtedness",
+      "new_rate": 0.57,
+      "old_rate": 0.57,
+      "pct_change": 0.0,
+      "plan": "Monthly outstanding balance, joint lives"
+    },
+    {
+      "basis": "per year of coverage per $100.00 of initial insured indebtedness",
+      "new_rate": 0.36,
+      "old_rate": 0.36,
+      "pct_change": 0.0,
+      "plan": "Single premium, payable in equal monthly installments, joint lives"
+    },
+    {
+      "basis": "per year of coverage per $100.00 of level life insurance",
+      "new_rate": 0.67,
+      "old_rate": 0.67,
+      "pct_change": 0.0,
+      "plan": "Single premium level, joint lives"
+    }
+  ],
+  "rate_table_note": "Rates are on pages 1 and 2 of the updated bulletin. The original bulletin of May 9, 2025 (https://www.osi.state.nm.us/wp-content/uploads/Bulletin-2025-002-Credit-Life-and-Credit-Accident-and-Health-Insurance-Premiums-5.8.25-FINAL-ATK-signed.pdf) gives the same rates. Also saved: archive/NM/2026-11-20_9a40c4ce.pdf (NM-Bulletin-2025-002.pdf).",
+  "record_id": "NM-CL-2025-07-01-1",
+  "retrieved_at": "2026-11-20T23:08:08Z",
+  "source_title": "(Updated) Bulletin 2025-002, July 23, 2025 (first issued May 9, 2025): Adjustment of Presumptively Acceptable Credit Life and Credit Accident and Health Insurance Premium Rates",
+  "source_url": "https://www.osi.state.nm.us/wp-content/uploads/2025/07/Updated-Bulletin-2025-002-Credit-Life-and-Credit-Accident-and-Health-Insurance-Premiums-Final-ATK-signed.pdf",
+  "state": "NM",
+  "status": "confirmed",
+  "summary": "Bulletin 2025-002 (May 9, 2025; updated July 23, 2025) states that the credit life prima facie rates are the same rates currently in effect and remain effective as of July 1, 2025. It is issued under the replaced rule 13.18.2 NMAC (effective March 11, 2025), which leaves the rates to bulletins.",
+  "verified": true
+}
