@@ -15,6 +15,8 @@ Every threshold favors a false alarm over a missed change.
 from __future__ import annotations
 
 import csv
+import difflib
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -99,6 +101,23 @@ def text_test(text: str, byte_count: int, keywords: dict[str, list[str]]) -> tup
     return "no_match", m
 
 
+DIFF_MAX_LINES = 60
+
+
+def text_diff(old_text: str, new_text: str, max_lines: int = DIFF_MAX_LINES) -> str:
+    """Line diff of old against new for an R2 candidate, at most 60 lines.
+
+    Normalized text is one long line, so it is first split into sentences.
+    """
+    def sentences(t: str) -> list[str]:
+        return [s for s in re.split(r"(?<=[.!?;:])\s+", t or "") if s]
+    lines = list(difflib.unified_diff(sentences(old_text), sentences(new_text),
+                                      "old", "new", n=1, lineterm=""))
+    if len(lines) > max_lines:
+        lines = lines[:max_lines] + [f"... diff cut at {max_lines} lines"]
+    return "\n".join(lines)
+
+
 def _is_pdf_url(url: str) -> bool:
     return urlsplit(url).path.lower().endswith(".pdf")
 
@@ -110,8 +129,8 @@ def compare(watch_mode: str, old_snapshot: dict | None, new_hash: str,
     old_snapshot is None on a source's first run: that run is a baseline and
     returns no findings.
     """
-    if old_snapshot is None:
-        return []
+    if not old_snapshot or "content_sha256" not in old_snapshot:
+        return []   # no good fetch yet (a snapshot may hold only failure counts)
     changed = new_hash != old_snapshot.get("content_sha256")
     if watch_mode == "any_change":
         return [Finding("R2_content_changed")] if changed else []

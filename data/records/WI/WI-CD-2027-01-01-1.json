@@ -1,0 +1,76 @@
+{
+  "archived_copy": "archive/WI/2026-11-20_26f91e02.pdf",
+  "archived_sha256": "26f91e02bde53cfadbb45ae0b4a1a18d0a3978dbe9b76bd1de96fb9f85bb6ddd",
+  "candidate_id": "c-20261120-WI-01",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2026-10-16",
+  "date_communicated_estimated": false,
+  "document_url": "https://oci.wi.gov/Documents/Regulation/Bulletin20261016PrimaFacieRates.pdf",
+  "effective_date": "2027-01-01",
+  "history": [
+    {
+      "at": "2026-11-20T15:02:29Z",
+      "by": "owner",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T15:45:58Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Wis. Adm. Code Ins 3.25(13)(c); s. 424.209(1), Wis. Stat.",
+  "origin": "manual",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "adjustment factor applied to the 2024-2026 prima facie rates",
+      "new_rate": 0.85,
+      "note": "Equivalent to a 15% decrease",
+      "pct_change": null,
+      "plan": "14-day coverage, retroactive and nonretroactive"
+    },
+    {
+      "basis": "adjustment factor applied to the 2024-2026 prima facie rates",
+      "new_rate": 1.35,
+      "note": "Equivalent to a 35% increase",
+      "pct_change": null,
+      "plan": "30-day coverage, retroactive and nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
+      "new_rate": 0.98,
+      "pct_change": null,
+      "plan": "Single premium, 36 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
+      "new_rate": 0.57,
+      "pct_change": null,
+      "plan": "Single premium, 36 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
+      "new_rate": 2.68,
+      "pct_change": null,
+      "plan": "Single premium, 36 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness, 36 equal monthly installments",
+      "new_rate": 2.31,
+      "pct_change": null,
+      "plan": "Single premium, 36 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "36-month rates are from the table Credit Disability Insurance Single Premium Rates per $100 of Initial Insured Indebtedness, Rates Effective January 1, 2027 (terms 6 to 120 months), page 1: https://oci.wi.gov/Documents/Regulation/2027%20New%20Rates%20Table.pdf, saved copy archive/WI/2026-11-20_0482b4d2.pdf. Old 36-month rates are not shown because the 2024 table was not saved.",
+  "record_id": "WI-CD-2027-01-01-1",
+  "retrieved_at": "2026-11-20T15:02:29Z",
+  "source_title": "Bulletin, October 16, 2026, Revised Prima Facie Credit Life and Credit Accident and Sickness Insurance Rates",
+  "source_url": "https://oci.wi.gov/Documents/Regulation/Bulletin20261016PrimaFacieRates.pdf",
+  "state": "WI",
+  "status": "confirmed",
+  "summary": "The same bulletin sets credit accident and sickness rates for the three-year period beginning January 1, 2027 by adjustment factors applied to the 2024-2026 prima facie rates, rounded to the nearest cent: 0.85 for 14-day coverage (a 15% decrease) and 1.35 for 30-day coverage (a 35% increase), retroactive and nonretroactive alike. Reading 'existing' as the rates in force is the owner's interpretation. Headline rates shown are the 36-month single premium rates from the 2027 table.",
+  "verified": true
+}

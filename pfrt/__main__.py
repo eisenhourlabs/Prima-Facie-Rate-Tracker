@@ -1,45 +1,84 @@
 """Command-line entry point. Run as:  python -m pfrt <command>
 
-Commands available so far:
-  python -m pfrt config check
-      Load config/*.csv and print a summary or the error.
-  python -m pfrt check --dry-run [--offline] [--states IN,WI] [--include-disabled]
-      Fetch each enabled source, compare with its last snapshot and print what
-      changed. Stage 1: --dry-run is required; nothing is written or sent.
+  config check                       validate config/*.csv
+  check [--dry-run] [--offline] [--states IN,WI] [--include-disabled]
+                                     check sources; without --dry-run, save snapshots,
+                                     documents, candidates and a run log
+  review list [--origin manual]      open candidates
+  review show ID                     every field of a candidate or record
+  review add --state WI --url URL [--source-id ID] [--title T]
+                                     make a candidate from a document by hand
+  review confirm ID [--values FILE] [--next-expected YYYY-MM-DD]
+                                     confirm (asks for each field if no --values)
+  review reject ID --reason "..."
+  review amend ID --values FILE --reason "..."
+  review retract ID --reason "..."
+  validate                           check every confirmed record (plan 7.4)
+
+--values FILE is JSON: {"records": [{...record fields...}, ...]} for confirm,
+or {...fields to change...} for amend. See CLAUDE.md for the review protocol.
 """
 
 from __future__ import annotations
 
 import argparse
+import datetime as dt
+import json
 import sys
 import time
 from pathlib import Path
 
-from pfrt import check, config, detect
+from pfrt import check, config, detect, records, review
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="pfrt", description="Prima Facie Rate Tracker")
+    parser.add_argument("--root", default=".", help="repository folder (default: current folder)")
     sub = parser.add_subparsers(dest="command", required=True)
 
-    cfg = sub.add_parser("config", help="work with the config files")
-    cfg_sub = cfg.add_subparsers(dest="action", required=True)
-    chk = cfg_sub.add_parser("check", help="validate states.csv and sources.csv")
-    chk.add_argument("--states", default="config/states.csv", help="path to states.csv")
-    chk.add_argument("--sources", default="config/sources.csv", help="path to sources.csv")
+    cfg = sub.add_parser("config", help="work with the config files").add_subparsers(dest="action", required=True)
+    chk = cfg.add_parser("check", help="validate states.csv and sources.csv")
+    chk.add_argument("--states", default="config/states.csv")
+    chk.add_argument("--sources", default="config/sources.csv")
 
     run = sub.add_parser("check", help="check sources for changes")
     run.add_argument("--dry-run", action="store_true", help="write nothing, send nothing")
-    run.add_argument("--offline", action="store_true", help="read tests/fixtures/ instead of the web")
+    run.add_argument("--offline", action="store_true", help="read saved pages instead of the web")
+    run.add_argument("--fixtures", default="", help="folder of saved pages for --offline")
     run.add_argument("--states", default="", help="comma-separated state codes, e.g. IN,WI")
     run.add_argument("--include-disabled", action="store_true",
-                     help="also check disabled sources that have a URL (for trying a new source)")
+                     help="also check disabled sources that have a URL (only with --dry-run)")
+
+    rv = sub.add_parser("review", help="review candidates and records").add_subparsers(dest="action", required=True)
+    rv.add_parser("list").add_argument("--origin", default="", help="monitor, seed or manual")
+    rv.add_parser("show").add_argument("id")
+    add = rv.add_parser("add")
+    add.add_argument("--state", required=True)
+    add.add_argument("--url", required=True)
+    add.add_argument("--source-id", default="")
+    add.add_argument("--title", default="")
+    conf = rv.add_parser("confirm")
+    conf.add_argument("id")
+    conf.add_argument("--values", default="", help="JSON file with the record values")
+    conf.add_argument("--next-expected", default="", help="state's next expected notice date")
+    rej = rv.add_parser("reject")
+    rej.add_argument("id")
+    rej.add_argument("--reason", required=True)
+    am = rv.add_parser("amend")
+    am.add_argument("id")
+    am.add_argument("--values", required=True)
+    am.add_argument("--reason", required=True)
+    ret = rv.add_parser("retract")
+    ret.add_argument("id")
+    ret.add_argument("--reason", required=True)
+
+    sub.add_parser("validate", help="validate every confirmed record")
     return parser
 
 
-def cmd_config_check(args) -> int:
+def cmd_config_check(args, root: Path) -> int:
     try:
-        print(config.check(args.states, args.sources))
+        print(config.check(root / args.states, root / args.sources))
     except config.ConfigError as err:
         print(f"Config error: {err}", file=sys.stderr)
         return 1
@@ -48,54 +87,141 @@ def cmd_config_check(args) -> int:
 
 def select_sources(sources, states_arg: str, include_disabled: bool):
     wanted = {s.strip().upper() for s in states_arg.split(",") if s.strip()}
-    out = []
-    for s in sources:
-        if wanted and s.state not in wanted:
-            continue
-        if s.is_enabled or (include_disabled and s.url):
-            out.append(s)
-    return out, wanted
+    chosen = [s for s in sources if (not wanted or s.state in wanted)
+              and (s.is_enabled or (include_disabled and s.url))]
+    return chosen, wanted
 
 
-def cmd_check(args) -> int:
-    if not args.dry_run:
-        print("Stage 1 supports only --dry-run. Writing snapshots and candidates arrives in Stage 2.",
-              file=sys.stderr)
+def cmd_check(args, root: Path) -> int:
+    if args.include_disabled and not args.dry_run:
+        print("--include-disabled is only allowed with --dry-run.", file=sys.stderr)
         return 2
-    root = Path(".")
     try:
         states = config.load_states(root / "config/states.csv")
         sources = config.load_sources(root / "config/sources.csv", {s.state for s in states})
     except config.ConfigError as err:
         print(f"Config error: {err}", file=sys.stderr)
         return 1
-    keywords = detect.load_keywords(root / "config/keywords.csv")
     chosen, wanted = select_sources(sources, args.states, args.include_disabled)
-    print(f"Dry run: {len(chosen)} source(s){' (offline)' if args.offline else ''}. Nothing is written.")
-    start = time.monotonic()
-    results = check.run(chosen, keywords, root, offline=args.offline)
-    print_summary(results, sources, wanted or {s.state for s in states}, time.monotonic() - start)
+    ctx = check.RunContext(root=root, keywords=detect.load_keywords(root / "config/keywords.csv"),
+                           now=dt.datetime.now(dt.timezone.utc).replace(microsecond=0),
+                           dry_run=args.dry_run, offline=args.offline,
+                           fixture_dir=Path(args.fixtures) if args.fixtures else None)
+    mode = "Dry run" if args.dry_run else "Run"
+    print(f"{mode} {ctx.run_id}: {len(chosen)} source(s){' (offline)' if args.offline else ''}."
+          f"{' Nothing is written.' if args.dry_run else ''}")
+    start, started = time.monotonic(), ctx.stamp
+    results = check.run(chosen, ctx)
+    scope = wanted or {s.state for s in states}
+    log = check.write_run_log(results, sources, scope, ctx, started)
+    print_summary(results, sources, scope, time.monotonic() - start)
+    if log:
+        print(f"Run log: {log.relative_to(root).as_posix()}")
     return 0
 
 
 def print_summary(results, all_sources, states_in_scope, seconds: float) -> None:
     gaps = check.not_fully_checked(results)
-    monitored = {s.state for s in all_sources if s.is_enabled and s.role == "leading"}
-    not_monitored = sorted(states_in_scope - monitored)
+    created = sum(len(r.candidates_created) for r in results)
     findings = sum(len(r.findings) for r in results)
-    print(f"\nDone in {seconds:.0f}s. {len(results)} source(s) checked, {findings} finding(s).")
+    print(f"\nDone in {seconds:.0f}s. {len(results)} source(s) checked, {findings} finding(s), "
+          f"{created} candidate(s) created.")
     print("States not fully checked: " + (", ".join(
         f"{st} ({', '.join(f'{r.source.source_id} {r.status}' for r in rs)})"
         for st, rs in sorted(gaps.items())) or "none"))
-    print("Not monitored (no enabled leading source): " + (", ".join(not_monitored) or "none"))
+    print("Not monitored (no enabled leading source): "
+          + (", ".join(check.not_monitored(all_sources, states_in_scope)) or "none"))
+
+
+def _now() -> str:
+    return records.now_utc()
+
+
+def _load_values(path: str):
+    return json.loads(Path(path).read_text(encoding="utf-8"))
+
+
+def cmd_review(args, root: Path) -> int:
+    a = args.action
+    if a == "list":
+        print(review.format_list(review.list_open(root, args.origin)))
+    elif a == "show":
+        print(review.show(root, args.id))
+    elif a == "add":
+        cmd_review_add(args, root)
+    elif a == "confirm":
+        cmd_review_confirm(args, root)
+    elif a == "reject":
+        print(f"Rejected. Saved as {review.reject(root, args.id, args.reason, _now()).relative_to(root).as_posix()}")
+    elif a == "amend":
+        rec, issues = review.amend(root, args.id, _load_values(args.values), args.reason, _now())
+        print(f"Amended {rec['record_id']}.")
+        print_issues(issues)
+    elif a == "retract":
+        print(f"Retracted {review.retract(root, args.id, args.reason, _now())['record_id']}; status is now rejected.")
+    return 0
+
+
+def cmd_review_add(args, root: Path) -> None:
+    source = None
+    if args.source_id:
+        states = config.load_states(root / "config/states.csv")
+        by_id = {s.source_id: s for s in config.load_sources(root / "config/sources.csv", {s.state for s in states})}
+        if args.source_id not in by_id:
+            raise review.ReviewError(f"no source with id {args.source_id}")
+        source = by_id[args.source_id]
+    cand = review.add(root, args.state.upper(), args.url, _now(), source, args.title)
+    print(f"Created {cand['candidate_id']}; saved copy {cand['archived_copy']}")
+
+
+def cmd_review_confirm(args, root: Path) -> None:
+    if args.values:
+        data = _load_values(args.values)
+        entries = data["records"]
+        next_expected = args.next_expected or data.get("next_notice_expected_by", "")
+    else:
+        _, _, cand = review.find(root, args.id)
+        entries = review.prompt_entries(cand)
+        next_expected = args.next_expected or input("Next expected notice date for this state (blank to skip): ").strip()
+    written, issues = review.confirm(root, args.id, entries, _now(), next_expected)
+    for rec in written:
+        print(f"Confirmed {rec['record_id']} (verified: {rec['verified']})")
+    print_issues(issues)
+
+
+def print_issues(issues) -> None:
+    for issue in issues:
+        print(f"  {issue}")
+
+
+def cmd_validate(root: Path) -> int:
+    confirmed = [r for r in records.load_all(root) if r.get("status") == "confirmed"]
+    errors = 0
+    for rec in confirmed:
+        ctx = records.load_context(root, exclude_id=rec["record_id"])
+        issues = records.validate(rec, ctx)
+        errors += sum(i.level == "error" for i in issues)
+        for issue in issues:
+            print(f"{rec['record_id']}: {issue}")
+    print(f"{len(confirmed)} confirmed record(s) checked, {errors} error(s).")
+    return 1 if errors else 0
 
 
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    if args.command == "config":
-        return cmd_config_check(args)
-    if args.command == "check":
-        return cmd_check(args)
+    root = Path(args.root)
+    try:
+        if args.command == "config":
+            return cmd_config_check(args, root)
+        if args.command == "check":
+            return cmd_check(args, root)
+        if args.command == "review":
+            return cmd_review(args, root)
+        if args.command == "validate":
+            return cmd_validate(root)
+    except review.ReviewError as err:
+        print(f"Not done: {err}", file=sys.stderr)
+        return 1
     return 0
 
 

@@ -1,22 +1,37 @@
-"""Check-run tests using saved pages (--offline). No network, no writes."""
+"""Check-run tests using saved pages (--offline). No network."""
+
+import datetime as dt
 
 from pfrt import check, fetch
-from tests.conftest import FIXTURES, REPO
+from tests.conftest import FIXTURES
 
 PILOT_FIXTURES = ["IN-bulletins", "WI-bulletins-index", "WI-bulletin-2026", "WI-bulletin-2023",
                   "WI-rate-filing-guide", "VA-code-3730", "IL-reg-1051-50"]
+NOW = dt.datetime(2026, 12, 3, 13, 17, tzinfo=dt.timezone.utc)
 
 
-def test_offline_run_over_pilot_fixtures_is_all_baseline(sources, keywords, tmp_path):
+def ctx(root, keywords, dry_run=True, lines=None):
+    return check.RunContext(root=root, keywords=keywords, now=NOW, dry_run=dry_run, offline=True,
+                            fixture_dir=FIXTURES, echo=(lines.append if lines is not None else lambda _: None))
+
+
+def test_offline_dry_run_over_pilot_fixtures_is_all_baseline(sources, keywords, tmp_path):
     lines = []
-    results = check.run([sources[s] for s in PILOT_FIXTURES], keywords, tmp_path,
-                        offline=True, fixture_dir=FIXTURES, echo=lines.append)
+    results = check.run([sources[s] for s in PILOT_FIXTURES], ctx(tmp_path, keywords, lines=lines))
     assert [r.status for r in results] == ["baseline"] * len(PILOT_FIXTURES), lines
     assert all(not r.findings for r in results)
     assert not (tmp_path / "data").exists()   # dry run wrote nothing
 
 
-def test_every_pilot_marker_is_present_in_its_fixture(sources, keywords, tmp_path):
+def test_offline_real_run_writes_snapshots_only_on_baseline(sources, keywords, tmp_path):
+    check.run([sources[s] for s in PILOT_FIXTURES], ctx(tmp_path, keywords, dry_run=False))
+    snaps = sorted(p.stem for p in (tmp_path / "data" / "snapshots").glob("*.json"))
+    assert snaps == sorted(PILOT_FIXTURES)
+    assert not (tmp_path / "data" / "candidates").exists()
+    assert not (tmp_path / "archive").exists()
+
+
+def test_every_pilot_marker_is_present_in_its_fixture(sources):
     for sid in PILOT_FIXTURES:
         fr = check.read_fixture(sources[sid], FIXTURES)
         assert fr.status == "ok", (sid, fr.error)
@@ -48,8 +63,25 @@ def test_unchanged_and_changed_against_a_snapshot(sources, keywords):
     assert changed.status == "changed" and changed.findings[0].rule == "R2_content_changed"
 
 
+def test_failure_keeps_old_content_and_counts(sources, keywords, tmp_path):
+    src = sources["IN-bulletins"]
+    c = ctx(tmp_path, keywords, dry_run=False)
+    old = {"source_id": src.source_id, "content_sha256": "abc", "links": {"u": "t"}, "consecutive_failures": 1}
+    check.update_snapshot(check.SourceResult(src, "failed"), old, c)
+    snap = check.load_snapshot(src.source_id, tmp_path)
+    assert snap["content_sha256"] == "abc" and snap["consecutive_failures"] == 2
+
+
 def test_failed_leading_source_makes_state_not_fully_checked(sources):
     src = sources["IN-bulletins"]
-    enabled = src.__class__(**{**src.__dict__, "enabled": "yes"})
-    gaps = check.not_fully_checked([check.SourceResult(enabled, "failed")])
-    assert list(gaps) == ["IN"]
+    gaps = check.not_fully_checked([check.SourceResult(src, "failed")])
+    assert list(gaps) == ["IN"]   # IN-bulletins is enabled and leading
+
+
+def test_run_logs_older_than_24_months_are_pruned(tmp_path):
+    folder = tmp_path / "runs"
+    folder.mkdir()
+    for name in ("run-20241119-0900", "run-20241120-0900", "run-20261120-0900"):
+        (folder / f"{name}.json").write_text("{}")
+    check.prune_run_logs(folder, dt.date(2026, 11, 20))
+    assert sorted(p.stem for p in folder.glob("*.json")) == ["run-20241120-0900", "run-20261120-0900"]

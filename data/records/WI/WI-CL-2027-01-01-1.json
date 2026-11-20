@@ -1,0 +1,80 @@
+{
+  "archived_copy": "archive/WI/2026-11-20_26f91e02.pdf",
+  "archived_sha256": "26f91e02bde53cfadbb45ae0b4a1a18d0a3978dbe9b76bd1de96fb9f85bb6ddd",
+  "candidate_id": "c-20261120-WI-01",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2026-10-16",
+  "date_communicated_estimated": false,
+  "document_url": "https://oci.wi.gov/Documents/Regulation/Bulletin20261016PrimaFacieRates.pdf",
+  "effective_date": "2027-01-01",
+  "history": [
+    {
+      "at": "2026-11-20T15:02:29Z",
+      "by": "owner",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T15:45:58Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Wis. Adm. Code Ins 3.25(13)(c); s. 424.209(1), Wis. Stat.",
+  "origin": "manual",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 0.39,
+      "old_rate": 0.43,
+      "pct_change": -9.3,
+      "plan": "Single premium straight-line decreasing, single life"
+    },
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 0.72,
+      "old_rate": 0.8,
+      "pct_change": -10.0,
+      "plan": "Single premium level, single life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 0.6,
+      "old_rate": 0.662,
+      "pct_change": -9.4,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 0.65,
+      "old_rate": 0.72,
+      "pct_change": -9.7,
+      "plan": "Joint uniformly decreasing term"
+    },
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 1.2,
+      "old_rate": 1.34,
+      "pct_change": -10.4,
+      "plan": "Joint level life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.0,
+      "old_rate": 1.106,
+      "pct_change": -9.6,
+      "plan": "Joint monthly outstanding balance"
+    }
+  ],
+  "rate_table_note": "Old rates are from the bulletin of September 28, 2023 (https://oci.wi.gov/Documents/Regulation/Bulletin20230928PrimaFacieRates.pdf).",
+  "record_id": "WI-CL-2027-01-01-1",
+  "retrieved_at": "2026-11-20T15:02:29Z",
+  "source_title": "Bulletin, October 16, 2026, Revised Prima Facie Credit Life and Credit Accident and Sickness Insurance Rates",
+  "source_url": "https://oci.wi.gov/Documents/Regulation/Bulletin20261016PrimaFacieRates.pdf",
+  "state": "WI",
+  "status": "confirmed",
+  "summary": "Wisconsin's Commissioner of Insurance gave written notice on October 16, 2026 of a new basic loss ratio of 41% for credit life (45% in the September 28, 2023 bulletin) and new prima facie credit life rates for the three-year period beginning January 1, 2027. All six single and joint rates fall, by about 9% to 10%. Insurers using these rates must make a rate filing adopting them before January 1, 2027.",
+  "verified": true
+}
