@@ -1,0 +1,53 @@
+{
+  "archived_copy": "archive/IN/2026-11-20_6c4e9262.pdf",
+  "archived_sha256": "6c4e92624f6af765419d0ce315dbd546b8e7030ff3ed58d273ff4cd6e0de3d69",
+  "candidate_id": "c-20261120-IN-09",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2021-11-30",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.in.gov/dA/f527dc8dd2/Bulletin-262.pdf?language_id=1",
+  "effective_date": "2021-11-30",
+  "history": [
+    {
+      "at": "2026-11-20T22:08:39Z",
+      "batch": "batch_02",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T22:08:41Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "760 IAC 1-5.1-9",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 0.81,
+      "old_rate": 0.71,
+      "pct_change": 14.1,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 1.35,
+      "old_rate": 1.18,
+      "pct_change": 14.4,
+      "plan": "Monthly outstanding balance, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are on page 2 of the bulletin. Old rates are from Bulletin 246 (https://www.in.gov/dA/7552ee4f73/Bulletin-246-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1).",
+  "record_id": "IN-CL-2021-11-30-1",
+  "retrieved_at": "2026-11-20T22:08:39Z",
+  "source_title": "Bulletin 262, November 30, 2021: Credit Life and Accident and Health Rates",
+  "source_url": "https://www.in.gov/dA/f527dc8dd2/Bulletin-262.pdf?language_id=1",
+  "state": "IN",
+  "status": "confirmed",
+  "summary": "Bulletin 262 increased the credit life monthly outstanding balance rates by 14%, to $0.81 (single) and $1.35 (joint) per month per $1,000. The bulletin states no effective date; the date shown is the bulletin date.",
+  "verified": true
+}

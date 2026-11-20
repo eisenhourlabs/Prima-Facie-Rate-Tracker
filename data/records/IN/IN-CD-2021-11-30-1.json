@@ -1,0 +1,162 @@
+{
+  "archived_copy": "archive/IN/2026-11-20_6c4e9262.pdf",
+  "archived_sha256": "6c4e92624f6af765419d0ce315dbd546b8e7030ff3ed58d273ff4cd6e0de3d69",
+  "candidate_id": "c-20261120-IN-10",
+  "change_type": "no_change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2021-11-30",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.in.gov/dA/f527dc8dd2/Bulletin-262.pdf?language_id=1",
+  "effective_date": "2021-11-30",
+  "history": [
+    {
+      "at": "2026-11-20T22:08:39Z",
+      "batch": "batch_02",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T22:08:41Z",
+      "by": "owner",
+      "event": "confirmed"
+    },
+    {
+      "at": "2026-11-20T22:10:23Z",
+      "before": {
+        "rate_items": [
+          {
+            "basis": "single premium, 12 equal monthly installments; unit of indebtedness not stated in the bulletin (see 760 IAC 1-5.1)",
+            "new_rate": 1.5,
+            "old_rate": 1.5,
+            "pct_change": 0.0,
+            "plan": "Single premium, 12 months, 14-day retroactive"
+          },
+          {
+            "basis": "single premium, 12 equal monthly installments; unit of indebtedness not stated in the bulletin (see 760 IAC 1-5.1)",
+            "new_rate": 1.05,
+            "old_rate": 1.05,
+            "pct_change": 0.0,
+            "plan": "Single premium, 12 months, 14-day nonretroactive"
+          },
+          {
+            "basis": "single premium, 12 equal monthly installments; unit of indebtedness not stated in the bulletin (see 760 IAC 1-5.1)",
+            "new_rate": 1.03,
+            "old_rate": 1.03,
+            "pct_change": 0.0,
+            "plan": "Single premium, 12 months, 30-day retroactive"
+          },
+          {
+            "basis": "single premium, 12 equal monthly installments; unit of indebtedness not stated in the bulletin (see 760 IAC 1-5.1)",
+            "new_rate": 0.77,
+            "old_rate": 0.77,
+            "pct_change": 0.0,
+            "plan": "Single premium, 12 months, 30-day nonretroactive"
+          },
+          {
+            "basis": "single premium, 60 equal monthly installments; unit of indebtedness not stated in the bulletin (see 760 IAC 1-5.1)",
+            "new_rate": 3.0,
+            "old_rate": 3.0,
+            "pct_change": 0.0,
+            "plan": "Single premium, 60 months, 14-day retroactive"
+          },
+          {
+            "basis": "single premium, 60 equal monthly installments; unit of indebtedness not stated in the bulletin (see 760 IAC 1-5.1)",
+            "new_rate": 2.41,
+            "old_rate": 2.41,
+            "pct_change": 0.0,
+            "plan": "Single premium, 60 months, 14-day nonretroactive"
+          },
+          {
+            "basis": "single premium, 60 equal monthly installments; unit of indebtedness not stated in the bulletin (see 760 IAC 1-5.1)",
+            "new_rate": 2.39,
+            "old_rate": 2.39,
+            "pct_change": 0.0,
+            "plan": "Single premium, 60 months, 30-day retroactive"
+          },
+          {
+            "basis": "single premium, 60 equal monthly installments; unit of indebtedness not stated in the bulletin (see 760 IAC 1-5.1)",
+            "new_rate": 1.83,
+            "old_rate": 1.83,
+            "pct_change": 0.0,
+            "plan": "Single premium, 60 months, 30-day nonretroactive"
+          }
+        ],
+        "rate_table_note": "Rates are from the table on page 4 of the bulletin (terms 6 to 120 months). Old rates are from Bulletin 246 (https://www.in.gov/dA/7552ee4f73/Bulletin-246-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1)."
+      },
+      "by": "owner",
+      "event": "amended",
+      "reason": "Basis unit added: per $100 of initial insured debt (owner, 2026-11-20; 760 IAC 1-5.1-7). The bulletins do not state the unit."
+    }
+  ],
+  "legal_basis": "760 IAC 1-5.1-9",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+      "new_rate": 1.5,
+      "old_rate": 1.5,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+      "new_rate": 1.05,
+      "old_rate": 1.05,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+      "new_rate": 1.03,
+      "old_rate": 1.03,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured debt, 12 equal monthly installments",
+      "new_rate": 0.77,
+      "old_rate": 0.77,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+      "new_rate": 3.0,
+      "old_rate": 3.0,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+      "new_rate": 2.41,
+      "old_rate": 2.41,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+      "new_rate": 2.39,
+      "old_rate": 2.39,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured debt, 60 equal monthly installments",
+      "new_rate": 1.83,
+      "old_rate": 1.83,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from the table on page 4 of the bulletin (terms 6 to 120 months). Old rates are from Bulletin 246 (https://www.in.gov/dA/7552ee4f73/Bulletin-246-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1). Unit: the bulletin does not state it. Per $100 of initial insured debt is stated by the owner and matches 760 IAC 1-5.1-7 as described in search results on 2026-11-20; no official copy of the rule could be fetched or saved.",
+  "record_id": "IN-CD-2021-11-30-1",
+  "retrieved_at": "2026-11-20T22:08:39Z",
+  "source_title": "Bulletin 262, November 30, 2021: Credit Life and Accident and Health Rates",
+  "source_url": "https://www.in.gov/dA/f527dc8dd2/Bulletin-262.pdf?language_id=1",
+  "state": "IN",
+  "status": "confirmed",
+  "summary": "Bulletin 262 found the indicated 2% reduction for credit accident and health de minimis; the rates remain unchanged from Bulletin 246. Headline rates are the 12- and 60-month rates. The bulletin states no effective date; the date shown is the bulletin date.",
+  "verified": true
+}

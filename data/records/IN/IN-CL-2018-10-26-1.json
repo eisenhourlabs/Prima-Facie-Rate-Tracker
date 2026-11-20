@@ -1,0 +1,53 @@
+{
+  "archived_copy": "archive/IN/2026-11-20_b1da3f68.pdf",
+  "archived_sha256": "b1da3f689cfba49e8bde79be85f66e14696b5285f524e1c01515c764332b46c2",
+  "candidate_id": "c-20261120-IN-07",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2018-10-26",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.in.gov/dA/7552ee4f73/Bulletin-246-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1",
+  "effective_date": "2018-10-26",
+  "history": [
+    {
+      "at": "2026-11-20T22:08:39Z",
+      "batch": "batch_02",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T22:08:41Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "760 IAC 1-5.1-9",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 0.71,
+      "old_rate": 0.65,
+      "pct_change": 9.2,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 1.18,
+      "old_rate": 1.09,
+      "pct_change": 8.3,
+      "plan": "Monthly outstanding balance, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are on page 2 of the bulletin. Old rates are from Bulletin 222 (https://www.in.gov/dA/9fe1a6133d/Bulletin-222-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1).",
+  "record_id": "IN-CL-2018-10-26-1",
+  "retrieved_at": "2026-11-20T22:08:39Z",
+  "source_title": "Bulletin 246, October 26, 2018: Credit Life and Accident and Health Rates",
+  "source_url": "https://www.in.gov/dA/7552ee4f73/Bulletin-246-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1",
+  "state": "IN",
+  "status": "confirmed",
+  "summary": "Bulletin 246 increased the credit life monthly outstanding balance rates by 8.5%, to $0.71 (single) and $1.18 (joint) per month per $1,000. The bulletin states no effective date; the date shown is the bulletin date.",
+  "verified": true
+}

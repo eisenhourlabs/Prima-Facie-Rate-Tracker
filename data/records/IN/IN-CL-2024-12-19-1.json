@@ -1,0 +1,53 @@
+{
+  "archived_copy": "archive/IN/2026-11-20_e60aa9e7.pdf",
+  "archived_sha256": "e60aa9e70343fd7cf98715badf01b49f035ec896333bb4e78939886620f31daf",
+  "candidate_id": "c-20261120-IN-11",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2024-12-19",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.in.gov/dA/ce9858f869/Bulletin-277.pdf?language_id=1",
+  "effective_date": "2024-12-19",
+  "history": [
+    {
+      "at": "2026-11-20T22:08:39Z",
+      "batch": "batch_02",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T22:08:41Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "760 IAC 1-5.1-9",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 1.07,
+      "old_rate": 0.81,
+      "pct_change": 32.1,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 1.79,
+      "old_rate": 1.35,
+      "pct_change": 32.6,
+      "plan": "Monthly outstanding balance, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are on page 2 of the bulletin. Old rates are from Bulletin 262 (https://www.in.gov/dA/f527dc8dd2/Bulletin-262.pdf?language_id=1).",
+  "record_id": "IN-CL-2024-12-19-1",
+  "retrieved_at": "2026-11-20T22:08:39Z",
+  "source_title": "Bulletin 277, December 19, 2024: Credit Life and Accident and Health Rates",
+  "source_url": "https://www.in.gov/dA/ce9858f869/Bulletin-277.pdf?language_id=1",
+  "state": "IN",
+  "status": "confirmed",
+  "summary": "Bulletin 277 increased the credit life monthly outstanding balance rates by 32.5%, to $1.07 (single) and $1.79 (joint) per month per $1,000. New rates may be used any time after the bulletin's release; the date shown is the bulletin date.",
+  "verified": true
+}

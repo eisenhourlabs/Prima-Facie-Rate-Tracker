@@ -1,0 +1,53 @@
+{
+  "archived_copy": "archive/IN/2026-11-20_cb506573.pdf",
+  "archived_sha256": "cb506573ff155712a110339e8b78e1e20fd396797723819f5885266ced2069ad",
+  "candidate_id": "c-20261120-IN-03",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2012-11-27",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.in.gov/dA/02f1df3e49/Bulletin-194-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1",
+  "effective_date": "2012-11-27",
+  "history": [
+    {
+      "at": "2026-11-20T22:08:39Z",
+      "batch": "batch_02",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T22:08:41Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "760 IAC 1-5.1-9",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 0.65,
+      "old_rate": 0.6,
+      "pct_change": 8.3,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 1.09,
+      "old_rate": 1.0,
+      "pct_change": 9.0,
+      "plan": "Monthly outstanding balance, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are on page 2 of the bulletin. Old rates are from Bulletin 173 (https://www.in.gov/dA/25ff4b169b/Bulletin-173-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1).",
+  "record_id": "IN-CL-2012-11-27-1",
+  "retrieved_at": "2026-11-20T22:08:39Z",
+  "source_title": "Bulletin 194, November 27, 2012: Credit Life and Accident and Health Rates",
+  "source_url": "https://www.in.gov/dA/02f1df3e49/Bulletin-194-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1",
+  "state": "IN",
+  "status": "confirmed",
+  "summary": "Bulletin 194 increased the credit life monthly outstanding balance rates by 9%, to $0.65 (single) and $1.09 (joint) per month per $1,000. The bulletin writes the joint rate as 'One dollar ($1.09)'; the figure $1.09 is used, as confirmed by Bulletin 222. The bulletin states no effective date; the date shown is the bulletin date.",
+  "verified": true
+}

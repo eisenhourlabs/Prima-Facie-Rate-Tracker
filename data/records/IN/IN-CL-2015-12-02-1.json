@@ -1,0 +1,53 @@
+{
+  "archived_copy": "archive/IN/2026-11-20_0c57d07a.pdf",
+  "archived_sha256": "0c57d07a43a5a8d0fd2e6bd83139f790ccd41beb54a931b7b34d76e6aa411764",
+  "candidate_id": "c-20261120-IN-05",
+  "change_type": "no_change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2015-12-02",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.in.gov/dA/9fe1a6133d/Bulletin-222-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1",
+  "effective_date": "2015-12-02",
+  "history": [
+    {
+      "at": "2026-11-20T22:08:39Z",
+      "batch": "batch_02",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T22:08:41Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "760 IAC 1-5.1-9",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 0.65,
+      "old_rate": 0.65,
+      "pct_change": 0.0,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 1.09,
+      "old_rate": 1.09,
+      "pct_change": 0.0,
+      "plan": "Monthly outstanding balance, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are on page 2 of the bulletin. Old rates are from Bulletin 194 (https://www.in.gov/dA/02f1df3e49/Bulletin-194-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1).",
+  "record_id": "IN-CL-2015-12-02-1",
+  "retrieved_at": "2026-11-20T22:08:39Z",
+  "source_title": "Bulletin 222, December 2, 2015: Credit Life and Accident and Health Rates",
+  "source_url": "https://www.in.gov/dA/9fe1a6133d/Bulletin-222-Credit-Life-and-Accident-and-Health-Rates.pdf?language_id=1",
+  "state": "IN",
+  "status": "confirmed",
+  "summary": "Bulletin 222 states that no credit life rate adjustment is necessary and the prima facie rates will not change: $0.65 (single) and $1.09 (joint) per month per $1,000 on the monthly outstanding balance basis. The bulletin states no effective date; the date shown is the bulletin date.",
+  "verified": true
+}

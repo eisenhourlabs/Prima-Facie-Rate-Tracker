@@ -30,7 +30,10 @@ Stage 5 (seed import):
   `--batch`, WI-CD-2024 on its own because of its genuine +102% 30-day changes). The 2009 records
   are outside the 15-year window and hidden on the page. Wisconsin now has 14 confirmed records.
 - WI-CD-2027-01-01-1 amended to the 12- and 60-month rates (A5).
-- Next batches: one state at a time, same method (Indiana's numbered bulletins are a good next one).
+- Batch 2 (Indiana, Bulletins 173 to 277): 12 records confirmed; disability basis amended to
+  per $100 of initial insured debt (owner). Follow-up: save an official copy of 760 IAC 1-5.1
+  when one can be fetched.
+- Next batches: one state at a time, same method.
 - `internal/blocklist.txt` is private: report only the names of matching files, never the terms.
 
 Stage 6 (all states):
