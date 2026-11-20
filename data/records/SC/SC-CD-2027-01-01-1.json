@@ -1,0 +1,74 @@
+{
+  "archived_copy": "archive/SC/2026-11-20_ca5cc048.pdf",
+  "archived_sha256": "ca5cc048359897ba7dea533e4e143720df60d9f158514a92f054f6f202e5c9ee",
+  "candidate_id": "c-20261120-SC-02",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2026-11-02",
+  "date_communicated_estimated": false,
+  "document_url": "https://doi.sc.gov/DocumentCenter/View/15548/Order-Number-2026-04--Rates-for-Credit-Accident-and-Health-Ins-in-SC-in-Conjuction-with-Consumer-Credit-Transactions",
+  "effective_date": "2027-01-01",
+  "history": [
+    {
+      "at": "2026-11-20T22:43:57Z",
+      "batch": "batch_03",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T22:43:58Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "25A S.C. Code Ann. Reg. 69-11.1; S.C. Code Ann. § 37-1-101 et seq.",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 0.76,
+      "old_rate": 0.89,
+      "pct_change": -14.6,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 0.71,
+      "old_rate": 0.84,
+      "pct_change": -15.5,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.74,
+      "old_rate": 2.05,
+      "pct_change": -15.1,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.7,
+      "old_rate": 2.0,
+      "pct_change": -15.0,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per year per $5.00 unit of monthly indemnity",
+      "new_rate": 0.14,
+      "old_rate": 0.17,
+      "pct_change": -17.6,
+      "plan": "3-day retroactive, loans under the Consumer Finance Law (1966 Act No. 988)"
+    }
+  ],
+  "rate_table_note": "Single premium rates are from Order Number 2026-04, page 2 (https://doi.sc.gov/DocumentCenter/View/15548/Order-Number-2026-04--Rates-for-Credit-Accident-and-Health-Ins-in-SC-in-Conjuction-with-Consumer-Credit-Transactions); the 3-day retroactive rate is from Order Number 2026-05 (https://doi.sc.gov/DocumentCenter/View/15549/Order-Number-2026-05-Rates-for-3-Day-Retro-Credit-Accident-and-Health-Ins-in-SC-in-Conjuction-with-Loans). Order 2026-04's opening paragraph says rates 'for use during 2026', but its table and findings are for 2027. Old rates are from the orders of October 1, 2025 (https://doi.sc.gov/DocumentCenter/View/15111/Order-No-2025-003-Rates-for-Credit-Accident-and-Health-Insurance-in-South-Carolina). Also saved: archive/SC/2026-11-20_a30ecc8f.pdf (SC-Order-2026-05.pdf).",
+  "record_id": "SC-CD-2027-01-01-1",
+  "retrieved_at": "2026-11-20T22:43:57Z",
+  "source_title": "Orders of November 2, 2026: rates for credit accident and health insurance for 2027 (Order Numbers 2026-04 and 2026-05)",
+  "source_url": "https://doi.sc.gov/DocumentCenter/View/15548/Order-Number-2026-04--Rates-for-Credit-Accident-and-Health-Ins-in-SC-in-Conjuction-with-Consumer-Credit-Transactions",
+  "state": "SC",
+  "status": "confirmed",
+  "summary": "South Carolina's Director of Insurance set the credit accident and health prima facie rates for 2027 by Orders 2026-04 and 2026-05 dated November 2, 2026, after tentative rates in Bulletins 2026-03 and 2026-04 (September 10, 2026) drew no hearing request. Single premium rates per $100 of initial indebtedness fall about 15%; the 3-day retroactive rate for Consumer Finance Law loans falls from $0.17 to $0.14 (the order cites a 15% reduction). Headline rates are the 12- and 60-month rates.",
+  "verified": true
+}
