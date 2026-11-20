@@ -15,8 +15,8 @@ Last updated: 2026-11-20.
 | 2. Candidates, records, review | Done, pushed | First records: WI-CL and WI-CD, effective 2027-01-01 |
 | 3. Run summary and check workflow | Done, pushed | Notifications built but off (owner choice) |
 | 4. The page | Done, pushed, gate approved | Live at https://eisenhourlabs.github.io/Prima-Facie-Rate-Tracker/ |
-| 5. Seed import | **Built, gate pending, not committed** | Batch 1 (Wisconsin, effective 2009-2024) imported and confirmed: 12 records; WI-CD-2027 amended to 12/60-month rates |
-| 6. All states | Not started | |
+| 5. Seed import | Done, pushed, gate approved | Batch 1 (Wisconsin, effective 2009-2024): 12 records; WI-CD-2027 amended to 12/60-month rates. Page: each change is a collapsed line; links open in a new tab |
+| 6. All states | **Next** (or more seed batches first) | |
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 

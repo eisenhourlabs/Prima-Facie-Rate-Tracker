@@ -108,11 +108,16 @@ ARCHIVE_PATH = re.compile(r"archive/[A-Z]{2}/[\w.-]+?\.(?:pdf|html|doc|rtf)")
 URL = re.compile(r"https?://[^\s,;)]+[^\s,;).]")
 
 
+# Every link on the page opens in a new tab (owner's choice); screen readers are told so.
+NEW_TAB = ' target="_blank" rel="noopener"'
+NEW_TAB_NOTE = '<span class="vh"> (opens in a new tab)</span>'
+
+
 def note_html(text: str) -> Markup:
-    """Escape a note, then make its URLs and saved-copy paths into links."""
+    """Escape a note, then make its URLs and saved-copy paths into links that open in a new tab."""
     out = str(escape(text or ""))
-    out = URL.sub(lambda m: f'<a href="{m.group(0)}">official {doc_label(m.group(0))}</a>', out)
-    out = ARCHIVE_PATH.sub(lambda m: f'<a href="{m.group(0)}">saved copy ({doc_label(m.group(0))})</a>', out)
+    out = URL.sub(lambda m: f'<a href="{m.group(0)}"{NEW_TAB}>official {doc_label(m.group(0))}{NEW_TAB_NOTE}</a>', out)
+    out = ARCHIVE_PATH.sub(lambda m: f'<a href="{m.group(0)}"{NEW_TAB}>saved copy ({doc_label(m.group(0))}){NEW_TAB_NOTE}</a>', out)
     return Markup(out)
 
 

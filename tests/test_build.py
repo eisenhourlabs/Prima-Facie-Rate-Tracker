@@ -86,7 +86,7 @@ def test_acceptance_2_four_records_two_states(tmp_path):
                                           "states_not_fully_checked": [], "not_monitored": ["VA"]})
     rows = page.select("table.recent tbody tr.row")
     assert [r.find("td").get_text(" ", strip=True) for r in rows] == ["1 December 2026 Upcoming", "1 January 2027 Upcoming"]
-    names = [d.summary.get_text() for d in page.find_all("details")]
+    names = [d.summary.get_text() for d in page.select("details.state")]
     assert len(names) == 44 and names == sorted(names)
     assert "Wisconsin (2)" in names and "Indiana (2)" in names and "Alabama (0)" in names
     text = page.get_text(" ")
@@ -145,4 +145,33 @@ def test_real_records_build(tmp_path):
     assert shown < len(wi) or not wi                 # the 2009 records are hidden
     out = build_site.build(REPO, tmp_path / "site", TODAY)
     page = BeautifulSoup(out.read_text(encoding="utf-8"), "html.parser")
-    assert f"Wisconsin ({shown})" in [d.summary.get_text() for d in page.find_all("details")]
+    assert f"Wisconsin ({shown})" in [d.summary.get_text() for d in page.select("details.state")]
+
+
+def test_each_change_is_its_own_collapsed_line(tmp_path):
+    """Inside a state, every record is a closed <details> whose one-line summary gives
+    the effective date, the product and the change, so the list fits on one screen."""
+    records = [
+        rec("WI", "CL", "2027-01-01", "2026-10-16"),
+        rec("WI", "CD", "2024-01-01", "2023-09-28", change_type="no_change", rate_items=[]),
+    ]
+    page = build_page(tmp_path, records)
+    wi = next(d for d in page.select("details.state") if d.summary.get_text().startswith("Wisconsin"))
+    lines = wi.select("details.rec")
+    assert len(lines) == 2 and not any(d.has_attr("open") for d in lines)
+    first, second = (" ".join(d.summary.get_text(" ").split()) for d in lines)
+    assert first.startswith("1 January 2027 · Credit life · ")
+    assert second == "1 January 2024 · Credit disability · Reviewed, no change"
+    assert lines[0].select_one(".record table.items") is not None      # the detail sits inside the line
+
+
+def test_every_link_opens_in_a_new_tab(tmp_path):
+    (tmp_path / "archive/WI").mkdir(parents=True)
+    (tmp_path / "archive/WI/2026-11-20_aaaa1111.pdf").write_bytes(b"%PDF a")
+    r = rec(archived_copy="archive/WI/2026-11-20_aaaa1111.pdf",
+            rate_table_note="Table: https://oci.wi.gov/t.pdf, saved copy archive/WI/2026-11-20_aaaa1111.pdf.")
+    links = build_page(tmp_path, [r]).find_all("a")
+    assert len(links) >= 5
+    for a in links:
+        assert a.get("target") == "_blank" and a.get("rel") == ["noopener"], a
+        assert "(opens in a new tab)" in a.get_text()

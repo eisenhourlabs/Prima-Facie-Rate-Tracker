@@ -43,6 +43,14 @@
   .unverified { background: var(--unv-bg); color: var(--unv-fg); }
   details { border-bottom: 1px solid var(--line); }
   summary { cursor: pointer; padding: .7rem .25rem; min-height: 44px; font-weight: 600; }
+  /* One collapsed line per change inside an open state. */
+  details.rec { margin-left: 1rem; }
+  details.rec:last-of-type { border-bottom: 0; }
+  details.rec > summary { font-weight: 400; padding: .55rem .25rem; }
+  details.rec > summary .when { font-weight: 600; }
+  details.rec[open] > summary { background: var(--panel); }
+  /* Text for screen readers only, such as "(opens in a new tab)". */
+  .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   .record { padding: 0 .25rem 1rem; }
   .record dl { display: grid; grid-template-columns: max-content 1fr; gap: .15rem .75rem; margin: .5rem 0; }
   .record dt { color: var(--muted); }
@@ -113,16 +121,18 @@
 
 <section class="box" aria-labelledby="history-h">
   <h2 id="history-h">History by state</h2>
-  <p class="sub">Changes with effective dates in the last 15 years. Select a state to open it.</p>
+  <p class="sub">Changes with effective dates in the last 15 years, newest first. Select a state to see its list, then select a change to see its rates and sources.</p>
   {% for s in states %}
   {% set recs = history.get(s.state, []) %}
-  <details>
+  <details class="state">
     <summary>{{ s.name }} ({{ recs | length }})</summary>
     {% if not recs %}<p class="record">No changes recorded.</p>{% endif %}
+    {# Each change is its own collapsed line, so a state's list fits on one screen. #}
     {% for r in recs %}
+    <details class="rec">
+      <summary><span class="when">{{ r.effective_date | long_date }}</span> · {{ products[r.product] }} · {% if r.change_type == "no_change" %}Reviewed, no change{% else %}{{ r | change }}{% endif %}{% if not r.verified %} <span class="tag unverified">Unverified</span>{% endif %}</summary>
     <div class="record">
-      <h3>{{ r.effective_date | long_date }}: {{ products[r.product] }}{% if r.change_type == "no_change" %}. Reviewed, no change{% endif %}</h3>
-      {% if not r.verified %}<p><span class="tag unverified">Unverified: no primary source located</span></p>{% endif %}
+      {% if not r.verified %}<p>No primary source located for this record.</p>{% endif %}
       {% if r.rate_items %}
       <table class="items">
         <thead><tr><th scope="col">Plan</th><th scope="col">Basis</th><th scope="col">Old</th><th scope="col">New</th><th scope="col">Change</th></tr></thead>
@@ -141,6 +151,7 @@
         <dt>Source</dt><dd>{% include "source_links.j2" %}</dd>
       </dl>
     </div>
+    </details>
     {% endfor %}
   </details>
   {% endfor %}
@@ -148,7 +159,7 @@
 
 <footer>
   <p>This page is an unofficial personal compilation. It may be incomplete or out of date, and it is not legal or actuarial advice. The linked official source governs.</p>
-  <p>Source code and data: <a href="{{ repo_url }}">Prima Facie Rate Tracker repository on GitHub</a>. Page built {{ build_date }}.</p>
+  <p>Source code and data: <a href="{{ repo_url }}" target="_blank" rel="noopener">Prima Facie Rate Tracker repository on GitHub<span class="vh"> (opens in a new tab)</span></a>. Page built {{ build_date }}.</p>
 </footer>
 </main>
 </body>
