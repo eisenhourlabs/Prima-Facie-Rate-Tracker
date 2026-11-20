@@ -1,0 +1,133 @@
+{
+  "dry_run": false,
+  "finished_at": "2026-11-20T16:04:03Z",
+  "monitored_state_count": 2,
+  "not_monitored": [
+    "ID",
+    "IL",
+    "VA"
+  ],
+  "offline": false,
+  "run_id": "run-20261120-1603",
+  "sources": [
+    {
+      "candidates_created": [],
+      "consecutive_failures": 0,
+      "elapsed_ms": 10103,
+      "enabled": true,
+      "error": "",
+      "http_status": 200,
+      "new_anchors": [],
+      "notes": [],
+      "role": "lagging",
+      "rule_fired": [],
+      "source_id": "IL-reg-1051-50",
+      "state": "IL",
+      "status": "baseline"
+    },
+    {
+      "candidates_created": [],
+      "consecutive_failures": 0,
+      "elapsed_ms": 5436,
+      "enabled": true,
+      "error": "",
+      "http_status": 200,
+      "new_anchors": [],
+      "notes": [],
+      "role": "leading",
+      "rule_fired": [],
+      "source_id": "IN-bulletins",
+      "state": "IN",
+      "status": "baseline"
+    },
+    {
+      "candidates_created": [],
+      "consecutive_failures": 0,
+      "elapsed_ms": 10209,
+      "enabled": true,
+      "error": "",
+      "http_status": 200,
+      "new_anchors": [],
+      "notes": [],
+      "role": "lagging",
+      "rule_fired": [],
+      "source_id": "VA-code-3730",
+      "state": "VA",
+      "status": "baseline"
+    },
+    {
+      "candidates_created": [],
+      "consecutive_failures": 0,
+      "elapsed_ms": 5321,
+      "enabled": true,
+      "error": "",
+      "http_status": 200,
+      "new_anchors": [],
+      "notes": [],
+      "role": "leading",
+      "rule_fired": [],
+      "source_id": "WI-bulletin-2023",
+      "state": "WI",
+      "status": "baseline"
+    },
+    {
+      "candidates_created": [],
+      "consecutive_failures": 0,
+      "elapsed_ms": 4893,
+      "enabled": true,
+      "error": "",
+      "http_status": 200,
+      "new_anchors": [],
+      "notes": [],
+      "role": "leading",
+      "rule_fired": [],
+      "source_id": "WI-bulletin-2026",
+      "state": "WI",
+      "status": "baseline"
+    },
+    {
+      "candidates_created": [],
+      "consecutive_failures": 0,
+      "elapsed_ms": 5043,
+      "enabled": true,
+      "error": "",
+      "http_status": 200,
+      "new_anchors": [],
+      "notes": [],
+      "role": "leading",
+      "rule_fired": [],
+      "source_id": "WI-bulletins-index",
+      "state": "WI",
+      "status": "baseline"
+    },
+    {
+      "candidates_created": [],
+      "consecutive_failures": 0,
+      "elapsed_ms": 5060,
+      "enabled": true,
+      "error": "",
+      "http_status": 200,
+      "new_anchors": [],
+      "notes": [],
+      "role": "leading",
+      "rule_fired": [],
+      "source_id": "WI-rate-filing-guide",
+      "state": "WI",
+      "status": "baseline"
+    }
+  ],
+  "started_at": "2026-11-20T16:03:17Z",
+  "states_in_scope": [
+    "ID",
+    "IL",
+    "IN",
+    "VA",
+    "WI"
+  ],
+  "states_not_fully_checked": [],
+  "totals": {
+    "candidates": 0,
+    "not_ok": 0,
+    "sources": 7
+  }
+}

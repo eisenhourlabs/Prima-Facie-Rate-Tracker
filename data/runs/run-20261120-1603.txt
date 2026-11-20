@@ -1,0 +1,21 @@
+[PFRT] No candidates; all 2 monitored states checked (2026-11-20)
+
+== States not fully checked ==
+None.
+
+== Expected notice not seen ==
+None.
+
+== Candidates ==
+None.
+
+== Other page changes ==
+None.
+
+== Not monitored (no enabled leading source) ==
+ID, IL, VA
+
+== Run ==
+Run run-20261120-1603: 7 sources, 0 new candidates, 0 not ok, 0 open candidates in total.
+Run log: https://github.com/eisenhourlabs/Prima-Facie-Rate-Tracker/blob/main/data/runs/run-20261120-1603.json
+Review: git pull; python -m pfrt review list; python -m pfrt review show ID
