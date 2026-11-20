@@ -161,3 +161,38 @@ def test_get_classifies_a_good_page_as_ok():
     t = no_wait_throttle()
     r = fetch.get(source(), s, None, fetch.RobotsCache(s, t), t, sleep=lambda _: None)
     assert r.status == "ok" and r.text == "Credit life bulletins"
+
+
+# --- robots.txt overrides (owner decision, config/robots_overrides.csv) ---------------
+
+class _FakeRobotsSession:
+    """Answers every robots.txt request with the given status, type and text."""
+    def __init__(self, status, content_type, text):
+        self.reply = type("R", (), {"status_code": status, "headers": {"Content-Type": content_type}, "text": text})
+
+    def get(self, url, timeout=None):
+        return self.reply
+
+
+def _cache(status, ctype, text, overrides):
+    return fetch.RobotsCache(_FakeRobotsSession(status, ctype, text), fetch.Throttle(sleep=lambda s: None), overrides)
+
+
+def test_override_allows_only_the_listed_host_and_says_why():
+    over = {"www.osi.example.gov": "2026-11-20: owner decision"}
+    c = _cache(200, "text/plain", "User-agent: *\nDisallow: /\n", over)
+    verdict, reason = c.check("https://www.osi.example.gov/wp-content/uploads/Bulletin.pdf")
+    assert verdict == "allowed" and "owner override" in reason and "2026-11-20" in reason
+    assert c.check("https://other.example.gov/x.pdf")[0] == "disallowed"
+
+
+def test_override_does_not_bypass_an_unreadable_robots_file():
+    over = {"blocked.example.gov": "2026-11-20: owner decision"}
+    c = _cache(200, "text/html", "<html><title>Just a moment...</title></html>", over)
+    assert c.check("https://blocked.example.gov/a.pdf")[0] == "unavailable"
+
+
+def test_load_overrides_reads_the_real_config():
+    over = fetch.load_overrides()
+    assert "www.osi.state.nm.us" in over and over["www.osi.state.nm.us"].startswith("2026-11-20")
+    assert fetch.load_overrides("does/not/exist.csv") == {}

@@ -130,12 +130,37 @@ def parse_robots(http_status: int | None, content_type: str, text: str,
     return rp, "robots.txt read"
 
 
-class RobotsCache:
-    """Reads each host's robots.txt once per run and answers can-I-fetch questions."""
+OVERRIDES_FILE = Path(__file__).resolve().parent.parent / "config" / "robots_overrides.csv"
 
-    def __init__(self, session: requests.Session, throttle: Throttle):
+
+def load_overrides(path: str | Path = OVERRIDES_FILE) -> dict[str, str]:
+    """config/robots_overrides.csv as {host: "approved_on: reason"}.
+
+    Each row is a host whose robots.txt disallow the owner has decided to override
+    (the site has no other barrier and no terms against automated access). The tool
+    keeps its honest name and its polite pace there. A missing file means no overrides.
+    """
+    import csv
+    p = Path(path)
+    if not p.is_file():
+        return {}
+    with open(p, encoding="utf-8", newline="") as f:
+        return {r["host"].strip().lower(): f"{r['approved_on'].strip()}: {r['reason'].strip()}"
+                for r in csv.DictReader(f) if (r.get("host") or "").strip()}
+
+
+class RobotsCache:
+    """Reads each host's robots.txt once per run and answers can-I-fetch questions.
+
+    `overrides` ({host: note}) lists hosts where a robots.txt disallow is overridden by
+    the owner's decision; by default it is read from config/robots_overrides.csv.
+    Only "disallowed" is overridden: an unreadable robots.txt still stops the fetch.
+    """
+
+    def __init__(self, session: requests.Session, throttle: Throttle, overrides: dict[str, str] | None = None):
         self._session, self._throttle = session, throttle
         self._cache: dict[str, tuple[robotparser.RobotFileParser | None, str]] = {}
+        self._overrides = load_overrides() if overrides is None else overrides
 
     def check(self, url: str) -> tuple[str, str]:
         """Return ("allowed" | "disallowed" | "unavailable", reason)."""
@@ -152,6 +177,8 @@ class RobotsCache:
             return ("allowed" if reason.startswith("allow") else "unavailable"), reason
         if rp.can_fetch(USER_AGENT, url):
             return "allowed", reason
+        if host in self._overrides:
+            return "allowed", f"robots.txt disallows this path; fetched under owner override ({self._overrides[host]})"
         return "disallowed", "robots.txt disallows this path"
 
     def _load(self, robots_url: str):
