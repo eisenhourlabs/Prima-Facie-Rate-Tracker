@@ -38,6 +38,7 @@ records but their sources are still disabled.
 | Item | Note |
 |---|---|
 | Indiana effective dates | Bulletins 173 to 262 state no effective date; the records use the bulletin date. IN-CD-2025-07-01-1 uses the "no later than" date. Amend if another convention is preferred |
+| Recent box and multi-year notices | The Recent box lists changes communicated in the last 12 months, so a change announced more than a year ahead (Nebraska's January 1, 2027 step, communicated January 14, 2025) is in History only | Owner decision: also show upcoming effective dates in Recent |
 | South Carolina orders | The file named "Order No. 2025-003" is headed "Number 2025-004" (the 3-day order's number); Order 2026-04's opening says "for use during 2026" while its table is for 2027. Both noted in the records |
 
 ## Tool changes needed

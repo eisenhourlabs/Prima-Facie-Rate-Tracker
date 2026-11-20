@@ -1,0 +1,95 @@
+{
+  "archived_copy": "archive/NE/2026-11-20_1020259d.pdf",
+  "archived_sha256": "1020259d62f5bb0c6e4716a1c48937eb2baf9318b53a54ab9dbfcd4197b93e99",
+  "candidate_id": "c-20261120-NE-07",
+  "change_type": "no_change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2021-12-23",
+  "date_communicated_estimated": false,
+  "document_url": "https://doi.nebraska.gov/sites/default/files/doc/IGD%20-%20-%20A2.pdf",
+  "effective_date": "2021-12-23",
+  "history": [
+    {
+      "at": "2026-11-20T23:23:15Z",
+      "batch": "batch_05",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T23:23:16Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Neb. Rev. Stat. 44-1708 and 44-1709; Guidance Document IGD-A2",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 original indebtedness",
+      "new_rate": 1.51,
+      "old_rate": 1.51,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months (1 year), 14-day retroactive"
+    },
+    {
+      "basis": "per $100 original indebtedness",
+      "new_rate": 1.02,
+      "old_rate": 1.02,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months (1 year), 14-day elimination (nonretroactive)"
+    },
+    {
+      "basis": "per $100 original indebtedness",
+      "new_rate": 1.02,
+      "old_rate": 1.02,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months (1 year), 30-day retroactive"
+    },
+    {
+      "basis": "per $100 original indebtedness",
+      "new_rate": 0.56,
+      "old_rate": 0.56,
+      "pct_change": 0.0,
+      "plan": "Single premium, 12 months (1 year), 30-day elimination (nonretroactive)"
+    },
+    {
+      "basis": "per $100 original indebtedness",
+      "new_rate": 3.17,
+      "old_rate": 3.17,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months (5 years), 14-day retroactive"
+    },
+    {
+      "basis": "per $100 original indebtedness",
+      "new_rate": 2.26,
+      "old_rate": 2.26,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months (5 years), 14-day elimination (nonretroactive)"
+    },
+    {
+      "basis": "per $100 original indebtedness",
+      "new_rate": 2.26,
+      "old_rate": 2.26,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months (5 years), 30-day retroactive"
+    },
+    {
+      "basis": "per $100 original indebtedness",
+      "new_rate": 1.24,
+      "old_rate": 1.24,
+      "pct_change": 0.0,
+      "plan": "Single premium, 60 months (5 years), 30-day elimination (nonretroactive)"
+    }
+  ],
+  "rate_table_note": "Rates are on page 2 of IGD-A2 (October 20, 2022). The review notice CB-83 of December 23, 2021 was not saved; IGD-A2 records it.",
+  "record_id": "NE-CD-2021-12-23-1",
+  "retrieved_at": "2026-11-20T23:23:15Z",
+  "source_title": "Guidance Document IGD-A2, October 20, 2022 (previously CB-83, December 23, 2021): Credit Life Insurance and Credit Accident and Health Insurance",
+  "source_url": "https://doi.nebraska.gov/sites/default/files/doc/IGD%20-%20-%20A2.pdf",
+  "state": "NE",
+  "status": "confirmed",
+  "summary": "In November 2021 the Nebraska Department of Insurance reviewed the data and determined the credit accident and health prima facie rates should remain unchanged; reissued as CB-83 on December 23, 2021 and as IGD-A2 on October 20, 2022. No effective date is stated; the date shown is the CB-83 date.",
+  "verified": true
+}

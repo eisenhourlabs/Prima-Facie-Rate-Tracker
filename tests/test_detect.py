@@ -133,3 +133,11 @@ def test_wisconsin_index_selector_finds_the_2026_bulletin(sources):
     _, links = check.fingerprint(src, fetched_bytes(src, content))
     assert any("Bulletin20261016PrimaFacieRates" in u for u in links)
     assert len(links) < 100  # the selector keeps the bulletin list, not the site menu
+
+
+def test_nebraska_igd_a2_link_text_prematches(keywords):
+    """The guidance index lists IGD-A2 only as 'IGD - - A2'. That text is a strong keyword
+    (keywords.csv), so a reissue under a new file name is downloaded and tested (R1)."""
+    assert detect.keyword_match("IGD - - A2", keywords).prematches
+    assert detect.keyword_match("IGD -- A2", keywords).prematches
+    assert not detect.keyword_match("IGD - - B4", keywords).prematches

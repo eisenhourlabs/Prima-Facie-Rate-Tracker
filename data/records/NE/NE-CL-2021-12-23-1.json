@@ -1,0 +1,81 @@
+{
+  "archived_copy": "archive/NE/2026-11-20_1020259d.pdf",
+  "archived_sha256": "1020259d62f5bb0c6e4716a1c48937eb2baf9318b53a54ab9dbfcd4197b93e99",
+  "candidate_id": "c-20261120-NE-02",
+  "change_type": "no_change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-20",
+  "date_communicated": "2021-12-23",
+  "date_communicated_estimated": false,
+  "document_url": "https://doi.nebraska.gov/sites/default/files/doc/IGD%20-%20-%20A2.pdf",
+  "effective_date": "2021-12-23",
+  "history": [
+    {
+      "at": "2026-11-20T23:23:15Z",
+      "batch": "batch_05",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-20T23:23:16Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Neb. Rev. Stat. 44-1708 and 44-1709; Guidance Document IGD-A2",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per year per $100 indebtedness",
+      "new_rate": 0.5,
+      "old_rate": 0.5,
+      "pct_change": 0.0,
+      "plan": "Single premium decreasing term, single life"
+    },
+    {
+      "basis": "per year per $100 indebtedness",
+      "new_rate": 0.84,
+      "old_rate": 0.84,
+      "pct_change": 0.0,
+      "plan": "Single premium decreasing term, joint life"
+    },
+    {
+      "basis": "per $1,000 per month on the outstanding balance",
+      "new_rate": 0.69,
+      "old_rate": 0.69,
+      "pct_change": 0.0,
+      "plan": "Outstanding balance, single life"
+    },
+    {
+      "basis": "per $1,000 per month on the outstanding balance",
+      "new_rate": 1.15,
+      "old_rate": 1.15,
+      "pct_change": 0.0,
+      "plan": "Outstanding balance, joint life"
+    },
+    {
+      "basis": "per year per $100 original indebtedness",
+      "new_rate": 0.92,
+      "old_rate": 0.92,
+      "pct_change": 0.0,
+      "plan": "Level term, single life"
+    },
+    {
+      "basis": "per year per $100 original indebtedness",
+      "new_rate": 1.54,
+      "old_rate": 1.54,
+      "pct_change": 0.0,
+      "plan": "Level term, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are on page 2 of IGD-A2 (October 20, 2022). The review notice CB-83 of December 23, 2021 was not saved; IGD-A2 records it.",
+  "record_id": "NE-CL-2021-12-23-1",
+  "retrieved_at": "2026-11-20T23:23:15Z",
+  "source_title": "Guidance Document IGD-A2, October 20, 2022 (previously CB-83, December 23, 2021): Credit Life Insurance and Credit Accident and Health Insurance",
+  "source_url": "https://doi.nebraska.gov/sites/default/files/doc/IGD%20-%20-%20A2.pdf",
+  "state": "NE",
+  "status": "confirmed",
+  "summary": "In November 2021 the Nebraska Department of Insurance reviewed the data and determined the credit life prima facie rates should remain unchanged; reissued as CB-83 on December 23, 2021 and as IGD-A2 on October 20, 2022. No effective date is stated; the date shown is the CB-83 date.",
+  "verified": true
+}
