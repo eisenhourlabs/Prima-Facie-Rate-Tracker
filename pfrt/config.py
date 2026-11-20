@@ -83,6 +83,11 @@ def _read_rows(path: Path, required: list[str]) -> list[tuple[int, dict[str, str
             raise ConfigError(f"{path}: row 1 (header): missing column(s) {', '.join(missing)}")
         rows = []
         for row in reader:
+            # More cells than header columns usually means a comma inside an unquoted
+            # value (for example a note); the row would be read wrongly, so stop.
+            if row.get(None):
+                raise ConfigError(f"{path}: row {reader.line_num}: more cells than columns; "
+                                  "put double quotes around any value that contains a comma")
             # Strip stray spaces; treat absent trailing cells as empty.
             clean = {k: (v or "").strip() for k, v in row.items() if k is not None}
             rows.append((reader.line_num, clean))
