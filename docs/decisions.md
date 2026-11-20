@@ -58,4 +58,6 @@ Each decision with its date and reason. References (Q, A) point to docs/plan.md.
 | 2026-11-20 | Stage 3 | Stage 3 acceptance test 4 (404 source) run against a scratch copy of the config instead of editing and restoring `sources.csv` | Same result with no risk of leaving the real config changed |
 | 2026-11-20 | Stage 3 | Acceptance tests 2 (test email arrives) and 5 (no secret in logs, live) deferred until email is configured; unit tests cover both | No mailbox or secrets exist yet |
 | 2026-11-20 | Stage 3 | Workflow commits as `github-actions[bot]` with GitHub's no-reply address | Keeps personal details out of the public history |
+| 2026-11-20 | Stage 3 | Stage 3 gate approved by owner, with notifications off and acceptance tests 2 and 5 deferred until email is configured | First live run from GitHub Actions (run-20261120-1603) baselined 7 sources and committed its log |
+| 2026-11-20 | Stage 3 | Workflow input `include_disabled` (dry run only) added, to try Idaho from GitHub's network without enabling it | Owner chose option (a); a disabled source must never write a baseline |
 | 2026-11-20 | Stage 1 | Saved pilot pages are committed as test fixtures in `tests/fixtures/` | Tests need real pages and must not use the network; all are public state documents (Q10) |

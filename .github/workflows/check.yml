@@ -22,6 +22,10 @@ on:
         description: "Dry run: write nothing, commit nothing, send nothing"
         type: boolean
         default: false
+      include_disabled:
+        description: "Also try disabled sources (only with dry run; for testing a source before enabling it)"
+        type: boolean
+        default: false
       send_test_email:
         description: "Send a test email first (needs the email secrets)"
         type: boolean
@@ -64,6 +68,7 @@ jobs:
         env:
           STATES: ${{ inputs.states }}
           DRY_RUN: ${{ inputs.dry_run }}
+          INCLUDE_DISABLED: ${{ inputs.include_disabled }}
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
           ALERT_TO: ${{ secrets.ALERT_TO }}
@@ -73,6 +78,12 @@ jobs:
           args=""
           if [ -n "$STATES" ]; then args="--states $STATES"; fi
           if [ "$DRY_RUN" = "true" ]; then args="$args --dry-run"; fi
+          if [ "$INCLUDE_DISABLED" = "true" ]; then
+            if [ "$DRY_RUN" != "true" ]; then
+              echo "include_disabled needs dry_run; nothing was checked."; exit 2
+            fi
+            args="$args --include-disabled"
+          fi
           python -m pfrt check $args
 
       - name: Commit results
