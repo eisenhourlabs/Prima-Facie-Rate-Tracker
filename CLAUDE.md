@@ -14,7 +14,8 @@ historical log is secondary.
 
 ## How it works
 A scheduled GitHub Actions job runs twice a month, checks each state's registered source
-page (config/sources.csv), creates CANDIDATE records, and emails a summary. The owner approves
+page (config/sources.csv), creates CANDIDATE records, and saves a run summary (email is built
+but off until configured; see pfrt/notify.py). The owner approves
 or rejects candidates in a Claude Code session. Only confirmed records appear on the site.
 
 ## Rules

@@ -14,6 +14,10 @@
   review amend ID --values FILE --reason "..."
   review retract ID --reason "..."
   validate                           check every confirmed record (plan 7.4)
+  notify test                        send a test email if email is configured
+
+Every check run saves a readable summary next to its run log. Email and the
+GitHub issue are off until configured; see pfrt/notify.py.
 
 --values FILE is JSON: {"records": [{...record fields...}, ...]} for confirm,
 or {...fields to change...} for amend. See CLAUDE.md for the review protocol.
@@ -24,11 +28,12 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import sys
 import time
 from pathlib import Path
 
-from pfrt import check, config, detect, records, review
+from pfrt import check, config, detect, notify, records, review
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -73,6 +78,8 @@ def build_parser() -> argparse.ArgumentParser:
     ret.add_argument("--reason", required=True)
 
     sub.add_parser("validate", help="validate every confirmed record")
+    nt = sub.add_parser("notify", help="notifications").add_subparsers(dest="action", required=True)
+    nt.add_parser("test", help="send a test message if email is configured")
     return parser
 
 
@@ -113,10 +120,62 @@ def cmd_check(args, root: Path) -> int:
     start, started = time.monotonic(), ctx.stamp
     results = check.run(chosen, ctx)
     scope = wanted or {s.state for s in states}
-    log = check.write_run_log(results, sources, scope, ctx, started)
     print_summary(results, sources, scope, time.monotonic() - start)
-    if log:
-        print(f"Run log: {log.relative_to(root).as_posix()}")
+    log = check.build_run_log(results, sources, scope, ctx, started)
+    email = compose_summary(log, results, states, root)
+    path = check.write_run_log(log, f"{email.subject}\n\n{email.body}", ctx)
+    write_step_summary(email)
+    if path:
+        print(f"Run log: {path.relative_to(root).as_posix()}")
+    if args.dry_run:
+        print(f"\n--- Summary that would be saved and sent ---\n{email.subject}\n\n{email.body}")
+        return 0
+    has_news = bool(log["totals"]["candidates"] or log["states_not_fully_checked"])
+    try:
+        for line in notify.deliver(email, dict(os.environ), has_news):
+            print(f"Notify: {line}")
+    except notify.NotifyError as err:
+        print(f"Notify failed: {err}", file=sys.stderr)
+        return 3
+    return 0
+
+
+def repo_url() -> str:
+    """https://github.com/owner/repo when running in GitHub Actions, else ''."""
+    server, repo = os.environ.get("GITHUB_SERVER_URL"), os.environ.get("GITHUB_REPOSITORY")
+    return f"{server}/{repo}" if server and repo else ""
+
+
+def compose_summary(log: dict, results, states, root: Path) -> notify.Email:
+    from pfrt import candidates as cand_mod
+    open_cands = cand_mod.load_all(root)
+    new_ids = {cid for r in results for cid in r.candidates_created}
+    new = [c for c in open_cands if c["candidate_id"] in new_ids]
+    in_scope = [s for s in states if s.state in set(log["states_in_scope"])]
+    expected = notify.expected_not_seen(in_scope, records.load_all(root), open_cands, dt.date.today())
+    return notify.compose(log, new, expected, len(open_cands), repo_url())
+
+
+def write_step_summary(email: notify.Email) -> None:
+    """In GitHub Actions, show the summary on the run's page."""
+    target = os.environ.get("GITHUB_STEP_SUMMARY")
+    if target:
+        with open(target, "a", encoding="utf-8") as f:
+            f.write(f"## {email.subject}\n\n```\n{email.body}```\n")
+
+
+def cmd_notify_test() -> int:
+    """Send a short test message through whatever channels are configured."""
+    email = notify.Email("[PFRT] Test message", "This is a test from the Prima Facie Rate Tracker workflow.\n")
+    if not notify.email_configured(dict(os.environ)):
+        print("Notify: email not configured (set SMTP_USER, SMTP_APP_PASSWORD and ALERT_TO secrets).")
+        return 0
+    try:
+        notify.send(email, dict(os.environ))
+    except notify.NotifyError as err:
+        print(f"Notify failed: {err}", file=sys.stderr)
+        return 3
+    print("Notify: test email sent")
     return 0
 
 
@@ -219,6 +278,8 @@ def main(argv: list[str] | None = None) -> int:
             return cmd_review(args, root)
         if args.command == "validate":
             return cmd_validate(root)
+        if args.command == "notify":
+            return cmd_notify_test()
     except review.ReviewError as err:
         print(f"Not done: {err}", file=sys.stderr)
         return 1

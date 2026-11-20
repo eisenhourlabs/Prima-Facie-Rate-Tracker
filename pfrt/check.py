@@ -40,6 +40,7 @@ class SourceResult:
     text: str = ""
     candidates_created: list[str] = field(default_factory=list)
     notes: list[str] = field(default_factory=list)
+    consecutive_failures: int = 0
 
 
 @dataclass
@@ -195,6 +196,8 @@ def _save_candidate(res, f, archived, text, known, ctx, **kw) -> None:
 
 def update_snapshot(res: SourceResult, snapshot: dict | None, ctx: RunContext) -> None:
     """Save the new state of a source. A failed or suspect check keeps the old content."""
+    failures = (snapshot or {}).get("consecutive_failures", 0)
+    res.consecutive_failures = 0 if res.status in OK_STATUSES else failures + 1
     if ctx.dry_run:
         return
     snap = dict(snapshot or {"source_id": res.source.source_id})
@@ -238,35 +241,49 @@ def run(sources: list[Source], ctx: RunContext) -> list[SourceResult]:
     return results
 
 
-def write_run_log(results: list[SourceResult], all_sources: list[Source], states_in_scope: set[str],
-                  ctx: RunContext, started: str) -> Path | None:
-    """data/runs/{run_id}.json with one entry per source and the totals (plan 2.2)."""
-    if ctx.dry_run:
-        return None
+def build_run_log(results: list[SourceResult], all_sources: list[Source], states_in_scope: set[str],
+                  ctx: RunContext, started: str) -> dict:
+    """The run log (plan 2.2): one entry per source, totals and the unchecked states."""
     gaps = not_fully_checked(results)
-    log = {
+    unmonitored = not_monitored(all_sources, states_in_scope)
+    return {
         "run_id": ctx.run_id, "started_at": started, "finished_at": records.now_utc(),
-        "offline": ctx.offline,
-        "sources": [{"source_id": r.source.source_id, "state": r.source.state, "status": r.status,
-                     "http_status": r.http_status, "elapsed_ms": r.elapsed_ms,
-                     "rule_fired": sorted({f.rule for f in r.findings}),
-                     "candidates_created": r.candidates_created, "error": r.error, "notes": r.notes}
-                    for r in results],
+        "offline": ctx.offline, "dry_run": ctx.dry_run,
+        "sources": [_log_entry(r) for r in results],
         "totals": {"sources": len(results), "candidates": sum(len(r.candidates_created) for r in results),
                    "not_ok": sum(r.status not in OK_STATUSES for r in results)},
+        "states_in_scope": sorted(states_in_scope),
+        "monitored_state_count": len(states_in_scope) - len(unmonitored),
         "states_not_fully_checked": sorted(gaps),
-        "not_monitored": not_monitored(all_sources, states_in_scope),
+        "not_monitored": unmonitored,
     }
-    path = Path(ctx.root) / "data" / "runs" / f"{ctx.run_id}.json"
+
+
+def _log_entry(r: SourceResult) -> dict:
+    anchors = [a for f in r.findings if f.rule == "R3_changed_no_match" for a in f.new_anchors]
+    return {"source_id": r.source.source_id, "state": r.source.state, "role": r.source.role,
+            "enabled": r.source.is_enabled, "status": r.status, "http_status": r.http_status,
+            "elapsed_ms": r.elapsed_ms, "rule_fired": sorted({f.rule for f in r.findings}),
+            "candidates_created": r.candidates_created, "error": r.error, "notes": r.notes,
+            "consecutive_failures": r.consecutive_failures, "new_anchors": anchors}
+
+
+def write_run_log(log: dict, summary_text: str, ctx: RunContext) -> Path | None:
+    """Save data/runs/{run_id}.json and the readable summary {run_id}.txt; prune old logs."""
+    if ctx.dry_run:
+        return None
+    folder = Path(ctx.root) / "data" / "runs"
+    path = folder / f"{ctx.run_id}.json"
     records.save_json(path, log)
-    prune_run_logs(Path(ctx.root) / "data" / "runs", ctx.now.date())
+    (folder / f"{ctx.run_id}.txt").write_text(summary_text, encoding="utf-8", newline="\n")
+    prune_run_logs(folder, ctx.now.date())
     return path
 
 
 def prune_run_logs(folder: Path, today: dt.date) -> None:
     """Delete run logs older than 24 months, judged by the date in the file name."""
     cutoff = f"run-{today.year - RUN_LOG_MONTHS // 12:04d}{today:%m%d}"
-    for p in folder.glob("run-*.json"):
+    for p in list(folder.glob("run-*.json")) + list(folder.glob("run-*.txt")):
         if p.stem[:12] < cutoff:
             p.unlink()
 

@@ -1,0 +1,92 @@
+# Check every enabled source, save results to the repository, and notify if configured.
+#
+# Start it by hand: GitHub > Actions > check > Run workflow.
+# The schedule (3rd and 18th of each month, plan A10) is switched on in Stage 8.
+#
+# Notifications are OFF until configured (decision 2026-11-20); the run summary is
+# always saved to data/runs/ and shown on the run's page. To turn email on, add the
+# repository secrets SMTP_USER, SMTP_APP_PASSWORD and ALERT_TO. To turn the backup
+# issue on, add the repository variable PFRT_OPEN_ISSUES = yes.
+#
+# Action versions looked up on GitHub on 2026-11-20 (checkout v7.0.1, setup-python v7.1.0).
+name: check
+
+on:
+  workflow_dispatch:
+    inputs:
+      states:
+        description: "Comma-separated state codes to check (blank = all)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Dry run: write nothing, commit nothing, send nothing"
+        type: boolean
+        default: false
+      send_test_email:
+        description: "Send a test email first (needs the email secrets)"
+        type: boolean
+        default: false
+  # schedule:
+  #   - cron: "17 13 3,18 * *"   # enabled in Stage 8
+
+permissions:
+  contents: write   # commit data/ and archive/
+  issues: write     # only used when PFRT_OPEN_ISSUES is yes
+
+concurrency:
+  group: check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: "3.15"
+          cache: pip
+      - name: Install requirements
+        run: pip install -r requirements.txt
+      - name: Run tests
+        run: pytest -q
+
+      - name: Send test email
+        if: ${{ inputs.send_test_email }}
+        env:
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+        run: python -m pfrt notify test
+
+      - name: Check sources
+        env:
+          STATES: ${{ inputs.states }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+          PFRT_OPEN_ISSUES: ${{ vars.PFRT_OPEN_ISSUES }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          args=""
+          if [ -n "$STATES" ]; then args="--states $STATES"; fi
+          if [ "$DRY_RUN" = "true" ]; then args="$args --dry-run"; fi
+          python -m pfrt check $args
+
+      - name: Commit results
+        # Runs even if notification failed, so the snapshots and run log are never lost.
+        if: ${{ always() && inputs.dry_run != true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data archive
+          if git diff --staged --quiet; then
+            echo "Nothing to commit."
+            exit 0
+          fi
+          run_id=$(ls data/runs/run-*.json | sort | tail -1 | xargs basename | sed 's/\.json$//')
+          git commit -m "Check run $run_id"
+          git pull --rebase
+          git push
