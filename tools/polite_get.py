@@ -10,7 +10,10 @@ Run from the repository folder (Windows):
 
 Save downloads outside the repository (for example in a scratch folder), then copy the
 public documents a batch needs into seed/documents/ (git-ignored).
-Note: two URLs whose paths end in the same name overwrite each other in OUT_DIR.
+Note: two URLs whose paths end in the same name overwrite each other in OUT_DIR, unless
+--numbered is given first: then each file name starts with the URL's position and host
+(for example 03_doi.idaho.gov_robots.txt). The probe workflow uses --numbered.
+    .venv\\Scripts\\python.exe -I tools\\polite_get.py . OUT_DIR --numbered URL [URL ...]
 """
 import hashlib
 import sys
@@ -24,13 +27,19 @@ from pfrt import fetch, normalize  # noqa: E402
 out.mkdir(parents=True, exist_ok=True)
 session, throttle = fetch.new_session(), fetch.Throttle()
 robots = fetch.RobotsCache(session, throttle)
-for url in sys.argv[3:]:
+urls = sys.argv[3:]
+numbered = bool(urls) and urls[0] == "--numbered"
+if numbered:
+    urls = urls[1:]
+for position, url in enumerate(urls, start=1):
     verdict, reason = robots.check(url)
     if verdict != "allowed":
         print(f"SKIP {url}: {verdict} {reason}")
         continue
     r = fetch.download(url, session, throttle)
     name = unquote(Path(urlsplit(url).path).name) or "index.html"
+    if numbered:
+        name = f"{position:02d}_{urlsplit(url).hostname}_{name}"
     if r.http_status == 200:
         (out / name).write_bytes(r.content)
     sha = hashlib.sha256(r.content or b"").hexdigest()[:8]

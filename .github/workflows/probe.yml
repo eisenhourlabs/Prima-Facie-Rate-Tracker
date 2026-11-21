@@ -1,0 +1,84 @@
+# Probe: fetch a list of URLs from GitHub's network and keep what came back.
+#
+# For hosts that do not answer the build computer (Idaho, Georgia, New York, Illinois Register).
+# Start it by hand: GitHub > Actions > probe > Run workflow, and paste the URLs.
+# It uses the project's fetcher (tools/polite_get.py and tools/terms_links.py), so
+# robots.txt, the 5-second gap per host and the honest user agent all apply.
+# It commits nothing: the downloads and the two logs are uploaded as a run artifact named
+# "probe-<run number>", kept for 14 days. Download it with:
+#     gh run download RUN_ID --dir FOLDER
+#
+# Action versions looked up on GitHub on 2026-11-21 (checkout v7.0.1, setup-python v7.1.0,
+# upload-artifact v7.0.2).
+name: probe
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: "URLs to fetch, separated by spaces (http:// or https:// only)"
+        required: true
+
+permissions:
+  contents: read   # read the repository only; this workflow never writes to it
+
+concurrency:
+  group: probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: actions/setup-python@v7.1.0
+        with:
+          python-version: "3.15"
+          cache: pip
+      - name: Install requirements
+        run: pip install -r requirements.txt
+
+      - name: Fetch the URLs
+        # The URLs arrive through an environment variable, never pasted into the script,
+        # so text in the input cannot run as a command. Each must start with http(s)://.
+        env:
+          URLS: ${{ inputs.urls }}
+        run: |
+          mkdir -p probe-out
+          read -r -a list <<< "$URLS"
+          for u in "${list[@]}"; do
+            case "$u" in
+              http://*|https://*) ;;
+              *) echo "Not a URL: $u"; exit 2 ;;
+            esac
+          done
+          echo "${#list[@]} URLs" | tee probe-out/urls.txt
+          printf '%s\n' "${list[@]}" >> probe-out/urls.txt
+
+          # 1. Downloads: one process for all URLs, so the gap per host holds throughout.
+          #    Files are named NN_host_name (position in the list, host, last part of the path).
+          python -I tools/polite_get.py . probe-out/files --numbered "${list[@]}" 2>&1 | tee probe-out/polite_get.log
+
+          # 2. Terms and policy links on the HTML pages (PDFs and robots.txt skipped, as they
+          #    have no links). The pause keeps the gap between the two processes.
+          sleep 15
+          pages=()
+          for u in "${list[@]}"; do
+            case "$u" in
+              *.pdf|*.PDF|*/robots.txt) ;;
+              *) pages+=("$u") ;;
+            esac
+          done
+          if [ "${#pages[@]}" -gt 0 ]; then
+            python -I tools/terms_links.py . "${pages[@]}" 2>&1 | tee probe-out/terms_links.log
+          fi
+
+      - name: Upload the results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7.0.2
+        with:
+          name: probe-${{ github.run_number }}
+          path: probe-out/
+          retention-days: 14
+          if-no-files-found: warn
