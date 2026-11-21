@@ -181,3 +181,11 @@ documents.
 | rules.ks.gov | 405 "Human Verification" (home page and /robots.txt) |
 
 - K.A.R. 40-5-107 history: effective Jan. 1, 1974; amended May 1, 1979, May 1, 1986, May 1, 1988.
+
+### Maine (ME)
+| Host | Result |
+|---|---|
+| www.maine.gov | 403 CloudFront "Request blocked" (/pfr/insurance and /sos/, read by `terms_links.py`) |
+| www11.maine.gov | 403 CloudFront "Request blocked" (031c220.doc, the Rule Chapter 220 Word file) |
+
+- No terms page could be read. Manual check.
