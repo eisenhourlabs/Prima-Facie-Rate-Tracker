@@ -45,17 +45,22 @@ def select_recent(recs: list[dict], today: dt.date) -> list[dict]:
     multi-year schedule) stays in Recent until it takes effect (owner decision 2026-11-20).
     """
     since = (today - dt.timedelta(days=RECENT_DAYS)).isoformat()
-    out = [r for r in _confirmed(recs) if r.get("change_type") != "no_change"
+    out = [r for r in _confirmed(recs) if r.get("change_type") not in ("no_change", "initial")
            and ((r.get("date_communicated") or "") >= since or r["effective_date"] > today.isoformat())]
     return sorted(out, key=lambda r: (r["effective_date"], r["state"], r["product"]))
 
 
 def select_history(recs: list[dict], today: dt.date) -> dict[str, list[dict]]:
-    """Effective in the last 15 years, by state, newest first within each state."""
+    """Effective in the last 15 years, by state, newest first within each state.
+
+    A "rates in force" record (change_type "initial") is always shown, however old:
+    it states the rates currently in force where no change was found in the window
+    (owner decision 2026-11-20).
+    """
     since = _years_before(today, HISTORY_YEARS).isoformat()
     out: dict[str, list[dict]] = {}
     for r in _confirmed(recs):
-        if r["effective_date"] >= since:
+        if r["effective_date"] >= since or r.get("change_type") == "initial":
             out.setdefault(r["state"], []).append(r)
     for state_recs in out.values():
         state_recs.sort(key=lambda r: (r["effective_date"], r["product"]), reverse=True)

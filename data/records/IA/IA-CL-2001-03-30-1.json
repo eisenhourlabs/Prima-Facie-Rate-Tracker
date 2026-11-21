@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/IA/2026-11-21_d36296a3.pdf",
+  "archived_sha256": "d36296a3a5b2856a8768640e5e12aa15daae00b283e0388ea8f2d0165bb89ba4",
+  "candidate_id": "c-20261121-IA-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "2000-12-04",
+  "date_communicated_estimated": false,
+  "document_url": "https://iid.iowa.gov/media/113/download?inline=",
+  "effective_date": "2001-03-30",
+  "history": [
+    {
+      "at": "2026-11-21T00:58:19Z",
+      "batch": "batch_07",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T00:58:21Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "191 IAC 28.10(3); 191 IAC 28.7 and 28.8",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per year per $100 of indebtedness",
+      "new_rate": 0.45,
+      "pct_change": null,
+      "plan": "Single premium decreasing, single life"
+    },
+    {
+      "basis": "per year per $100 of indebtedness",
+      "new_rate": 0.75,
+      "pct_change": null,
+      "plan": "Single premium decreasing, joint life"
+    },
+    {
+      "basis": "per year per $100 of indebtedness",
+      "new_rate": 0.82,
+      "pct_change": null,
+      "plan": "Single premium level, single life"
+    },
+    {
+      "basis": "per year per $100 of indebtedness",
+      "new_rate": 1.36,
+      "pct_change": null,
+      "plan": "Single premium level, joint life"
+    },
+    {
+      "basis": "per $1,000 of principal per month",
+      "new_rate": 0.69,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per $1,000 of principal per month",
+      "new_rate": 1.15,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are on page 1 of the bulletin. As of November 20, 2026 this is the only credit rate bulletin in the Division's index of Commissioner's Bulletins, so these are taken as the rates in force. Rules 28.7 and 28.8 carry different base rates; the bulletin's adjusted rates govern (28.10).",
+  "record_id": "IA-CL-2001-03-30-1",
+  "retrieved_at": "2026-11-21T00:58:19Z",
+  "source_title": "Bulletin 00-04, December 4, 2000: Revision of Credit Insurance Rates",
+  "source_url": "https://iid.iowa.gov/media/113/download?inline=",
+  "state": "IA",
+  "status": "confirmed",
+  "summary": "Rates in force: Iowa's credit life prima facie rates published by the Commissioner in Bulletin 00-04 under 191 IAC 28.10(3), effective March 30, 2001, superseding Bulletin 1994-1. Single decreasing $.45 and level $.82 per year per $100; monthly outstanding balance $.69 per $1,000. No later adjustment was found.",
+  "verified": true
+}

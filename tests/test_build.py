@@ -186,3 +186,17 @@ def test_every_link_opens_in_a_new_tab(tmp_path):
     for a in links:
         assert a.get("target") == "_blank" and a.get("rel") == ["noopener"], a
         assert "(opens in a new tab)" in a.get_text()
+
+
+def test_rates_in_force_record_always_in_history_never_in_recent(tmp_path):
+    """A 'rates in force' record (change_type initial) set before the 15-year window still
+    shows in History, labeled 'Rates in force since', and never in Recent."""
+    in_force = rec(state="IA", eff="2001-03-30", comm="2000-12-04", change_type="initial")
+    future_in_force = rec(state="IA", product="CD", eff="2027-01-01", comm="2026-10-01", change_type="initial")
+    assert build_site.select_recent([in_force, future_in_force], TODAY) == []
+    assert build_site.select_history([in_force], TODAY) == {"IA": [in_force]}
+    page = build_page(tmp_path, [in_force])
+    ia = next(d for d in page.select("details.state") if d.summary.get_text().startswith("Iowa"))
+    assert ia.summary.get_text() == "Iowa (1)"
+    line = " ".join(ia.select_one("details.rec").summary.get_text(" ").split())
+    assert line == "Rates in force since 30 March 2001 · Credit life · 1 rate"

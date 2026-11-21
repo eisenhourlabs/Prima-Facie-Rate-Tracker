@@ -121,7 +121,7 @@
 
 <section class="box" aria-labelledby="history-h">
   <h2 id="history-h">History by state</h2>
-  <p class="sub">Changes with effective dates in the last 15 years, newest first. Select a state to see its list, then select a change to see its rates and sources.</p>
+  <p class="sub">Changes with effective dates in the last 15 years, newest first. Where no change was found in that time, the rates in force are shown with the date they took effect. Select a state to see its list, then select an entry to see its rates and sources.</p>
   {% for s in states %}
   {% set recs = history.get(s.state, []) %}
   <details class="state">
@@ -130,7 +130,7 @@
     {# Each change is its own collapsed line, so a state's list fits on one screen. #}
     {% for r in recs %}
     <details class="rec">
-      <summary><span class="when">{{ r.effective_date | long_date }}</span> · {{ products[r.product] }} · {% if r.change_type == "no_change" %}Reviewed, no change{% else %}{{ r | change }}{% endif %}{% if not r.verified %} <span class="tag unverified">Unverified</span>{% endif %}</summary>
+      <summary>{% if r.change_type == "initial" %}<span class="when">Rates in force since {{ r.effective_date | long_date }}</span> · {{ products[r.product] }} · {{ r.rate_items | length }} rate{{ "s" if (r.rate_items | length) != 1 }}{% else %}<span class="when">{{ r.effective_date | long_date }}</span> · {{ products[r.product] }} · {% if r.change_type == "no_change" %}Reviewed, no change{% else %}{{ r | change }}{% endif %}{% endif %}{% if not r.verified %} <span class="tag unverified">Unverified</span>{% endif %}</summary>
     <div class="record">
       {% if not r.verified %}<p>No primary source located for this record.</p>{% endif %}
       {% if r.rate_items %}
