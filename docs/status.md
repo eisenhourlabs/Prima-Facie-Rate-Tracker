@@ -32,8 +32,8 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | WI | notice | 14 | Yes (4) | Batch 1; next notice expected 2029-10-01 |
 | IN | notice | 12 | Yes | Batch 2; next 2027-12-31; official copy of 760 IAC 1-5.1 still to save |
 | NE | notice | 10 | Yes (3) | Batch 5; IGD-A2 steps 2025, 2026, 2027; next 2027-12-31 |
-| NM | notice | 4 | **No: sources not yet enabled** | Batch 4; robots.txt override approved for www.osi.state.nm.us; next 2027-12-31 |
-| SC | notice | 2 | **No: sources not yet enabled** | Batch 3 (rates for 2026 and 2027); next 2027-09-30 |
+| NM | notice | 4 | Yes (1) | Batch 4; OSI bulletins list (`new_text`; posts link a staging host) and 13.18.2 NMAC; robots.txt override for www.osi.state.nm.us; next 2027-12-31 |
+| SC | notice | 2 | Yes (2) | Batch 3 (rates for 2026 and 2027); alerts list and LAH page; next 2027-09-30 |
 | OH | notice | 4 | Lagging only | Batch 6 (memos 2023, 2026); insurance.ohio.gov 404s the tool; next 2028-09-30 |
 | IA | notice | 2 (in force) | Yes | Batch 7: Bulletin 00-04 rates in force since 2001 |
 | OR | notice | 2 (in force) | Yes | Batch 8: rules in force since 2001 |
@@ -80,8 +80,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 2. **Statute-fixed** (LA, MS, MO, NC done; Q11 option A built: `config/manual_checks.csv`, May and September).
    **KY and MT done (2026-11-21, fourth session):** KY statute-fixed (batch 23; manual check added); MT monitored, records a gap (see `docs/gaps.md`). All regulation-, statute- and unclear-group states are onboarded; next are the loose ends below
    (Pennsylvania and Idaho of the notice group are among them).
-3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
-   disabled); Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
+3. **Loose ends from the notice group:** NM and SC monitoring enabled 2026-11-21; Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
    network, for example a workflow artifact); a leading source for Illinois.
 4. **Follow-up to the robots decision of 2026-11-20** (an app page equal to the home page
    means no robots.txt): read the terms of admincode.legislature.state.al.us and

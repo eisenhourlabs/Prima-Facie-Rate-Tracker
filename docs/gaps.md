@@ -27,9 +27,8 @@ not detected by the scheduled check; it must be looked for by hand.
 | Ohio | Only rule 3901-1-14 is watched (lagging); its tables are 1983 base rates and do not change when the rates are adjusted. insurance.ohio.gov answers the tool with HTTP 404 for every page, including the home page, even in a real browser engine; the rate memos themselves (dam.assets.ohio.gov) can be fetched. The next adjustment (memo expected by September 2028) would not be detected; the expected-notice date 2028-09-30 is the backstop | Department actuarial memo "Credit Insurance Rates Effective 1/1/YYYY" | insurance.ohio.gov serving pages to the tool, or another official listing |
 | Virginia | www.scc.virginia.gov robots.txt admits named search engines only, deliberately; its web policy limits use to "intended purposes". Not overridden | State Corporation Commission orders for each triennium (Va. Code 38.2-3725, 38.2-3730) | An owner decision to override, or another official host. No seed records yet |
 
-Until monitoring is enabled in Stage 6, every state other than the pilot sources is also
-unmonitored (see the page and `config/sources.csv`). New Mexico and South Carolina have seed
-records but their sources are still disabled.
+States with no enabled leading source also appear under "Not monitored automatically" on the page
+(see `config/sources.csv` and `docs/status.md`).
 
 ## Missing history
 
@@ -95,7 +94,6 @@ records but their sources are still disabled.
 |---|---|---|
 | Hand-checked import of scanned PDFs | `seed scan` rejects PDFs with no text, by design. A reviewed exception (the owner checks the file, the decision is logged per file) would let the scanned SC and NM documents in; values would be read from page images | When the SC and NM gaps are filled |
 | `review add --file` | `review add` can only download. Blocked sites (Arizona, Virginia) need a candidate made from a document saved by hand, keeping the official URL | Stage 6 |
-| Enable monitoring for New Mexico and South Carolina | Their sources are in `config/sources.csv` but disabled; New Mexico now fetches under the robots override | Stage 6 |
 | Idaho | Fetches work from GitHub Actions but not from the build computer; `must_contain` markers still to be chosen | Stage 6 (see `docs/status.md`) |
 | IUI plausible range by basis | `config/plausibility.csv` gives IUI one range (0.5 to 10.0); rates per $10 of monthly benefit (Maryland) fall outside it for long terms and monthly premiums, so such records warn and are confirmed one at a time | Low priority; add a range for that basis if more states use it |
 | Image tables in official PDFs | Michigan prints its credit A&H rate appendices as images inside a text PDF; `seed scan` passes the file, but rates cannot be checked by script | Same as the scanned-PDF item: a reviewed, hand-checked import |
