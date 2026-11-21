@@ -97,3 +97,61 @@ Fetched from the build computer. Each source was fetched once by a probe and aga
 - An "Access Denied" page is served to clients with no User-Agent; the project User-Agent is
   served normally.
 - Open: A&H rule (Part 1052) URL and a leading source (Company Bulletins page) not located.
+
+## Stage 6, regulation-fixed states, 2026-11-20 (second session)
+
+Fetched from the build computer with `tools/polite_get.py` and dry runs. Third-party copies
+(Cornell LII, Justia, a trade newsletter) were read only to find official documents.
+
+### Alabama (AL)
+| Host | Result |
+|---|---|
+| banking.alabama.gov | 200; robots.txt allows; rule 155-2-2-.12 PDF and July 2026 compilation identical (95 figures) |
+| www.aldoi.gov | 200; robots.txt allows; regulations listed by `javascript:window.open` links (now read); 093r-2002.PDF and 117-1999.pdf |
+| admincode.legislature.state.al.us | /robots.txt answered with the app's home page; unreadable until the 2026-11-20 rule, now "no robots.txt"; terms not yet read |
+
+- 482-1-117-.04(r) defines "Superintendent" as the Superintendent of Banks (settles Q4).
+- The disability table's column headings were read from their page positions (pypdf text
+  operators); the extracted text runs the heading lines together.
+
+### California (CA)
+| Host | Result |
+|---|---|
+| legaldocs.insurance.ca.gov | 200; "Currently Proposed Regulations" list of titles with ASP.NET postback links (new_text) |
+| www.insurance.ca.gov | 200 |
+| leginfo.legislature.ca.gov | 403 to the tool |
+| govt.westlaw.com/calregs | official code host, commercial publisher; not fetched (Q10) |
+
+### Colorado (CO)
+| Host | Result |
+|---|---|
+| doi.colorado.gov | 403 "Request blocked" (CloudFront), pages and files |
+| www.coloradosos.gov/CCR | 200, robots.txt allows, but terms prohibit robots, data mining and reproduction; 13 research requests made before the terms were read; not used since |
+
+- Series 4-9 rule versions (ruleVersionId): 10240 (eff. 07/15/2022), 6744 (05/15/2016),
+  6610 (02/01/2016), 5522 (01/01/2014), 4973 (01/01/2013), 4282 (09/01/2011).
+
+### Delaware (DE)
+| Host | Result |
+|---|---|
+| insurance.delaware.gov, delaware.gov | firewall "Request Rejected" page (also to a plain web reader) |
+| regulations.delaware.gov | /robots.txt answered with the app's home page; now "no robots.txt"; terms not yet read |
+| archive.regulations.delaware.gov | 200; frozen since May 19, 2025; 11 DE Reg 727 (2007 proposal for 1701) read |
+| regulations.justia.com | 403 |
+
+### Florida (FL)
+| Host | Result |
+|---|---|
+| www.flrules.org | 200; robots.txt allows; no terms found; rule files are Word 97 .doc (`notice_Files.asp?ID=`) |
+| dos.myflorida.com / dos.fl.gov (policy page) | 403 to the tool and to a plain web reader |
+| floir.com | 200, little text; not used |
+
+- Notice IDs: 2791774 (69O-163.010 final, eff. 2/11/2003); 7666606 (69O-163.011 final,
+  eff. 9/30/2009); 21097808 (development, 10/30/2018); 21640717 (proposed, 3/21/2019);
+  22196527 (final, filed 7/26/2019, eff. 8/15/2019).
+
+### Georgia (GA)
+| Host | Result |
+|---|---|
+| oci.georgia.gov | 200; robots.txt allows; georgia.gov privacy statement has no terms against automated access |
+| rules.sos.ga.gov | no answer: connection error, then read timeout after 60 seconds (robots.txt included), three tries |

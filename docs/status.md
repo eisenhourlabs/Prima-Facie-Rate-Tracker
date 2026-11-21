@@ -5,7 +5,7 @@ section 10); every decision and its reason is in `docs/decisions.md`; open items
 `docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
 at each stage gate and at the end of each session.
 
-Last updated: 2026-11-20 (end of session).
+Last updated: 2026-11-20 (end of second session; regulation-fixed states AL to GA done).
 
 ## Stages
 
@@ -66,9 +66,15 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
    means no robots.txt): read the terms of admincode.legislature.state.al.us and
    regulations.delaware.gov, then add sources there (Alabama Administrative Monthly;
    Delaware Register and Regulation 1701). Both are single-page apps with /api/ addresses.
-5. Gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
+5. **Hosts to retry from GitHub's network** (a workflow run, as for Idaho): rules.sos.ga.gov
+   (Georgia rule 120-2-27, for a rates-in-force record and a lagging source).
+6. **Owner choices that would add records** (see `docs/gaps.md`): Colorado (written
+   permission from the Secretary of State, or another host; rates changed 2013, 2016, 2022);
+   California (Department copy of the 2002 and 2006 rules saved by hand, or the Westlaw text);
+   Delaware (2008 final order or current text, once regulations.delaware.gov sources exist).
+7. Gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
    for blocked states).
-6. Stage 6 gate, then Stage 8.
+8. Stage 6 gate, then Stage 8.
 
 ## Seed batches
 

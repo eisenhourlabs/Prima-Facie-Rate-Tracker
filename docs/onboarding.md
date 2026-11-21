@@ -101,8 +101,28 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
   official documents; never a record's source.
 - In this Git Bash shell, long inline Python with quotes can fail to parse; write the script
   to a file in the scratch folder and run it.
+- Read a host's terms before the first fetch (`tools/terms_links.py` lists the policy links).
+  Colorado's rules site allows robots in robots.txt but forbids them in its terms. When a
+  policy page itself refuses all readers (Delaware, Florida), say so in the source note.
+- When the official host of the rule text cannot be used (a commercial publisher, a refusal,
+  no answer), look for a final rule or notice on the agency's or register's own site; if
+  none, record no rates-in-force record and log the gap (California, Delaware, Georgia).
+- Rulemaking pages often link notices only by number or by postback: watch the page text
+  with `new_text` (California's list, Florida's rule pages), or add the notice title as a
+  strong keyword (Georgia's "new rules and regulations") so the notice is downloaded and
+  tested. Test the rule on the real page with the new notice removed.
+- Some states publish rule text only as Word (.doc) files (Florida); the tool reads them
+  (`documents.doc_text`). Table cells come out as " | " columns; read rate rows by band.
+- Rate tables printed by term band ("7-12", "49-60") give the 12- and 60-month headline
+  rates; name the band in `plan`.
+- `polite_get.py` names each saved file after the last part of the URL path, so pages like
+  `ruleNo.asp?id=...` overwrite each other: give each its own OUT_DIR.
+- A host that does not answer from the build computer (Georgia's rules site, Idaho) may
+  answer from GitHub's network; test it there before calling it blocked.
 
 ## Helper scripts
 
 - `tools/polite_get.py`: polite downloads through the project fetcher (see its docstring).
 - `tools/grep_pages.py`: search saved HTML/PDF text for phrases.
+- `tools/terms_links.py`: fetch a host's pages politely and list its terms, policy and
+  disclaimer links, to read before onboarding the host.
