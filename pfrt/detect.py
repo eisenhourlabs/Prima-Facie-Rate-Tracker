@@ -6,6 +6,9 @@ Rules:
   R3  new_links source: the hash changed but no R1/R4 finding. Logged, no candidate.
   R4  new_links source: a new link to a PDF or file download (LinkClick.aspx, /download)
       with no (or 3-character) anchor text.
+  R5  new_text source: the hash changed and the words added since the last check pre-match
+      the keywords (as R1 tests anchor text). Otherwise the change is logged as R3.
+      For index pages that list items without links (California's proposed regulations).
   suspect_redesign: more than 25 new links at once. No candidates; keep old snapshot.
 
 The functions here only compare. Downloading a document and testing its text
@@ -133,18 +136,44 @@ def _is_pdf_url(url: str) -> bool:
 
 
 def compare(watch_mode: str, old_snapshot: dict | None, new_hash: str,
-            new_links: dict[str, str], keywords: dict[str, list[str]]) -> list[Finding]:
+            new_links: dict[str, str], keywords: dict[str, list[str]],
+            new_text: str = "") -> list[Finding]:
     """Compare a fresh fetch with the last snapshot and return the findings.
 
     old_snapshot is None on a source's first run: that run is a baseline and
-    returns no findings.
+    returns no findings. new_text (the page's visible text) is used by new_text sources.
     """
     if not old_snapshot or "content_sha256" not in old_snapshot:
         return []   # no good fetch yet (a snapshot may hold only failure counts)
     changed = new_hash != old_snapshot.get("content_sha256")
     if watch_mode == "any_change":
         return [Finding("R2_content_changed")] if changed else []
+    if watch_mode == "new_text":
+        return _compare_text(old_snapshot.get("text", ""), new_text, changed, keywords)
     return _compare_links(old_snapshot.get("links", {}), new_links, changed, keywords)
+
+
+ADDED_TEXT_MAX = 300   # characters of added text kept in a finding
+
+
+def added_text(old_text: str, new_text: str) -> str:
+    """The words in new_text that are not in old_text, as runs joined by ' | '."""
+    old, new = old_text.split(), new_text.split()
+    sm = difflib.SequenceMatcher(None, old, new, autojunk=False)
+    runs = [" ".join(new[j1:j2]) for op, _, _, j1, j2 in sm.get_opcodes() if op in ("insert", "replace")]
+    return " | ".join(runs)
+
+
+def _compare_text(old_text: str, new_text: str, changed: bool,
+                  keywords: dict[str, list[str]]) -> list[Finding]:
+    """R5 and R3 for a new_text source."""
+    if not changed:
+        return []
+    added = added_text(old_text, new_text)
+    m = keyword_match(added, keywords)
+    if m.prematches:
+        return [Finding("R5_new_matching_text", "", added[:ADDED_TEXT_MAX], tuple(m.terms))]
+    return [Finding("R3_changed_no_match", new_anchors=(added[:ADDED_TEXT_MAX],) if added else ())]
 
 
 def _compare_links(old_links: dict[str, str], new_links: dict[str, str],

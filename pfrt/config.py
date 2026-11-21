@@ -16,7 +16,7 @@ from pathlib import Path
 
 # Allowed values, taken from plan section 2.3.
 ROLES = {"leading", "lagging"}
-WATCH_MODES = {"new_links", "any_change"}
+WATCH_MODES = {"new_links", "any_change", "new_text"}
 YES_NO = {"yes", "no"}
 
 STATE_COLUMNS = [

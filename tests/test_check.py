@@ -63,6 +63,32 @@ def test_unchanged_and_changed_against_a_snapshot(sources, keywords):
     assert changed.status == "changed" and changed.findings[0].rule == "R2_content_changed"
 
 
+def _page(titles):
+    body = "<p>Currently Proposed Regulations. Can't find the regulation you are looking for?</p>" * 12
+    items = "".join(f"<li><a href=\"javascript:__doPostBack('x{i}','')\">{t}</a></li>"
+                    for i, t in enumerate(titles))
+    html = f"<html><body>{body}<ul>{items}</ul></body></html>".encode()
+    from pfrt import documents
+    return fetch.FetchResult(status="ok", http_status=200, content=html, byte_count=len(html),
+                             text=documents.content_text(html, "text/html"))
+
+
+def test_new_text_source_makes_r5_candidate_with_saved_page(sources, keywords, tmp_path):
+    import dataclasses
+    src = dataclasses.replace(sources["IN-bulletins"], watch_mode="new_text", selector="", must_contain="")
+    first = _page(["LONG-TERM SOLVENCY PLANNING*"])
+    base = check.check_source(src, first, None, keywords)
+    snap = {"content_sha256": base.content_sha256, "links": base.links, "text": base.text}
+    second = _page(["LONG-TERM SOLVENCY PLANNING*", "CREDIT INSURANCE PRIMA FACIE RATES*"])
+    res = check.check_source(src, second, snap, keywords)
+    assert [f.rule for f in res.findings] == ["R5_new_matching_text"], (res.status, res.error)
+    check.act_on_findings(res, second, snap, ctx(tmp_path, keywords, dry_run=False))
+    assert len(res.candidates_created) == 1
+    assert list((tmp_path / "archive").rglob("*.htm*"))   # the page is the saved copy
+    other = _page(["LONG-TERM SOLVENCY PLANNING*", "NET COST OF REINSURANCE*"])
+    assert [f.rule for f in check.check_source(src, other, snap, keywords).findings] == ["R3_changed_no_match"]
+
+
 def test_failure_keeps_old_content_and_counts(sources, keywords, tmp_path):
     src = sources["IN-bulletins"]
     c = ctx(tmp_path, keywords, dry_run=False)

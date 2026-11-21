@@ -37,6 +37,8 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
      keyword (R1); if links are icons, R4 downloads PDF and download-style links
      (LinkClick.aspx, `fileticket=`, `/download`). If the link text names a document only by
      number (Nebraska "IGD - - A2"), add that text to `config/keywords.csv` as `strong`.
+   - If the index lists items by title with no usable links (ASP.NET postbacks, as in
+     California), use `new_text`: the added words are tested against the keywords (R5).
    - **Lagging** sources: the rule text (`any_change`). Prefer undated, current-version URLs.
    - Set `must_contain` to a phrase specific to the page.
 5. **Dry run:** `.venv\Scripts\python.exe -m pfrt check --dry-run --states XX --include-disabled`.

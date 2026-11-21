@@ -133,7 +133,8 @@ def check_source(source: Source, fr: fetch.FetchResult, snapshot: dict | None,
         res.status, res.error = "suspect", f"selector '{err}' matched nothing; layout may have changed"
         return res
     res.link_count = len(res.links)
-    res.findings = detect.compare(source.watch_mode, snapshot, res.content_sha256, res.links, keywords)
+    res.findings = detect.compare(source.watch_mode, snapshot, res.content_sha256, res.links, keywords,
+                                  new_text=fr.text)
     if not snapshot or "content_sha256" not in snapshot:
         res.status = "baseline"
     elif any(f.rule == "suspect_redesign" for f in res.findings):
@@ -150,7 +151,8 @@ def act_on_findings(res: SourceResult, fr: fetch.FetchResult, snapshot: dict | N
         return
     known = candidates.load_all(ctx.root) + records.load_all(ctx.root)
     for f in res.findings:
-        if f.rule == "R2_content_changed":
+        if f.rule in ("R2_content_changed", "R5_new_matching_text"):
+            # The page itself is the evidence: save it, with a diff against the last version.
             diff = detect.text_diff((snapshot or {}).get("text", ""), res.text)
             archived = documents.archive(fr.content, res.source.url, res.source.state,
                                          ctx.now.date(), fr.content_type, ctx.root)

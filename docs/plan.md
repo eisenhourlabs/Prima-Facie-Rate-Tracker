@@ -338,7 +338,7 @@ Field rules.
 | `state` | Two-letter code |
 | `products` | `CL`, `CD`, `IUI` separated by `;` |
 | `role` | `leading` (bulletins, orders, notices) or `lagging` (codified text) |
-| `watch_mode` | `new_links` for index pages; `any_change` for a single document or rule section |
+| `watch_mode` | `new_links` for index pages; `any_change` for a single document or rule section; `new_text` for an index page whose items have no usable links (added 2026-11-20, rule R5) |
 | `url` | Exact URL |
 | `format` | `html`, `pdf`, `doc`, `rtf` |
 | `selector` | Optional CSS selector for the part of the page to watch |
@@ -427,6 +427,7 @@ For PDF, DOC and RTF sources watched directly, the hash is taken over the raw fi
 | R2 | `any_change` sources | The content hash differs from the snapshot | Create a candidate with priority `high`. Save the new version. The candidate includes a text diff of old against new, limited to 60 lines. |
 | R3 | `new_links` sources | The content hash differs, and R1 created no candidate | No candidate. Log `changed_no_match` with the list of new anchors. The email lists these in a short "Other page changes" section. |
 | R4 | `new_links` sources | A new link has no anchor text, or anchor text of 3 characters or fewer, and points to a PDF | Download it and apply the text test from R1. This covers pages that link bulletins as bare icons. |
+| R5 | `new_text` sources (added 2026-11-20) | The content hash differs, and the words added since the last snapshot pre-match the keywords (the R1 anchor test) | Create a candidate with priority `high`, saving the page and a text diff as R2 does. If the added words do not pre-match, log R3 with the added text. For lists of titles with no document links (California's proposed regulations). |
 
 Examples, using titles seen on a real bulletin list:
 

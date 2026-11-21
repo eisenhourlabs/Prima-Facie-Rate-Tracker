@@ -54,6 +54,38 @@ def test_r2_on_any_change_hash_difference(keywords):
     assert detect.compare("any_change", snap(sha="same"), "same", {}, keywords) == []
 
 
+CA_LIST = "Currently Proposed Regulations 2025 CONFLICT OF INTEREST CODE* LONG-TERM SOLVENCY PLANNING*"
+
+
+def test_r5_new_text_matching_keywords(keywords):
+    # California lists proposed regulations by title only, with postback links.
+    old = dict(snap(), text=CA_LIST)
+    new = CA_LIST + " CREDIT LIFE AND CREDIT DISABILITY PRIMA FACIE RATES*"
+    [f] = detect.compare("new_text", old, "new", {}, keywords, new_text=new)
+    assert f.rule == "R5_new_matching_text"
+    assert f.anchor_text == "CREDIT LIFE AND CREDIT DISABILITY PRIMA FACIE RATES*"
+    assert "credit life" in f.matched_keywords and "prima facie" in f.matched_keywords
+
+
+def test_new_text_other_change_is_r3(keywords):
+    old = dict(snap(), text=CA_LIST)
+    new = CA_LIST.replace("LONG-TERM SOLVENCY PLANNING*", "NET COST OF REINSURANCE*")
+    [f] = detect.compare("new_text", old, "new", {}, keywords, new_text=new)
+    assert f.rule == "R3_changed_no_match" and f.new_anchors == ("NET COST OF REINSURANCE*",)
+
+
+def test_new_text_removed_item_only_is_r3_with_no_text(keywords):
+    old = dict(snap(), text=CA_LIST)
+    [f] = detect.compare("new_text", old, "new", {}, keywords,
+                         new_text=CA_LIST.replace(" LONG-TERM SOLVENCY PLANNING*", ""))
+    assert f.rule == "R3_changed_no_match" and f.new_anchors == ()
+
+
+def test_new_text_unchanged_hash_gives_nothing(keywords):
+    old = dict(snap(sha="same"), text=CA_LIST)
+    assert detect.compare("new_text", old, "same", {}, keywords, new_text=CA_LIST + " credit life") == []
+
+
 def test_r3_change_with_no_matching_link(keywords):
     old = snap({"https://x.gov/1.pdf": "Bulletin 1"})
     new = {"https://x.gov/1.pdf": "Bulletin 1", "https://x.gov/2.pdf": "Bulletin 2 - Ownership"}

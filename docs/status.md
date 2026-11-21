@@ -21,7 +21,7 @@ Last updated: 2026-11-20 (end of session).
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after Alabama: 57 confirmed records; 35 of 78 sources enabled; 193 tests pass.
+Totals after California: 57 confirmed records; 36 of 79 sources enabled; 198 tests pass.
 
 ## Where each state stands
 
@@ -42,16 +42,17 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | UT | notice | 0 | Yes | No change found; rates-in-force date not found (gap) |
 | WV | notice | 0 | Yes | No change since 2011; rule file is a scanned image (gap) |
 | AL | regulation | 3 (in force) | Yes (3) | Batch 9: Banking rule 155-2-2-.12 (CL, CD; June 1, 2018) and ALDOI 482-1-093 Exhibit B (IUI; 2003); Q4 settled from the rules; Administrative Monthly not readable (gap) |
+| CA | regulation | 0 | Yes (1) | Proposed-regulations list (`new_text`, R5); rates fixed in 10 CCR 2248.47 (2002) and 2670.6 (2006); official code host is the publisher's, so no saved copy and no records (gap) |
 | IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
 | PA | notice | 0 | No | Not started |
-| All others | regulation / statute / unclear | 0 | No | Not started: CA, CO, DE, FL, GA, HI, KS, KY, LA, ME, MD, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
+| All others | regulation / statute / unclear | 0 | No | Not started: CO, DE, FL, GA, HI, KS, KY, LA, ME, MD, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
 
 ## Next steps, in order
 
-1. **Regulation-fixed states**, alphabetically (Alabama done), next **California**, then CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD,
+1. **Regulation-fixed states**, alphabetically (Alabama and California done), next **Colorado**, then DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD,
    TN (early: 2026 rulemaking notice for chapter 0780-01-04), TX, WA, WY.
 2. **Statute-fixed** (LA, MS, MO, NC) and **unclear** (KY, MT).
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
@@ -80,7 +81,8 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 - Page: each record is a collapsed line; links open in a new tab; Recent shows changes
   communicated in the last 12 months or not yet in effect; "rates in force" records always
   show in History.
-- Detection: links written as `javascript:window.open('url')` are read (Alabama);
+- Detection: links written as `javascript:window.open('url')` are read (Alabama); watch mode
+  `new_text` (R5) tests the words added to a page, for lists without links (California);
   R4 covers icon links to PDFs and to download-style links; "igd - - a2" is a
   strong keyword (Nebraska).
 - robots.txt: owner-approved overrides in `config/robots_overrides.csv` (New Mexico only);
