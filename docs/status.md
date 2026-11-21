@@ -5,7 +5,7 @@ section 10); every decision and its reason is in `docs/decisions.md`; open items
 `docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
 at each stage gate and at the end of each session.
 
-Last updated: 2026-11-21 (fourth session; all but PA and ID onboarded; loose ends next).
+Last updated: 2026-11-21 (fifth session; probe workflow; Idaho and New York monitored; Georgia and Illinois Register results).
 
 ## Stages
 
@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (fourth session; all but PA and ID onboarded; loose end
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after the loose ends of 2026-11-21: 87 confirmed records; 77 of 100 sources enabled; 215 tests pass.
+Totals after the probe session of 2026-11-21: 87 confirmed records, plus 2 Idaho candidates (batch 25) awaiting the owner's confirm; 81 of 102 sources enabled; 215 tests pass.
 
 ## Where each state stands
 
@@ -46,7 +46,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | CO | regulation | 0 | Manual | Division site 403s the tool; SOS rule site's terms prohibit robots and reproduction; rates changed 2013, 2016, 2022 (gaps) |
 | DE | regulation | 0 | Manual | Department site and delaware.gov reject the tool; new rules system's robots.txt is an app page (owner question); archive frozen; rates unchanged since 1971 (gaps) |
 | FL | regulation | 2 | Yes (2) | Batch 10: CL in force since 2003; CD change effective 2019-08-15. Rule pages on flrules.org watched with `new_text`; rule files are Word (.doc), now read; IUI not researched |
-| GA | regulation | 0 | Yes (1) | Press releases (hearing notices; strong keyword "new rules and regulations"); CL rule unchanged since 1993 but rules.sos.ga.gov does not answer the tool (gap); no CD table in the insurance rules |
+| GA | regulation | 0 | Yes (1) | Press releases (hearing notices; strong keyword "new rules and regulations"); CL rule unchanged since 1993. rules.sos.ga.gov answers GitHub's network but its robots.txt disallows every rule page (`/gac/*-.*`): no saved copy, no records (owner question in gaps); no CD table in the insurance rules |
 | HI | regulation | 0 | Manual | State terms of use prohibit automated access to every hawaii.gov site (as Colorado); rates in HAR 16-6-11 and 16-6-12 (exhibit 1988); no records (gap) |
 | KS | regulation | 2 (in force) | Manual | Batch 11: K.A.R. 40-5-107 (May 1, 1988) from the frozen former Department site; new site 403, rules.ks.gov human check, Kansas Register disallowed by robots.txt |
 | ME | regulation | 0 | Manual | maine.gov refuses the tool (CloudFront 403), including the Rule 220 Word file; no records (gap) |
@@ -55,7 +55,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | NV | regulation | 3 (in force) | Yes (1) | Batch 14: NAC 690A CL, CD, IUI (R145-08, September 18, 2008); Division regulations page (`new_text`, strong keyword "nac 690a") |
 | NH | regulation | 2 (in force) | Yes (1) | Batch 15: actual premium rates by class, Table 1200-2 (February 2, 2018); Rulemaking Register (latest week only; gap); Insurance Department 403 |
 | NJ | regulation | 0 | Yes (1) | Department open proposals (`new_text`, strong keyword "11:2-3."); code text only on the publisher's host: no records (gap) |
-| NY | regulation | 0 | No | All ny.gov hosts fail to connect from the build computer; retry from GitHub's network; NYCRR on a publisher's host |
+| NY | regulation | 0 | Yes (1) | NY-dfs-reg-activity (DFS insurance regulatory activity, `new_text`, strong keywords "11 nycrr 185" and "11 nycrr 187"); ny.gov hosts answer GitHub's network only (local dry runs fail); rates are the 185.7(d) formula; NYCRR on a publisher's host: no records |
 | OK | regulation | 1 (in force) | Yes (1) | Batch 16: CL rates of OAC 365:10-5-64 (July 1, 1997); OID bulletins (strong keyword "bulletin no."); Appendix E (CD) not saved; rules.ok.gov bot challenge |
 | SD | regulation | 2 (in force) | Yes (1) | Batch 17: ARSD 20:06:06:03 and :04 (July 1, 2000); Division hearings page (`new_text`); IUI "no" |
 | TN | regulation | 0 | Manual | tn.gov and Secretary of State hosts 403; 2026 rulemaking on 0780-01-04 unread (gap) |
@@ -68,10 +68,10 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | NC | statute | 2 (in force) | Yes (1) | Batch 22: G.S. 58-57-40 (January 1, 1997), 58-57-45 (January 1, 1994); NCDOI bulletins |
 | KY | statute | 2 (in force) | Yes (1) | Batch 23: KRS 304.19-080 (rates of the 2010 version, re-enacted unchanged July 15, 2026); Department home page bulletins; manual check |
 | MT | regulation | 0 | Yes (1) | CSI rule notices (`new_text`); ARM 6.6.1101 CL rate $.80 known but undated; rules.mt.gov refuses the tool (gap) |
-| IL | regulation | 1 | Yes (1) | Batch 24: credit life prima facie rates lowered effective May 22, 2025 (1051.50; old rates not recorded, Illinois Register host does not answer); Company Bulletins 2026 JSON (`new_text`; address changes each January) and rule 1051.50 (lagging); A&H part not located |
+| IL | regulation | 1 | Yes (1) | Batch 24: credit life prima facie rates lowered effective May 22, 2025 (1051.50); date communicated October 11, 2024 (proposal, 48 Ill. Reg. 14484, per JCAR's Flinn Report) to be added by `review amend` (owner); old rates not recorded: the Illinois Register answers neither the build computer nor GitHub (manual check); Company Bulletins 2026 JSON (`new_text`; address changes each January) and rule 1051.50 (lagging) |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
-| ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
+| ID | notice | 2 (candidates) | Yes (3) | Batch 25 (candidates; owner confirm pending): CL and CD rates in force since July 1, 1993, posted by the Director since 2022 (IDAPA 18.03.05.014; attachment dated 6/1/2022); rates PDF and rules page (doi.idaho.gov, GitHub's network only; local dry runs fail) and the rule on adminrules.idaho.gov; triennial review (next 2028) |
 | PA | notice | 0 | Yes (1) | Department notice library on pa.gov (`new_text`); rate notices are in the Pennsylvania Bulletin, whose robots.txt disallows all robots: no records (owner question) |
 
 ## Next steps, in order
@@ -80,15 +80,17 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 2. **Statute-fixed** (LA, MS, MO, NC done; Q11 option A built: `config/manual_checks.csv`, May and September).
    **KY and MT done (2026-11-21, fourth session):** KY statute-fixed (batch 23; manual check added); MT monitored, records a gap (see `docs/gaps.md`). All regulation-, statute- and unclear-group states are onboarded; next are the loose ends below
    (Pennsylvania and Idaho of the notice group are among them).
-3. **Loose ends from the notice group:** NM, SC and PA monitoring enabled 2026-11-21 (PA records need an owner decision on the Pennsylvania Bulletin); Idaho (choose `must_contain` from a copy fetched on GitHub's
-   network, for example a workflow artifact); Illinois leading source added 2026-11-21.
+3. **Loose ends from the notice group:** NM, SC and PA monitoring enabled 2026-11-21 (PA records need an owner decision on the Pennsylvania Bulletin); Illinois leading source added 2026-11-21.
+   **Idaho done (2026-11-21, fifth session):** monitored (3 sources); batch 25 imported as candidates, confirm pending.
 4. **Follow-up to the robots decision of 2026-11-20** (an app page equal to the home page
    means no robots.txt): read the terms of admincode.legislature.state.al.us and
    regulations.delaware.gov, then add sources there (Alabama Administrative Monthly;
    Delaware Register and Regulation 1701). Both are single-page apps with /api/ addresses.
-5. **Hosts to retry from GitHub's network** (a workflow run, as for Idaho): rules.sos.ga.gov
-   (Georgia rule 120-2-27, for a rates-in-force record and a lagging source); every ny.gov host
-   (New York DFS regulatory activity and the State Register).
+5. **Hosts to retry from GitHub's network: done 2026-11-21** with the probe workflow (`probe.yml`; runs
+   44960357704 and 44961254333). doi.idaho.gov and the ny.gov hosts answer (Idaho and New York monitored);
+   rules.sos.ga.gov answers but robots.txt disallows its rule pages (Georgia owner question); www.ilsos.gov
+   does not answer (Illinois Register: manual check). Open: owner confirm of batch 25 and `review amend`
+   of IL-CL-2025-05-22-1 (values file prepared in the session); a `check` dry run on GitHub for ID and NY.
 6. **Owner choices that would add records** (see `docs/gaps.md`): Colorado (written
    permission from the Secretary of State, or another host; rates changed 2013, 2016, 2022);
    California (Department copy of the 2002 and 2006 rules saved by hand, or the Westlaw text);

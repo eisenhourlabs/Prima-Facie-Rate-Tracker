@@ -1,4 +1,4 @@
-"""Fetch pages politely and list links that look like terms, policy, legal or disclaimer pages.
+r"""Fetch pages politely and list links that look like terms, policy, legal or disclaimer pages.
 
 Run from the repository folder (Windows):
     .venv\Scripts\python.exe -I tools\terms_links.py . URL [URL ...]

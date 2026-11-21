@@ -52,7 +52,7 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
 6. **Seed records** from saved public documents only:
    - Copy each document into `seed/documents/` (git-ignored); give it a clear name.
    - Write `seed/batch_NN.csv` with a small script (keeps repeated plan/basis text identical).
-     Next batch number: see `seed/` (batch_24 is the last used).
+     Next batch number: see `seed/` (batch_25 is the last used).
    - Headline rates (A5): credit life per-annum and outstanding-balance rates as published;
      12- and 60-month rates where the state publishes rates by term (for credit disability,
      and for credit life where a term table exists). Never compute a rate (formulas,
@@ -141,6 +141,15 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
 - Keywords are global. On a `new_text` page a strong keyword makes a candidate directly, so
   test a new keyword against the ordinary text of every `new_text` page it could appear on
   ("rule changes" was dropped because South Dakota's page says "rule changes pending").
+- A host that refuses the build computer but answers GitHub (Idaho, New York) is probed with the
+  `probe` workflow (GitHub > Actions > probe, or `gh workflow run probe.yml -f urls="..."`); its
+  artifact holds the copies and logs. Put terms pages first, and hold back content pages of hosts
+  whose terms are unknown or doubtful. Dry-run such sources offline on the probe copies
+  (`check --dry-run --offline --fixtures DIR`, files named SOURCE_ID.ext).
+- robots.txt wildcards (`Disallow: /gac/*-.*`, Georgia) are honored by the fetcher: test a URL
+  against the saved robots.txt before planning a source.
+- A state may make a posted web document the governing publication (Idaho 18.03.05.014: "The
+  Director will post on the Department's website the prima facie rates"): watch that file itself.
 - UTF-16 pages (South Dakota) pass a UTF-8 decode with zero bytes between letters;
   `seed scan` now checks for UTF-16 first.
 
