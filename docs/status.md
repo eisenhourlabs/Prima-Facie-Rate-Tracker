@@ -72,7 +72,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
-| PA | notice | 0 | No | Not started |
+| PA | notice | 0 | Yes (1) | Department notice library on pa.gov (`new_text`); rate notices are in the Pennsylvania Bulletin, whose robots.txt disallows all robots: no records (owner question) |
 
 ## Next steps, in order
 
@@ -80,7 +80,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 2. **Statute-fixed** (LA, MS, MO, NC done; Q11 option A built: `config/manual_checks.csv`, May and September).
    **KY and MT done (2026-11-21, fourth session):** KY statute-fixed (batch 23; manual check added); MT monitored, records a gap (see `docs/gaps.md`). All regulation-, statute- and unclear-group states are onboarded; next are the loose ends below
    (Pennsylvania and Idaho of the notice group are among them).
-3. **Loose ends from the notice group:** NM and SC monitoring enabled 2026-11-21; Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
+3. **Loose ends from the notice group:** NM, SC and PA monitoring enabled 2026-11-21 (PA records need an owner decision on the Pennsylvania Bulletin); Idaho (choose `must_contain` from a copy fetched on GitHub's
    network, for example a workflow artifact); a leading source for Illinois.
 4. **Follow-up to the robots decision of 2026-11-20** (an app page equal to the home page
    means no robots.txt): read the terms of admincode.legislature.state.al.us and
