@@ -46,7 +46,7 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
 6. **Seed records** from saved public documents only:
    - Copy each document into `seed/documents/` (git-ignored); give it a clear name.
    - Write `seed/batch_NN.csv` with a small script (keeps repeated plan/basis text identical).
-     Next batch number: see `seed/` (batch_08 is the last used).
+     Next batch number: see `seed/` (batch_09 is the last used).
    - Headline rates (A5): credit life per-annum and outstanding-balance rates as published;
      12- and 60-month rates where the state publishes rates by term (for credit disability,
      and for credit life where a term table exists). Never compute a rate (formulas,
@@ -86,6 +86,11 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
 - Rule history lines show when rate sections were last amended; compare the proposal text
   with the current text before calling an amendment a rate change (North Dakota 2021 changed
   formulas only).
+- Read the definitions section: Alabama's insurance rule names the "Superintendent" (of Banks)
+  as the source of its prima facie rates, which settled which agency's rule holds them.
+- Some agencies are exempt from their state's administrative procedure act (Alabama's
+  Department of Insurance) and post revised rules only on their own site, under a new file
+  name; their own list of rules is then the leading source.
 - Third-party copies (Justia, Cornell, Casetext mirrors, trade bulletins) are only for finding
   official documents; never a record's source.
 - In this Git Bash shell, long inline Python with quotes can fail to parse; write the script

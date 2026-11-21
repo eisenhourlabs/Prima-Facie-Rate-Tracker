@@ -1,0 +1,99 @@
+{
+  "archived_copy": "archive/AL/2026-11-21_05fbe54e.pdf",
+  "archived_sha256": "05fbe54e9f8ff1e1103d47a83e78499502955f197bc124ac6774b07667e423d5",
+  "candidate_id": "c-20261121-AL-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://banking.alabama.gov/wp-content/uploads/2023/06/155_2_2_12.pdf",
+  "effective_date": "2018-06-01",
+  "history": [
+    {
+      "at": "2026-11-21T01:34:54Z",
+      "batch": "batch_09",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T01:34:55Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Ala. Admin. Code r. 155-2-2-.12; r. 482-1-117-.04(r), -.10 and -.18; Code of Ala. 1975, 5-19-20",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 1.9,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 1.3,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 3.5,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 7-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 2.7,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 2.2,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 4.4,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 3.8,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 6.8,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 7-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 5.2,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial indebtedness (total of payments)",
+      "new_rate": 4.7,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from the table in paragraph 3 of the rule (\"Rate Per $100 of Initial Indebtedness\"), rows for indebtedness payable in 12 and 60 months; the table runs from 1 to 120 months plus $.20 for each additional 12 months, and other terms are interpolated. \"Initial indebtedness\" means the total of payments. The column headings print as \"Non-Retroacive\" [sic] Benefits (14-day, 30-day) and Retroactive Benefits (7-day, 14-day, 30-day); the text extraction runs the heading lines together, so the columns were read from their positions on the page. Joint coverage is at most 185% of these rates (paragraph 6). Higher rates need a deviation approved by the Banking and Insurance Departments (paragraph 4; 482-1-117-.18).",
+  "record_id": "AL-CD-2018-06-01-1",
+  "retrieved_at": "2026-11-21T01:34:54Z",
+  "source_title": "Ala. Admin. Code r. 155-2-2-.12, Insurance - Alabama Consumer Credit Act (State Banking Department, Bureau of Loans; amended March 9, 1998 and June 1, 2018)",
+  "source_url": "https://banking.alabama.gov/wp-content/uploads/2023/06/155_2_2_12.pdf",
+  "state": "AL",
+  "status": "confirmed",
+  "summary": "Rates in force: Alabama's maximum credit disability single premium rates in Banking rule 155-2-2-.12 as amended June 1, 2018; for 12 months, $1.30 (30-day nonretroactive) to $3.50 (7-day retroactive) per $100 of initial indebtedness. Insurance rule 482-1-117-.10 makes the maximum rates of the Superintendent of Banks the prima facie rates for consumer loans and sales. June 1, 2018 is the rule's last amendment; whether it changed these figures was not confirmed from an official copy of the earlier text.",
+  "verified": true
+}

@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/AL/2026-11-21_94c642af.pdf",
+  "archived_sha256": "94c642af310023e86a955dc64dbdde0a67cb2d705f67f3893e481f40a02eda81",
+  "candidate_id": "c-20261121-AL-03",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "2002-07-23",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.aldoi.gov/PDF/Legal/093r-2002.PDF",
+  "effective_date": "2003-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T01:34:54Z",
+      "batch": "batch_09",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T01:35:15Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Ala. Admin. Code r. 482-1-093-.10(b), -.14 and Exhibit B; Code of Ala. 1975, 27-2-17",
+  "origin": "seed",
+  "product": "IUI",
+  "rate_items": [
+    {
+      "basis": "per $100 of outstanding balance",
+      "new_rate": 0.1,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance (Table 1), 12-month benefit period, 30-day elimination and 30-day waiting period, non-retroactive"
+    },
+    {
+      "basis": "per $100 of outstanding balance",
+      "new_rate": 0.14,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance (Table 1), 12-month benefit period, 30-day elimination and 30-day waiting period, retroactive"
+    },
+    {
+      "basis": "per $100 of monthly benefit",
+      "new_rate": 3.15,
+      "pct_change": null,
+      "plan": "Monthly benefit rating base (Table 2), 12-month benefit period, 30-day elimination and 30-day waiting period, non-retroactive"
+    },
+    {
+      "basis": "per $100 of monthly benefit",
+      "new_rate": 4.45,
+      "pct_change": null,
+      "plan": "Monthly benefit rating base (Table 2), 12-month benefit period, 30-day elimination and 30-day waiting period, retroactive"
+    },
+    {
+      "basis": "per $100 of monthly benefit",
+      "new_rate": 2.45,
+      "pct_change": null,
+      "plan": "Single premium, term under ten years (Table 3, times the months in the loan term), 12-month benefit period, 30-day elimination and 30-day waiting period, non-retroactive"
+    },
+    {
+      "basis": "per $100 of monthly benefit",
+      "new_rate": 3.5,
+      "pct_change": null,
+      "plan": "Single premium, term under ten years (Table 3, times the months in the loan term), 12-month benefit period, 30-day elimination and 30-day waiting period, retroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from Exhibit B, Tables 1 to 3, rows for a 12-month benefit period (each table also gives 3, 6 and 9 months). Table 1 assumes a monthly indemnity of 3% of the monthly outstanding balance and is adjusted proportionally otherwise. A single premium is the number of months in the loan term times the Table 3 rate. The rates assume single coverage for involuntary layoff, termination, strikes, labor disputes and lockouts. Joint IUI sold under the Consumer Credit Act is at most 175% of single (Banking rule 155-2-2-.12, paragraph 7).",
+  "record_id": "AL-IUI-2003-01-01-1",
+  "retrieved_at": "2026-11-21T01:34:54Z",
+  "source_title": "Ala. Admin. Code ch. 482-1-093, Credit Property and Involuntary Unemployment Insurance, Exhibit B (Department of Insurance; revised July 23, 2002, effective August 2, 2002)",
+  "source_url": "https://www.aldoi.gov/PDF/Legal/093r-2002.PDF",
+  "state": "AL",
+  "status": "confirmed",
+  "summary": "Rates in force: Alabama's presumptive IUI rates in Exhibit B of Department of Insurance chapter 482-1-093 (rule 482-1-093-.10(b): rates not above Exhibit B are presumed reasonable; higher rates need a loss ratio of at least 50%). The chapter was revised July 23, 2002, effective August 2, 2002, and the revisions apply to policies sold after December 31, 2002, so January 1, 2003 is used. No later revision is listed on the Department's regulations page.",
+  "verified": true
+}

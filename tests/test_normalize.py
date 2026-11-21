@@ -66,6 +66,14 @@ def test_anchor_text_collapsed_and_mailto_skipped():
         "https://example.gov/dir/b.pdf": "Bulletin 278"}
 
 
+def test_javascript_window_open_link_uses_its_address():
+    # As on www.aldoi.gov/Legal/Regulations.aspx; other javascript: links are still skipped.
+    html = ("<a href='javascript:window.open(\"../PDF/Legal/117-1999.pdf\",\"_blank\"); "
+            "_blank.focus()'>PDF</a><a href='javascript:void(0)'>Menu</a>")
+    assert normalize.extract_links(html, "https://www.aldoi.gov/Legal/Regulations.aspx") == {
+        "https://www.aldoi.gov/PDF/Legal/117-1999.pdf": "PDF"}
+
+
 def test_duplicate_link_keeps_longer_text():
     html = '<a href="b.pdf"><img src="i.png"></a><a href="b.pdf">Bulletin 278</a>'
     assert normalize.extract_links(html, "https://example.gov/") == {

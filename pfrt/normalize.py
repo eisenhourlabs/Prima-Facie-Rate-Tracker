@@ -67,6 +67,10 @@ def clean_url(url: str) -> str:
                        urlencode(query), ""))
 
 
+# A javascript: link whose first action opens a document: javascript:window.open("url", ...)
+WINDOW_OPEN = re.compile(r"""javascript:\s*window\.open\(\s*["']([^"']+)["']""", re.I)
+
+
 def extract_links(html: str | bytes, base_url: str, selector: str = "") -> dict[str, str]:
     """Map of absolute, cleaned URL -> anchor text for every link in the page (or selected part).
 
@@ -76,6 +80,11 @@ def extract_links(html: str | bytes, base_url: str, selector: str = "") -> dict[
     links: dict[str, str] = {}
     for a in _soup(html, selector).find_all("a", href=True):
         href = a["href"].strip()
+        # Some sites (Alabama's Department of Insurance) open each document with
+        # href="javascript:window.open('../pdf/x.pdf', ...)". Use the address inside.
+        opened = WINDOW_OPEN.match(href)
+        if opened:
+            href = opened.group(1).strip()
         if not href or href.startswith(("mailto:", "tel:", "javascript:", "#")):
             continue
         url = clean_url(urljoin(base_url, href))

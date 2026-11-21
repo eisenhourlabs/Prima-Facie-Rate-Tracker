@@ -1035,7 +1035,7 @@ The fixed decision is to email when candidates are found or a state could not be
 - Option B: email only.
 - Option C: GitHub issues only, with no mailbox and no secrets.
 
-**Q4. NEEDS TROY'S DECISION. Alabama.** Search excerpts show rate rules from both the Department of Insurance (ch. 482-1-117, which refers to maximum rates promulgated by the Superintendent) and the State Banking Department (r. 155-2-2-.12). Which is the prima facie rate for this log: insurance only, banking only, or both as separate sources? Recommendation: monitor both and decide at the first candidate.
+**Q4. SETTLED BY THE RULES 2026-11-20 (owner may revisit): both agencies are monitored; the Banking rule 155-2-2-.12 holds the credit life and disability prima facie rates, because 482-1-117-.04(r) defines "Superintendent" as the Superintendent of Banks and -.10 makes the Superintendent's maximum rates the prima facie rates; IUI rates are the Department of Insurance's 482-1-093 Exhibit B. See `docs/decisions.md`.** Original question: Alabama. Search excerpts show rate rules from both the Department of Insurance (ch. 482-1-117, which refers to maximum rates promulgated by the Superintendent) and the State Banking Department (r. 155-2-2-.12). Which is the prima facie rate for this log: insurance only, banking only, or both as separate sources? Recommendation: monitor both and decide at the first candidate.
 
 **Q5. NEEDS TROY'S DECISION. What goes in `confirmed_by` in a public repository?**
 - Option A (recommended): the word `owner`.
