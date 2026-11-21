@@ -1,0 +1,51 @@
+{
+  "archived_copy": "archive/WA/2026-11-21_295b536d.html",
+  "archived_sha256": "295b536d01d6e02a848cc7bf720d28fc10de7ae4f783726060efbd314d3d0e36",
+  "candidate_id": "c-20261121-WA-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://lawfilesext.leg.wa.gov/Law/WAC/WAC%20284%20%20TITLE/WAC%20284%20-%2034%20%20CHAPTER/WAC%20284%20-%2034%20-150.htm",
+  "effective_date": "2005-04-01",
+  "history": [
+    {
+      "at": "2026-11-21T17:24:18Z",
+      "batch": "batch_19",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T17:24:19Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "WAC 284-34-150; RCW 48.34.100 and 48.34.110",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per one thousand dollars of outstanding insured debt",
+      "new_rate": 0.6,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per month per one thousand dollars of outstanding insured debt",
+      "new_rate": 0.96,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are in WAC 284-34-150(1)(a), printed as \"Sixty cents\" and \"Ninety-six cents\". Single premium rates are computed from these with the formula in (2) (not recorded). WAC 284-34-210: the commissioner reviews the rates every three years and publishes new statewide rates if needed. Filed 1/4/05, effective 4/1/05 (WSR 05-02-076, Matter No. R 2002-02); no later amendment is listed in the section.",
+  "record_id": "WA-CL-2005-04-01-1",
+  "retrieved_at": "2026-11-21T17:24:18Z",
+  "source_title": "WAC 284-34-150, What are the standards for prima facie credit life insurance rates? (Washington State Legislature)",
+  "source_url": "https://lawfilesext.leg.wa.gov/Law/WAC/WAC%20284%20%20TITLE/WAC%20284%20-%2034%20%20CHAPTER/WAC%20284%20-%2034%20-150.htm",
+  "state": "WA",
+  "status": "confirmed",
+  "summary": "Rates in force: Washington's prima facie credit life rates in WAC 284-34-150: 60 cents (single life) and 96 cents (joint life) per month per $1,000 of outstanding insured debt, effective April 1, 2005.",
+  "verified": true
+}

@@ -1,0 +1,99 @@
+{
+  "archived_copy": "archive/WA/2026-11-21_80580499.html",
+  "archived_sha256": "80580499fdb69b3f01ae0c3977602ae6e2329e54f7dbaa5f5f1c51940cad6f93",
+  "candidate_id": "c-20261121-WA-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://lawfilesext.leg.wa.gov/Law/WAC/WAC%20284%20%20TITLE/WAC%20284%20-%2034%20%20CHAPTER/WAC%20284%20-%2034%20-170.htm",
+  "effective_date": "2005-04-01",
+  "history": [
+    {
+      "at": "2026-11-21T17:24:18Z",
+      "batch": "batch_19",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T17:24:19Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "WAC 284-34-170; RCW 48.34.100 and 48.34.110",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 1.49,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 0.86,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 1.85,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 7-day retroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 1.77,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 1.39,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 2.83,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 2.09,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 4.38,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 7-day retroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 4.05,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 3.05,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    }
+  ],
+  "rate_table_note": "Rates are the single premium table in WAC 284-34-170(1)(a), by number of months (1 to 120) and nonretroactive (14-, 30-day) or retroactive (7-, 14-, 30-day) benefits; months 12 and 60 recorded. Composite monthly rates per $1,000 of insured net debt for open-end plans are in (2)(f) ($1.06, $0.81, $1.72, $1.58, $1.18). Joint is 1.6 times single (3). Filed 1/4/05, effective 4/1/05 (WSR 05-02-076, Matter No. R 2002-02); no later amendment is listed in the section.",
+  "record_id": "WA-CD-2005-04-01-1",
+  "retrieved_at": "2026-11-21T17:24:18Z",
+  "source_title": "WAC 284-34-170, What are the standards for credit accident and health insurance rates? (Washington State Legislature)",
+  "source_url": "https://lawfilesext.leg.wa.gov/Law/WAC/WAC%20284%20%20TITLE/WAC%20284%20-%2034%20%20CHAPTER/WAC%20284%20-%2034%20-170.htm",
+  "state": "WA",
+  "status": "confirmed",
+  "summary": "Rates in force: Washington's prima facie single premium credit accident and health rates in WAC 284-34-170, per $100 of initial insured debt, for 12 and 60 months, effective April 1, 2005.",
+  "verified": true
+}

@@ -5,7 +5,7 @@ section 10); every decision and its reason is in `docs/decisions.md`; open items
 `docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
 at each stage gate and at the end of each session.
 
-Last updated: 2026-11-21 (third session; regulation-fixed states AL to TN done).
+Last updated: 2026-11-21 (third session; all regulation-fixed states done).
 
 ## Stages
 
@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (third session; regulation-fixed states AL to TN done).
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after Tennessee: 74 confirmed records; 53 of 89 sources enabled; 208 tests pass.
+Totals after Wyoming: 78 confirmed records; 59 of 93 sources enabled; 208 tests pass.
 
 ## Where each state stands
 
@@ -59,17 +59,20 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | OK | regulation | 1 (in force) | Yes (1) | Batch 16: CL rates of OAC 365:10-5-64 (July 1, 1997); OID bulletins (strong keyword "bulletin no."); Appendix E (CD) not saved; rules.ok.gov bot challenge |
 | SD | regulation | 2 (in force) | Yes (1) | Batch 17: ARSD 20:06:06:03 and :04 (July 1, 2000); Division hearings page (`new_text`); IUI "no" |
 | TN | regulation | 0 | Manual | tn.gov and Secretary of State hosts 403; 2026 rulemaking on 0780-01-04 unread (gap) |
+| TX | regulation | 2 (in force) | Yes (2) | Batch 18: 28 TAC 3.5206 Exhibits 21, 22-4, 22-6 (January 1, 2006; Class E and other classes); TDI yearly rules list (`new_text`; URL changes each January) and rules index |
+| WA | regulation | 2 (in force) | Yes (1) | Batch 19: WAC 284-34-150, -170 (April 1, 2005); OIC rulemaking list; WAC section files lagging |
+| WY | regulation | 0 | Yes (1) | Department memos and bulletins (`new_text`, "ch. 52"); rules.wyo.gov needs a form postback: no records (gap) |
 | IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
 | PA | notice | 0 | No | Not started |
-| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, MS, MO, MT, NC, TX, WA, WY |
+| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, MS, MO, MT, NC |
 
 ## Next steps, in order
 
-1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD, TN done), next **Texas**, then
-   WA, WY.
+1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD, TN, TX, WA, WY done).
+   Next: statute-fixed states (item 2).
 2. **Statute-fixed** (LA, MS, MO, NC) and **unclear** (KY, MT).
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
    disabled); Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
@@ -110,9 +113,13 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | 15 | NH | 2 | Rates in force (actual premium rates by class; 2018) |
 | 16 | OK | 1 | Rates in force (CL; 1997) |
 | 17 | SD | 2 | Rates in force (CL, CD; 2000) |
+| 18 | TX | 2 | Rates in force (CL, CD; 2006) |
+| 19 | WA | 2 | Rates in force (CL, CD; 2005) |
 
 ## Notes carried forward
 
+- Each January: move TX-rules-2026 to TDI's new yearly rules page (rules/YYYY/index.html);
+  TX-rules-index reports the new year's link as a page change.
 - Page: each record is a collapsed line; links open in a new tab; Recent shows changes
   communicated in the last 12 months or not yet in effect; "rates in force" records always
   show in History.

@@ -1,0 +1,135 @@
+{
+  "archived_copy": "archive/TX/2026-11-21_7e3b75e5.html",
+  "archived_sha256": "7e3b75e5e6dccc65404ecac96345a64346057e8d41a389628a55cf33cb0ff2b6",
+  "candidate_id": "c-20261121-TX-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.tdi.texas.gov/rules/2004/0519-059.html",
+  "effective_date": "2006-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T17:24:16Z",
+      "batch": "batch_18",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T17:24:17Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "28 TAC 3.5206; Texas Insurance Code ch. 1153",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.73,
+      "pct_change": null,
+      "plan": "Class E (dealers) alone: single premium, 12 equal monthly installments, benefits after 14th day of disability, retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.51,
+      "pct_change": null,
+      "plan": "Class E (dealers) alone: single premium, 12 equal monthly installments, benefits after 14th day of disability, non-retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.39,
+      "pct_change": null,
+      "plan": "Class E (dealers) alone: single premium, 12 equal monthly installments, benefits after 30th day of disability, retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.01,
+      "pct_change": null,
+      "plan": "Class E (dealers) alone: single premium, 12 equal monthly installments, benefits after 30th day of disability, non-retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 2.99,
+      "pct_change": null,
+      "plan": "Class E (dealers) alone: single premium, 60 equal monthly installments, benefits after 14th day of disability, retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 2.76,
+      "pct_change": null,
+      "plan": "Class E (dealers) alone: single premium, 60 equal monthly installments, benefits after 14th day of disability, non-retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 2.18,
+      "pct_change": null,
+      "plan": "Class E (dealers) alone: single premium, 60 equal monthly installments, benefits after 30th day of disability, retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.93,
+      "pct_change": null,
+      "plan": "Class E (dealers) alone: single premium, 60 equal monthly installments, benefits after 30th day of disability, non-retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 2.3,
+      "pct_change": null,
+      "plan": "All classes except Class E: single premium, 12 equal monthly installments, benefits after 14th day of disability, retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 2.0,
+      "pct_change": null,
+      "plan": "All classes except Class E: single premium, 12 equal monthly installments, benefits after 14th day of disability, non-retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.84,
+      "pct_change": null,
+      "plan": "All classes except Class E: single premium, 12 equal monthly installments, benefits after 30th day of disability, retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.34,
+      "pct_change": null,
+      "plan": "All classes except Class E: single premium, 12 equal monthly installments, benefits after 30th day of disability, non-retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 3.96,
+      "pct_change": null,
+      "plan": "All classes except Class E: single premium, 60 equal monthly installments, benefits after 14th day of disability, retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 3.66,
+      "pct_change": null,
+      "plan": "All classes except Class E: single premium, 60 equal monthly installments, benefits after 14th day of disability, non-retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 2.89,
+      "pct_change": null,
+      "plan": "All classes except Class E: single premium, 60 equal monthly installments, benefits after 30th day of disability, retroactive"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 2.56,
+      "pct_change": null,
+      "plan": "All classes except Class E: single premium, 60 equal monthly installments, benefits after 30th day of disability, non-retroactive"
+    }
+  ],
+  "rate_table_note": "Rates are Exhibits 22-4 (Class E alone) and 22-6 (all classes except Class E), Credit Disability Insurance Presumptive Premium Rates per $100 of Initial Indebtedness, by original number of equal monthly installments; rows 12 and 60. Exhibits 22-3 and 22-5 (plans 10 to 26) say single premium plans 10 to 13 use these rates times the discount factor 1/(1 + (i x n)/24), i = .035 (not applied here), and give revolving outstanding balance rates (other classes: $1.78, $1.32, $1.55 and $1.16 per month per $1000 for 14- and 30-day retroactive and non-retroactive). Column order: 22-6's header reads 14th day retro and non-retro, then 30th day retro and non-retro; 22-4's extracted header is garbled, but in both exhibits only the first two columns are filled for 3 to 5 installments and each Class E figure is about 75 percent of the matching 22-6 figure, so the order is the same. TDI's yearly lists of proposed and adopted rules for 2006 to 2026 show no later amendment of 3.5206 (credit items in 2009, 2012, 2013 and 2021 concern reserves, company obligations, the consumer bill of rights and the experience call); the official Texas Administrative Code (Secretary of State) could not be read by the tool. Also saved: archive/TX/2026-11-21_bd85ad71.html (TX-3.5206-Exhibit-22-4.html); archive/TX/2026-11-21_e93bd427.html (TX-3.5206-Exhibit-22-6.html); archive/TX/2026-11-21_e4b8d6fb.html (TX-3.5206-Exhibit-22-3.html); archive/TX/2026-11-21_af6faa03.html (TX-3.5206-Exhibit-22-5.html).",
+  "record_id": "TX-CD-2006-01-01-1",
+  "retrieved_at": "2026-11-21T17:24:16Z",
+  "source_title": "28 TAC 3.5206, Presumptive Premium Rates, as adopted by the Commissioner on May 18, 2005 (TDI adoption notice 0519-059; rates to be used on or after January 1, 2006), with Figures: Exhibits 21 and 22-3 to 22-6",
+  "source_url": "https://www.tdi.texas.gov/rules/2004/0519-059.html",
+  "state": "TX",
+  "status": "confirmed",
+  "summary": "Rates in force: Texas presumptive premium rates for credit disability in 28 TAC 3.5206 (Exhibits 22-4 and 22-6), used on or after January 1, 2006, per $100 of initial indebtedness, for 12 and 60 monthly installments, 14- and 30-day, retroactive and non-retroactive, for Class E (dealers) and for all other classes.",
+  "verified": true
+}

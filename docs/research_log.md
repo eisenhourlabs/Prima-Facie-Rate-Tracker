@@ -252,3 +252,23 @@ documents.
 |---|---|
 | www.tn.gov | 403 (robots.txt included) |
 | sharetngov.tnsosfiles.com, publications.tnsosfiles.com, sos.tn.gov, tnsos.org | 403 CloudFront "request could not be satisfied" |
+
+### Texas (TX)
+| Host | Result |
+|---|---|
+| www.tdi.texas.gov | 200; robots.txt allows; privacy page grants copying for noncommercial use. rules/index.html; rules/YYYY/index.html for 2004 to 2026 (2014 via parules.html); rules/2004/0519-059.html (adoption, May 18, 2005) and figures T28S3-5206EXH21, 22-3 to 22-6; bulletins/2005/b-0069-05.html |
+| www.sos.state.tx.us | 405 |
+
+### Washington (WA)
+| Host | Result |
+|---|---|
+| www.insurance.wa.gov | 200; privacy policy (no terms against automated access); laws-rules/legislation-and-rulemaking/rulemaking |
+| app.leg.wa.gov | 403 |
+| lawfilesext.leg.wa.gov | 200; no robots.txt; WAC 284-34-150, -170, -210 section files |
+
+### Wyoming (WY)
+| Host | Result |
+|---|---|
+| doi.wyo.gov | 200 (Google Sites); /legal lists memos and bulletins linked to Google Drive |
+| rules.wyo.gov | 200; no robots.txt (404); Search.aspx pages return "No Results Found" without a form postback |
+| wyoleg.gov | 200; ARules archive (ARR14-052 is chapter 43, not 52) |
