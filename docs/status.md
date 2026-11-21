@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (fourth session; all but PA and ID onboarded; loose end
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after Montana: 86 confirmed records; 71 of 98 sources enabled; 215 tests pass.
+Totals after the loose ends of 2026-11-21: 87 confirmed records; 77 of 100 sources enabled; 215 tests pass.
 
 ## Where each state stands
 
@@ -68,7 +68,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | NC | statute | 2 (in force) | Yes (1) | Batch 22: G.S. 58-57-40 (January 1, 1997), 58-57-45 (January 1, 1994); NCDOI bulletins |
 | KY | statute | 2 (in force) | Yes (1) | Batch 23: KRS 304.19-080 (rates of the 2010 version, re-enacted unchanged July 15, 2026); Department home page bulletins; manual check |
 | MT | regulation | 0 | Yes (1) | CSI rule notices (`new_text`); ARM 6.6.1101 CL rate $.80 known but undated; rules.mt.gov refuses the tool (gap) |
-| IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
+| IL | regulation | 1 | Yes (1) | Batch 24: credit life prima facie rates lowered effective May 22, 2025 (1051.50; old rates not recorded, Illinois Register host does not answer); Company Bulletins 2026 JSON (`new_text`; address changes each January) and rule 1051.50 (lagging); A&H part not located |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
@@ -81,7 +81,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
    **KY and MT done (2026-11-21, fourth session):** KY statute-fixed (batch 23; manual check added); MT monitored, records a gap (see `docs/gaps.md`). All regulation-, statute- and unclear-group states are onboarded; next are the loose ends below
    (Pennsylvania and Idaho of the notice group are among them).
 3. **Loose ends from the notice group:** NM, SC and PA monitoring enabled 2026-11-21 (PA records need an owner decision on the Pennsylvania Bulletin); Idaho (choose `must_contain` from a copy fetched on GitHub's
-   network, for example a workflow artifact); a leading source for Illinois.
+   network, for example a workflow artifact); Illinois leading source added 2026-11-21.
 4. **Follow-up to the robots decision of 2026-11-20** (an app page equal to the home page
    means no robots.txt): read the terms of admincode.legislature.state.al.us and
    regulations.delaware.gov, then add sources there (Alabama Administrative Monthly;
@@ -124,11 +124,13 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | 21 | MO | 2 | Rates in force (CL, CD; 1992; statute) |
 | 22 | NC | 2 | Rates in force (CL 1997, CD 1994; statute) |
 | 23 | KY | 2 | Rates in force (CL, CD; 2010 text; statute) |
+| 24 | IL | 1 | CL change effective 2025-05-22 (no old rates) |
 
 ## Notes carried forward
 
 - Each January: move TX-rules-2026 to TDI's new yearly rules page (rules/YYYY/index.html);
-  TX-rules-index reports the new year's link as a page change.
+  TX-rules-index reports the new year's link as a page change. Also move IL-bulletins-2026 to the
+  new year's Company Bulletins JSON (address in the bulletins page source, `data-cf-table-api`).
 - Page: each record is a collapsed line; links open in a new tab; Recent shows changes
   communicated in the last 12 months or not yet in effect; "rates in force" records always
   show in History.

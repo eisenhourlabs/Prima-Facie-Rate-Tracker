@@ -1,0 +1,57 @@
+{
+  "archived_copy": "archive/IL/2026-11-21_d65bcf93.html",
+  "archived_sha256": "d65bcf9357a067a49df2dcefc51f4f1d7da1245f5ba710e73b27bfe9a72599ec",
+  "candidate_id": "c-20261121-IL-01",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.ilga.gov/ftp/JCAR/AdminCode/050/050010510000500R.html",
+  "effective_date": "2025-05-22",
+  "history": [
+    {
+      "at": "2026-11-21T22:02:10Z",
+      "batch": "batch_24",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T22:02:11Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "50 Ill. Adm. Code 1051.50 and 1051.60",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 0.7,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single debtor"
+    },
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 0.46,
+      "pct_change": null,
+      "plan": "Single premium decreasing term, single debtor"
+    },
+    {
+      "basis": "per annum per $100 of initial insured indebtedness",
+      "new_rate": 0.92,
+      "pct_change": null,
+      "plan": "Single premium level term, single debtor"
+    }
+  ],
+  "rate_table_note": "New rates are 1051.50(a)(1) to (3) as amended at 49 Ill. Reg. 7938, effective May 22, 2025; joint is 1.67 times single ((a)(5)). JCAR's Flinn Report of June 6, 2025 (saved) describes the amendment (proposed at 48 Ill. Reg. 14484) as reducing the prima facie rates \"by 1 or 2 cents per $100 or $1,000 of coverage per month\", shortening the suicide exclusion to 6 months and adding a war exclusion; Department Company Bulletin 2025-14 (July 9, 2025, saved) required new rate filings from companies whose rates exceed the amended prima facie rates, and withdrew conflicting approvals at close of business on August 20, 2025. Old rates not recorded: the Illinois Register (www.ilsos.gov) does not answer the tool (gap). Also saved: archive/IL/2026-11-21_d16547c7.pdf (IL-CB2025-14.pdf); archive/IL/2026-11-21_1543ce02.pdf (IL-JCAR-Flinn-2025-06-06.pdf).",
+  "record_id": "IL-CL-2025-05-22-1",
+  "retrieved_at": "2026-11-21T22:02:10Z",
+  "source_title": "50 Ill. Adm. Code 1051.50, Credit Life Insurance Rates (amended at 49 Ill. Reg. 7938, effective May 22, 2025)",
+  "source_url": "https://www.ilga.gov/ftp/JCAR/AdminCode/050/050010510000500R.html",
+  "state": "IL",
+  "status": "confirmed",
+  "summary": "Illinois lowered its prima facie credit life rates (50 Ill. Adm. Code 1051.50) effective May 22, 2025, to $.70 per month per $1,000 outstanding, $.46 per annum per $100 single premium decreasing term and $.92 level term, single debtor (a reduction of 1 or 2 cents per the JCAR summary). Old rates not recorded. Companies with higher rates had to refile; conflicting approvals were withdrawn on August 20, 2025 (Company Bulletin 2025-14).",
+  "verified": true
+}
