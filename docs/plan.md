@@ -690,7 +690,7 @@ Before any seed file is committed:
 | `state` is in `config/states.csv` | error |
 | `product` is `CL`, `CD` or `IUI` | error |
 | Dates parse as ISO `YYYY-MM-DD` and are real calendar dates | error |
-| `effective_date` is between 1990-01-01 and build date plus 3 years | error |
+| `effective_date` is between 1990-01-01 (1950-01-01 for a rates-in-force `initial` record; decision 2026-11-21) and build date plus 3 years | error |
 | `source_url` is present, or `NONE` with `verified` false | error |
 | `source_url` host is in `config/official_domains.csv` | warning; record is `verified` false until resolved |
 | `source_url` responds with HTTP 200 | warning |

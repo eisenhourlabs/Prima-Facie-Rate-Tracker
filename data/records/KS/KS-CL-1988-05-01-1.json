@@ -1,0 +1,57 @@
+{
+  "archived_copy": "archive/KS/2026-11-21_a117b602.pdf",
+  "archived_sha256": "a117b602a026f6a7a7933ffaddea0c7c6fd3d533326f65a3b334b3d034480e5d",
+  "candidate_id": "c-20261121-KS-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://insurance.ks.gov/documents/department/regulations-adopted/article-5/40-5-107.pdf",
+  "effective_date": "1988-05-01",
+  "history": [
+    {
+      "at": "2026-11-21T14:59:25Z",
+      "batch": "batch_11",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T14:59:26Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "K.A.R. 40-5-107; K.S.A. 16a-4-203 (authorized by K.S.A. 40-103 and 16a-4-112)",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per $100 insurance per annum",
+      "new_rate": 0.65,
+      "pct_change": null,
+      "plan": "Decreasing term, single life"
+    },
+    {
+      "basis": "per $100 insurance per annum",
+      "new_rate": 1.2,
+      "pct_change": null,
+      "plan": "Level term, single life"
+    },
+    {
+      "basis": "per month per $1,000 of insurance",
+      "new_rate": 1.0,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    }
+  ],
+  "rate_table_note": "Rates are in paragraph (b)(1). Joint life is at most one and two-thirds of the single life rate ((b)(1)(B)); not published as a figure, so not recorded. The rates are presumed reasonable only for policies with no exclusions other than suicide in the first two years and only the age limits in (b)(1)(E). The Department's copy was posted April 7, 2015 on insurance.ks.gov, which now redirects to the Department's new site; the new site and the official rules site (rules.ks.gov) refuse the tool, so the 2026 text was not checked against an official copy.",
+  "record_id": "KS-CL-1988-05-01-1",
+  "retrieved_at": "2026-11-21T14:59:25Z",
+  "source_title": "K.A.R. 40-5-107, Same; credit insurance rates and forms (Kansas Insurance Department copy; effective Jan. 1, 1974; amended May 1, 1979, May 1, 1986 and May 1, 1988)",
+  "source_url": "https://insurance.ks.gov/documents/department/regulations-adopted/article-5/40-5-107.pdf",
+  "state": "KS",
+  "status": "confirmed",
+  "summary": "Rates in force: Kansas credit life rate standards in K.A.R. 40-5-107(b)(1): $.65 per $100 per annum decreasing term, $1.20 per $100 per annum level term and $1.00 per month per $1,000 outstanding balance. Rates above these (or their actuarial equivalents) are not reasonable unless approved under (e). The regulation was last amended effective May 1, 1988; whether that amendment changed these figures was not checked, so May 1, 1988 is the date the current text took effect.",
+  "verified": true
+}

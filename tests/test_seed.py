@@ -131,6 +131,18 @@ def test_acceptance_3_bad_file_reports_each_error_on_its_row(repo, capsys):
         assert phrase in text, phrase
 
 
+def test_rates_in_force_record_may_predate_1990_but_not_1950(repo):
+    ok = write_batch(repo, "old", [row(eff="1988-05-01", change="initial", comm="")])
+    _, issues = seed.validate(ok, repo)
+    assert not [i for i in issues if i.issue.field == "effective_date"]
+    bad = write_batch(repo, "older", [row(eff="1949-12-31", change="initial", comm="")])
+    _, issues = seed.validate(bad, repo)
+    assert any("outside 1950-01-01" in str(i) for i in issues)
+    change = write_batch(repo, "chg", [row(eff="1988-05-01", comm="")])
+    _, issues = seed.validate(change, repo)
+    assert any("outside 1990-01-01" in str(i) for i in issues)
+
+
 def test_validate_warns_outside_plausible_range_including_iui(repo):
     path = write_batch(repo, "b", [row(new="4.50"), row(product="IUI", basis="per $100 of monthly benefit", new="12.00")])
     _, issues = seed.validate(path, repo)

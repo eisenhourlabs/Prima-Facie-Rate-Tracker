@@ -17,6 +17,9 @@ from urllib.parse import urlsplit
 PRODUCTS = ("CL", "CD", "IUI")
 CHANGE_TYPES = ("change", "no_change", "initial")
 EARLIEST_EFFECTIVE = dt.date(1990, 1, 1)
+# A "rates in force" record (change_type initial) is dated when the rule text in force took
+# effect, which can be long before the 15-year window (Kansas 1988, Delaware 1971).
+EARLIEST_IN_FORCE = dt.date(1950, 1, 1)
 
 
 # --- JSON files -----------------------------------------------------------------
@@ -184,8 +187,11 @@ def _check_dates(r: dict, ctx: Context) -> list[Issue]:
     eff = _date(r.get("effective_date"))
     if eff is None:
         out.append(Issue("error", "effective_date", f"'{r.get('effective_date')}' is not a real YYYY-MM-DD date"))
-    elif not EARLIEST_EFFECTIVE <= eff <= _plus_years(ctx.build_date, 3):
-        out.append(Issue("error", "effective_date", f"{eff} is outside 1990-01-01 to build date plus 3 years"))
+    else:
+        earliest = EARLIEST_IN_FORCE if r.get("change_type") == "initial" else EARLIEST_EFFECTIVE
+        if not earliest <= eff <= _plus_years(ctx.build_date, 3):
+            out.append(Issue("error", "effective_date",
+                             f"{eff} is outside {earliest.isoformat()} to build date plus 3 years"))
     comm = r.get("date_communicated")
     if comm:
         c = _date(comm)

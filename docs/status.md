@@ -48,16 +48,17 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | FL | regulation | 2 | Yes (2) | Batch 10: CL in force since 2003; CD change effective 2019-08-15. Rule pages on flrules.org watched with `new_text`; rule files are Word (.doc), now read; IUI not researched |
 | GA | regulation | 0 | Yes (1) | Press releases (hearing notices; strong keyword "new rules and regulations"); CL rule unchanged since 1993 but rules.sos.ga.gov does not answer the tool (gap); no CD table in the insurance rules |
 | HI | regulation | 0 | Manual | State terms of use prohibit automated access to every hawaii.gov site (as Colorado); rates in HAR 16-6-11 and 16-6-12 (exhibit 1988); no records (gap) |
+| KS | regulation | 2 (in force) | Manual | Batch 11: K.A.R. 40-5-107 (May 1, 1988) from the frozen former Department site; new site 403, rules.ks.gov human check, Kansas Register disallowed by robots.txt |
 | IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
 | PA | notice | 0 | No | Not started |
-| All others | regulation / statute / unclear | 0 | No | Not started: KS, KY, LA, ME, MD, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
+| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, ME, MD, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
 
 ## Next steps, in order
 
-1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI done), next **Kansas**, then ME, MD, MI, NV, NH, NJ, NY, OK, SD,
+1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS done), next **Maine**, then MD, MI, NV, NH, NJ, NY, OK, SD,
    TN (early: 2026 rulemaking notice for chapter 0780-01-04), TX, WA, WY.
 2. **Statute-fixed** (LA, MS, MO, NC) and **unclear** (KY, MT).
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
@@ -91,6 +92,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | 08 | OR, ND, MN | 6 | Rates in force |
 | 09 | AL | 3 | Rates in force (CL, CD, IUI) |
 | 10 | FL | 2 | CL in force (2003); CD change 2019 |
+| 11 | KS | 2 | Rates in force (CL, CD; 1988) |
 
 ## Notes carried forward
 

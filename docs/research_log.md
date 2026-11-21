@@ -171,3 +171,13 @@ documents.
 | files.hawaii.gov | not fetched (Division's copy of HAR 16-6, found in search: /dcca/ins/har/ins_har_6-c.pdf) |
 
 - Ruled out by the terms; no further requests. Manual check.
+
+### Kansas (KS)
+| Host | Result |
+|---|---|
+| www.insurance.kansas.gov | 403 Akamai "Access Denied" (home page and a `showpublisheddocument` file) |
+| insurance.ks.gov | home page is a meta refresh to the new site; /robots.txt redirects to a 404 page (no robots.txt); old pages and PDFs still 200: all-adopted-regulations.php, proposed-regulations.php (no dates), article-5/40-5-107.pdf (Last-Modified April 7, 2015) |
+| sos.ks.gov | 200; no terms page (only a KORA policy); robots.txt disallows /publications/register/Volume-40/ to Volume-45/; kansas-register.html redirects to rules.ks.gov; pubs_kar_inprocess.aspx 403 (CloudFront); future-effective-regulations.html is a leftover page ("no future effective regulations") |
+| rules.ks.gov | 405 "Human Verification" (home page and /robots.txt) |
+
+- K.A.R. 40-5-107 history: effective Jan. 1, 1974; amended May 1, 1979, May 1, 1986, May 1, 1988.
