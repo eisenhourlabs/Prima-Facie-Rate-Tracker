@@ -2,7 +2,7 @@ state,name,cl,cd,iui,group,cycle_years,next_notice_expected_by,notes
 AL,Alabama,yes,yes,yes,regulation,,,Q4 settled from the rules: CL and CD prima facie rates are the Banking rule 155-2-2-.12 maximums (482-1-117-.04(r) and -.10); IUI is ALDOI 482-1-093 Exhibit B. No regular cycle
 AZ,Arizona,yes,yes,yes,notice,3,,Order at least every three years; 2025 orders seen
 CA,California,yes,yes,yes,regulation,,,Rates fixed in 10 CCR 2248.47 (CL and CD; 2002) and 2670.6 (IUI; 2006); changed by Department rulemaking. Official code host is a commercial publisher (not fetched); no seed records. No regular cycle
-CO,Colorado,yes,yes,unknown,regulation,,,
+CO,Colorado,yes,yes,yes,regulation,,,Component-based rates in Regulation 4-9-2 Appendix A (CL; CD; unemployment) revised by rule amendment. Division site blocks the tool; SOS terms prohibit robots: manual check. No regular cycle
 DE,Delaware,yes,yes,unknown,regulation,,,
 FL,Florida,yes,yes,unknown,regulation,,,
 GA,Georgia,yes,yes,unknown,regulation,,,

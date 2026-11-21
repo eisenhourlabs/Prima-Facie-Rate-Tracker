@@ -22,7 +22,10 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
    find: where the rates are; whether they are adjusted by bulletin, order, memo or rule
    amendment; the cycle; the history line (amendment dates). Search
    (`WebSearch`, standard first) for the publications. Fetch with `tools/polite_get.py`.
-3. **Check access for every host.** `polite_get` reports robots.txt verdicts. If blocked:
+3. **Check access for every host.** Before fetching from a new host, read its terms of use
+   or web policy: terms against robots, data mining or reproduction rule the host out even
+   when robots.txt allows (Colorado's Secretary of State, 2026-11-20). `polite_get` reports
+   robots.txt verdicts. If blocked:
    - robots.txt "disallow" only, no other barrier, and no terms of use against automated
      access: the owner may approve an override in `config/robots_overrides.csv` (done for New
      Mexico). Check the site's terms first and ask.
