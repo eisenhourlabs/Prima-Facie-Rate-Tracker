@@ -1,0 +1,111 @@
+{
+  "archived_copy": "archive/MD/2026-11-21_3582f927.html",
+  "archived_sha256": "3582f927397b44793d71a7b0f881ca108e4cb723be9d71a6105f52e33d062ad6",
+  "candidate_id": "c-20261121-MD-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://regs.maryland.gov/us/md/exec/comar/31.13.01.15",
+  "effective_date": "2001-03-01",
+  "history": [
+    {
+      "at": "2026-11-21T15:04:51Z",
+      "batch": "batch_12",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:04:52Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "COMAR 31.13.01.15; Insurance Article, 13-110 to 13-112, Annotated Code of Maryland",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 1.42,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 7-day, benefits not retroactive (elimination period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 0.99,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day, benefits not retroactive (elimination period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 0.57,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day, benefits not retroactive (elimination period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 2.13,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 7-day, benefits retroactive (waiting period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 1.56,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day, benefits retroactive (waiting period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 1.21,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day, benefits retroactive (waiting period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 3.76,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 7-day, benefits not retroactive (elimination period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 2.77,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day, benefits not retroactive (elimination period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 2.34,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day, benefits not retroactive (elimination period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 4.47,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 7-day, benefits retroactive (waiting period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 3.33,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day, benefits retroactive (waiting period)"
+    },
+    {
+      "basis": "single premium per $100 of initial amount of insured indebtedness",
+      "new_rate": 2.98,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day, benefits retroactive (waiting period)"
+    }
+  ],
+  "rate_table_note": "Rates are the single premium table in 31.13.01.15A, by number of months insured (2 to 120) and 7-, 14- or 30-day period, benefits not retroactive or retroactive; other terms by straight-line interpolation. Joint coverage is at most 1.80 times single (F). The chapter history lists .15A and E as amended effective June 1, 2016 (43:5 Md. R. 387); the MIA's Bulletin 16-11 of April 6, 2016 (a scanned image, not saved) describes that amendment as a reduction of the monthly outstanding balance composite rates in .15E (record MD-CD-2016-06-01) and says credit health prima facie rates had not been revised since 2001. Also saved: archive/MD/2026-11-21_2756d5ab.html (MD-COMAR-31.13.01.html).",
+  "record_id": "MD-CD-2001-03-01-1",
+  "retrieved_at": "2026-11-21T15:04:51Z",
+  "source_title": "COMAR 31.13.01.15 Prima Facie Premium Rates for Credit Health Insurance (Library of Maryland Regulations)",
+  "source_url": "https://regs.maryland.gov/us/md/exec/comar/31.13.01.15",
+  "state": "MD",
+  "status": "confirmed",
+  "summary": "Rates in force: Maryland's prima facie single premium credit health rates in COMAR 31.13.01.15A, per $100 of initial amount of insured indebtedness, for 12 and 60 months and 7-, 14- and 30-day periods, retroactive or not. The regulation says its rates apply to all premiums charged on or after March 1, 2001. Section A was amended effective June 1, 2016; the amendment is described as changing the outstanding balance rates in section E only, which is not confirmed from an official text copy.",
+  "verified": true
+}

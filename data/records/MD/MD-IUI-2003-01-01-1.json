@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/MD/2026-11-21_648ab425.html",
+  "archived_sha256": "648ab42593932a2f53e4a3745e2ab66076f3c0ccb21a070d9102710a56307840",
+  "candidate_id": "c-20261121-MD-04",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://regs.maryland.gov/us/md/exec/comar/31.13.03.10",
+  "effective_date": "2003-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T15:04:51Z",
+      "batch": "batch_12",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:05:11Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "COMAR 31.13.03.10; Insurance Article, 2-109 and Title 13, Annotated Code of Maryland",
+  "origin": "seed",
+  "product": "IUI",
+  "rate_items": [
+    {
+      "basis": "per $10 of monthly benefit payable",
+      "new_rate": 1.816,
+      "pct_change": null,
+      "plan": "Single premium, 12 months repayable, maximum 6 benefits per occurrence, benefits retroactive, 30-day waiting period"
+    },
+    {
+      "basis": "per $10 of monthly benefit payable",
+      "new_rate": 1.352,
+      "pct_change": null,
+      "plan": "Single premium, 12 months repayable, maximum 6 benefits per occurrence, benefits not retroactive, 30-day elimination period"
+    },
+    {
+      "basis": "per $10 of monthly benefit payable",
+      "new_rate": 14.095,
+      "pct_change": null,
+      "plan": "Single premium, 60 months repayable, maximum 12 benefits per occurrence, benefits retroactive, 30-day waiting period"
+    },
+    {
+      "basis": "per $10 of monthly benefit payable",
+      "new_rate": 9.887,
+      "pct_change": null,
+      "plan": "Single premium, 60 months repayable, maximum 12 benefits per occurrence, benefits not retroactive, 30-day elimination period"
+    },
+    {
+      "basis": "per month per $10 of monthly benefit payable",
+      "new_rate": 0.268,
+      "pct_change": null,
+      "plan": "Group monthly premium, maximum 12 monthly benefits per occurrence, benefits retroactive, 30-day waiting period"
+    },
+    {
+      "basis": "per month per $10 of monthly benefit payable",
+      "new_rate": 0.188,
+      "pct_change": null,
+      "plan": "Group monthly premium, maximum 12 monthly benefits per occurrence, benefits not retroactive, 30-day elimination period"
+    }
+  ],
+  "rate_table_note": "Rates are the single premium tables in 31.13.03.10A(1) (retroactive, 30-day waiting period) and A(2) (not retroactive, 30-day elimination period), by months repayable (9 to 120) and maximum number of benefits per occurrence (6, 9, 12, 18, 24; for 12 months only 6 and 9 are printed), and the monthly premium schedule in B. Family leave coverage may add up to 4 percent (C). Rates per $100 of outstanding balance per month must be consistent with these (E, formula M = R x 10 x P). The chapter took effect January 1, 2003 (29:12 Md. R. 934); .10 has not been amended since. Also saved: archive/MD/2026-11-21_47009c61.html (MD-COMAR-31.13.03.html).",
+  "record_id": "MD-IUI-2003-01-01-1",
+  "retrieved_at": "2026-11-21T15:04:51Z",
+  "source_title": "COMAR 31.13.03.10 Prima Facie Premium Rates for Credit Involuntary Unemployment Insurance (Library of Maryland Regulations)",
+  "source_url": "https://regs.maryland.gov/us/md/exec/comar/31.13.03.10",
+  "state": "MD",
+  "status": "confirmed",
+  "summary": "Rates in force: Maryland's prima facie credit involuntary unemployment rates in COMAR 31.13.03.10, per $10 of monthly benefit: single premium tables by loan term and maximum benefits (for example $14.095 retroactive and $9.887 not retroactive for 60 months and 12 benefits) and monthly premium rates ($0.268 and $0.188 for 12 benefits). They apply to premiums charged on or after the chapter's effective date, January 1, 2003.",
+  "verified": true
+}

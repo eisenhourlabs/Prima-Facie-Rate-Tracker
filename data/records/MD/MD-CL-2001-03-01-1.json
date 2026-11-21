@@ -1,0 +1,57 @@
+{
+  "archived_copy": "archive/MD/2026-11-21_394a7089.html",
+  "archived_sha256": "394a7089721709a0a17d0901685a6fd7031528b2065b08e1bac6f3c507451ae3",
+  "candidate_id": "c-20261121-MD-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://regs.maryland.gov/us/md/exec/comar/31.13.01.10",
+  "effective_date": "2001-03-01",
+  "history": [
+    {
+      "at": "2026-11-21T15:04:51Z",
+      "batch": "batch_12",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:04:52Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "COMAR 31.13.01.10; Insurance Article, 13-110 to 13-112, Annotated Code of Maryland",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per annum per $100 of initial amount of insured indebtedness",
+      "new_rate": 0.43,
+      "pct_change": null,
+      "plan": "Single premium decreasing term, single life (total-of-payments method)"
+    },
+    {
+      "basis": "per month per $1,000 of the amount of insured outstanding indebtedness",
+      "new_rate": 0.66,
+      "pct_change": null,
+      "plan": "Outstanding balance term, single life"
+    },
+    {
+      "basis": "per annum per $100 of the amount of insured indebtedness",
+      "new_rate": 0.71,
+      "pct_change": null,
+      "plan": "Single premium level term, single life"
+    }
+  ],
+  "rate_table_note": "Rates are in 31.13.01.10A(1) to (3). Joint coverage of a husband and wife is at most 1.80 times the single life premium (B); not published as a figure, so not recorded. Other policy types and rating methods need the Commissioner's approval and must be actuarially consistent (C). Chapter history: .10 has not been amended since the chapter revision effective March 1, 2001 (27:22 Md. R. 2062). Also saved: archive/MD/2026-11-21_2756d5ab.html (MD-COMAR-31.13.01.html).",
+  "record_id": "MD-CL-2001-03-01-1",
+  "retrieved_at": "2026-11-21T15:04:51Z",
+  "source_title": "COMAR 31.13.01.10 Prima Facie Premium Rates for Credit Life Insurance (Library of Maryland Regulations)",
+  "source_url": "https://regs.maryland.gov/us/md/exec/comar/31.13.01.10",
+  "state": "MD",
+  "status": "confirmed",
+  "summary": "Rates in force: Maryland's prima facie credit life rates in COMAR 31.13.01.10: $0.43 per annum per $100 single premium decreasing term, $0.66 per month per $1,000 outstanding balance, and $0.71 per annum per $100 single premium level term, single life. The regulation says they apply to all premiums charged on or after March 1, 2001.",
+  "verified": true
+}

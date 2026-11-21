@@ -1,0 +1,63 @@
+{
+  "archived_copy": "archive/MD/2026-11-21_3582f927.html",
+  "archived_sha256": "3582f927397b44793d71a7b0f881ca108e4cb723be9d71a6105f52e33d062ad6",
+  "candidate_id": "c-20261121-MD-03",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://regs.maryland.gov/us/md/exec/comar/31.13.01.15",
+  "effective_date": "2016-06-01",
+  "history": [
+    {
+      "at": "2026-11-21T15:04:51Z",
+      "batch": "batch_12",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:04:52Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "COMAR 31.13.01.15E; Insurance Article, 13-111(e), Annotated Code of Maryland",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "composite monthly rate on the amount of insured indebtedness currently being repaid (unit not stated in the rule)",
+      "new_rate": 0.08,
+      "pct_change": null,
+      "plan": "Group monthly outstanding balance, composite rate, 14 Day Nonretroactive"
+    },
+    {
+      "basis": "composite monthly rate on the amount of insured indebtedness currently being repaid (unit not stated in the rule)",
+      "new_rate": 0.07,
+      "pct_change": null,
+      "plan": "Group monthly outstanding balance, composite rate, 30 Day Nonretroactive"
+    },
+    {
+      "basis": "composite monthly rate on the amount of insured indebtedness currently being repaid (unit not stated in the rule)",
+      "new_rate": 0.11,
+      "pct_change": null,
+      "plan": "Group monthly outstanding balance, composite rate, 14 Day Retroactive"
+    },
+    {
+      "basis": "composite monthly rate on the amount of insured indebtedness currently being repaid (unit not stated in the rule)",
+      "new_rate": 0.09,
+      "pct_change": null,
+      "plan": "Group monthly outstanding balance, composite rate, 30 Day Retroactive"
+    }
+  ],
+  "rate_table_note": "Rates are the schedule in 31.13.01.15E for group credit health insurance issued on the outstanding balance; the composite rate applies to all outstanding balances each month irrespective of loan duration. The rule prints the rates without a unit; the MIA's Bulletin 16-11 (April 6, 2016; a scanned image, not saved) heads the same schedule \"Composite Rates Per $100 of Insured Indebtedness\". The effective date is from the chapter's administrative history. The rates before June 1, 2016 were not found in a saved official text (gap). Also saved: archive/MD/2026-11-21_2756d5ab.html (MD-COMAR-31.13.01.html).",
+  "record_id": "MD-CD-2016-06-01-1",
+  "retrieved_at": "2026-11-21T15:04:51Z",
+  "source_title": "COMAR 31.13.01.15E (amended effective June 1, 2016, 43:5 Md. R. 387) (Library of Maryland Regulations)",
+  "source_url": "https://regs.maryland.gov/us/md/exec/comar/31.13.01.15",
+  "state": "MD",
+  "status": "confirmed",
+  "summary": "Maryland reduced its prima facie composite monthly outstanding balance rates for group credit health insurance (COMAR 31.13.01.15E) effective June 1, 2016, to $0.08 (14-day nonretroactive), $0.07 (30-day nonretroactive), $0.11 (14-day retroactive) and $0.09 (30-day retroactive). Old rates not recorded. Per Bulletin 16-11 (scanned, not saved) the amendment was proposed in the Maryland Register on December 28, 2015 and adopted March 4, 2016, after the Commissioner's 2014 loss ratio study.",
+  "verified": true
+}

@@ -52,7 +52,7 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
 6. **Seed records** from saved public documents only:
    - Copy each document into `seed/documents/` (git-ignored); give it a clear name.
    - Write `seed/batch_NN.csv` with a small script (keeps repeated plan/basis text identical).
-     Next batch number: see `seed/` (batch_11 is the last used).
+     Next batch number: see `seed/` (batch_12 is the last used).
    - Headline rates (A5): credit life per-annum and outstanding-balance rates as published;
      12- and 60-month rates where the state publishes rates by term (for credit disability,
      and for credit life where a term table exists). Never compute a rate (formulas,
@@ -119,6 +119,16 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
   `ruleNo.asp?id=...` overwrite each other: give each its own OUT_DIR.
 - A host that does not answer from the build computer (Georgia's rules site, Idaho) may
   answer from GitHub's network; test it there before calling it blocked.
+- Some states publish one set of terms for every state site (Hawaii: any address containing
+  "hawaii.gov"); an archive's policy can forbid robots while the agencies' own sites do not
+  (Maryland State Archives). Read the terms the agency site links, and the portal's terms.
+- A redirected former agency site can still serve old copies (Kansas, insurance.ks.gov,
+  posted 2015). Use such a copy for a rates-in-force record, saying so, but do not watch a
+  frozen page: it would show the state as monitored while seeing nothing.
+- Rates-in-force records may be dated from 1950 (the rule text's effective date); change
+  records keep the 1990 floor.
+- A rule may print rates without their unit (Maryland COMAR 31.13.01.15E): say so in
+  `basis` and quote the unit from the announcing document in the note.
 
 ## Helper scripts
 

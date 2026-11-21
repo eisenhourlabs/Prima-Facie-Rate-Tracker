@@ -5,7 +5,7 @@ section 10); every decision and its reason is in `docs/decisions.md`; open items
 `docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
 at each stage gate and at the end of each session.
 
-Last updated: 2026-11-20 (end of second session; regulation-fixed states AL to GA done).
+Last updated: 2026-11-21 (third session; regulation-fixed states AL to MD done).
 
 ## Stages
 
@@ -21,7 +21,7 @@ Last updated: 2026-11-20 (end of second session; regulation-fixed states AL to G
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after Georgia: 59 confirmed records; 39 of 81 sources enabled; 205 tests pass.
+Totals after Maryland: 65 confirmed records; 42 of 83 sources enabled; 206 tests pass.
 
 ## Where each state stands
 
@@ -50,16 +50,17 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | HI | regulation | 0 | Manual | State terms of use prohibit automated access to every hawaii.gov site (as Colorado); rates in HAR 16-6-11 and 16-6-12 (exhibit 1988); no records (gap) |
 | KS | regulation | 2 (in force) | Manual | Batch 11: K.A.R. 40-5-107 (May 1, 1988) from the frozen former Department site; new site 403, rules.ks.gov human check, Kansas Register disallowed by robots.txt |
 | ME | regulation | 0 | Manual | maine.gov refuses the tool (CloudFront 403), including the Rule 220 Word file; no records (gap) |
+| MD | regulation | 4 | Yes (2) | Batch 12: CL (2001), CD single premium (2001), CD outstanding balance change 2016-06-01 (no old rates; gap), IUI (2003); MIA L&H bulletins (`new_links`) and Regulatory Activity (`new_text`); COMAR subtitle 31.13 (lagging) |
 | IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
 | PA | notice | 0 | No | Not started |
-| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, MD, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
+| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
 
 ## Next steps, in order
 
-1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME done), next **Maryland**, then MI, NV, NH, NJ, NY, OK, SD,
+1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD done), next **Michigan**, then NV, NH, NJ, NY, OK, SD,
    TN (early: 2026 rulemaking notice for chapter 0780-01-04), TX, WA, WY.
 2. **Statute-fixed** (LA, MS, MO, NC) and **unclear** (KY, MT).
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
@@ -94,6 +95,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | 09 | AL | 3 | Rates in force (CL, CD, IUI) |
 | 10 | FL | 2 | CL in force (2003); CD change 2019 |
 | 11 | KS | 2 | Rates in force (CL, CD; 1988) |
+| 12 | MD | 4 | Rates in force (CL, CD 2001; IUI 2003); CD outstanding balance change 2016 |
 
 ## Notes carried forward
 

@@ -189,3 +189,15 @@ documents.
 | www11.maine.gov | 403 CloudFront "Request blocked" (031c220.doc, the Rule Chapter 220 Word file) |
 
 - No terms page could be read. Manual check.
+
+### Maryland (MD)
+| Host | Result |
+|---|---|
+| insurance.maryland.gov | 200; robots.txt allows; no terms page (accessibility only). Bulletins.aspx, LifeHealthBulletins.aspx (newest Bulletin 26-27, October 30, 2026), 2026-Bulletins.aspx, laws-and-regulations.aspx, RegulatoryActivity.aspx; bulletins 00-25 and LH 02-15 and 06-20 (text), 16-11 (scanned), 31.13 regulation review report (scanned) |
+| dsd.maryland.gov | 200; regulation pages (`/regulations/Pages/31.13.01.10.aspx`) redirect to regs.maryland.gov; /MDRIssues/4305/Assembled.aspx 404 (older Register issues not online) |
+| regs.maryland.gov | 200; robots.txt allows; COMAR sections, chapter pages with administrative history, and /us/md/exec/comar/31.13/index.full.html; content offered under CC BY-NC-SA 4.0 and CC0 |
+| www.maryland.gov | 200; terms-use: agency sites maintained separately; no rule against automated access |
+| msa.maryland.gov | 200 (home page and Acceptable Use Policy only); the policy prohibits scripts and robots; not used |
+
+- COMAR 31.13.01 history: chapter revised effective March 1, 2001 (27:22 Md. R. 2062); .15A and E amended effective June 1, 2016 (43:5 Md. R. 387); .10 not amended since 2001. 31.13.03 effective January 1, 2003 (29:12 Md. R. 934); .10 not amended since.
+- Bulletin 16-11 (scanned, read as an image): proposal in the Register December 28, 2015; final March 4, 2016; effective June 1, 2016; composite monthly outstanding balance rates reduced; "Prima facie rates for credit health insurance have not been revised since 2001". It cites "45:5 Md. R 387" (the chapter history says 43:5).
