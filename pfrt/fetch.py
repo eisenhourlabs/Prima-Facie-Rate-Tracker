@@ -37,7 +37,8 @@ SIZE_FLOOR = 0.40           # under 40% of the last good byte count is suspect
 # Phrases seen on bot-challenge and block pages. Only used when must_contain
 # is also missing, so a real page that mentions one of these is not misread.
 CHALLENGE_MARKERS = ("just a moment", "attention required", "access denied",
-                     "captcha", "cf-chl", "request unsuccessful", "are you a robot")
+                     "captcha", "cf-chl", "request unsuccessful", "are you a robot",
+                     "request rejected", "the requested url was rejected", "request blocked")
 
 # Extra intermediate certificates for sites that send an incomplete chain.
 # Verification stays on: these only fill the gap up to a root Python trusts.
@@ -109,13 +110,17 @@ class Throttle:
 # --- robots.txt -------------------------------------------------------------
 
 def parse_robots(http_status: int | None, content_type: str, text: str,
-                 error: str = "", redirected_to: str = "") -> tuple[robotparser.RobotFileParser | None, str]:
+                 error: str = "", redirected_to: str = "",
+                 same_as_home: bool = False) -> tuple[robotparser.RobotFileParser | None, str]:
     """Turn a robots.txt response into a parser, or None with a reason.
 
     None with reason starting "allow" means no robots.txt (everything allowed).
     None with any other reason means the file could not be read: do not fetch.
     `redirected_to` is the final URL when the request for /robots.txt was redirected
     to a different page (for example a site that sends missing pages to its home page).
+    `same_as_home` is True when the HTML served at /robots.txt has the same visible text
+    as the site's home page: an app that answers every address with its own page
+    (owner decision 2026-11-20, Alabama's admin code and Delaware's rules system).
     """
     if error:
         return None, f"robots.txt unavailable: {error}"
@@ -128,8 +133,11 @@ def parse_robots(http_status: int | None, content_type: str, text: str,
         # robots.txt. A challenge or block page, or an HTML page served at /robots.txt
         # itself, is not a robots file; reading it as "no rules" would wrongly allow everything.
         low = text.lower()
-        if redirected_to and http_status == 200 and not any(m in low for m in CHALLENGE_MARKERS):
+        ordinary = http_status == 200 and not any(m in low for m in CHALLENGE_MARKERS)
+        if redirected_to and ordinary:
             return None, f"allow: no robots.txt (request redirected to {redirected_to})"
+        if same_as_home and ordinary:
+            return None, "allow: no robots.txt (the site answers /robots.txt with its home page)"
         return None, "robots.txt unreadable: server returned a web page"
     rp = robotparser.RobotFileParser()
     rp.parse(text.splitlines())
@@ -193,9 +201,27 @@ class RobotsCache:
             r = self._session.get(robots_url, timeout=TIMEOUT_SECONDS)
             final = getattr(r, "url", robots_url) or robots_url
             moved = final if urlsplit(final).path.rstrip("/").lower() != "/robots.txt" else ""
-            return parse_robots(r.status_code, r.headers.get("Content-Type", ""), r.text, redirected_to=moved)
+            ctype = r.headers.get("Content-Type", "")
+            same = False
+            if not moved and r.status_code == 200 and ("html" in ctype.lower() or r.text.lstrip()[:1] == "<"):
+                same = self._same_as_home(robots_url, r.text)
+            return parse_robots(r.status_code, ctype, r.text, redirected_to=moved, same_as_home=same)
         except requests.RequestException as err:
             return parse_robots(None, "", "", error=type(err).__name__)
+
+    def _same_as_home(self, robots_url: str, robots_html: str) -> bool:
+        """True if the site's home page has the same visible text as the page served at /robots.txt."""
+        from pfrt import normalize
+        home = robots_url[: -len("robots.txt")]
+        self._throttle.wait(home)
+        try:
+            h = self._session.get(home, timeout=TIMEOUT_SECONDS)
+        except requests.RequestException:
+            return False
+        if h.status_code != 200:
+            return False
+        a, b = normalize.html_to_text(robots_html), normalize.html_to_text(h.text)
+        return bool(a) and a == b
 
 
 def robots_allowed(url: str, user_agent: str = USER_AGENT) -> bool:

@@ -21,7 +21,7 @@ Last updated: 2026-11-20 (end of session).
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after California: 57 confirmed records; 36 of 79 sources enabled; 198 tests pass.
+Totals after Delaware: 57 confirmed records; 36 of 79 sources enabled; 201 tests pass.
 
 ## Where each state stands
 
@@ -60,8 +60,10 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
    disabled); Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
    network, for example a workflow artifact); a leading source for Illinois.
-4. **Owner question:** does an app page served at /robots.txt count as "no robots.txt"?
-   (Alabama admin code; Delaware's rules system. See `docs/decisions.md`.)
+4. **Follow-up to the robots decision of 2026-11-20** (an app page equal to the home page
+   means no robots.txt): read the terms of admincode.legislature.state.al.us and
+   regulations.delaware.gov, then add sources there (Alabama Administrative Monthly;
+   Delaware Register and Regulation 1701). Both are single-page apps with /api/ addresses.
 5. Gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
    for blocked states).
 6. Stage 6 gate, then Stage 8.
@@ -90,7 +92,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
   R4 covers icon links to PDFs and to download-style links; "igd - - a2" is a
   strong keyword (Nebraska).
 - robots.txt: owner-approved overrides in `config/robots_overrides.csv` (New Mexico only);
-  a robots.txt redirected to an ordinary page means none.
+  a robots.txt redirected to an ordinary page, or answered with the site's home page, means none.
 - Option B (headless browser) was tested and not adopted; Playwright was removed from the
   build computer.
 - `internal/blocklist.txt` is private: report only the names of matching files, never the terms.

@@ -32,7 +32,8 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
    - HTTP 403, a CAPTCHA or challenge page, a login, or 404 for every page: a refusal. Never
      work around it (no disguised user agent). The state becomes a manual check in
      `docs/gaps.md`.
-   - A robots.txt request redirected to an ordinary page means no robots.txt (rule 2026-11-20).
+   - A robots.txt request redirected to an ordinary page, or answered with a page identical
+     to the home page (an app), means no robots.txt (rules of 2026-11-20).
 4. **Choose sources** and add them to `config/sources.csv` (use the csv module; quote values
    with commas):
    - At least one **leading** source: the index where a new bulletin/order/memo/proposed rule

@@ -166,16 +166,22 @@ def test_get_classifies_a_good_page_as_ok():
 # --- robots.txt overrides (owner decision, config/robots_overrides.csv) ---------------
 
 class _FakeRobotsSession:
-    """Answers every robots.txt request with the given status, type and text."""
-    def __init__(self, status, content_type, text):
+    """Answers robots.txt requests with the given status, type and text, and the home
+    page ("/") with `home` (by default a different ordinary page)."""
+    def __init__(self, status, content_type, text, home="<html><title>Home</title><p>Welcome</p></html>"):
         self.reply = type("R", (), {"status_code": status, "headers": {"Content-Type": content_type}, "text": text})
+        self.home = type("R", (), {"status_code": 200, "headers": {"Content-Type": "text/html"}, "text": home})
+        self.urls = []
 
     def get(self, url, timeout=None):
-        return self.reply
+        self.urls.append(url)
+        return self.reply if url.endswith("/robots.txt") else self.home
 
 
-def _cache(status, ctype, text, overrides):
-    return fetch.RobotsCache(_FakeRobotsSession(status, ctype, text), fetch.Throttle(sleep=lambda s: None), overrides)
+def _cache(status, ctype, text, overrides, home=None):
+    session = (_FakeRobotsSession(status, ctype, text) if home is None
+               else _FakeRobotsSession(status, ctype, text, home))
+    return fetch.RobotsCache(session, fetch.Throttle(sleep=lambda s: None), overrides)
 
 
 def test_override_allows_only_the_listed_host_and_says_why():
@@ -212,5 +218,30 @@ def test_robots_redirect_to_a_challenge_page_still_stops():
 
 
 def test_robots_html_at_robots_path_without_redirect_still_stops():
-    c = _cache(200, "text/html", "<html><title>Home</title></html>", {})
+    # The page at /robots.txt differs from the home page: not an app answering every address.
+    c = _cache(200, "text/html", "<html><title>Other</title><p>Something else</p></html>", {})
     assert c.check("https://x.example.gov/a.pdf")[0] == "unavailable"
+
+
+APP_SHELL = "<!doctype html><html><head><title>Alabama Administrative Code</title></head><body><div id='app'></div></body></html>"
+
+
+def test_robots_answered_with_the_home_page_means_no_robots_file():
+    """Owner decision 2026-11-20: an app that answers /robots.txt with its own home page has none."""
+    c = _cache(200, "text/html", APP_SHELL, {}, home=APP_SHELL)
+    verdict, reason = c.check("https://admincode.example.gov/api/chapter/482-1-117")
+    assert verdict == "allowed" and "home page" in reason
+
+
+def test_robots_block_page_equal_to_home_page_still_stops():
+    # A firewall that rejects every request (Delaware) also returns the same page for "/".
+    page = "<html><title>Request Rejected</title><p>The requested URL was rejected.</p></html>"
+    c = _cache(200, "text/html", page, {}, home=page)
+    assert c.check("https://insurance.example.gov/a.pdf")[0] == "unavailable"
+
+
+def test_plain_text_robots_file_does_not_fetch_the_home_page():
+    session = _FakeRobotsSession(200, "text/plain", "User-agent: *\nDisallow:\n")
+    c = fetch.RobotsCache(session, fetch.Throttle(sleep=lambda s: None), {})
+    assert c.check("https://x.example.gov/a.pdf")[0] == "allowed"
+    assert session.urls == ["https://x.example.gov/robots.txt"]
