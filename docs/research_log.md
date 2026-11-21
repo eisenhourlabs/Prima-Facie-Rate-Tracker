@@ -155,3 +155,19 @@ Fetched from the build computer with `tools/polite_get.py` and dry runs. Third-p
 |---|---|
 | oci.georgia.gov | 200; robots.txt allows; georgia.gov privacy statement has no terms against automated access |
 | rules.sos.ga.gov | no answer: connection error, then read timeout after 60 seconds (robots.txt included), three tries |
+
+## Stage 6, regulation-fixed states, 2026-11-21 (third session)
+
+Fetched from the build computer with `tools/polite_get.py` and `tools/terms_links.py`.
+Third-party copies (Cornell LII, Justia) were seen only in search results, to find official
+documents.
+
+### Hawaii (HI)
+| Host | Result |
+|---|---|
+| cca.hawaii.gov | 200 (home page of the Insurance Division, read by `terms_links.py`); links the State terms of use |
+| portal.ehawaii.gov | 200; Terms of Use: no access "through any automated means (including, but not limited to, use of scripts, web crawlers or screen scrapers)"; covers addresses containing "hawaii.gov" |
+| data.capitol.hawaii.gov | 200 (home page and privacy page); privacy page says nothing on automated access, but the address is covered by the State terms |
+| files.hawaii.gov | not fetched (Division's copy of HAR 16-6, found in search: /dcca/ins/har/ins_har_6-c.pdf) |
+
+- Ruled out by the terms; no further requests. Manual check.
