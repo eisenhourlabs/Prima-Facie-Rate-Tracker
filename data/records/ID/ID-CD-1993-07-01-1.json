@@ -1,15 +1,12 @@
 {
-  "ai": null,
-  "anchor_text": "Attachment to 18.03.05 - Credit Prima Facie Rates (Idaho Department of Insurance; dated 6/1/2022)",
   "archived_copy": "archive/ID/2026-11-21_cebd570d.pdf",
   "archived_sha256": "cebd570d0a0bb9982b509f21b22f437967a87658bd494aae0606740239d4a3d6",
-  "archived_too_large": false,
-  "batch": "batch_25",
   "candidate_id": "c-20261121-ID-02",
   "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
   "date_communicated": "",
   "date_communicated_estimated": false,
-  "detected_at": "2026-11-21T23:27:23Z",
   "document_url": "https://doi.idaho.gov/wp-content/uploads/info/rules/18-03-05-Credit-Prima-Facie-Rates.pdf",
   "effective_date": "1993-07-01",
   "history": [
@@ -18,79 +15,85 @@
       "batch": "batch_25",
       "by": "seed-import",
       "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T23:33:06Z",
+      "by": "owner",
+      "event": "confirmed"
     }
   ],
   "legal_basis": "IDAPA 18.03.05.014.02 (formerly 18.01.61.014.02)",
-  "matched_keywords": [],
   "origin": "seed",
-  "priority": "seed",
   "product": "CD",
-  "products_hint": "CD",
   "rate_items": [
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 1.4,
+      "pct_change": null,
       "plan": "Single premium, 12 months, non-retroactive benefits, 14 Day"
     },
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 0.8,
+      "pct_change": null,
       "plan": "Single premium, 12 months, non-retroactive benefits, 30 Day"
     },
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 3.0,
+      "pct_change": null,
       "plan": "Single premium, 12 months, retroactive benefits, 7 Day"
     },
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 2.2,
+      "pct_change": null,
       "plan": "Single premium, 12 months, retroactive benefits, 14 Day"
     },
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 1.7,
+      "pct_change": null,
       "plan": "Single premium, 12 months, retroactive benefits, 30 Day"
     },
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 3.9,
+      "pct_change": null,
       "plan": "Single premium, 60 months, non-retroactive benefits, 14 Day"
     },
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 3.3,
+      "pct_change": null,
       "plan": "Single premium, 60 months, non-retroactive benefits, 30 Day"
     },
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 6.3,
+      "pct_change": null,
       "plan": "Single premium, 60 months, retroactive benefits, 7 Day"
     },
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 4.7,
+      "pct_change": null,
       "plan": "Single premium, 60 months, retroactive benefits, 14 Day"
     },
     {
       "basis": "per one hundred dollars ($100) of initial indebtedness (single premium)",
       "new_rate": 4.2,
+      "pct_change": null,
       "plan": "Single premium, 60 months, retroactive benefits, 30 Day"
     }
   ],
   "rate_table_note": "Attachment page 1, Credit Disability Insurance Prima Facie Rates, item 1: single premium rates \"for one hundred dollars ($100) of initial indebtedness repayable is as set forth in the following table utilizing straight line interpolation for the intervening months\", by number of months (6 to 120) and five columns, headed \"Non-Retroactive Benefits 14 Day - 30 Day\" and \"Retroactive Benefits 7 Day 14 Day 30 Day\" (read as non-retroactive 14 and 30 days, retroactive 7, 14 and 30 days). Rows: \"12 $1.40 $0.80 $3.00 $2.20 $1.70\" and \"60 $3.90 $3.30 $6.30 $4.70 $4.20\". Outstanding balance rates come from a formula in item 2 (not computed here). Oddity: the 36-month row prints \"$0.80\" in the retroactive 14 Day column (between $3.00 at 24 and $4.30 at 48 months); the 2021 rule prints the same \"$.80\", so it is carried over, not a change. The 2021 text extraction shows the 12-month row as \"2\"; the attachment reads \"12\". Dating: the same rates were printed in the rule itself until 2022. In the 2019 archive of IDAPA 18.01.61 (the former number of this rule) the table carries the history note \"(7-1-93)\" (page 7; in that archive the table itself is an image, so its figures were read from the 2021 text and the attachment), i.e. last amended effective July 1, 1993. The rule was re-adopted as 18.03.05 (temporary rule effective 7-1-21; archive 2021, page 6) with the same table, and since 3-31-22 section 014 says \"The Director will post on the Department's website the prima facie rates ... that are to be used\"; the posted attachment (dated 6/1/2022; the Department's rules page says \"updated 6/1/2022\") prints the same figures. Whether an earlier posting between March 31 and June 1, 2022 differed was not seen. Section 018 sets a triennial review (since 1995) that may revise the rates; no revision since 1993 was found. Also saved: archive/ID/2026-11-21_f1dec338.pdf (ID-IDAPA-18.01.61-2019-archive.pdf); archive/ID/2026-11-21_688ef37e.pdf (ID-IDAPA-18.03.05-2021-archive.pdf); archive/ID/2026-11-21_391aa84b.pdf (ID-IDAPA-18.03.05-current.pdf).",
+  "record_id": "ID-CD-1993-07-01-1",
   "retrieved_at": "2026-11-21T23:27:23Z",
-  "rule": "seed_import",
-  "run_id": "batch_25",
-  "seed_notes": "",
-  "seed_rows": "rows 5-14",
-  "source_id": "seed",
   "source_title": "Attachment to 18.03.05 - Credit Prima Facie Rates (Idaho Department of Insurance; dated 6/1/2022)",
   "source_url": "https://doi.idaho.gov/wp-content/uploads/info/rules/18-03-05-Credit-Prima-Facie-Rates.pdf",
   "state": "ID",
-  "status": "candidate",
+  "status": "confirmed",
   "summary": "Rates in force: Idaho's credit disability prima facie single premium rates per $100 of initial indebtedness, for example 12 months $1.40 (non-retroactive, 14 day) to $3.00 (retroactive, 7 day) and 60 months $3.90 to $6.30, unchanged since July 1, 1993 (table history note); posted by the Director on the Department's website since 2022.",
-  "text_diff": "",
-  "text_excerpt": "",
-  "unreadable_document": false
+  "verified": true
 }

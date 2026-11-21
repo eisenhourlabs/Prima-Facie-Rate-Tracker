@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (fifth session; probe workflow; Idaho and New York moni
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after the probe session of 2026-11-21: 87 confirmed records, plus 2 Idaho candidates (batch 25) awaiting the owner's confirm; 81 of 102 sources enabled; 215 tests pass.
+Totals after the probe session of 2026-11-21: 89 confirmed records; 81 of 102 sources enabled; 215 tests pass.
 
 ## Where each state stands
 
@@ -68,10 +68,10 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | NC | statute | 2 (in force) | Yes (1) | Batch 22: G.S. 58-57-40 (January 1, 1997), 58-57-45 (January 1, 1994); NCDOI bulletins |
 | KY | statute | 2 (in force) | Yes (1) | Batch 23: KRS 304.19-080 (rates of the 2010 version, re-enacted unchanged July 15, 2026); Department home page bulletins; manual check |
 | MT | regulation | 0 | Yes (1) | CSI rule notices (`new_text`); ARM 6.6.1101 CL rate $.80 known but undated; rules.mt.gov refuses the tool (gap) |
-| IL | regulation | 1 | Yes (1) | Batch 24: credit life prima facie rates lowered effective May 22, 2025 (1051.50); date communicated October 11, 2024 (proposal, 48 Ill. Reg. 14484, per JCAR's Flinn Report) to be added by `review amend` (owner); old rates not recorded: the Illinois Register answers neither the build computer nor GitHub (manual check); Company Bulletins 2026 JSON (`new_text`; address changes each January) and rule 1051.50 (lagging) |
+| IL | regulation | 1 | Yes (1) | Batch 24: credit life prima facie rates lowered effective May 22, 2025 (1051.50); date communicated October 11, 2024 (proposal, 48 Ill. Reg. 14484, per JCAR's Flinn Report; amended 2026-11-21); old rates not recorded: the Illinois Register answers neither the build computer nor GitHub (manual check); Company Bulletins 2026 JSON (`new_text`; address changes each January) and rule 1051.50 (lagging) |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
-| ID | notice | 2 (candidates) | Yes (3) | Batch 25 (candidates; owner confirm pending): CL and CD rates in force since July 1, 1993, posted by the Director since 2022 (IDAPA 18.03.05.014; attachment dated 6/1/2022); rates PDF and rules page (doi.idaho.gov, GitHub's network only; local dry runs fail) and the rule on adminrules.idaho.gov; triennial review (next 2028) |
+| ID | notice | 2 (in force) | Yes (3) | Batch 25: CL and CD rates in force since July 1, 1993, posted by the Director since 2022 (IDAPA 18.03.05.014; attachment dated 6/1/2022); rates PDF and rules page (doi.idaho.gov, GitHub's network only; local dry runs fail) and the rule on adminrules.idaho.gov; triennial review (next 2028) |
 | PA | notice | 0 | Yes (1) | Department notice library on pa.gov (`new_text`); rate notices are in the Pennsylvania Bulletin, whose robots.txt disallows all robots: no records (owner question) |
 
 ## Next steps, in order
@@ -81,7 +81,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
    **KY and MT done (2026-11-21, fourth session):** KY statute-fixed (batch 23; manual check added); MT monitored, records a gap (see `docs/gaps.md`). All regulation-, statute- and unclear-group states are onboarded; next are the loose ends below
    (Pennsylvania and Idaho of the notice group are among them).
 3. **Loose ends from the notice group:** NM, SC and PA monitoring enabled 2026-11-21 (PA records need an owner decision on the Pennsylvania Bulletin); Illinois leading source added 2026-11-21.
-   **Idaho done (2026-11-21, fifth session):** monitored (3 sources); batch 25 imported as candidates, confirm pending.
+   **Idaho done (2026-11-21, fifth session):** monitored (3 sources); batch 25 confirmed (2 records).
 4. **Follow-up to the robots decision of 2026-11-20** (an app page equal to the home page
    means no robots.txt): read the terms of admincode.legislature.state.al.us and
    regulations.delaware.gov, then add sources there (Alabama Administrative Monthly;
@@ -89,8 +89,8 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 5. **Hosts to retry from GitHub's network: done 2026-11-21** with the probe workflow (`probe.yml`; runs
    44960357704 and 44961254333). doi.idaho.gov and the ny.gov hosts answer (Idaho and New York monitored);
    rules.sos.ga.gov answers but robots.txt disallows its rule pages (Georgia owner question); www.ilsos.gov
-   does not answer (Illinois Register: manual check). Open: owner confirm of batch 25 and `review amend`
-   of IL-CL-2025-05-22-1 (values file prepared in the session); a `check` dry run on GitHub for ID and NY.
+   does not answer (Illinois Register: manual check). Batch 25 confirmed and IL-CL-2025-05-22-1 amended;
+   `check` dry run on GitHub for ID and NY (run 44962368413): all 4 sources baseline, HTTP 200.
 6. **Owner choices that would add records** (see `docs/gaps.md`): Colorado (written
    permission from the Secretary of State, or another host; rates changed 2013, 2016, 2022);
    California (Department copy of the 2002 and 2006 rules saved by hand, or the Westlaw text);

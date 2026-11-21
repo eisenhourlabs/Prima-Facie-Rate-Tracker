@@ -5,7 +5,7 @@
   "change_type": "change",
   "confirmed_by": "owner",
   "confirmed_on": "2026-11-21",
-  "date_communicated": "",
+  "date_communicated": "2024-10-11",
   "date_communicated_estimated": false,
   "document_url": "https://www.ilga.gov/ftp/JCAR/AdminCode/050/050010510000500R.html",
   "effective_date": "2025-05-22",
@@ -20,6 +20,16 @@
       "at": "2026-11-21T22:02:11Z",
       "by": "owner",
       "event": "confirmed"
+    },
+    {
+      "at": "2026-11-21T23:33:15Z",
+      "before": {
+        "date_communicated": "",
+        "rate_table_note": "New rates are 1051.50(a)(1) to (3) as amended at 49 Ill. Reg. 7938, effective May 22, 2025; joint is 1.67 times single ((a)(5)). JCAR's Flinn Report of June 6, 2025 (saved) describes the amendment (proposed at 48 Ill. Reg. 14484) as reducing the prima facie rates \"by 1 or 2 cents per $100 or $1,000 of coverage per month\", shortening the suicide exclusion to 6 months and adding a war exclusion; Department Company Bulletin 2025-14 (July 9, 2025, saved) required new rate filings from companies whose rates exceed the amended prima facie rates, and withdrew conflicting approvals at close of business on August 20, 2025. Old rates not recorded: the Illinois Register (www.ilsos.gov) does not answer the tool (gap). Also saved: archive/IL/2026-11-21_d16547c7.pdf (IL-CB2025-14.pdf); archive/IL/2026-11-21_1543ce02.pdf (IL-JCAR-Flinn-2025-06-06.pdf)."
+      },
+      "by": "owner",
+      "event": "amended",
+      "reason": "Date communicated from JCAR Flinn Report Vol. 48 Issue 41 (proposal at 48 Ill. Reg. 14484, published October 11, 2024); old rates still unavailable (Illinois Register does not answer the tool)"
     }
   ],
   "legal_basis": "50 Ill. Adm. Code 1051.50 and 1051.60",
@@ -45,7 +55,7 @@
       "plan": "Single premium level term, single debtor"
     }
   ],
-  "rate_table_note": "New rates are 1051.50(a)(1) to (3) as amended at 49 Ill. Reg. 7938, effective May 22, 2025; joint is 1.67 times single ((a)(5)). JCAR's Flinn Report of June 6, 2025 (saved) describes the amendment (proposed at 48 Ill. Reg. 14484) as reducing the prima facie rates \"by 1 or 2 cents per $100 or $1,000 of coverage per month\", shortening the suicide exclusion to 6 months and adding a war exclusion; Department Company Bulletin 2025-14 (July 9, 2025, saved) required new rate filings from companies whose rates exceed the amended prima facie rates, and withdrew conflicting approvals at close of business on August 20, 2025. Old rates not recorded: the Illinois Register (www.ilsos.gov) does not answer the tool (gap). Also saved: archive/IL/2026-11-21_d16547c7.pdf (IL-CB2025-14.pdf); archive/IL/2026-11-21_1543ce02.pdf (IL-JCAR-Flinn-2025-06-06.pdf).",
+  "rate_table_note": "New rates are 1051.50(a)(1) to (3) as amended at 49 Ill. Reg. 7938, effective May 22, 2025; joint is 1.67 times single ((a)(5)). JCAR's Flinn Report of June 6, 2025 (saved) describes the amendment (proposed at 48 Ill. Reg. 14484) as reducing the prima facie rates \"by 1 or 2 cents per $100 or $1,000 of coverage per month\", shortening the suicide exclusion to 6 months and adding a war exclusion; Department Company Bulletin 2025-14 (July 9, 2025, saved) required new rate filings from companies whose rates exceed the amended prima facie rates, and withdrew conflicting approvals at close of business on August 20, 2025. Date communicated is the publication of the proposal in the Illinois Register, Volume 48, Issue 41, October 11, 2024: JCAR's Flinn Report for that issue (Volume 48, Issue 41, October 11, 2024, page 3; saved) reads \"DOI also proposed amendments to Credit Life and Credit Accident and Health Insurance (50 IAC 1051; 48 Ill Reg 14484) that slightly reduce (by 1 or 2 cents per $100 or $1,000 of coverage per month) prima facie premium rates for various forms of term life insurance\", and adds that the proposal would \"allow DOI to review prima facie premium rates as needed (currently, every 3 years)\". Old rates not recorded: the Illinois Register (www.ilsos.gov) does not answer the tool from the build computer or from GitHub's network (probe runs of 2026-11-21, read timeout on robots.txt), and the Flinn Report gives only the size of the cut (gap). Also saved: archive/IL/2026-11-21_d16547c7.pdf (IL-CB2025-14.pdf); archive/IL/2026-11-21_1543ce02.pdf (IL-JCAR-Flinn-2025-06-06.pdf); archive/IL/2026-11-21_40893bd7.pdf (JCAR Flinn Report, October 11, 2024, Issue 41).",
   "record_id": "IL-CL-2025-05-22-1",
   "retrieved_at": "2026-11-21T22:02:10Z",
   "source_title": "50 Ill. Adm. Code 1051.50, Credit Life Insurance Rates (amended at 49 Ill. Reg. 7938, effective May 22, 2025)",

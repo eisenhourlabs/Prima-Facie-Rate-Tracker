@@ -1,15 +1,12 @@
 {
-  "ai": null,
-  "anchor_text": "Attachment to 18.03.05 - Credit Prima Facie Rates (Idaho Department of Insurance; dated 6/1/2022)",
   "archived_copy": "archive/ID/2026-11-21_cebd570d.pdf",
   "archived_sha256": "cebd570d0a0bb9982b509f21b22f437967a87658bd494aae0606740239d4a3d6",
-  "archived_too_large": false,
-  "batch": "batch_25",
   "candidate_id": "c-20261121-ID-01",
   "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
   "date_communicated": "",
   "date_communicated_estimated": false,
-  "detected_at": "2026-11-21T23:27:23Z",
   "document_url": "https://doi.idaho.gov/wp-content/uploads/info/rules/18-03-05-Credit-Prima-Facie-Rates.pdf",
   "effective_date": "1993-07-01",
   "history": [
@@ -18,44 +15,43 @@
       "batch": "batch_25",
       "by": "seed-import",
       "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T23:33:06Z",
+      "by": "owner",
+      "event": "confirmed"
     }
   ],
   "legal_basis": "IDAPA 18.03.05.014.01 (formerly 18.01.61.014.01)",
-  "matched_keywords": [],
   "origin": "seed",
-  "priority": "seed",
   "product": "CL",
-  "products_hint": "CL",
   "rate_items": [
     {
       "basis": "per month per one thousand dollars ($1,000) of outstanding insured indebtedness",
       "new_rate": 0.86,
+      "pct_change": null,
       "plan": "Monthly outstanding balance"
     },
     {
       "basis": "per year per one hundred dollars ($100) of initial insured indebtedness",
       "new_rate": 0.54,
+      "pct_change": null,
       "plan": "Decreasing term, single premium"
     },
     {
       "basis": "per year per one hundred dollars ($100) of initial insured indebtedness",
       "new_rate": 1.0,
+      "pct_change": null,
       "plan": "Level term, single premium"
     }
   ],
   "rate_table_note": "Attachment page 2, Credit Life Insurance Prima Facie Rates: \"1. Eighty-six cents per month per one thousand dollars ($0.86/month/$1,000) of outstanding insured indebtedness if premiums are payable on a monthly outstanding balance basis. 2. Decreasing term: Fifty-four cents per year per one hundred dollars of initial insured indebtedness ($0.54/year/$100) if premiums are payable on a single premium basis ... 3. Level term: One dollar per year per one hundred dollars of initial insured indebtedness ($1/year/$100) ...\" Joint coverage is 165% of the single life rate (item 4). Dating: the same rates were printed in the rule itself until 2022. In the 2019 archive of IDAPA 18.01.61 (the former number of this rule) the credit life rates carries the history note \"(7-1-93)\" (page 6, 014.01.a.i to iii), i.e. last amended effective July 1, 1993. The rule was re-adopted as 18.03.05 (temporary rule effective 7-1-21; archive 2021, page 6) with the same figures in words and numbers, and since 3-31-22 section 014 says \"The Director will post on the Department's website the prima facie rates ... that are to be used\"; the posted attachment (dated 6/1/2022; the Department's rules page says \"updated 6/1/2022\") prints the same figures. Whether an earlier posting between March 31 and June 1, 2022 differed was not seen. Section 018 sets a triennial review (since 1995) that may revise the rates; no revision since 1993 was found. Also saved: archive/ID/2026-11-21_f1dec338.pdf (ID-IDAPA-18.01.61-2019-archive.pdf); archive/ID/2026-11-21_688ef37e.pdf (ID-IDAPA-18.03.05-2021-archive.pdf); archive/ID/2026-11-21_391aa84b.pdf (ID-IDAPA-18.03.05-current.pdf).",
+  "record_id": "ID-CL-1993-07-01-1",
   "retrieved_at": "2026-11-21T23:27:23Z",
-  "rule": "seed_import",
-  "run_id": "batch_25",
-  "seed_notes": "",
-  "seed_rows": "rows 2-4",
-  "source_id": "seed",
   "source_title": "Attachment to 18.03.05 - Credit Prima Facie Rates (Idaho Department of Insurance; dated 6/1/2022)",
   "source_url": "https://doi.idaho.gov/wp-content/uploads/info/rules/18-03-05-Credit-Prima-Facie-Rates.pdf",
   "state": "ID",
-  "status": "candidate",
+  "status": "confirmed",
   "summary": "Rates in force: Idaho's credit life prima facie rates are $0.86 per month per $1,000 outstanding, $0.54 per year per $100 single premium decreasing term and $1.00 level term (joint 165%), unchanged since July 1, 1993. Since 2022 the Director posts them on the Department's website (IDAPA 18.03.05.014) rather than in the rule.",
-  "text_diff": "",
-  "text_excerpt": "",
-  "unreadable_document": false
+  "verified": true
 }
