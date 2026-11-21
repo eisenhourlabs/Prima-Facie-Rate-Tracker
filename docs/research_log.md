@@ -298,3 +298,16 @@ documents.
 |---|---|
 | www.ncleg.gov | 200; disclaimer (no terms against automated access); G.S. 58-57-35, -40, -45 PDFs; S.L. 1993-226 (HTML and PDF) |
 | www.ncdoi.gov | 200; documents-bulletins; nc.gov disclaimer and terms of use (no rule against automated access) |
+
+### Kentucky (KY), research only
+| Host | Result |
+|---|---|
+| apps.legislature.ky.gov | 200; statute.aspx?id=57204 (KRS 304.19-080, PDF, effective July 15, 2026), id=57205 (304.19-090); old ids 29465/29467 say "superseded"; acts/26RS/documents/0016.pdf (2026 ch. 16, signed April 3, 2026) |
+| legislature.ky.gov, kentucky.gov | disclaimers: no terms against automated access |
+| insurance.ky.gov | 200; home page lists bulletins |
+
+### Montana (MT), research only
+| Host | Result |
+|---|---|
+| csimt.gov | 200; laws-rules-3 (rule notices by title), public-notices, privacy policy (no terms against automated access); MAR 6-271 proposal (2022) amends ARM 6.6.1101 |
+| rules.mt.gov | 405 "Human Verification" |
