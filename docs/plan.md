@@ -1064,7 +1064,7 @@ The fixed decision is to email when candidates are found or a state could not be
 
 **Q12. Where does Minnesota publish adjusted rates?** Not found. Until it is, Minnesota is only partly monitored. Recommendation: owner supplies the last known notice, if one exists, so the channel can be identified.
 
-**Q13. Kentucky and Montana.** No prima facie rate rule appeared in the excerpts. They may regulate by filed rates and a loss-ratio standard. Recommendation: confirm in Stage 6; if there is no state-set rate, mark `cl` and `cd` as `no` in `states.csv` and say so on the page.
+**Q13. Kentucky and Montana. SETTLED 2026-11-21: Kentucky fixes rates in statute (KRS 304.19-080); Montana has a prima facie credit life rate in ARM 6.6.1101 (see decisions).** No prima facie rate rule appeared in the excerpts. They may regulate by filed rates and a loss-ratio standard. Recommendation: confirm in Stage 6; if there is no state-set rate, mark `cl` and `cd` as `no` in `states.csv` and say so on the page.
 
 **Q14. Terminology.** Texas uses "presumptive premium rate"; New Mexico uses "presumptively acceptable". The site title says "prima facie". Recommendation: keep the title and show the state's own term in each record's summary.
 

@@ -311,3 +311,10 @@ documents.
 |---|---|
 | csimt.gov | 200; laws-rules-3 (rule notices by title), public-notices, privacy policy (no terms against automated access); MAR 6-271 proposal (2022) amends ARM 6.6.1101 |
 | rules.mt.gov | 405 "Human Verification" |
+
+### Kentucky and Montana (KY, MT), completed 2026-11-21 (fourth session)
+| Host | Result |
+|---|---|
+| insurance.ky.gov | 200; home page lists latest bulletins (ppc/Documents/...pdf); ppc/kar.aspx (proposed regulations, one 806 KAR 17 item); new_laws.aspx redirects to home |
+| csimt.gov | 200; laws-rules-3 stable over two dry runs |
+| Montana Administrative Register | search found older issues on courts.mt.gov (to 1998) and sosmt.gov (2001 on); the 2022 adoption of MAR 6-271 was not located |

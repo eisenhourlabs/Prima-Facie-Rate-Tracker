@@ -1,5 +1,6 @@
 state,months,what
 LA,5;9,"Statute-fixed (Q11 option A): look for enacted or pending bills amending La. R.S. 9:3542, 9:3332 or 6:969.25 (legis.la.gov); the Department site cannot be watched"
-MS,5;9,"Statute-fixed (Q11 option A): look for bills amending Miss. Code 83-53-23 (Mississippi Legislature bill status) and new Department bulletins"
-MO,5;9,"Statute-fixed (Q11 option A): look for bills amending RSMo 385.070 (Missouri House and Senate bill search; the Revisor posts new versions before they take effect); the Department site cannot be watched"
-NC,5;9,"Statute-fixed (Q11 option A): look for session laws amending G.S. 58-57-40 or 58-57-45 (ncleg.gov) and new Department bulletins"
+MS,5;9,Statute-fixed (Q11 option A): look for bills amending Miss. Code 83-53-23 (Mississippi Legislature bill status) and new Department bulletins
+MO,5;9,Statute-fixed (Q11 option A): look for bills amending RSMo 385.070 (Missouri House and Senate bill search; the Revisor posts new versions before they take effect); the Department site cannot be watched
+NC,5;9,Statute-fixed (Q11 option A): look for session laws amending G.S. 58-57-40 or 58-57-45 (ncleg.gov) and new Department bulletins
+KY,5;9,Statute-fixed (Q11 option A): look for acts amending KRS 304.19-080 (legislature.ky.gov); the rates are legislative prerogatives (subsection 7)

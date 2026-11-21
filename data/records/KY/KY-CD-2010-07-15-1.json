@@ -1,0 +1,87 @@
+{
+  "archived_copy": "archive/KY/2026-11-21_7623367b.pdf",
+  "archived_sha256": "7623367bbcad07b6f1baf6678182255c85c9139b4e5f562950b96cae3dee9c78",
+  "candidate_id": "c-20261121-KY-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=57204",
+  "effective_date": "2010-07-15",
+  "history": [
+    {
+      "at": "2026-11-21T21:43:01Z",
+      "batch": "batch_23",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T21:43:03Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "KRS 304.19-080(4)",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 2.02,
+      "pct_change": null,
+      "plan": "Single premium, 7-12 monthly installments, nonretroactive, 14-day wait"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 0.91,
+      "pct_change": null,
+      "plan": "Single premium, 7-12 monthly installments, nonretroactive, 30-day wait"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 2.69,
+      "pct_change": null,
+      "plan": "Single premium, 7-12 monthly installments, retroactive, 14-day wait"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 1.22,
+      "pct_change": null,
+      "plan": "Single premium, 7-12 monthly installments, retroactive, 30-day wait"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 5.68,
+      "pct_change": null,
+      "plan": "Single premium, 49-60 monthly installments, nonretroactive, 14-day wait"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 4.58,
+      "pct_change": null,
+      "plan": "Single premium, 49-60 monthly installments, nonretroactive, 30-day wait"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 7.58,
+      "pct_change": null,
+      "plan": "Single premium, 49-60 monthly installments, retroactive, 14-day wait"
+    },
+    {
+      "basis": "per $100 of initial indebtedness",
+      "new_rate": 6.11,
+      "pct_change": null,
+      "plan": "Single premium, 49-60 monthly installments, retroactive, 30-day wait"
+    }
+  ],
+  "rate_table_note": "Rates are the table in KRS 304.19-080(4)(a), Single Premium Per $100 of Initial Indebtedness, by number of monthly installments (1-6 to 49-60 months) and nonretroactive or retroactive basis with 14- or 30-day wait; the 7-12 and 49-60 bands are recorded. Dating: the current text took effect July 15, 2026 (2026 Ky. Acts ch. 16, SB 158, s. 21). That act prints the prior text with deletions in brackets; its only deletions in this section are the words \"the provisions of this subtitle\" (three times), so the rate figures are the same in the prior version, which took effect July 15, 2010 (2010 Ky. Acts ch. 24). Whether the 2010 amendment changed them was not checked. Subsection (7) makes these rates legislative prerogatives, not subject to administrative change. Also saved: archive/KY/2026-11-21_4c9aaf2d.pdf (KY-2026-Acts-ch16-SB158.pdf).",
+  "record_id": "KY-CD-2010-07-15-1",
+  "retrieved_at": "2026-11-21T21:43:01Z",
+  "source_title": "KRS 304.19-080, Filing -- Effectiveness and withdrawal (Kentucky Legislative Research Commission; current version effective July 15, 2026)",
+  "source_url": "https://apps.legislature.ky.gov/law/statutes/statute.aspx?id=57204",
+  "state": "KY",
+  "status": "confirmed",
+  "summary": "Rates in force: Kentucky's credit health single premium rates in KRS 304.19-080(4), per $100 of initial indebtedness, for 7-12 and 49-60 monthly installments, 14- and 30-day waits, nonretroactive and retroactive. Fixed by statute; unchanged by the 2026 re-enactment.",
+  "verified": true
+}

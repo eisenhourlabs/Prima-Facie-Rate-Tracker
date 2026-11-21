@@ -5,7 +5,7 @@ section 10); every decision and its reason is in `docs/decisions.md`; open items
 `docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
 at each stage gate and at the end of each session.
 
-Last updated: 2026-11-21 (end of third session; regulation- and statute-fixed states done; KY, MT researched only).
+Last updated: 2026-11-21 (fourth session; all but PA and ID onboarded; loose ends next).
 
 ## Stages
 
@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (end of third session; regulation- and statute-fixed st
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after North Carolina: 84 confirmed records; 68 of 97 sources enabled; 208 tests pass.
+Totals after Montana: 86 confirmed records; 71 of 98 sources enabled; 215 tests pass.
 
 ## Where each state stands
 
@@ -66,39 +66,20 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | MS | statute | 0 | Yes (2) | Department bulletins and regulations (`new_text`); code on the publisher's host: no records |
 | MO | statute | 2 (in force) | Lagging only | Batch 21: RSMo 385.070 (August 28, 1992); Department site 429 |
 | NC | statute | 2 (in force) | Yes (1) | Batch 22: G.S. 58-57-40 (January 1, 1997), 58-57-45 (January 1, 1994); NCDOI bulletins |
+| KY | statute | 2 (in force) | Yes (1) | Batch 23: KRS 304.19-080 (rates of the 2010 version, re-enacted unchanged July 15, 2026); Department home page bulletins; manual check |
+| MT | regulation | 0 | Yes (1) | CSI rule notices (`new_text`); ARM 6.6.1101 CL rate $.80 known but undated; rules.mt.gov refuses the tool (gap) |
 | IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
 | PA | notice | 0 | No | Not started |
-| All others | regulation / statute / unclear | 0 | No | Not started: KY, MT (unclear group) |
 
 ## Next steps, in order
 
 1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD, TN, TX, WA, WY done).
-   Next: unclear states (item 2).
 2. **Statute-fixed** (LA, MS, MO, NC done; Q11 option A built: `config/manual_checks.csv`, May and September).
-   **Unclear (KY, MT): researched 2026-11-21, not yet configured or seeded (next session starts here).**
-   - Kentucky is statute-fixed: KRS 304.19-080(3) and (4) set maximum credit life and credit health rates
-     ("legislative prerogatives", subsection 7). Current text effective July 15, 2026 (2026 Ky. Acts ch. 16,
-     SB 158, s. 21); the act's bracketed deletions in s. 21 are only "the provisions of this subtitle"
-     wording, so the rates are unchanged from the prior version (effective July 15, 2010). Plan: group
-     `statute`; seed CL and CD rates in force dated 2010-07-15 from the statute page
-     (apps.legislature.ky.gov/law/statutes/statute.aspx?id=57204) with the act PDF
-     (apps.legislature.ky.gov/law/acts/26RS/documents/0016.pdf) as second document; lagging source on the
-     statute page; leading source from insurance.ky.gov (answers 200; bulletins on its home page); add a KY
-     row to `config/manual_checks.csv`. CL: $0.60 per annum per $100 decreasing ($0.65 with dismemberment),
-     $0.92 per $1,000 monthly ($1.00), $1.20 level ($1.30); CD table by installment bands 1-6 to 49-60,
-     14/30-day, retro and non-retro (check every value by script). kentucky.gov and Legislature
-     disclaimers have no terms against automated access.
-   - Montana is regulation-fixed (Q13's guess was wrong): ARM 6.6.1101 "Credit life insurance -- acceptable
-     rates" (prima facie monthly outstanding balance rate $.80 per the 2022 proposal MAR 6-271,
-     csimt.gov/wp-content/uploads/2022/11/6-271-NOTICE-OF-PROPOSED-AMENDMENT.pdf, which only corrected a
-     typo); disability rules presumably in 6.6.11 too. rules.mt.gov serves "Human Verification" (refusal),
-     so the full rule text is unreadable. Plan: group `regulation`; leading source CSI Laws & Rules page
-     (csimt.gov/laws-rules-3/, lists rule notices by title; `new_text`); look for the 6-271 adoption notice
-     for an effective date before seeding the $.80 CL rate; CD rates likely a gap.
-3. Then the loose ends below (items 3 to 7).
+   **KY and MT done (2026-11-21, fourth session):** KY statute-fixed (batch 23; manual check added); MT monitored, records a gap (see `docs/gaps.md`). All regulation-, statute- and unclear-group states are onboarded; next are the loose ends below
+   (Pennsylvania and Idaho of the notice group are among them).
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
    disabled); Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
    network, for example a workflow artifact); a leading source for Illinois.
@@ -143,6 +124,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | 20 | LA | 2 | Rates in force (CL 1999, CD 1998; statute) |
 | 21 | MO | 2 | Rates in force (CL, CD; 1992; statute) |
 | 22 | NC | 2 | Rates in force (CL 1997, CD 1994; statute) |
+| 23 | KY | 2 | Rates in force (CL, CD; 2010 text; statute) |
 
 ## Notes carried forward
 
