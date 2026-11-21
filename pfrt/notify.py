@@ -61,6 +61,16 @@ def expected_not_seen(states, records: list[dict], candidates: list[dict], today
     return out
 
 
+# --- Manual checks (plan Q11 option A) ---------------------------------------------
+
+def manual_checks_due(checks, today: dt.date) -> list[str]:
+    """Lines for the manual checks whose months include today's month.
+
+    The job runs twice a month, so a due check is listed in both runs of that month.
+    """
+    return [f"{c.state}: {c.what}" for c in checks if today.month in c.months]
+
+
 # --- Composing the summary ---------------------------------------------------------
 
 def subject(n_candidates: int, n_gaps: int, n_monitored: int, day: str) -> str:
@@ -74,8 +84,9 @@ def subject(n_candidates: int, n_gaps: int, n_monitored: int, day: str) -> str:
 
 
 def compose(run_log: dict, new_candidates: list[dict], expected: list[tuple[str, str]],
-            open_candidate_count: int, repo_url: str = "") -> Email:
-    """Build the summary. Sections appear in the order of plan 6.3."""
+            open_candidate_count: int, repo_url: str = "", manual_due: list[str] | None = None) -> Email:
+    """Build the summary. Sections appear in the order of plan 6.3, with the manual checks
+    due this month (Q11 option A) after the expected notices."""
     day = run_log["run_id"][4:8] + "-" + run_log["run_id"][8:10] + "-" + run_log["run_id"][10:12]
     gaps = [e for e in run_log["sources"] if e["state"] in run_log["states_not_fully_checked"]
             and e.get("role") == "leading" and e["status"] not in ("ok", "baseline", "unchanged", "changed")]
@@ -83,6 +94,7 @@ def compose(run_log: dict, new_candidates: list[dict], expected: list[tuple[str,
     sections = [
         _section("States not fully checked", [_gap_line(e) for e in gaps]),
         _section("Expected notice not seen", [f"{st}: expected by {d}" for st, d in expected]),
+        _section("Manual checks due this month", manual_due or []),
         _section("Candidates", [_candidate_lines(c) for c in new_candidates]),
         _section("Other page changes", [f"{e['state']} {e['source_id']}: new link titles {e.get('new_anchors', [])[:8]}"
                                         for e in run_log["sources"] if "changed_no_match" in e.get("notes", [])]),

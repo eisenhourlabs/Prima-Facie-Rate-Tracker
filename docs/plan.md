@@ -1058,7 +1058,7 @@ The fixed decision is to email when candidates are found or a state could not be
 - Option B: everything saved publicly.
 - Option C: nothing saved publicly; hash and link only. Weakest audit trail, lowest exposure.
 
-**Q11. NEEDS TROY'S DECISION. Statute-fixed states** (LA, MS, MO, NC, possibly others).
+**Q11. DECIDED 2026-11-21: option A (owner). Statute-fixed states** (LA, MS, MO, NC, possibly others). Built: `config/manual_checks.csv` lists each manual check and its months; the run summary shows "Manual checks due this month".
 - Option A (recommended for version 1): watch the codified section as a lagging source and the department's bulletins as a leading source, and add a manual check twice a year, listed in the email footer when due.
 - Option B: add legislative bill-search monitoring per state. More reliable and much more work; each legislature's site is different.
 

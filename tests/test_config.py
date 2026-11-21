@@ -100,3 +100,28 @@ def test_row_with_unquoted_comma_is_refused(tmp_path):
     import pytest
     with pytest.raises(config.ConfigError, match="more cells than columns"):
         config.load_states(tmp_path / "states.csv")
+
+
+# --- Manual checks (Q11 option A) ---------------------------------------------
+
+def test_real_manual_checks_load_and_cover_the_statute_fixed_states():
+    states = {s.state for s in config.load_states(REPO / "config/states.csv")}
+    checks = config.load_manual_checks(REPO / "config/manual_checks.csv", states)
+    assert {"LA", "MS", "MO", "NC"} <= {c.state for c in checks}
+
+
+def test_manual_checks_file_is_optional(tmp_path):
+    assert config.load_manual_checks(tmp_path / "missing.csv", {"LA"}) == []
+
+
+@pytest.mark.parametrize("row, column", [
+    ("ZZ,5;9,check", "state"),
+    ("LA,13,check", "months"),
+    ("LA,may,check", "months"),
+    ("LA,5;9,", "what"),
+])
+def test_bad_manual_check_names_row_and_column(tmp_path, row, column):
+    path = tmp_path / "manual_checks.csv"
+    path.write_text("state,months,what\n" + row + "\n", encoding="utf-8")
+    with pytest.raises(config.ConfigError, match=f"row 2, column '{column}'"):
+        config.load_manual_checks(path, {"LA"})

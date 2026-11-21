@@ -77,7 +77,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 
 1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD, TN, TX, WA, WY done).
    Next: unclear states (item 2).
-2. **Statute-fixed** (LA, MS, MO, NC done; Q11 reminder feature awaits the owner) and **unclear** (KY, MT), next.
+2. **Statute-fixed** (LA, MS, MO, NC done; Q11 option A built: `config/manual_checks.csv`, May and September) and **unclear** (KY, MT), next.
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
    disabled); Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
    network, for example a workflow artifact); a leading source for Illinois.

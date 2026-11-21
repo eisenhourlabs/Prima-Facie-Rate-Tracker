@@ -66,7 +66,7 @@ def test_quiet_run_says_none_in_each_section():
     log = run_log(sources=[entry("IN-bulletins", "IN")], states_not_fully_checked=[], not_monitored=[],
                   totals={"sources": 1, "candidates": 0, "not_ok": 0})
     body = notify.compose(log, [], [], 0).body
-    assert body.count("None.") == 5
+    assert body.count("None.") == 6     # five plan 6.3 sections plus the manual checks (Q11)
 
 
 # --- Expected notices -------------------------------------------------------------
@@ -164,3 +164,14 @@ def test_step_summary_written_in_github_actions(tmp_path, capsys, monkeypatch):
     shutil.copytree(REPO / "config", tmp_path / "repo" / "config")
     main(["--root", str(tmp_path / "repo"), "check", "--dry-run", "--offline", "--fixtures", str(FIXTURES), "--states", "IN"])
     assert summary.read_text(encoding="utf-8").startswith("## [PFRT] No candidates")
+
+
+def test_manual_checks_listed_only_in_their_months():
+    from pfrt.config import ManualCheck
+    checks = [ManualCheck("LA", (5, 9), "look for bills amending R.S. 9:3542"), ManualCheck("NC", (6,), "session laws")]
+    due = notify.manual_checks_due(checks, dt.date(2027, 5, 3))
+    assert due == ["LA: look for bills amending R.S. 9:3542"]
+    body = notify.compose(run_log(), [], [], 0, manual_due=due).body
+    assert body.index("== Expected notice not seen ==") < body.index("== Manual checks due this month ==") < body.index("== Candidates ==")
+    assert "LA: look for bills amending R.S. 9:3542" in body
+    assert "== Manual checks due this month ==\nNone." in notify.compose(run_log(), [], [], 0).body

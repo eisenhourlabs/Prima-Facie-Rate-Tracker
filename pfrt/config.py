@@ -1,8 +1,9 @@
 """Read and check the configuration files in config/.
 
-Two files are loaded here:
+Three files are loaded here:
 - config/states.csv: one row per state in scope.
 - config/sources.csv: one row per web page or document the job watches.
+- config/manual_checks.csv: checks made by hand in given months (optional).
 
 Any problem raises ConfigError with the file name, the row (line) number and
 the column, so it can be fixed in the CSV by hand.
@@ -152,9 +153,51 @@ def _check_source_row(path: Path, line: int, row: dict[str, str],
         raise _fail(path, line, "url", "source is enabled but its url is blank")
 
 
-def check(states_path: str | Path, sources_path: str | Path) -> str:
-    """Load both files and return the one-line summary for `pfrt config check`."""
+MANUAL_CHECK_COLUMNS = ["state", "months", "what"]
+
+
+@dataclass(frozen=True)
+class ManualCheck:
+    """A check made by hand in given months (plan Q11 option A, owner decision 2026-11-21).
+
+    Statute-fixed states change rates by legislation, which no watched page may show
+    before the codified text is updated; the run summary lists these checks when due.
+    """
+    state: str
+    months: tuple[int, ...]
+    what: str
+
+
+def load_manual_checks(path: str | Path, known_states: set[str]) -> list[ManualCheck]:
+    """Load config/manual_checks.csv (optional: a missing file means no manual checks).
+
+    months is a list of month numbers separated by semicolons, for example "5;9".
+    """
+    path = Path(path)
+    if not path.exists():
+        return []
+    checks: list[ManualCheck] = []
+    for line, row in _read_rows(path, MANUAL_CHECK_COLUMNS):
+        if row["state"] not in known_states:
+            raise _fail(path, line, "state", f"state '{row['state']}' is not in states.csv")
+        try:
+            months = tuple(int(m) for m in row["months"].split(";") if m.strip())
+        except ValueError:
+            raise _fail(path, line, "months", f"'{row['months']}' must be month numbers separated by ';'") from None
+        if not months or any(not 1 <= m <= 12 for m in months):
+            raise _fail(path, line, "months", f"'{row['months']}' must be month numbers from 1 to 12")
+        if not row["what"]:
+            raise _fail(path, line, "what", "say what to check")
+        checks.append(ManualCheck(row["state"], months, row["what"]))
+    return checks
+
+
+def check(states_path: str | Path, sources_path: str | Path, manual_path: str | Path | None = None) -> str:
+    """Load the config files and return the one-line summary for `pfrt config check`."""
     states = load_states(states_path)
     sources = load_sources(sources_path, {s.state for s in states})
     enabled = sum(1 for s in sources if s.is_enabled)
-    return f"{len(states)} states, {len(sources)} sources ({enabled} enabled)"
+    out = f"{len(states)} states, {len(sources)} sources ({enabled} enabled)"
+    if manual_path is not None:
+        out += f", {len(load_manual_checks(manual_path, {s.state for s in states}))} manual checks"
+    return out

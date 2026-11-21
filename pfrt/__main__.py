@@ -43,6 +43,8 @@ from pathlib import Path
 
 from pfrt import check, config, detect, notify, records, review
 
+MANUAL_CHECKS = "config/manual_checks.csv"   # checks made by hand in given months (Q11 option A)
+
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="pfrt", description="Prima Facie Rate Tracker")
@@ -103,7 +105,7 @@ def build_parser() -> argparse.ArgumentParser:
 
 def cmd_config_check(args, root: Path) -> int:
     try:
-        print(config.check(root / args.states, root / args.sources))
+        print(config.check(root / args.states, root / args.sources, root / MANUAL_CHECKS))
     except config.ConfigError as err:
         print(f"Config error: {err}", file=sys.stderr)
         return 1
@@ -171,7 +173,9 @@ def compose_summary(log: dict, results, states, root: Path) -> notify.Email:
     new = [c for c in open_cands if c["candidate_id"] in new_ids]
     in_scope = [s for s in states if s.state in set(log["states_in_scope"])]
     expected = notify.expected_not_seen(in_scope, records.load_all(root), open_cands, dt.date.today())
-    return notify.compose(log, new, expected, len(open_cands), repo_url())
+    checks = config.load_manual_checks(root / MANUAL_CHECKS, {s.state for s in states})
+    due = notify.manual_checks_due(checks, dt.date.today())
+    return notify.compose(log, new, expected, len(open_cands), repo_url(), manual_due=due)
 
 
 def write_step_summary(email: notify.Email) -> None:
