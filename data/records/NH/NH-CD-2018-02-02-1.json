@@ -1,0 +1,69 @@
+{
+  "archived_copy": "archive/NH/2026-11-21_2bd2a156.html",
+  "archived_sha256": "2bd2a15666263b5cf585fb2eda1ab7aafb1812077a0ffde86bd754ab2fd9db1c",
+  "candidate_id": "c-20261121-NH-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://gencourt.state.nh.us/rules/State_Agencies/ins1200.html",
+  "effective_date": "2018-02-02",
+  "history": [
+    {
+      "at": "2026-11-21T15:41:38Z",
+      "batch": "batch_15",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:41:39Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "N.H. Admin. R. Ins 1201.09, 1201.10 and 1201.18; RSA 408-A:8",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100",
+      "new_rate": 1.21,
+      "pct_change": null,
+      "plan": "Credit unions: single premium, 14-day retroactive, 12 months"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 1.487,
+      "pct_change": null,
+      "plan": "Commercial and savings banks: single premium, 14-day retroactive, 12 months"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 1.987,
+      "pct_change": null,
+      "plan": "Finance companies: single premium, 14-day retroactive, 12 months"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.997,
+      "pct_change": null,
+      "plan": "Motor vehicle dealers: single premium, 14-day retroactive, 12 months"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.967,
+      "pct_change": null,
+      "plan": "Other sales finance: single premium, 14-day retroactive, 12 months"
+    }
+  ],
+  "rate_table_note": "Rates are the actual premium rates in Table 1200-2, Ins 1201.18, for credit accident and health single premium 14-day retroactive coverage, per $100 for credit transactions of 12 months in duration, by class of business. They equal the nominal rates of Ins 1201.09 times the actual premium rate factor for credit A&H (.618, .759, 1.014, .509, .494), which applies to all plans (other plans and terms not recorded).",
+  "record_id": "NH-CD-2018-02-02-1",
+  "retrieved_at": "2026-11-21T15:41:38Z",
+  "source_title": "N.H. Admin. R. Ins 1200, Credit Life and Credit Accident and Health Insurance (General Court rules site; Ins 1201.18 Table 1200-2; ss by #12474, eff 2-2-18)",
+  "source_url": "https://gencourt.state.nh.us/rules/State_Agencies/ins1200.html",
+  "state": "NH",
+  "status": "confirmed",
+  "summary": "Rates in force: New Hampshire's actual premium rates for credit accident and health in Table 1200-2 (Ins 1201.18): 12-month single premium 14-day retroactive rates of $0.967 to $1.987 per $100, by class of business. The table took its current form with the readoption effective February 2, 2018 (#12474); whether that readoption changed the rates was not checked, so February 2, 2018 is the date the current table took effect.",
+  "verified": true
+}

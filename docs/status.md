@@ -5,7 +5,7 @@ section 10); every decision and its reason is in `docs/decisions.md`; open items
 `docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
 at each stage gate and at the end of each session.
 
-Last updated: 2026-11-21 (third session; regulation-fixed states AL to MD done).
+Last updated: 2026-11-21 (third session; regulation-fixed states AL to NJ done).
 
 ## Stages
 
@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (third session; regulation-fixed states AL to MD done).
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after Maryland: 65 confirmed records; 42 of 83 sources enabled; 206 tests pass.
+Totals after New Jersey: 71 confirmed records; 49 of 86 sources enabled; 207 tests pass.
 
 ## Where each state stands
 
@@ -51,16 +51,20 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | KS | regulation | 2 (in force) | Manual | Batch 11: K.A.R. 40-5-107 (May 1, 1988) from the frozen former Department site; new site 403, rules.ks.gov human check, Kansas Register disallowed by robots.txt |
 | ME | regulation | 0 | Manual | maine.gov refuses the tool (CloudFront 403), including the Rule 220 Word file; no records (gap) |
 | MD | regulation | 4 | Yes (2) | Batch 12: CL (2001), CD single premium (2001), CD outstanding balance change 2016-06-01 (no old rates; gap), IUI (2003); MIA L&H bulletins (`new_links`) and Regulatory Activity (`new_text`); COMAR subtitle 31.13 (lagging) |
+| MI | regulation | 1 (in force) | Yes (1) | Batch 13: CL rates of R 550.211 (September 1, 1989); CD appendices are images (gap); ARS rulemaking list (`new_text`); DIFS site 403 |
+| NV | regulation | 3 (in force) | Yes (1) | Batch 14: NAC 690A CL, CD, IUI (R145-08, September 18, 2008); Division regulations page (`new_text`, strong keyword "nac 690a") |
+| NH | regulation | 2 (in force) | Yes (1) | Batch 15: actual premium rates by class, Table 1200-2 (February 2, 2018); Rulemaking Register (latest week only; gap); Insurance Department 403 |
+| NJ | regulation | 0 | Yes (1) | Department open proposals (`new_text`, strong keyword "11:2-3."); code text only on the publisher's host: no records (gap) |
 | IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
 | PA | notice | 0 | No | Not started |
-| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
+| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, MS, MO, MT, NY, NC, OK, SD, TN, TX, WA, WY |
 
 ## Next steps, in order
 
-1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD done), next **Michigan**, then NV, NH, NJ, NY, OK, SD,
+1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ done), next **New York**, then OK, SD,
    TN (early: 2026 rulemaking notice for chapter 0780-01-04), TX, WA, WY.
 2. **Statute-fixed** (LA, MS, MO, NC) and **unclear** (KY, MT).
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
@@ -96,6 +100,9 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | 10 | FL | 2 | CL in force (2003); CD change 2019 |
 | 11 | KS | 2 | Rates in force (CL, CD; 1988) |
 | 12 | MD | 4 | Rates in force (CL, CD 2001; IUI 2003); CD outstanding balance change 2016 |
+| 13 | MI | 1 | Rates in force (CL; 1989) |
+| 14 | NV | 3 | Rates in force (CL, CD, IUI; 2008) |
+| 15 | NH | 2 | Rates in force (actual premium rates by class; 2018) |
 
 ## Notes carried forward
 

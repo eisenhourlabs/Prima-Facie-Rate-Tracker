@@ -1,0 +1,45 @@
+{
+  "archived_copy": "archive/NV/2026-11-21_2596b62b.html",
+  "archived_sha256": "2596b62b41e732eb20d6332c5aea0b1f4607a781f18017868b2fe2396a105468",
+  "candidate_id": "c-20261121-NV-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.leg.state.nv.us/nac/NAC-690A.html",
+  "effective_date": "2008-09-18",
+  "history": [
+    {
+      "at": "2026-11-21T15:41:36Z",
+      "batch": "batch_14",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:41:37Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "NAC 690A.105; NRS 679B.130, 690A.093, 690A.277",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 0.72,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    }
+  ],
+  "rate_table_note": "Rate is in NAC 690A.105(3). Single premium rates are computed with the formula in 690A.105(2) (NSP = (0.94/13) x (t - a(n) + a(n-t)) / (i x a(n))), not published as figures, so not recorded. Joint is 1.54 times single (4). Dismemberment: 5 cents per $100 per annum single premium, 8 cents per month per $1,000 outstanding (5). Rates may be increased 5.9 percent with the age limits in (8)(c).",
+  "record_id": "NV-CL-2008-09-18-1",
+  "retrieved_at": "2026-11-21T15:41:36Z",
+  "source_title": "NAC chapter 690A, Credit Insurance (Nevada Legislature; sections added by R014-06, eff. 4-1-2007; amended by R145-08, eff. 9-18-2008)",
+  "source_url": "https://www.leg.state.nv.us/nac/NAC-690A.html",
+  "state": "NV",
+  "status": "confirmed",
+  "summary": "Rates in force: Nevada's prima facie credit life rate in NAC 690A.105: 72 cents per month per $1,000 of outstanding insured indebtedness, single life. The section was last amended by R145-08, effective September 18, 2008; whether that amendment changed these figures was not checked, so September 18, 2008 is the date the current text took effect.",
+  "verified": true
+}

@@ -52,7 +52,7 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
 6. **Seed records** from saved public documents only:
    - Copy each document into `seed/documents/` (git-ignored); give it a clear name.
    - Write `seed/batch_NN.csv` with a small script (keeps repeated plan/basis text identical).
-     Next batch number: see `seed/` (batch_12 is the last used).
+     Next batch number: see `seed/` (batch_15 is the last used).
    - Headline rates (A5): credit life per-annum and outstanding-balance rates as published;
      12- and 60-month rates where the state publishes rates by term (for credit disability,
      and for credit life where a term table exists). Never compute a rate (formulas,
@@ -129,6 +129,15 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
   records keep the 1990 floor.
 - A rule may print rates without their unit (Maryland COMAR 31.13.01.15E): say so in
   `basis` and quote the unit from the announcing document in the note.
+- A state may name a rate rulemaking only by chapter or citation (Nevada "NAC 690A", New
+  Hampshire "Ins 1200", New Jersey "11:2-3.17"): add it as a strong keyword and test it
+  against real unrelated items on the page.
+- Some official pages are saved in windows-1252 (Nevada NAC, New Hampshire rules);
+  `seed scan` reads them in the charset the page declares.
+- An official text PDF can still print rate tables as images (Michigan's appendices): those
+  rates wait for a hand-checked import.
+- A listing that shows only the latest issue (New Hampshire's Rulemaking Register) can miss a
+  notice between two runs; say so in the gaps.
 
 ## Helper scripts
 

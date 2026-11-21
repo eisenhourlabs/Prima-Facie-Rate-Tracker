@@ -1,0 +1,99 @@
+{
+  "archived_copy": "archive/NH/2026-11-21_2bd2a156.html",
+  "archived_sha256": "2bd2a15666263b5cf585fb2eda1ab7aafb1812077a0ffde86bd754ab2fd9db1c",
+  "candidate_id": "c-20261121-NH-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://gencourt.state.nh.us/rules/State_Agencies/ins1200.html",
+  "effective_date": "2018-02-02",
+  "history": [
+    {
+      "at": "2026-11-21T15:41:38Z",
+      "batch": "batch_15",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:41:39Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "N.H. Admin. R. Ins 1201.08, 1201.10 and 1201.18; RSA 408-A:8",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per $100",
+      "new_rate": 0.327,
+      "pct_change": null,
+      "plan": "Credit unions: single premium decreasing, single life, 12 months"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.488,
+      "pct_change": null,
+      "plan": "Commercial and savings banks: single premium decreasing, single life, 12 months"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.349,
+      "pct_change": null,
+      "plan": "Finance companies: single premium decreasing, single life, 12 months"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.247,
+      "pct_change": null,
+      "plan": "Motor vehicle dealers: single premium decreasing, single life, 12 months"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.441,
+      "pct_change": null,
+      "plan": "Other sales finance: single premium decreasing, single life, 12 months"
+    },
+    {
+      "basis": "per $1000 per month",
+      "new_rate": 0.514,
+      "pct_change": null,
+      "plan": "Credit unions: outstanding balance decreasing, single life"
+    },
+    {
+      "basis": "per $1000 per month",
+      "new_rate": 0.765,
+      "pct_change": null,
+      "plan": "Commercial and savings banks: outstanding balance decreasing, single life"
+    },
+    {
+      "basis": "per $1000 per month",
+      "new_rate": 0.549,
+      "pct_change": null,
+      "plan": "Finance companies: outstanding balance decreasing, single life"
+    },
+    {
+      "basis": "per $1000 per month",
+      "new_rate": 0.389,
+      "pct_change": null,
+      "plan": "Motor vehicle dealers: outstanding balance decreasing, single life"
+    },
+    {
+      "basis": "per $1000 per month",
+      "new_rate": 0.694,
+      "pct_change": null,
+      "plan": "Other sales finance: outstanding balance decreasing, single life"
+    }
+  ],
+  "rate_table_note": "Rates are the actual premium rates (the maximum rates) in Table 1200-2, Ins 1201.18, by class of business; the table prints them per $100 for credit transactions of 12 months in duration and per $1000 per month. They equal the nominal rates of Ins 1201.08 times the actual premium rate factor for credit life (.694, 1.034, .741, .526, .937). Other terms and plans follow the nominal formulas times the factor (not recorded). Joint is 1.55 times single at the nominal level. Classes not named in the table use the nominal rates ($.74 per month per $1000 outstanding balance).",
+  "record_id": "NH-CL-2018-02-02-1",
+  "retrieved_at": "2026-11-21T15:41:38Z",
+  "source_title": "N.H. Admin. R. Ins 1200, Credit Life and Credit Accident and Health Insurance (General Court rules site; Ins 1201.18 Table 1200-2; ss by #12474, eff 2-2-18)",
+  "source_url": "https://gencourt.state.nh.us/rules/State_Agencies/ins1200.html",
+  "state": "NH",
+  "status": "confirmed",
+  "summary": "Rates in force: New Hampshire's actual premium rates for credit life in Table 1200-2 (Ins 1201.18), by class of business: 12-month single premium decreasing rates of $.247 to $.488 per $100 and outstanding balance rates of $.389 to $.765 per $1000 per month. The table took its current form with the readoption effective February 2, 2018 (#12474); whether that readoption changed the rates was not checked, so February 2, 2018 is the date the current table took effect.",
+  "verified": true
+}

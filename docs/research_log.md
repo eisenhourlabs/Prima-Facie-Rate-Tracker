@@ -201,3 +201,28 @@ documents.
 
 - COMAR 31.13.01 history: chapter revised effective March 1, 2001 (27:22 Md. R. 2062); .15A and E amended effective June 1, 2016 (43:5 Md. R. 387); .10 not amended since 2001. 31.13.03 effective January 1, 2003 (29:12 Md. R. 934); .10 not amended since.
 - Bulletin 16-11 (scanned, read as an image): proposal in the Register December 28, 2015; final March 4, 2016; effective June 1, 2016; composite monthly outstanding balance rates reduced; "Prima facie rates for credit health insurance have not been revised since 2001". It cites "45:5 Md. R 387" (the chapter history says 43:5).
+
+### Michigan (MI)
+| Host | Result |
+|---|---|
+| www.michigan.gov (DIFS) | 403 Akamai "Access Denied" |
+| dtmb.state.mi.us | 403 |
+| ars.apps.lara.state.mi.us | 200; no robots.txt; no terms found. Home page (pending/recent rulemaking transactions); /AdminCode/DeptBureauAdminCode?Department=Insurance+and+Financial+Services&Bureau=Insurance (rule-set list); DownloadAdminCodeFile for "R 550.201 to R 550.221.pdf" (text PDF; Appendices A to E are images). The Admin Code search itself is a POST form |
+
+### Nevada (NV)
+| Host | Result |
+|---|---|
+| doi.nv.gov | 200; robots.txt allows; Credit-Insurance (annual data call), News-Notices/Regulations (proposed regulations by LCB file) |
+| www.leg.state.nv.us | 200; NAC-690A.html (windows-1252); no terms found |
+| nv.gov | robots.txt disallows all robots: privacy policy not read |
+
+### New Hampshire (NH)
+| Host | Result |
+|---|---|
+| www.insurance.nh.gov, www.nh.gov | 403 Akamai "Access Denied" (robots.txt included) |
+| gencourt.state.nh.us | 200; rules/State_Agencies/ins1200.html (windows-1252; formulas as images); rules/register/ (latest week's notices linked); nholsrulesdbsearch (form) |
+
+### New Jersey (NJ)
+| Host | Result |
+|---|---|
+| www.nj.gov/dobi | 200 (redirect stub to www.state.nj.us/dobi, which serves www.nj.gov pages); legal statement nj.gov/nj/legal.shtml allows copying; lrnurulz.htm (open proposals, empty on 2026-11-21), proposed.htm, legsregs.htm; readoption notices pn05_241.pdf, prn10_227.pdf, re250707njac11_2.pdf (no 11:2-3.17 text) |

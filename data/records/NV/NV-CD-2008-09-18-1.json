@@ -1,0 +1,99 @@
+{
+  "archived_copy": "archive/NV/2026-11-21_2596b62b.html",
+  "archived_sha256": "2596b62b41e732eb20d6332c5aea0b1f4607a781f18017868b2fe2396a105468",
+  "candidate_id": "c-20261121-NV-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.leg.state.nv.us/nac/NAC-690A.html",
+  "effective_date": "2008-09-18",
+  "history": [
+    {
+      "at": "2026-11-21T15:41:36Z",
+      "batch": "batch_14",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:41:37Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "NAC 690A.125 and 690A.135; NRS 679B.130, 690A.093, 690A.277",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 0.96,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 1 to 12 months, prospective benefits, 14-day"
+    },
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 0.55,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 1 to 12 months, prospective benefits, 30-day"
+    },
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 2.06,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 1 to 12 months, retroactive benefits, 7-day"
+    },
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 1.51,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 1 to 12 months, retroactive benefits, 14-day"
+    },
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 1.17,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 1 to 12 months, retroactive benefits, 30-day"
+    },
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 2.68,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 49 to 60 months, prospective benefits, 14-day"
+    },
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 2.27,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 49 to 60 months, prospective benefits, 30-day"
+    },
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 4.81,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 49 to 60 months, retroactive benefits, 7-day"
+    },
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 3.23,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 49 to 60 months, retroactive benefits, 14-day"
+    },
+    {
+      "basis": "per $100 of initial insured debt",
+      "new_rate": 2.89,
+      "pct_change": null,
+      "plan": "Single premium, term of loan 49 to 60 months, retroactive benefits, 30-day"
+    }
+  ],
+  "rate_table_note": "Rates are the single premium table in NAC 690A.125(2), by term of loan in months (bands 1 to 12 through 169 to 180) and prospective (14- or 30-day) or retroactive (7-, 14- or 30-day) benefits; the 1 to 12 and 49 to 60 month bands are recorded. A monthly outstanding balance table per $1,000 by term is in 690A.125(3) (for example 1.48 and 0.85 prospective, 1 to 12 months); not recorded. Joint is 1.85 times single (10). Rates may be increased 1.8 percent with the age limits in 690A.135(5).",
+  "record_id": "NV-CD-2008-09-18-1",
+  "retrieved_at": "2026-11-21T15:41:36Z",
+  "source_title": "NAC chapter 690A, Credit Insurance (Nevada Legislature; sections added by R014-06, eff. 4-1-2007; amended by R145-08, eff. 9-18-2008)",
+  "source_url": "https://www.leg.state.nv.us/nac/NAC-690A.html",
+  "state": "NV",
+  "status": "confirmed",
+  "summary": "Rates in force: Nevada's prima facie single premium credit accident and health rates in NAC 690A.125(2), per $100 of initial insured debt, for loan terms of 1 to 12 and 49 to 60 months. The section was last amended by R145-08, effective September 18, 2008; whether that amendment changed these figures was not checked, so September 18, 2008 is the date the current text took effect.",
+  "verified": true
+}

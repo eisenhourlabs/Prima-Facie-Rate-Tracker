@@ -204,6 +204,19 @@ def test_scan_fails_on_files_it_cannot_search(repo):
     assert hit.path == "sheet.xlsx" and "cannot be searched" in hit.where
 
 
+def test_scan_reads_html_in_its_declared_charset(repo):
+    page = ('<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head>'
+            '<body>NAC § 690A.105 Credit life – rates</body></html>')
+    (repo / "seed" / "documents" / "nac.html").write_bytes(page.encode("cp1252"))
+    assert seed.scan(repo / "seed", repo / "internal/blocklist.txt") == []
+    (repo / "seed" / "documents" / "nac2.html").write_bytes(page.replace("rates", FAKE_TERM).encode("cp1252"))
+    [hit] = seed.scan(repo / "seed", repo / "internal/blocklist.txt")
+    assert hit.path == "documents/nac2.html" and hit.where == "text"
+    (repo / "seed" / "documents" / "nac2.html").write_bytes(b"\xa7 no declaration \xff")
+    [hit] = seed.scan(repo / "seed", repo / "internal/blocklist.txt")
+    assert "cannot be searched" in hit.where
+
+
 def fake_doc(body: str, author: str = "Rules Clerk") -> bytes:
     """Bytes shaped like a Word 97 file: the OLE signature, binary padding, 8-bit body text
     and a UTF-16 property string (as Florida's rule files store them)."""

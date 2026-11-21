@@ -1,0 +1,57 @@
+{
+  "archived_copy": "archive/MI/2026-11-21_b7368bd3.pdf",
+  "archived_sha256": "b7368bd348e4c8aed614f75355e7e1bbc94b8994a4506fd1370d03928575aa82",
+  "candidate_id": "c-20261121-MI-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://ars.apps.lara.state.mi.us/AdminCode/DownloadAdminCodeFile?FileName=R%20550.201%20to%20R%20550.221.pdf",
+  "effective_date": "1989-09-01",
+  "history": [
+    {
+      "at": "2026-11-21T15:41:34Z",
+      "batch": "batch_13",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:41:36Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Mich. Admin. Code R 550.211; Credit Insurance Act, MCL 550.601 et seq.",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000.00 of outstanding balance",
+      "new_rate": 0.7385,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 0.48,
+      "pct_change": null,
+      "plan": "Single premium decreasing term, 12 months, single life"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 0.89,
+      "pct_change": null,
+      "plan": "Single premium level term, 12 months, single life"
+    }
+  ],
+  "rate_table_note": "Rates are in R 550.211(1)(a) to (c), each the last of three steps \"commencing September 1, 1989, and continuing thereafter\" (the 1987 and 1988 steps are outside the window). Single premiums for terms other than 12 months are SP12 x n/12 (not recorded). Joint credit life is 1.5625 times the single rate ((1)(e)); not published as a figure. The rule was amended in 1995 (history \"1995 AACS\"); the current text still prints these steps.",
+  "record_id": "MI-CL-1989-09-01-1",
+  "retrieved_at": "2026-11-21T15:41:34Z",
+  "source_title": "Mich. Admin. Code R 550.201 to R 550.221, Credit Insurance Rates, Forms, and Standards (Administrative Rules System; R 550.211 history: 1987 AACS; 1995 AACS)",
+  "source_url": "https://ars.apps.lara.state.mi.us/AdminCode/DownloadAdminCodeFile?FileName=R%20550.201%20to%20R%20550.221.pdf",
+  "state": "MI",
+  "status": "confirmed",
+  "summary": "Rates in force: Michigan's credit life prima facie rates in R 550.211: $.7385 per month per $1,000 of outstanding balance, and 12-month single premiums of $.48 (decreasing term) and $.89 (level term) per $100 of initial insured indebtedness, each in effect from September 1, 1989 and continuing thereafter. Michigan's credit disability rates are in appendices printed as images and are not recorded.",
+  "verified": true
+}

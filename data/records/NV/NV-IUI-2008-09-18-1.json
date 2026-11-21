@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/NV/2026-11-21_2596b62b.html",
+  "archived_sha256": "2596b62b41e732eb20d6332c5aea0b1f4607a781f18017868b2fe2396a105468",
+  "candidate_id": "c-20261121-NV-03",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.leg.state.nv.us/nac/NAC-690A.html",
+  "effective_date": "2008-09-18",
+  "history": [
+    {
+      "at": "2026-11-21T15:41:36Z",
+      "batch": "batch_14",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T15:41:37Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "NAC 690A.155; NRS 679B.130, 690A.093, 690A.277",
+  "origin": "seed",
+  "product": "IUI",
+  "rate_items": [
+    {
+      "basis": "per $100 of insurance per annum",
+      "new_rate": 0.95,
+      "pct_change": null,
+      "plan": "Single premium, per year of the loan term"
+    },
+    {
+      "basis": "per $1,000 of remaining principal balance",
+      "new_rate": 0.79,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, on remaining principal balance"
+    },
+    {
+      "basis": "per $1,000 of remaining payments",
+      "new_rate": 0.67,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, on remaining payments"
+    },
+    {
+      "basis": "per $100 of initial gross indebtedness per year",
+      "new_rate": 1.23,
+      "pct_change": null,
+      "plan": "90-day lump-sum benefit, single premium"
+    },
+    {
+      "basis": "per $1,000 of remaining principal balance",
+      "new_rate": 1.03,
+      "pct_change": null,
+      "plan": "90-day lump-sum benefit, monthly outstanding balance, on remaining principal balance"
+    },
+    {
+      "basis": "per $1,000 of remaining payments",
+      "new_rate": 0.86,
+      "pct_change": null,
+      "plan": "90-day lump-sum benefit, monthly outstanding balance, on remaining payments"
+    }
+  ],
+  "rate_table_note": "Rates are in NAC 690A.155(2)(a) to (f), printed as \"95 cents\", \"79 cents\", \"67 cents\", \"$1.23\", \"$1.03\" and \"86 cents\". Joint is 1.85 times single (4). Insurers must file the formula their rates are based on (1).",
+  "record_id": "NV-IUI-2008-09-18-1",
+  "retrieved_at": "2026-11-21T15:41:36Z",
+  "source_title": "NAC chapter 690A, Credit Insurance (Nevada Legislature; sections added by R014-06, eff. 4-1-2007; amended by R145-08, eff. 9-18-2008)",
+  "source_url": "https://www.leg.state.nv.us/nac/NAC-690A.html",
+  "state": "NV",
+  "status": "confirmed",
+  "summary": "Rates in force: Nevada's credit unemployment rates deemed reasonable in NAC 690A.155(2): 95 cents per $100 per annum single premium; 79 cents per $1,000 of remaining principal balance or 67 cents per $1,000 of remaining payments monthly; and higher rates for 90-day lump-sum benefits. The section was last amended by R145-08, effective September 18, 2008; whether that amendment changed these figures was not checked, so September 18, 2008 is the date the current text took effect.",
+  "verified": true
+}

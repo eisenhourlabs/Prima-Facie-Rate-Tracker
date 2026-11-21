@@ -326,6 +326,29 @@ def _pdf_parts(content: bytes) -> dict[str, str] | None:
         return None
 
 
+_HTML_CHARSET = re.compile(rb"""charset\s*=\s*["']?([A-Za-z0-9_-]+)""", re.I)
+
+
+def _decode_text(content: bytes) -> str | None:
+    """Text of a plain-text or HTML file: UTF-8, or the charset an HTML page declares itself.
+
+    Some official pages are saved in windows-1252 (Nevada's NAC, New Hampshire's rules) and say
+    so in a meta tag. Decoding is strict: bytes the declared charset does not define, or a file
+    with no declaration, leave the file unsearchable (None).
+    """
+    try:
+        return content.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        pass
+    m = _HTML_CHARSET.search(content[:4096])
+    if not m or b"<html" not in content[:4096].lower():
+        return None
+    try:
+        return content.decode(m.group(1).decode("ascii"))
+    except (LookupError, UnicodeDecodeError):
+        return None
+
+
 def scan_file(path: Path, terms: list[str], shown: str) -> list[Hit]:
     """Check one file's name and contents. A file that cannot be searched is a hit too."""
     hits = []
@@ -350,9 +373,8 @@ def scan_file(path: Path, terms: list[str], shown: str) -> list[Hit]:
         if any(t in _flat(text) for t in terms):
             hits.append(Hit(shown, "Word text or properties"))
         return hits
-    try:
-        text = content.decode("utf-8-sig")
-    except UnicodeDecodeError:
+    text = _decode_text(content)
+    if text is None:
         return hits + [Hit(shown, "file cannot be searched (not text or PDF); convert to PDF or remove it")]
     if any(t in _flat(text) for t in terms):
         hits.append(Hit(shown, "text"))
