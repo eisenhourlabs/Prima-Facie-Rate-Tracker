@@ -55,4 +55,5 @@ One candidate may give several records (for example CL and CD from one bulletin)
 
 ## Status and next steps
 See docs/status.md for where the build stands and notes carried forward, and docs/plan.md
-(section 10) for each stage's work and acceptance tests. Start by reading both.
+(section 10) for each stage's work and acceptance tests. Start by reading both. For Stage 6
+(onboarding and seeding a state) follow docs/onboarding.md; open items are in docs/gaps.md.

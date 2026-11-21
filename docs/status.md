@@ -1,60 +1,94 @@
 # Build status
 
 Where the build stands, for the next session. The design is in `docs/plan.md` (stages in
-section 10); every decision and its reason is in `docs/decisions.md`. Update this file at each
-stage gate.
+section 10); every decision and its reason is in `docs/decisions.md`; open items in
+`docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
+at each stage gate and at the end of each session.
 
-Last updated: 2026-11-20.
+Last updated: 2026-11-20 (end of session).
 
 ## Stages
 
 | Stage | State | Notes |
 |---|---|---|
 | 0. Repository and configuration | Done, pushed | |
-| 1. Fetch and detect, pilot states | Done, pushed | 7 sources enabled (IL, IN, VA, WI) |
-| 2. Candidates, records, review | Done, pushed | First records: WI-CL and WI-CD, effective 2027-01-01 |
+| 1. Fetch and detect, pilot states | Done, pushed | |
+| 2. Candidates, records, review | Done, pushed | |
 | 3. Run summary and check workflow | Done, pushed | Notifications built but off (owner choice) |
 | 4. The page | Done, pushed, gate approved | Live at https://eisenhourlabs.github.io/Prima-Facie-Rate-Tracker/ |
-| 5. Seed import | Done, pushed, gate approved | Batch 1 (Wisconsin, effective 2009-2024): 12 records; WI-CD-2027 amended to 12/60-month rates. Page: each change is a collapsed line; links open in a new tab |
-| 6. All states | **In progress** | Combined onboarding and seeding, state by state. Done: UT, NE, ND, WV, OR, IA, MN (partial), OH (partial) |
+| 5. Seed import | Done, pushed, gate approved | Seed tools; batches 1 to 8 (see below) |
+| 6. All states | **In progress** | Combined onboarding and seeding, state by state (`docs/onboarding.md`) |
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
+Totals at end of session: 54 confirmed records; 29 of 75 sources enabled; 192 tests pass.
+
+## Where each state stands
+
+Monitored = at least one enabled **leading** source. Records = confirmed records on the page.
+
+| State | Group | Records | Monitoring | Notes |
+|---|---|---|---|---|
+| WI | notice | 14 | Yes (4) | Batch 1; next notice expected 2029-10-01 |
+| IN | notice | 12 | Yes | Batch 2; next 2027-12-31; official copy of 760 IAC 1-5.1 still to save |
+| NE | notice | 10 | Yes (3) | Batch 5; IGD-A2 steps 2025, 2026, 2027; next 2027-12-31 |
+| NM | notice | 4 | **No: sources not yet enabled** | Batch 4; robots.txt override approved for www.osi.state.nm.us; next 2027-12-31 |
+| SC | notice | 2 | **No: sources not yet enabled** | Batch 3 (rates for 2026 and 2027); next 2027-09-30 |
+| OH | notice | 4 | Lagging only | Batch 6 (memos 2023, 2026); insurance.ohio.gov 404s the tool; next 2028-09-30 |
+| IA | notice | 2 (in force) | Yes | Batch 7: Bulletin 00-04 rates in force since 2001 |
+| OR | notice | 2 (in force) | Yes | Batch 8: rules in force since 2001 |
+| ND | notice | 2 (in force) | Yes | Batch 8: rule in force since 2003 |
+| MN | notice | 2 (in force) | Lagging only | Batch 8: rules in force since 2010; bulletins page is a CAPTCHA; IUI factor history is a gap |
+| UT | notice | 0 | Yes | No change found; rates-in-force date not found (gap) |
+| WV | notice | 0 | Yes | No change since 2011; rule file is a scanned image (gap) |
+| IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
+| VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
+| AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
+| ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
+| PA | notice | 0 | No | Not started |
+| All others | regulation / statute / unclear | 0 | No | Not started: AL, CA, CO, DE, FL, GA, HI, KS, KY, LA, ME, MD, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
+
+## Next steps, in order
+
+1. **Regulation-fixed states**, alphabetically, starting with **Alabama** (two agencies publish
+   rate rules; plan Q4), then CA, CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD,
+   TN (early: 2026 rulemaking notice for chapter 0780-01-04), TX, WA, WY.
+2. **Statute-fixed** (LA, MS, MO, NC) and **unclear** (KY, MT).
+3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
+   disabled); Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
+   network, for example a workflow artifact); a leading source for Illinois.
+4. Gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
+   for blocked states).
+5. Stage 6 gate, then Stage 8.
+
+## Seed batches
+
+| Batch | State | Records | Notes |
+|---|---|---|---|
+| 01 | WI | 12 | 2009 to 2024; WI-CD-2027 amended to 12/60-month rates |
+| 02 | IN | 12 | Bulletins 173 to 277; disability basis per $100 (owner) |
+| 03 | SC | 2 | Orders for 2026 and 2027 |
+| 04 | NM | 4 | 2021-0028 and 2025-002 |
+| 05 | NE | 10 | IGD-A2 2022 restatement and 2025 steps |
+| 06 | OH | 4 | Memos for 2023 and 2026 |
+| 07 | IA | 2 | Rates in force (pilot) |
+| 08 | OR, ND, MN | 6 | Rates in force |
+
 ## Notes carried forward
 
-Manual-check states, missing history and tool changes needed to fill gaps: `docs/gaps.md`.
-
-Stage 5 (seed import):
-- Built: `seed validate`, `seed import`, `seed scan`, `review confirm --batch`, `review list --batch`.
-  Q9, A5 and A6 decided (see decisions.md, 2026-11-20).
-- Batch 1 (Wisconsin, effective 2009-2024) was drafted by Claude Code from public bulletins and
-  tables downloaded from oci.wi.gov, approved by the owner, imported and confirmed (11 by
-  `--batch`, WI-CD-2024 on its own because of its genuine +102% 30-day changes). The 2009 records
-  are outside the 15-year window and hidden on the page. Wisconsin now has 14 confirmed records.
-- WI-CD-2027-01-01-1 amended to the 12- and 60-month rates (A5).
-- Batch 2 (Indiana, Bulletins 173 to 277): 12 records confirmed; disability basis amended to
-  per $100 of initial insured debt (owner). Follow-up: save an official copy of 760 IAC 1-5.1
-  when one can be fetched.
-- Batch 3 (South Carolina): 2 CD records (rates for 2026 and 2027). Earlier years not available
-  to the tool (2025 orders are scanned images; older ones robots-blocked at the State Library).
-- Batch 4 (New Mexico): 4 records (2022 and 2025 cycles), fetched under the owner's robots.txt
-  override (config/robots_overrides.csv). 2017-012 and 2019-018 are scanned images, not imported.
-- Arizona: not done. difi.az.gov and publicmeetings.az.gov answer 403 (Cloudflare bot check);
-  no workaround. Manual for now.
-- Next batches: one state at a time, same method.
+- Page: each record is a collapsed line; links open in a new tab; Recent shows changes
+  communicated in the last 12 months or not yet in effect; "rates in force" records always
+  show in History.
+- Detection: R4 covers icon links to PDFs and to download-style links; "igd - - a2" is a
+  strong keyword (Nebraska).
+- robots.txt: owner-approved overrides in `config/robots_overrides.csv` (New Mexico only);
+  a robots.txt redirected to an ordinary page means none.
+- Option B (headless browser) was tested and not adopted; Playwright was removed from the
+  build computer.
 - `internal/blocklist.txt` is private: report only the names of matching files, never the terms.
-
-Stage 6 (all states):
-- Idaho: both sources return HTTP 200 from GitHub Actions (run 44773368940) but fail TLS from
-  the build computer. Enable after choosing `must_contain` markers from a copy fetched on
-  GitHub's network (for example, saved as a workflow artifact).
-- Virginia: the leading source is a manual check because the regulator's robots.txt blocks
-  automated fetching. Revisit.
-
-Deferred:
-- Email and the backup GitHub issue (`pfrt/notify.py`) are built but off. They turn on with the
-  secrets `SMTP_USER`, `SMTP_APP_PASSWORD`, `ALERT_TO` and the variable `PFRT_OPEN_ISSUES=yes`.
-  Stage 3 acceptance tests 2 and 5 wait for this.
+- Deferred: email and the backup GitHub issue (`pfrt/notify.py`) are built but off. They turn on
+  with the secrets `SMTP_USER`, `SMTP_APP_PASSWORD`, `ALERT_TO` and the variable
+  `PFRT_OPEN_ISSUES=yes`. Stage 3 acceptance tests 2 and 5 wait for this.
 
 ## Working rules (also in CLAUDE.md)
 
@@ -62,4 +96,5 @@ Deferred:
 - Explain each command before running it. Ask "Shall I push?" before every push, even when a
   later step depends on it. Wait for approval on deleting files and anything with secrets.
 - Before every commit, check `git status` to make sure nothing from `internal/` is staged.
+- Check pytest's real exit code before committing.
 - Look up action and package versions when building; never write them from memory.
