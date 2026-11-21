@@ -20,6 +20,15 @@
       "at": "2026-11-21T14:59:26Z",
       "by": "owner",
       "event": "confirmed"
+    },
+    {
+      "at": "2026-11-21T15:24:43Z",
+      "before": {
+        "rate_table_note": "Rates are the single premium tables in paragraph (b)(2)(A), NONRETROACTIVE BASIS and RETROACTIVE BASIS, by number of months in which the indebtedness is repayable (6 or less, 12, 24, 36, 48, 60) and 14- or 30-day elimination period. Other premium bases and terms must be actuarially consistent ((b)(2)(B)). The Department's copy was posted April 7, 2015 on insurance.ks.gov, which now redirects to the Department's new site; the new site and the official rules site (rules.ks.gov) refuse the tool, so the 2026 text was not checked against an official copy."
+      },
+      "by": "owner",
+      "event": "amended",
+      "reason": "Wording: only the former site's home page redirects; the regulation PDF is still served there"
     }
   ],
   "legal_basis": "K.A.R. 40-5-107; K.S.A. 16a-4-203 (authorized by K.S.A. 40-103 and 16a-4-112)",
@@ -75,7 +84,7 @@
       "plan": "Single premium, 60 months, 30-day elimination period, retroactive"
     }
   ],
-  "rate_table_note": "Rates are the single premium tables in paragraph (b)(2)(A), NONRETROACTIVE BASIS and RETROACTIVE BASIS, by number of months in which the indebtedness is repayable (6 or less, 12, 24, 36, 48, 60) and 14- or 30-day elimination period. Other premium bases and terms must be actuarially consistent ((b)(2)(B)). The Department's copy was posted April 7, 2015 on insurance.ks.gov, which now redirects to the Department's new site; the new site and the official rules site (rules.ks.gov) refuse the tool, so the 2026 text was not checked against an official copy.",
+  "rate_table_note": "Rates are the single premium tables in paragraph (b)(2)(A), NONRETROACTIVE BASIS and RETROACTIVE BASIS, by number of months in which the indebtedness is repayable (6 or less, 12, 24, 36, 48, 60) and 14- or 30-day elimination period. Other premium bases and terms must be actuarially consistent ((b)(2)(B)). The Department's copy was posted April 7, 2015 on insurance.ks.gov, the Department's former site, whose home page now redirects to its new site; the new site and the official rules site (rules.ks.gov) refuse the tool, so the 2026 text was not checked against an official copy.",
   "record_id": "KS-CD-1988-05-01-1",
   "retrieved_at": "2026-11-21T14:59:25Z",
   "source_title": "K.A.R. 40-5-107, Same; credit insurance rates and forms (Kansas Insurance Department copy; effective Jan. 1, 1974; amended May 1, 1979, May 1, 1986 and May 1, 1988)",
