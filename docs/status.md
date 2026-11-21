@@ -44,24 +44,27 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | AL | regulation | 3 (in force) | Yes (3) | Batch 9: Banking rule 155-2-2-.12 (CL, CD; June 1, 2018) and ALDOI 482-1-093 Exhibit B (IUI; 2003); Q4 settled from the rules; Administrative Monthly not readable (gap) |
 | CA | regulation | 0 | Yes (1) | Proposed-regulations list (`new_text`, R5); rates fixed in 10 CCR 2248.47 (2002) and 2670.6 (2006); official code host is the publisher's, so no saved copy and no records (gap) |
 | CO | regulation | 0 | Manual | Division site 403s the tool; SOS rule site's terms prohibit robots and reproduction; rates changed 2013, 2016, 2022 (gaps) |
+| DE | regulation | 0 | Manual | Department site and delaware.gov reject the tool; new rules system's robots.txt is an app page (owner question); archive frozen; rates unchanged since 1971 (gaps) |
 | IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
 | PA | notice | 0 | No | Not started |
-| All others | regulation / statute / unclear | 0 | No | Not started: DE, FL, GA, HI, KS, KY, LA, ME, MD, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
+| All others | regulation / statute / unclear | 0 | No | Not started: FL, GA, HI, KS, KY, LA, ME, MD, MI, MS, MO, MT, NV, NH, NJ, NY, NC, OK, SD, TN, TX, WA, WY |
 
 ## Next steps, in order
 
-1. **Regulation-fixed states**, alphabetically (Alabama, California and Colorado done), next **Delaware**, then FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD,
+1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE done), next **Florida**, then GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD,
    TN (early: 2026 rulemaking notice for chapter 0780-01-04), TX, WA, WY.
 2. **Statute-fixed** (LA, MS, MO, NC) and **unclear** (KY, MT).
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
    disabled); Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
    network, for example a workflow artifact); a leading source for Illinois.
-4. Gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
+4. **Owner question:** does an app page served at /robots.txt count as "no robots.txt"?
+   (Alabama admin code; Delaware's rules system. See `docs/decisions.md`.)
+5. Gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
    for blocked states).
-5. Stage 6 gate, then Stage 8.
+6. Stage 6 gate, then Stage 8.
 
 ## Seed batches
 
