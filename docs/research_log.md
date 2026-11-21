@@ -272,3 +272,29 @@ documents.
 | doi.wyo.gov | 200 (Google Sites); /legal lists memos and bulletins linked to Google Drive |
 | rules.wyo.gov | 200; no robots.txt (404); Search.aspx pages return "No Results Found" without a form postback |
 | wyoleg.gov | 200; ARules archive (ARR14-052 is chapter 43, not 52) |
+
+### Louisiana (LA)
+| Host | Result |
+|---|---|
+| legis.la.gov | 200; home is a redirect stub; Law.aspx?d=106294 (6:969.25), 107634 (9:3542), 107637 (9:3545), 107515 (9:3332) |
+| www.ldi.la.gov | 403 "Just a moment..." (bot challenge) |
+
+### Mississippi (MS)
+| Host | Result |
+|---|---|
+| www.mid.ms.gov | 200; website disclaimer (no terms against automated access); legal/bulletins, legal/regulations, legal/mississippi-code; 94103reg.pdf (refunds; no rates); creditsubrequirements.pdf (cites 83-53-23 without figures) |
+| healthrates.mid.ms.gov | 200; creditsubmissionReq.aspx (same text as the PDF) |
+| www.sos.ms.gov | 200; Mississippi law page links LexisNexis (publisher's host, not fetched) |
+
+### Missouri (MO)
+| Host | Result |
+|---|---|
+| insurance.mo.gov | 429 on every request, with page content |
+| www.sos.mo.gov | 200; privacy policy only; 20 CSR 600-2 PDF (600-2.110 amended effective July 30, 2019) |
+| revisor.mo.gov | 200; OneSection.aspx?section=385.070 (effective 28 Aug 1992) |
+
+### North Carolina (NC)
+| Host | Result |
+|---|---|
+| www.ncleg.gov | 200; disclaimer (no terms against automated access); G.S. 58-57-35, -40, -45 PDFs; S.L. 1993-226 (HTML and PDF) |
+| www.ncdoi.gov | 200; documents-bulletins; nc.gov disclaimer and terms of use (no rule against automated access) |

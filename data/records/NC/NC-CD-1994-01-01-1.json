@@ -1,0 +1,99 @@
+{
+  "archived_copy": "archive/NC/2026-11-21_949b8e9e.pdf",
+  "archived_sha256": "949b8e9ec86e4ee3cbdccec6358ad7d8bbe5406b2bc282d729e6d2d2e049f0f7",
+  "candidate_id": "c-20261121-NC-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_58/GS_58-57-45.pdf",
+  "effective_date": "1994-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T17:54:32Z",
+      "batch": "batch_22",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T17:54:34Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "G.S. 58-57-35 and 58-57-45; S.L. 1993-226, s. 8 and s. 18",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 1.4,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 0.95,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 2.6,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 7-day retroactive"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 2.1,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 1.4,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 3.35,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 2.85,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 6.1,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 7-day retroactive"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 5.2,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100.00 of initial insured indebtedness",
+      "new_rate": 3.35,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    }
+  ],
+  "rate_table_note": "Rates are the single premium table in G.S. 58-57-45(d), by months (12 to 120) and nonretroactive (14-, 30-day) or retroactive (7-, 14-, 30-day) benefits; rows 12 and 60 recorded. Joint is at most 1 2/3 times single (h). The section was rewritten by S.L. 1993-226, s. 8; s. 18 of that act makes it effective January 1, 1994 (saved as NC-SL1993-226.html). Credit unemployment rates are filed and approved (G.S. 58-57-35). Also saved: archive/NC/2026-11-21_21c6e47d.html (NC-SL1993-226.html).",
+  "record_id": "NC-CD-1994-01-01-1",
+  "retrieved_at": "2026-11-21T17:54:32Z",
+  "source_title": "G.S. 58-57-45, Credit accident and health insurance rate standards (North Carolina General Assembly)",
+  "source_url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_58/GS_58-57-45.pdf",
+  "state": "NC",
+  "status": "confirmed",
+  "summary": "Rates in force: North Carolina's credit accident and health rate standards in G.S. 58-57-45, single premium per $100 of initial insured indebtedness for 12 and 60 months, since the section's rewrite effective January 1, 1994. Set by statute.",
+  "verified": true
+}

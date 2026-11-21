@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/LA/2026-11-21_975d14cb.html",
+  "archived_sha256": "975d14cbabb719b4b6c3689b520fc9bcbec6dad4adc1642e887f1e8cbb074b19",
+  "candidate_id": "c-20261121-LA-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://legis.la.gov/Legis/Law.aspx?d=107634",
+  "effective_date": "1998-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T17:54:28Z",
+      "batch": "batch_20",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T17:54:29Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "La. R.S. 9:3542 C",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100.00",
+      "new_rate": 3.5,
+      "pct_change": null,
+      "plan": "Single premium, more than 6 through 12 months, 7-day retroactive"
+    },
+    {
+      "basis": "per $100.00",
+      "new_rate": 2.2,
+      "pct_change": null,
+      "plan": "Single premium, more than 6 through 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100.00",
+      "new_rate": 1.7,
+      "pct_change": null,
+      "plan": "Single premium, more than 6 through 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100.00",
+      "new_rate": 6.0,
+      "pct_change": null,
+      "plan": "Single premium, more than 48 through 60 months, 7-day retroactive"
+    },
+    {
+      "basis": "per $100.00",
+      "new_rate": 5.4,
+      "pct_change": null,
+      "plan": "Single premium, more than 48 through 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100.00",
+      "new_rate": 4.9,
+      "pct_change": null,
+      "plan": "Single premium, more than 48 through 60 months, 30-day retroactive"
+    }
+  ],
+  "rate_table_note": "Rates are the schedule in R.S. 9:3542 C (\"Amount per $100.00\"), by months (0-6 to more than 108 through 120) and 7-, 14- or 30-day retroactive benefits; only retroactive coverage may be sold. The schedule is not dated in the text; January 1, 1998 is the date the section's current text took effect. The section was last amended by Acts 1997, No. 143, eff. Jan. 1, 1998. R.S. 6:969.25 (motor vehicle credit transactions, Acts 1999, No. 794) sets the same figures; R.S. 9:3332 (consumer leases) sets higher credit life rates.",
+  "record_id": "LA-CD-1998-01-01-1",
+  "retrieved_at": "2026-11-21T17:54:28Z",
+  "source_title": "La. R.S. 9:3542, Requirement of insurance (Louisiana Consumer Credit Law; Louisiana State Legislature)",
+  "source_url": "https://legis.la.gov/Legis/Law.aspx?d=107634",
+  "state": "LA",
+  "status": "confirmed",
+  "summary": "Rates in force: Louisiana's maximum retroactive credit health and accident rates for consumer credit transactions in R.S. 9:3542 C, per $100, for terms of more than 6 through 12 and more than 48 through 60 months. The section's current text took effect January 1, 1998; whether that amendment changed this schedule was not checked.",
+  "verified": true
+}

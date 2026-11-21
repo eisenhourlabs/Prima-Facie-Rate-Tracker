@@ -1,0 +1,51 @@
+{
+  "archived_copy": "archive/NC/2026-11-21_571fa812.pdf",
+  "archived_sha256": "571fa812396f0c9e8ca960806a37b7d3ca88c53792eeb040458c7577d0899374",
+  "candidate_id": "c-20261121-NC-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_58/GS_58-57-40.pdf",
+  "effective_date": "1997-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T17:54:32Z",
+      "batch": "batch_22",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T17:54:34Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "G.S. 58-57-35 and 58-57-40",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per one hundred dollars ($100.00) of indebtedness per year",
+      "new_rate": 0.5,
+      "pct_change": null,
+      "plan": "Single premium decreasing term (equal monthly installments), single life"
+    },
+    {
+      "basis": "per one hundred dollars ($100.00) per year",
+      "new_rate": 1.1,
+      "pct_change": null,
+      "plan": "Level term, single life"
+    }
+  ],
+  "rate_table_note": "Rates are the last steps of G.S. 58-57-40(c) and (e), \"Effective January 1, 1997\" (earlier steps 1995 and 1996). Joint is at most 1 2/3 times single (d); monthly outstanding balance rates follow the formula in (f); a nonrefundable origination fee of $1.00 or $3.00 is allowed (h). History: 1975, c. 660; 1987, c. 826; 1991, c. 720; 1993, c. 226, s. 7.",
+  "record_id": "NC-CL-1997-01-01-1",
+  "retrieved_at": "2026-11-21T17:54:32Z",
+  "source_title": "G.S. 58-57-40, Credit life insurance rate standards (North Carolina General Assembly)",
+  "source_url": "https://www.ncleg.gov/EnactedLegislation/Statutes/PDF/BySection/Chapter_58/GS_58-57-40.pdf",
+  "state": "NC",
+  "status": "confirmed",
+  "summary": "Rates in force: North Carolina's credit life rate standards in G.S. 58-57-40: 50 cents per $100 per year single premium decreasing term and $1.10 per $100 per year level term, effective January 1, 1997. Set by statute, so a change needs legislation.",
+  "verified": true
+}

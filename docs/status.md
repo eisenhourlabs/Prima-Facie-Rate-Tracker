@@ -5,7 +5,7 @@ section 10); every decision and its reason is in `docs/decisions.md`; open items
 `docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
 at each stage gate and at the end of each session.
 
-Last updated: 2026-11-21 (third session; all regulation-fixed states done).
+Last updated: 2026-11-21 (third session; regulation- and statute-fixed states done).
 
 ## Stages
 
@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (third session; all regulation-fixed states done).
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after Wyoming: 78 confirmed records; 59 of 93 sources enabled; 208 tests pass.
+Totals after North Carolina: 84 confirmed records; 68 of 97 sources enabled; 208 tests pass.
 
 ## Where each state stands
 
@@ -62,18 +62,22 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | TX | regulation | 2 (in force) | Yes (2) | Batch 18: 28 TAC 3.5206 Exhibits 21, 22-4, 22-6 (January 1, 2006; Class E and other classes); TDI yearly rules list (`new_text`; URL changes each January) and rules index |
 | WA | regulation | 2 (in force) | Yes (1) | Batch 19: WAC 284-34-150, -170 (April 1, 2005); OIC rulemaking list; WAC section files lagging |
 | WY | regulation | 0 | Yes (1) | Department memos and bulletins (`new_text`, "ch. 52"); rules.wyo.gov needs a form postback: no records (gap) |
+| LA | statute | 2 (in force) | Lagging only | Batch 20: R.S. 9:3542 (CL January 1, 1999; CD schedule from the 1998 text); LDI bot challenge |
+| MS | statute | 0 | Yes (2) | Department bulletins and regulations (`new_text`); code on the publisher's host: no records |
+| MO | statute | 2 (in force) | Lagging only | Batch 21: RSMo 385.070 (August 28, 1992); Department site 429 |
+| NC | statute | 2 (in force) | Yes (1) | Batch 22: G.S. 58-57-40 (January 1, 1997), 58-57-45 (January 1, 1994); NCDOI bulletins |
 | IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
 | PA | notice | 0 | No | Not started |
-| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, MS, MO, MT, NC |
+| All others | regulation / statute / unclear | 0 | No | Not started: KY, MT (unclear group) |
 
 ## Next steps, in order
 
 1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD, TN, TX, WA, WY done).
-   Next: statute-fixed states (item 2).
-2. **Statute-fixed** (LA, MS, MO, NC) and **unclear** (KY, MT).
+   Next: unclear states (item 2).
+2. **Statute-fixed** (LA, MS, MO, NC done; Q11 reminder feature awaits the owner) and **unclear** (KY, MT), next.
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
    disabled); Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
    network, for example a workflow artifact); a leading source for Illinois.
@@ -115,6 +119,9 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | 17 | SD | 2 | Rates in force (CL, CD; 2000) |
 | 18 | TX | 2 | Rates in force (CL, CD; 2006) |
 | 19 | WA | 2 | Rates in force (CL, CD; 2005) |
+| 20 | LA | 2 | Rates in force (CL 1999, CD 1998; statute) |
+| 21 | MO | 2 | Rates in force (CL, CD; 1992; statute) |
+| 22 | NC | 2 | Rates in force (CL 1997, CD 1994; statute) |
 
 ## Notes carried forward
 

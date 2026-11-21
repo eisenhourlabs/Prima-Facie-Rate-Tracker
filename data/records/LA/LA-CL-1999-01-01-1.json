@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/LA/2026-11-21_975d14cb.html",
+  "archived_sha256": "975d14cbabb719b4b6c3689b520fc9bcbec6dad4adc1642e887f1e8cbb074b19",
+  "candidate_id": "c-20261121-LA-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://legis.la.gov/Legis/Law.aspx?d=107634",
+  "effective_date": "1999-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T17:54:28Z",
+      "batch": "batch_20",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T17:54:29Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "La. R.S. 9:3542 B(2) and D",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per one hundred dollars per annum",
+      "new_rate": 0.8,
+      "pct_change": null,
+      "plan": "Declining balance, single life"
+    },
+    {
+      "basis": "per one hundred dollars per annum",
+      "new_rate": 1.6,
+      "pct_change": null,
+      "plan": "Level term, single life"
+    },
+    {
+      "basis": "per one hundred dollars per annum",
+      "new_rate": 1.2,
+      "pct_change": null,
+      "plan": "Joint credit life"
+    },
+    {
+      "basis": "per one hundred dollars per annum",
+      "new_rate": 2.4,
+      "pct_change": null,
+      "plan": "Joint level term"
+    },
+    {
+      "basis": "per one hundred dollars per thirty day billing period",
+      "new_rate": 0.154,
+      "pct_change": null,
+      "plan": "Revolving accounts, individual"
+    },
+    {
+      "basis": "per one hundred dollars per thirty day billing period",
+      "new_rate": 0.231,
+      "pct_change": null,
+      "plan": "Revolving accounts, joint"
+    }
+  ],
+  "rate_table_note": "Rates are in R.S. 9:3542 B(2) (consumer credit transactions entered into on or after January 1, 1999, printed in words) and D (revolving loan, credit card and charge accounts). The section was last amended by Acts 1997, No. 143, eff. Jan. 1, 1998. R.S. 6:969.25 (motor vehicle credit transactions, Acts 1999, No. 794) sets the same figures; R.S. 9:3332 (consumer leases) sets higher credit life rates.",
+  "record_id": "LA-CL-1999-01-01-1",
+  "retrieved_at": "2026-11-21T17:54:28Z",
+  "source_title": "La. R.S. 9:3542, Requirement of insurance (Louisiana Consumer Credit Law; Louisiana State Legislature)",
+  "source_url": "https://legis.la.gov/Legis/Law.aspx?d=107634",
+  "state": "LA",
+  "status": "confirmed",
+  "summary": "Rates in force: Louisiana's maximum credit life rates for consumer credit transactions in R.S. 9:3542: 80 cents (declining balance), $1.60 (level term), $1.20 (joint) and $2.40 (joint level term) per $100 per annum from January 1, 1999, and .154 and .231 per $100 per 30-day billing period on revolving accounts. Set by statute, so a change needs legislation.",
+  "verified": true
+}
