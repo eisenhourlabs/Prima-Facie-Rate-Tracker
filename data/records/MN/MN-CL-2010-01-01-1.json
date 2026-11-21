@@ -1,0 +1,45 @@
+{
+  "archived_copy": "archive/MN/2026-11-21_7c6a745a.html",
+  "archived_sha256": "7c6a745ae0d3379b5b95df77fedeb35e666f50c722cebf908e200bcb543598ec",
+  "candidate_id": "c-20261121-MN-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.revisor.mn.gov/rules/2760/full",
+  "effective_date": "2010-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T01:04:48Z",
+      "batch": "batch_08",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T01:04:49Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Minn. R. 2760.0050; 2760.0080",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured debt",
+      "new_rate": 0.615,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    }
+  ],
+  "rate_table_note": "Rate is in part 2760.0050, subpart 1, item A. Single premium rates come from the formula in item B and joint coverage is 167% of single; neither is published as a figure. Rates complying with the 2009 rules were required no later than January 1, 2010 (the date shown).",
+  "record_id": "MN-CL-2010-01-01-1",
+  "retrieved_at": "2026-11-21T01:04:48Z",
+  "source_title": "Minnesota Rules chapter 2760, Credit Life, Accident and Health Insurance (33 SR 1107)",
+  "source_url": "https://www.revisor.mn.gov/rules/2760/full",
+  "state": "MN",
+  "status": "confirmed",
+  "summary": "Rates in force: Minnesota's initial credit life prima facie rate in Minn. R. 2760.0050, $0.615 per month per $1,000 of outstanding insured debt on a single life, required no later than January 1, 2010. No adjustment bulletin under 2760.0080 was found.",
+  "verified": true
+}

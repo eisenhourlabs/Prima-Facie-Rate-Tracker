@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/OR/2026-11-21_7d39506d.html",
+  "archived_sha256": "7d39506d7f5ed6ca0e47a9962ff6068da62c0760d42a84e97869096c433cfbfb",
+  "candidate_id": "c-20261121-OR-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "2000-11-14",
+  "date_communicated_estimated": false,
+  "document_url": "https://secure.sos.state.or.us/oard/view.action?ruleNumber=836-060-0026",
+  "effective_date": "2001-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T01:04:48Z",
+      "batch": "batch_08",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T01:04:49Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "OAR 836-060-0026; 836-060-0041",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 0.65,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 0.59,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life, underwritten"
+    },
+    {
+      "basis": "per year per $100 of initial insured indebtedness",
+      "new_rate": 0.42,
+      "pct_change": null,
+      "plan": "Single premium decreasing, single life, terms of 63 months or less"
+    },
+    {
+      "basis": "per year per $100 of initial insured indebtedness",
+      "new_rate": 0.38,
+      "pct_change": null,
+      "plan": "Single premium decreasing, single life, terms of 63 months or less, underwritten"
+    },
+    {
+      "basis": "per $100 of insured indebtedness per year of term",
+      "new_rate": 0.76,
+      "pct_change": null,
+      "plan": "Single premium level term, single life"
+    },
+    {
+      "basis": "per $100 of insured indebtedness per year of term",
+      "new_rate": 0.68,
+      "pct_change": null,
+      "plan": "Single premium level term, single life, underwritten"
+    }
+  ],
+  "rate_table_note": "Rates are in section (1) of the rule. Joint coverage is 165% of the rounded single rate. Terms over 63 months use (n+1)/20 times $.65 ($.59 underwritten).",
+  "record_id": "OR-CL-2001-01-01-1",
+  "retrieved_at": "2026-11-21T01:04:48Z",
+  "source_title": "OAR 836-060-0026, Credit Life Insurance Rates (ID 12-2000, filed November 14, 2000, effective January 1, 2001)",
+  "source_url": "https://secure.sos.state.or.us/oard/view.action?ruleNumber=836-060-0026",
+  "state": "OR",
+  "status": "confirmed",
+  "summary": "Rates in force: Oregon's credit life prima facie rates in OAR 836-060-0026, last amended effective January 1, 2001. Monthly outstanding balance $.65 per $1,000 ($.59 underwritten); single premium decreasing $.42 per year per $100 for terms up to 63 months. No adjustment under OAR 836-060-0041 was found.",
+  "verified": true
+}

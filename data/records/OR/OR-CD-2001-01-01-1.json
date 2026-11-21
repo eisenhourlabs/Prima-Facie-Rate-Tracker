@@ -1,0 +1,87 @@
+{
+  "archived_copy": "archive/OR/2026-11-21_4df76b2b.html",
+  "archived_sha256": "4df76b2bb933f66c5565aade4c0137c698997982d3d6abb6fddc5e31958aadb7",
+  "candidate_id": "c-20261121-OR-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "2000-11-14",
+  "date_communicated_estimated": false,
+  "document_url": "https://secure.sos.state.or.us/oard/view.action?ruleNumber=836-060-0031",
+  "effective_date": "2001-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T01:04:48Z",
+      "batch": "batch_08",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T01:04:49Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "OAR 836-060-0031; 836-060-0041",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.66,
+      "pct_change": null,
+      "plan": "Open-end credit, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.49,
+      "pct_change": null,
+      "plan": "Open-end credit, 14-day nonretroactive, underwritten"
+    },
+    {
+      "basis": "per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.4,
+      "pct_change": null,
+      "plan": "Open-end credit, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.26,
+      "pct_change": null,
+      "plan": "Open-end credit, 30-day nonretroactive, underwritten"
+    },
+    {
+      "basis": "per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.89,
+      "pct_change": null,
+      "plan": "Open-end credit, 14-day retroactive"
+    },
+    {
+      "basis": "per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.7,
+      "pct_change": null,
+      "plan": "Open-end credit, 14-day retroactive, underwritten"
+    },
+    {
+      "basis": "per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.74,
+      "pct_change": null,
+      "plan": "Open-end credit, 30-day retroactive"
+    },
+    {
+      "basis": "per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.57,
+      "pct_change": null,
+      "plan": "Open-end credit, 30-day retroactive, underwritten"
+    }
+  ],
+  "rate_table_note": "Rates are the open-end credit rates in subsection (1)(e) of the rule. The single premium and closed-end tables (Tables 1 and 2) are not published online: the rule says they are available from the agency.",
+  "record_id": "OR-CD-2001-01-01-1",
+  "retrieved_at": "2026-11-21T01:04:48Z",
+  "source_title": "OAR 836-060-0031, Credit Health Insurance Rates (ID 12-2000, filed November 14, 2000, effective January 1, 2001)",
+  "source_url": "https://secure.sos.state.or.us/oard/view.action?ruleNumber=836-060-0031",
+  "state": "OR",
+  "status": "confirmed",
+  "summary": "Rates in force: Oregon's credit health prima facie rates in OAR 836-060-0031, last amended effective January 1, 2001. Shown are the open-end credit rates per $1,000 of outstanding insured indebtedness for four plans, with underwritten rates. The closed-end tables (Tables 1 and 2) are available only from the agency.",
+  "verified": true
+}

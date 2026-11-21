@@ -1,0 +1,87 @@
+{
+  "archived_copy": "archive/ND/2026-11-21_28891845.pdf",
+  "archived_sha256": "288918455eb06c89bbfefe06cc55d8e59bc9684679e7ab607b84a514464d5ab0",
+  "candidate_id": "c-20261121-ND-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://ndlegis.gov/api/acdata/pdf/45-07-01.1.pdf",
+  "effective_date": "2003-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T01:04:48Z",
+      "batch": "batch_08",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T01:04:49Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "N.D. Admin. Code 45-07-01.1-05",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 1.88,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 1.3,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 1.51,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 0.94,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 3.74,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 2.83,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 2.89,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per one hundred dollars of initial insured debt",
+      "new_rate": 2.16,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from the single premium table in 45-07-01.1-05(1)(a). The rate sections were amended effective April 1, 2021 to correct formulas; the table is unchanged.",
+  "record_id": "ND-CD-2003-01-01-1",
+  "retrieved_at": "2026-11-21T01:04:48Z",
+  "source_title": "N.D. Admin. Code chapter 45-07-01.1, Consumer Credit Insurance (effective January 1, 2003)",
+  "source_url": "https://ndlegis.gov/api/acdata/pdf/45-07-01.1.pdf",
+  "state": "ND",
+  "status": "confirmed",
+  "summary": "Rates in force: North Dakota's credit accident and health prima facie rates in N.D. Admin. Code 45-07-01.1-05, effective January 1, 2003. Headline rates are the 12- and 60-month single premium rates per $100. No triennial adjustment under 45-07-01.1-09 was found.",
+  "verified": true
+}

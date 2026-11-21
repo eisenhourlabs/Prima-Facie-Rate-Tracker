@@ -1,0 +1,51 @@
+{
+  "archived_copy": "archive/ND/2026-11-21_28891845.pdf",
+  "archived_sha256": "288918455eb06c89bbfefe06cc55d8e59bc9684679e7ab607b84a514464d5ab0",
+  "candidate_id": "c-20261121-ND-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://ndlegis.gov/api/acdata/pdf/45-07-01.1.pdf",
+  "effective_date": "2003-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T01:04:48Z",
+      "batch": "batch_08",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T01:04:49Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "N.D. Admin. Code 45-07-01.1-04",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per one thousand dollars of outstanding insured debt",
+      "new_rate": 0.62,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per month per one thousand dollars of outstanding insured debt",
+      "new_rate": 1.05,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are in 45-07-01.1-04(1)(a), written in words (sixty-two cents; one dollar five cents). Single premium rates come from the formula in (1)(b) and are not published as figures. The April 1, 2021 amendment corrected the formula only.",
+  "record_id": "ND-CL-2003-01-01-1",
+  "retrieved_at": "2026-11-21T01:04:48Z",
+  "source_title": "N.D. Admin. Code chapter 45-07-01.1, Consumer Credit Insurance (effective January 1, 2003)",
+  "source_url": "https://ndlegis.gov/api/acdata/pdf/45-07-01.1.pdf",
+  "state": "ND",
+  "status": "confirmed",
+  "summary": "Rates in force: North Dakota's credit life prima facie rates in N.D. Admin. Code 45-07-01.1-04, effective January 1, 2003: 62 cents per month per $1,000 of outstanding insured debt (single) and $1.05 (joint). No triennial adjustment under 45-07-01.1-09 was found.",
+  "verified": true
+}

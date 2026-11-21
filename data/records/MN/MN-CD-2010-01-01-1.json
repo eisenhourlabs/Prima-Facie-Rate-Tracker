@@ -1,0 +1,87 @@
+{
+  "archived_copy": "archive/MN/2026-11-21_7c6a745a.html",
+  "archived_sha256": "7c6a745ae0d3379b5b95df77fedeb35e666f50c722cebf908e200bcb543598ec",
+  "candidate_id": "c-20261121-MN-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.revisor.mn.gov/rules/2760/full",
+  "effective_date": "2010-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T01:04:48Z",
+      "batch": "batch_08",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T01:04:49Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Minn. R. 2760.0060; 2760.0080",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of gross insured debt (total of payments)",
+      "new_rate": 1.88,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of gross insured debt (total of payments)",
+      "new_rate": 1.34,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of gross insured debt (total of payments)",
+      "new_rate": 1.45,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of gross insured debt (total of payments)",
+      "new_rate": 0.89,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of gross insured debt (total of payments)",
+      "new_rate": 3.05,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of gross insured debt (total of payments)",
+      "new_rate": 2.49,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of gross insured debt (total of payments)",
+      "new_rate": 2.63,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of gross insured debt (total of payments)",
+      "new_rate": 2.04,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, 30-day nonretroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from the single premium table in part 2760.0060, subpart 1, item B. Rates complying with the 2009 rules were required no later than January 1, 2010 (the date shown).",
+  "record_id": "MN-CD-2010-01-01-1",
+  "retrieved_at": "2026-11-21T01:04:48Z",
+  "source_title": "Minnesota Rules chapter 2760, Credit Life, Accident and Health Insurance (33 SR 1107)",
+  "source_url": "https://www.revisor.mn.gov/rules/2760/full",
+  "state": "MN",
+  "status": "confirmed",
+  "summary": "Rates in force: Minnesota's initial credit accident and health prima facie rates in Minn. R. 2760.0060, required no later than January 1, 2010. Headline rates are the 12- and 60-month single premium rates per $100 of gross insured debt. No adjustment bulletin under 2760.0080 was found.",
+  "verified": true
+}
