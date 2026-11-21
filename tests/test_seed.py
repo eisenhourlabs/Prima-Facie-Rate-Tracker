@@ -217,6 +217,15 @@ def test_scan_reads_html_in_its_declared_charset(repo):
     assert "cannot be searched" in hit.where
 
 
+def test_scan_reads_utf16_html_without_byte_order_mark(repo):
+    page = "<html><body>20:06:06:04. Credit health insurance — Acceptable rates.</body></html>"
+    (repo / "seed" / "documents" / "rule.html").write_bytes(page.encode("utf-16-le"))
+    assert seed.scan(repo / "seed", repo / "internal/blocklist.txt") == []
+    (repo / "seed" / "documents" / "rule.html").write_bytes(page.replace("Acceptable", FAKE_TERM).encode("utf-16-le"))
+    [hit] = seed.scan(repo / "seed", repo / "internal/blocklist.txt")
+    assert hit.where == "text"
+
+
 def fake_doc(body: str, author: str = "Rules Clerk") -> bytes:
     """Bytes shaped like a Word 97 file: the OLE signature, binary padding, 8-bit body text
     and a UTF-16 property string (as Florida's rule files store them)."""

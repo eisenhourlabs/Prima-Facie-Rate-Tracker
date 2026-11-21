@@ -226,3 +226,29 @@ documents.
 | Host | Result |
 |---|---|
 | www.nj.gov/dobi | 200 (redirect stub to www.state.nj.us/dobi, which serves www.nj.gov pages); legal statement nj.gov/nj/legal.shtml allows copying; lrnurulz.htm (open proposals, empty on 2026-11-21), proposed.htm, legsregs.htm; readoption notices pn05_241.pdf, prn10_227.pdf, re250707njac11_2.pdf (no 11:2-3.17 text) |
+
+### New York (NY)
+| Host | Result |
+|---|---|
+| www.dfs.ny.gov, dos.ny.gov, www.ny.gov | ConnectionError from the build computer (robots.txt included) |
+
+### Oklahoma (OK)
+| Host | Result |
+|---|---|
+| www.oid.ok.gov | 200; robots.txt allows. Bulletins page (legal-division/bulletins), notices page, statutes-and-rules page (built by script); C10S5P7.pdf (2019 upload; 365:10-5-64 source line ends "eff 7-1-97"); 2020 subchapter 5 adopted text (forms and appendices F to O) |
+| www.ok.gov / oklahoma.gov | policy pages linked from OID are 404s; oklahoma.gov policy page lists only links |
+| rules.ok.gov | 403 "Just a moment..." (bot challenge) |
+
+### South Dakota (SD)
+| Host | Result |
+|---|---|
+| sdlegislature.gov | 200; robots.txt allows /api/Rules/; rule pages are UTF-16 HTML at /api/Rules/20:06:06:NN.html; chapter page lists sections |
+| dlr.sd.gov | 200; insurance/admin_rules/public_hearings.aspx ("No public hearings scheduled" on 2026-11-21) |
+| rules.sd.gov | 200 (state rules portal); not used |
+| sd.gov | disclaimer and privacy pages built by script (no readable text) |
+
+### Tennessee (TN)
+| Host | Result |
+|---|---|
+| www.tn.gov | 403 (robots.txt included) |
+| sharetngov.tnsosfiles.com, publications.tnsosfiles.com, sos.tn.gov, tnsos.org | 403 CloudFront "request could not be satisfied" |

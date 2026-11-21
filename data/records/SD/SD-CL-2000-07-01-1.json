@@ -1,0 +1,57 @@
+{
+  "archived_copy": "archive/SD/2026-11-21_e73e2679.html",
+  "archived_sha256": "e73e267968c3fccdec65ad4868a7412c1259d28e53d2c8c28756f8c4658aa63d",
+  "candidate_id": "c-20261121-SD-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://sdlegislature.gov/api/Rules/20:06:06:03.html",
+  "effective_date": "2000-07-01",
+  "history": [
+    {
+      "at": "2026-11-21T16:24:55Z",
+      "batch": "batch_17",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T16:24:56Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "ARSD 20:06:06:02 and 20:06:06:03; SDCL 58-19-26 and 58-19-34",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per year for each $100 of initial insured indebtedness",
+      "new_rate": 0.56,
+      "pct_change": null,
+      "plan": "Single premium decreasing term, single life"
+    },
+    {
+      "basis": "per month for each $1,000 of outstanding unpaid insured indebtedness",
+      "new_rate": 0.88,
+      "pct_change": null,
+      "plan": "Monthly premium on outstanding balance, single life (actuarial equivalent)"
+    },
+    {
+      "basis": "per year for each $100 of initial indebtedness",
+      "new_rate": 1.02,
+      "pct_change": null,
+      "plan": "Single premium level term, single life"
+    }
+  ],
+  "rate_table_note": "Rates are in 20:06:06:03(1) and (2); the monthly rate is stated as the actuarial equivalent of the single premium decreasing rate. Joint credit life is at most 1.5 times single (20:06:06:03.03); not published as a figure. 20:06:06:02 makes these the prima facie acceptable rates.",
+  "record_id": "SD-CL-2000-07-01-1",
+  "retrieved_at": "2026-11-21T16:24:55Z",
+  "source_title": "ARSD 20:06:06:03, Credit life insurance -- Acceptable rates (South Dakota Legislature, Administrative Rules)",
+  "source_url": "https://sdlegislature.gov/api/Rules/20:06:06:03.html",
+  "state": "SD",
+  "status": "confirmed",
+  "summary": "Rates in force: South Dakota's acceptable credit life rates in ARSD 20:06:06:03: $.56 per year per $100 single premium decreasing term ($.88 per month per $1,000 outstanding as its equivalent) and $1.02 per year per $100 level term. The rule was last amended by 26 SDR 150, adopted May 21, 2000, effective July 1, 2000; whether that amendment changed these figures was not checked, so July 1, 2000 is the date the current text took effect.",
+  "verified": true
+}

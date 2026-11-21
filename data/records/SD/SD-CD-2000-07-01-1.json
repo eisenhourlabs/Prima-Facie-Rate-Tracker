@@ -1,0 +1,87 @@
+{
+  "archived_copy": "archive/SD/2026-11-21_63d6d3be.html",
+  "archived_sha256": "63d6d3beaf57e8785b5c50c02813179de9c4a032364d46c98ed2228ba3e7970e",
+  "candidate_id": "c-20261121-SD-02",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://sdlegislature.gov/api/Rules/20:06:06:04.html",
+  "effective_date": "2000-07-01",
+  "history": [
+    {
+      "at": "2026-11-21T16:24:55Z",
+      "batch": "batch_17",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T16:24:56Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "ARSD 20:06:06:02 and 20:06:06:04; SDCL 58-19-26 and 58-19-34",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.24,
+      "pct_change": null,
+      "plan": "Single premium, 10-12 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 0.7,
+      "pct_change": null,
+      "plan": "Single premium, 10-12 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.96,
+      "pct_change": null,
+      "plan": "Single premium, 10-12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 1.51,
+      "pct_change": null,
+      "plan": "Single premium, 10-12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 3.49,
+      "pct_change": null,
+      "plan": "Single premium, 58-60 months, 14-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 2.95,
+      "pct_change": null,
+      "plan": "Single premium, 58-60 months, 30-day nonretroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 4.21,
+      "pct_change": null,
+      "plan": "Single premium, 58-60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100 of initial insured indebtedness",
+      "new_rate": 3.76,
+      "pct_change": null,
+      "plan": "Single premium, 58-60 months, 30-day retroactive"
+    }
+  ],
+  "rate_table_note": "Rates are the single premium table in 20:06:06:04(1), by number of months in which the indebtedness is repayable (bands of three months, 6 or less to 118-120) and 14- or 30-day, nonretroactive or retroactive benefits; the 10-12 and 58-60 bands are recorded. Joint credit disability is at most 1.75 times single (20:06:06:04.04).",
+  "record_id": "SD-CD-2000-07-01-1",
+  "retrieved_at": "2026-11-21T16:24:55Z",
+  "source_title": "ARSD 20:06:06:04, Credit health insurance -- Acceptable rates (South Dakota Legislature, Administrative Rules)",
+  "source_url": "https://sdlegislature.gov/api/Rules/20:06:06:04.html",
+  "state": "SD",
+  "status": "confirmed",
+  "summary": "Rates in force: South Dakota's acceptable single premium credit health rates in ARSD 20:06:06:04, per $100 of initial insured indebtedness, for 10-12 and 58-60 months, 14- and 30-day, nonretroactive and retroactive. The rule was last amended by 26 SDR 150, adopted May 21, 2000, effective July 1, 2000; whether that amendment changed these figures was not checked, so July 1, 2000 is the date the current text took effect.",
+  "verified": true
+}

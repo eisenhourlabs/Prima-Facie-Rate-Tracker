@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/OK/2026-11-21_18c0f426.pdf",
+  "archived_sha256": "18c0f42618d0cebf5777515df6273f71dae327c281a2fb976a6c57a9dcaa2683",
+  "candidate_id": "c-20261121-OK-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.oid.ok.gov/wp-content/uploads/2019/10/C10S5P7.pdf",
+  "effective_date": "1997-07-01",
+  "history": [
+    {
+      "at": "2026-11-21T16:24:54Z",
+      "batch": "batch_16",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T16:24:54Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "OAC 365:10-5-64",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000.00 of outstanding balance",
+      "new_rate": 1.05,
+      "pct_change": null,
+      "plan": "Outstanding balance, single life"
+    },
+    {
+      "basis": "per year of coverage per $100.00 of initial insured indebtedness",
+      "new_rate": 0.68,
+      "pct_change": null,
+      "plan": "Single premium decreasing (equal monthly installments), single life"
+    },
+    {
+      "basis": "per year of coverage per $100.00 of level life insurance",
+      "new_rate": 1.26,
+      "pct_change": null,
+      "plan": "Single premium level (single sum at end of term), single life"
+    },
+    {
+      "basis": "per month per $1,000.00 of outstanding balance",
+      "new_rate": 1.58,
+      "pct_change": null,
+      "plan": "Outstanding balance, joint lives"
+    },
+    {
+      "basis": "per year of coverage per $100.00 of initial insured indebtedness",
+      "new_rate": 1.02,
+      "pct_change": null,
+      "plan": "Single premium decreasing (equal monthly installments), joint lives"
+    },
+    {
+      "basis": "per year of coverage per $100.00 of level term insurance",
+      "new_rate": 1.89,
+      "pct_change": null,
+      "plan": "Single premium level (single sum at end of term), joint lives"
+    }
+  ],
+  "rate_table_note": "Rates are in 365:10-5-64(b)(1) to (4), as published (the joint rates are printed as figures). Source line: \"Amended at 10 Ok Reg 3049, eff 10-1-93; ... Amended at 13 Ok Reg 2669, eff 7-1-96; Amended at 14 Ok Reg 2650, eff 7-1-97\". The Department's copy was uploaded in 2019; the official code (rules.ok.gov) could not be read by the tool, and the Department's 2020 chapter 10 amendments (posted on its site) changed credit forms and appendices, not this section.",
+  "record_id": "OK-CL-1997-07-01-1",
+  "retrieved_at": "2026-11-21T16:24:54Z",
+  "source_title": "OAC 365:10-5-64, Presumptively acceptable relationship of credit life insurance benefits to premiums (Oklahoma Insurance Department copy of Chapter 10, Subchapter 5, Part 7)",
+  "source_url": "https://www.oid.ok.gov/wp-content/uploads/2019/10/C10S5P7.pdf",
+  "state": "OK",
+  "status": "confirmed",
+  "summary": "Rates in force: Oklahoma's presumptively reasonable credit life rates in OAC 365:10-5-64: single life $1.05 per month per $1,000 outstanding balance, $.68 per year per $100 decreasing and $1.26 per year per $100 level; joint lives $1.58, $1.02 and $1.89. The section was last amended effective July 1, 1997; whether that amendment changed these figures was not checked. Credit A&H rates (Appendix E) are not in the saved copy.",
+  "verified": true
+}

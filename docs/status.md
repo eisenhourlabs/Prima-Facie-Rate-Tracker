@@ -5,7 +5,7 @@ section 10); every decision and its reason is in `docs/decisions.md`; open items
 `docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
 at each stage gate and at the end of each session.
 
-Last updated: 2026-11-21 (third session; regulation-fixed states AL to NJ done).
+Last updated: 2026-11-21 (third session; regulation-fixed states AL to TN done).
 
 ## Stages
 
@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (third session; regulation-fixed states AL to NJ done).
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after New Jersey: 71 confirmed records; 49 of 86 sources enabled; 207 tests pass.
+Totals after Tennessee: 74 confirmed records; 53 of 89 sources enabled; 208 tests pass.
 
 ## Where each state stands
 
@@ -55,17 +55,21 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | NV | regulation | 3 (in force) | Yes (1) | Batch 14: NAC 690A CL, CD, IUI (R145-08, September 18, 2008); Division regulations page (`new_text`, strong keyword "nac 690a") |
 | NH | regulation | 2 (in force) | Yes (1) | Batch 15: actual premium rates by class, Table 1200-2 (February 2, 2018); Rulemaking Register (latest week only; gap); Insurance Department 403 |
 | NJ | regulation | 0 | Yes (1) | Department open proposals (`new_text`, strong keyword "11:2-3."); code text only on the publisher's host: no records (gap) |
+| NY | regulation | 0 | No | All ny.gov hosts fail to connect from the build computer; retry from GitHub's network; NYCRR on a publisher's host |
+| OK | regulation | 1 (in force) | Yes (1) | Batch 16: CL rates of OAC 365:10-5-64 (July 1, 1997); OID bulletins (strong keyword "bulletin no."); Appendix E (CD) not saved; rules.ok.gov bot challenge |
+| SD | regulation | 2 (in force) | Yes (1) | Batch 17: ARSD 20:06:06:03 and :04 (July 1, 2000); Division hearings page (`new_text`); IUI "no" |
+| TN | regulation | 0 | Manual | tn.gov and Secretary of State hosts 403; 2026 rulemaking on 0780-01-04 unread (gap) |
 | IL | regulation | 0 | Lagging only (pilot) | Leading source still to add |
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 0 | No | Fetches from GitHub Actions only; markers to choose (see below) |
 | PA | notice | 0 | No | Not started |
-| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, MS, MO, MT, NY, NC, OK, SD, TN, TX, WA, WY |
+| All others | regulation / statute / unclear | 0 | No | Not started: KY, LA, MS, MO, MT, NC, TX, WA, WY |
 
 ## Next steps, in order
 
-1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ done), next **New York**, then OK, SD,
-   TN (early: 2026 rulemaking notice for chapter 0780-01-04), TX, WA, WY.
+1. **Regulation-fixed states**, alphabetically (AL, CA, CO, DE, FL, GA, HI, KS, ME, MD, MI, NV, NH, NJ, NY, OK, SD, TN done), next **Texas**, then
+   WA, WY.
 2. **Statute-fixed** (LA, MS, MO, NC) and **unclear** (KY, MT).
 3. **Loose ends from the notice group:** enable monitoring for NM and SC (sources exist but are
    disabled); Pennsylvania; Idaho (choose `must_contain` from a copy fetched on GitHub's
@@ -75,7 +79,8 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
    regulations.delaware.gov, then add sources there (Alabama Administrative Monthly;
    Delaware Register and Regulation 1701). Both are single-page apps with /api/ addresses.
 5. **Hosts to retry from GitHub's network** (a workflow run, as for Idaho): rules.sos.ga.gov
-   (Georgia rule 120-2-27, for a rates-in-force record and a lagging source).
+   (Georgia rule 120-2-27, for a rates-in-force record and a lagging source); every ny.gov host
+   (New York DFS regulatory activity and the State Register).
 6. **Owner choices that would add records** (see `docs/gaps.md`): Colorado (written
    permission from the Secretary of State, or another host; rates changed 2013, 2016, 2022);
    California (Department copy of the 2002 and 2006 rules saved by hand, or the Westlaw text);
@@ -103,6 +108,8 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | 13 | MI | 1 | Rates in force (CL; 1989) |
 | 14 | NV | 3 | Rates in force (CL, CD, IUI; 2008) |
 | 15 | NH | 2 | Rates in force (actual premium rates by class; 2018) |
+| 16 | OK | 1 | Rates in force (CL; 1997) |
+| 17 | SD | 2 | Rates in force (CL, CD; 2000) |
 
 ## Notes carried forward
 

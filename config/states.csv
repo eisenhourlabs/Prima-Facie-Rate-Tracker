@@ -26,16 +26,16 @@ NV,Nevada,yes,yes,yes,regulation,1,,"Rates in NAC 690A.105 (CL), .125 (CD) and .
 NH,New Hampshire,yes,yes,unknown,regulation,,,"Nominal rates (Ins 1201.08, 1201.09) times actual premium rate factors give the actual premium rates by class of business (Table 1200-2, Ins 1201.18; February 2, 2018). Ins 1201.10(j)-(k): new actual rates each biennium if needed, adopted by rule amendment noticed in the Rulemaking Register 90 days ahead; none since 2018, so no expected date. IUI not researched"
 NJ,New Jersey,yes,yes,unknown,regulation,,,"Rate standards in N.J.A.C. 11:2-3.17, changed by rule amendment. Official code text only on the publisher's host: no records. Proposals watched on the Department's site. IUI not researched. No regular cycle"
 NM,New Mexico,yes,yes,unknown,notice,,2027-12-31,Bulletins in 2019 and 2021 and 2025 seen; cycle not stated
-NY,New York,yes,yes,yes,regulation,,,
+NY,New York,yes,yes,yes,regulation,,,"Rates in 11 NYCRR 185 (Reg. 27-A; CL, CD) and 187 (Reg. 27-C; credit unemployment). Official code on a publisher's host; every ny.gov host fails to connect from the build computer (retry from GitHub's network): not monitored, no records. No regular cycle researched"
 NC,North Carolina,yes,yes,no,statute,,,Credit unemployment rates are filed and approved
 ND,North Dakota,yes,yes,no,notice,3,,"Rates in 45-07-01.1-04 and -05; triennial review (-09); IUI rates are filed by each insurer (-06), no prima facie rate"
 OH,Ohio,yes,yes,unknown,notice,3,2028-09-30,"Rates adjusted every three years (January 1, 2017, 2020, 2023, 2026) by Department memo in September, under OAC 3901-1-14; rule tables are 1983 base rates"
-OK,Oklahoma,yes,yes,unknown,regulation,,,Terms are presumptively acceptable and presumptively reasonable
+OK,Oklahoma,yes,yes,unknown,regulation,,,Presumptively reasonable rates in OAC 365:10-5-64 (CL; 1997) and Appendix E (CD; not saved). Rule changes announced by Department bulletin; Oklahoma Register (rules.ok.gov) refuses the tool. IUI not researched. No regular cycle
 OR,Oregon,yes,yes,unknown,notice,4,,Director reviews every four years; channel not found
 PA,Pennsylvania,yes,yes,yes,notice,3,,Published in the Pennsylvania Bulletin
 SC,South Carolina,unknown,yes,unknown,notice,1,2027-09-30,Tentative A&H rates by August 1 each year
-SD,South Dakota,yes,yes,unknown,regulation,,,
-TN,Tennessee,yes,yes,unknown,regulation,,,2026 rulemaking notice lists the chapter; read it
+SD,South Dakota,yes,yes,no,regulation,,,"Acceptable rates in ARSD 20:06:06:03 (CL) and :04 (CD), effective July 1, 2000, changed by rule amendment noticed on the Division's public hearings page. Chapter 20:06:06 regulates credit unemployment benefits but sets no rate. No regular cycle"
+TN,Tennessee,yes,yes,unknown,regulation,,,Rates in Tenn. Comp. R. & Regs. 0780-01-04-.06. tn.gov and every Secretary of State host refuse the tool (403): manual check; no records. A 2026 rulemaking lists the chapter (gap). No regular cycle
 TX,Texas,yes,yes,unknown,regulation,,,Term is presumptive premium rate
 UT,Utah,yes,yes,unknown,notice,1,,Order before September 1 for January 1 when rates are revised
 VA,Virginia,yes,yes,unknown,notice,3,,Order for triennium commencing 2025-01-01 seen; leading source is a manual check (SCC robots.txt blocks automated access; revisit)

@@ -330,23 +330,34 @@ _HTML_CHARSET = re.compile(rb"""charset\s*=\s*["']?([A-Za-z0-9_-]+)""", re.I)
 
 
 def _decode_text(content: bytes) -> str | None:
-    """Text of a plain-text or HTML file: UTF-8, or the charset an HTML page declares itself.
+    """Text of a plain-text or HTML file, or None if it cannot be searched reliably.
 
-    Some official pages are saved in windows-1252 (Nevada's NAC, New Hampshire's rules) and say
-    so in a meta tag. Decoding is strict: bytes the declared charset does not define, or a file
-    with no declaration, leave the file unsearchable (None).
+    Tried in order: UTF-16 little-endian HTML (with or without a byte-order mark; South Dakota's
+    rule pages start with "<" and a zero byte), UTF-8, then the charset an HTML page
+    declares itself (windows-1252 for Nevada's NAC and New Hampshire's rules). UTF-16 is tried
+    first because ASCII text in UTF-16 is also valid UTF-8, with a zero byte between letters,
+    and would hide every term. Decoding is strict, and text that still contains zero bytes
+    counts as unsearchable.
     """
+    if content[:2] in (b"<\x00", b"\xff\xfe"):
+        try:
+            text = content.decode("utf-16")
+        except UnicodeDecodeError:
+            return None
+        return text if "<html" in text[:4096].lower() and "\x00" not in text else None
     try:
-        return content.decode("utf-8-sig")
+        text = content.decode("utf-8-sig")
+        return None if "\x00" in text else text
     except UnicodeDecodeError:
         pass
     m = _HTML_CHARSET.search(content[:4096])
     if not m or b"<html" not in content[:4096].lower():
         return None
     try:
-        return content.decode(m.group(1).decode("ascii"))
+        text = content.decode(m.group(1).decode("ascii"))
     except (LookupError, UnicodeDecodeError):
         return None
+    return None if "\x00" in text else text
 
 
 def scan_file(path: Path, terms: list[str], shown: str) -> list[Hit]:
