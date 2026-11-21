@@ -41,6 +41,17 @@ def test_guess_ext():
     assert documents.guess_ext(b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1rest") == "doc"
 
 
+def test_word_doc_text_keeps_table_rows_and_both_encodings(keywords):
+    body = ("69O-163.011 Credit Disability Insurance Rates.\rTABLE I\r"
+            "7-12\x07 0.90\x07 0.58\x07 1.41\x07\x07\r49-60\x07 2.53\x07 2.38\x07 2.95\x07\x07\r")
+    content = (b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1" + bytes(range(32)) * 32 + body.encode("cp1252")
+               + b"\x00\x01" * 40 + "Notice of Proposed Rule".encode("utf-16-le") + b"\x00\xff" * 40)
+    text = documents.content_text(content, "application/msword", "notice_Files.asp?ID=1")
+    assert "7-12 | 0.90 | 0.58 | 1.41 |" in text and "49-60 | 2.53 | 2.38 | 2.95 |" in text
+    assert "Notice of Proposed Rule" in text and "\xff" not in text
+    assert detect.text_test(text, len(content), keywords)[0] == "match"   # credit disability + rates
+
+
 def test_archive_name_and_never_overwrite(tmp_path):
     day = dt.date(2026, 10, 3)
     a = documents.archive(b"%PDF-1.4 hello", "https://x.gov/a.pdf", "ZZ", day, root=tmp_path)

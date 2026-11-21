@@ -1,0 +1,109 @@
+{
+  "archived_copy": "archive/FL/2026-11-21_fadbd48d.doc",
+  "archived_sha256": "fadbd48d37365ca9bb325c4cac7542e979dc165dd6a5438d0038672a2f613153",
+  "candidate_id": "c-20261121-FL-02",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "2019-03-21",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.flrules.org/gateway/notice_Files.asp?ID=22196527",
+  "effective_date": "2019-08-15",
+  "history": [
+    {
+      "at": "2026-11-21T02:17:49Z",
+      "batch": "batch_10",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T02:17:50Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Rule 69O-163.011, F.A.C.; ss. 627.678 and 627.6785, F.S.",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 0.9,
+      "old_rate": 1.13,
+      "pct_change": -20.4,
+      "plan": "Single premium, 7-12 months, 14-day non-retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 0.58,
+      "old_rate": 0.72,
+      "pct_change": -19.4,
+      "plan": "Single premium, 7-12 months, 30-day non-retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 1.41,
+      "old_rate": 1.76,
+      "pct_change": -19.9,
+      "plan": "Single premium, 7-12 months, 7-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 1.26,
+      "old_rate": 1.58,
+      "pct_change": -20.3,
+      "plan": "Single premium, 7-12 months, 14-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 1.09,
+      "old_rate": 1.36,
+      "pct_change": -19.9,
+      "plan": "Single premium, 7-12 months, 30-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 2.53,
+      "old_rate": 3.16,
+      "pct_change": -19.9,
+      "plan": "Single premium, 49-60 months, 14-day non-retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 2.38,
+      "old_rate": 2.97,
+      "pct_change": -19.9,
+      "plan": "Single premium, 49-60 months, 30-day non-retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 2.95,
+      "old_rate": 3.69,
+      "pct_change": -20.1,
+      "plan": "Single premium, 49-60 months, 7-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 2.7,
+      "old_rate": 3.38,
+      "pct_change": -20.1,
+      "plan": "Single premium, 49-60 months, 14-day retroactive"
+    },
+    {
+      "basis": "single premium per $100 of initial insured indebtedness",
+      "new_rate": 2.62,
+      "old_rate": 3.28,
+      "pct_change": -20.1,
+      "plan": "Single premium, 49-60 months, 30-day retroactive"
+    }
+  ],
+  "rate_table_note": "Rates are from Table I in paragraph (1)(a), rows for indebtedness repayable in 7-12 and 49-60 months (the table gives term bands from \"6 or less\" to 109-120 months, plus a rate per month beyond 120). Old rates are from the version effective September 30, 2009 (flrules.org notice 7666606); the proposed rule (notice 21640717, Florida Administrative Register Vol. 45/56, March 21, 2019) shows the same old rates struck through beside the new ones. Monthly outstanding balance rates come from the formula in (1)(b); joint coverage is at most 175% (1)(e); no pre-existing condition limit adds 10% (2)(a)3. The saved file is the Word document published by flrules.org.",
+  "record_id": "FL-CD-2019-08-15-1",
+  "retrieved_at": "2026-11-21T02:17:49Z",
+  "source_title": "Rule 69O-163.011, F.A.C., Credit Disability Insurance Rates (final adopted version, filed July 26, 2019, effective August 15, 2019; flrules.org notice 22196527)",
+  "source_url": "https://www.flrules.org/gateway/notice_Files.asp?ID=22196527",
+  "state": "FL",
+  "status": "confirmed",
+  "summary": "Florida lowered its maximum credit disability single premium rates in Rule 69O-163.011, effective August 15, 2019: for 7-12 months, 14-day non-retroactive from $1.13 to $0.90 per $100; for 49-60 months from $3.16 to $2.53. Proposed March 21, 2019 (development notice October 30, 2018) with an amendment to 69O-163.009 on deviations.",
+  "verified": true
+}

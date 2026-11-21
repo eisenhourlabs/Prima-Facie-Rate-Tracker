@@ -436,7 +436,7 @@ Examples, using titles seen on a real bulletin list:
 
 ### 3.3 PDFs and other documents
 
-`documents.extract_text(path)` uses `pypdf` for PDF. For DOC and RTF it returns an empty string in version 1 (see Q8).
+`documents.extract_text(path)` uses `pypdf` for PDF. DOC (Word 97-2003) text is read from its text runs since 2026-11-20 (`documents.doc_text`); RTF returns an empty string in version 1 (see Q8).
 
 - If extracted text is under 200 characters for a file over 20 KB, treat it as a scanned image. Under R1 this creates a candidate marked `unreadable_document` for manual review. No OCR in version 1.
 - Text extraction reads at most the first 30 pages.
@@ -1049,7 +1049,7 @@ The fixed decision is to email when candidates are found or a state could not be
 - Option A (recommended): find a different official URL; if none, mark the state manual.
 - Option B: add a headless browser to the job. More moving parts, slower runs, and some sites treat it as unwelcome automation.
 
-**Q8. DOC and RTF sources** (Maine's rule is a Word file; Iowa offers RTF). Version 1 hashes the bytes and does not extract text, which is enough for `any_change`. Recommendation: accept this, and prefer a PDF or HTML version of the same rule where the state offers one.
+**Q8. DOC and RTF sources** (updated 2026-11-20: DOC text is now extracted, because Florida publishes its rules only as Word files; RTF unchanged) (Maine's rule is a Word file; Iowa offers RTF). Version 1 hashes the bytes and does not extract text, which is enough for `any_change`. Recommendation: accept this, and prefer a PDF or HTML version of the same rule where the state offers one.
 
 **Q9. NEEDS TROY'S DECISION. Plausible rate ranges** in 7.4 are placeholders. Set them from professional judgment, or switch the check off.
 

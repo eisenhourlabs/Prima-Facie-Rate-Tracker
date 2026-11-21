@@ -192,6 +192,35 @@ def test_scan_fails_on_files_it_cannot_search(repo):
     assert hit.path == "sheet.xlsx" and "cannot be searched" in hit.where
 
 
+def fake_doc(body: str, author: str = "Rules Clerk") -> bytes:
+    """Bytes shaped like a Word 97 file: the OLE signature, binary padding, 8-bit body text
+    and a UTF-16 property string (as Florida's rule files store them)."""
+    return (b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1" + bytes(range(32)) * 32 + body.encode("cp1252")
+            + b"\x00\x01\x02" * 50 + author.encode("utf-16-le") + b"\x00\xff" * 40)
+
+
+DOC_BODY = ("69O-163.011 Credit Disability Insurance Rates.\r(a) If premiums are payable on a "
+            "single-premium basis:\rTABLE I\r7-12\x07 0.90\x07 0.58\x07 1.41\x07 1.26\x07 1.09\x07\x07\r"
+            "49-60\x07 2.53\x07 2.38\x07 2.95\x07 2.70\x07 2.62\x07\x07\r" + "Rulemaking Authority 624.308(1). " * 4)
+
+
+def test_scan_passes_a_readable_word_file(repo):
+    (repo / "seed" / "documents" / "rule.doc").write_bytes(fake_doc(DOC_BODY))
+    assert seed.scan(repo / "seed", repo / "internal/blocklist.txt") == []
+
+
+def test_scan_finds_a_term_in_word_properties_without_naming_it(repo):
+    (repo / "seed" / "documents" / "rule.doc").write_bytes(fake_doc(DOC_BODY, author=f"{FAKE_TERM} staff"))
+    [hit] = seed.scan(repo / "seed", repo / "internal/blocklist.txt")
+    assert hit.path == "documents/rule.doc" and "Word" in hit.where and FAKE_TERM not in hit.where
+
+
+def test_scan_fails_a_word_file_with_no_text(repo):
+    (repo / "seed" / "documents" / "empty.doc").write_bytes(fake_doc("", author="x"))
+    [hit] = seed.scan(repo / "seed", repo / "internal/blocklist.txt")
+    assert "no readable text" in hit.where
+
+
 def test_scan_needs_a_blocklist(repo):
     with pytest.raises(seed.SeedError, match="not found"):
         seed.scan(repo / "seed", repo / "internal/none.txt")

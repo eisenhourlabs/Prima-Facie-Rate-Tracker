@@ -59,13 +59,45 @@ def pdf_text(content: bytes) -> str:
         return ""
 
 
+import re as _re
+
+# Characters kept when reading a Word 97-2003 file: printable text, tabs, paragraph and
+# line marks, Word's table cell mark (\x07) and common typographic punctuation.
+_DOC_RUN = _re.compile("[\t\n\r\x07\x0b -~\xa0-\xfe–—‘’“”•]+")
+DOC_MIN_RUN = 12   # shorter runs are mostly binary noise
+
+
+def doc_text(content: bytes) -> str:
+    """Text of a binary Word 97-2003 (.doc) file, without a Word library (Q8, 2026-11-20).
+
+    Word stores the document text as runs of UTF-16 or 8-bit (cp1252) characters, and
+    one file can hold both (for example 8-bit body text and UTF-16 properties). This keeps
+    the longer runs of both kinds, in file order. Table cells (Word's \\x07 mark) become
+    " | " so a rate table reads as rows. Good enough for keyword tests and the seed scan;
+    the saved file itself stays the official document.
+    """
+    found: list[tuple[int, str]] = []
+    for shift in (0, 1):                                   # UTF-16 text at even or odd offsets
+        text = content[shift:].decode("utf-16-le", errors="replace")
+        found += [(shift + 2 * m.start(), m.group(0)) for m in _DOC_RUN.finditer(text)
+                  if len(m.group(0).strip()) >= DOC_MIN_RUN]
+    text = content.decode("cp1252", errors="replace")      # 8-bit text
+    found += [(m.start(), m.group(0)) for m in _DOC_RUN.finditer(text)
+              if len(m.group(0).strip()) >= DOC_MIN_RUN]
+    out = "\n".join(t for _, t in sorted(found))
+    out = out.replace("\x07", " | ").replace("\r", "\n").replace("\x0b", "\n")
+    return _re.sub(r"[ \t]+", " ", out).strip()
+
+
 def content_text(content: bytes, content_type: str = "", url: str = "") -> str:
-    """Searchable text of any fetched content. DOC and RTF give "" in version 1 (Q8)."""
+    """Searchable text of any fetched content. RTF gives "" in version 1 (Q8)."""
     ext = guess_ext(content, content_type, url)
     if ext == "pdf":
         return pdf_text(content)
     if ext == "html":
         return normalize.html_to_text(content)
+    if ext == "doc":
+        return doc_text(content)
     return ""
 
 

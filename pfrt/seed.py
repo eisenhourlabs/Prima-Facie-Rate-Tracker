@@ -341,6 +341,15 @@ def scan_file(path: Path, terms: list[str], shown: str) -> list[Hit]:
             hits.append(Hit(shown, "PDF has no extractable text (scanned image); check it by hand"))
         hits += [Hit(shown, where) for where, text in parts.items() if any(t in _flat(text) for t in terms)]
         return hits
+    if content[:8] == b"\xd0\xcf\x11\xe0\xa1\xb1\x1a\xe1":     # Word 97-2003 .doc (Florida rules)
+        from pfrt import documents
+        text = documents.doc_text(content)
+        if len(text) < 200:
+            return hits + [Hit(shown, "Word file has no readable text; check it by hand or remove it")]
+        # doc_text also returns the file's properties (author, title), so they are searched too.
+        if any(t in _flat(text) for t in terms):
+            hits.append(Hit(shown, "Word text or properties"))
+        return hits
     try:
         text = content.decode("utf-8-sig")
     except UnicodeDecodeError:

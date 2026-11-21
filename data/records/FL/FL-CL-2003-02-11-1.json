@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/FL/2026-11-21_c31a558c.doc",
+  "archived_sha256": "c31a558cdbaa045de5a925c85bea770354d36887c86478829fde72f597795a23",
+  "candidate_id": "c-20261121-FL-01",
+  "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "document_url": "https://www.flrules.org/gateway/notice_Files.asp?ID=2791774",
+  "effective_date": "2003-02-11",
+  "history": [
+    {
+      "at": "2026-11-21T02:17:49Z",
+      "batch": "batch_10",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T02:17:50Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Rule 69O-163.010, F.A.C.; s. 627.678, F.S.",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 0.69,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per month per $1,000 of outstanding insured indebtedness",
+      "new_rate": 1.21,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, joint life"
+    },
+    {
+      "basis": "per $100 per year of initial insured indebtedness",
+      "new_rate": 0.44,
+      "pct_change": null,
+      "plan": "Single premium decreasing, single life"
+    },
+    {
+      "basis": "per $100 per year of initial insured indebtedness",
+      "new_rate": 0.77,
+      "pct_change": null,
+      "plan": "Single premium decreasing, joint life"
+    },
+    {
+      "basis": "per $100 per year of initial insured indebtedness",
+      "new_rate": 0.82,
+      "pct_change": null,
+      "plan": "Single premium level term, single life"
+    },
+    {
+      "basis": "per $100 per year of initial insured indebtedness",
+      "new_rate": 1.43,
+      "pct_change": null,
+      "plan": "Single premium level term, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are in subsection (1) of the rule, for decreasing gross coverage (paragraphs (a) and (b)) and level term (paragraph (c)). Dismemberment is at most 10% of these rates; accelerated death benefit prima facie rates are $.03 to $.08 per $100 per year (paragraph (f)). The rates assume coverage to age 71. The saved file is the Word document published by flrules.org.",
+  "record_id": "FL-CL-2003-02-11-1",
+  "retrieved_at": "2026-11-21T02:17:49Z",
+  "source_title": "Rule 69O-163.010, F.A.C., Credit Life Insurance Rates (final adopted version, effective February 11, 2003; flrules.org notice 2791774)",
+  "source_url": "https://www.flrules.org/gateway/notice_Files.asp?ID=2791774",
+  "state": "FL",
+  "status": "confirmed",
+  "summary": "Rates in force: Florida's maximum credit life rates in Rule 69O-163.010, last amended effective February 11, 2003: $0.69 single and $1.21 joint per month per $1,000 of outstanding insured indebtedness; single premium decreasing $0.44 and $0.77, level term $0.82 and $1.43 per $100 per year.",
+  "verified": true
+}
