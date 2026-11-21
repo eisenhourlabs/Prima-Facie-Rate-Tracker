@@ -109,11 +109,13 @@ class Throttle:
 # --- robots.txt -------------------------------------------------------------
 
 def parse_robots(http_status: int | None, content_type: str, text: str,
-                 error: str = "") -> tuple[robotparser.RobotFileParser | None, str]:
+                 error: str = "", redirected_to: str = "") -> tuple[robotparser.RobotFileParser | None, str]:
     """Turn a robots.txt response into a parser, or None with a reason.
 
     None with reason starting "allow" means no robots.txt (everything allowed).
     None with any other reason means the file could not be read: do not fetch.
+    `redirected_to` is the final URL when the request for /robots.txt was redirected
+    to a different page (for example a site that sends missing pages to its home page).
     """
     if error:
         return None, f"robots.txt unavailable: {error}"
@@ -121,9 +123,13 @@ def parse_robots(http_status: int | None, content_type: str, text: str,
         return None, f"robots.txt unavailable: HTTP {http_status}"
     if http_status is not None and http_status >= 400:
         return None, "allow: no robots.txt"
-    # An HTML page served instead of robots.txt (block page, redirect page) is not
-    # a real robots file. Reading it as "no rules" would wrongly allow everything.
     if "html" in content_type.lower() or text.lstrip()[:1] == "<":
+        # A redirect away from /robots.txt to an ordinary page means the site has no
+        # robots.txt. A challenge or block page, or an HTML page served at /robots.txt
+        # itself, is not a robots file; reading it as "no rules" would wrongly allow everything.
+        low = text.lower()
+        if redirected_to and http_status == 200 and not any(m in low for m in CHALLENGE_MARKERS):
+            return None, f"allow: no robots.txt (request redirected to {redirected_to})"
         return None, "robots.txt unreadable: server returned a web page"
     rp = robotparser.RobotFileParser()
     rp.parse(text.splitlines())
@@ -185,7 +191,9 @@ class RobotsCache:
         self._throttle.wait(robots_url)
         try:
             r = self._session.get(robots_url, timeout=TIMEOUT_SECONDS)
-            return parse_robots(r.status_code, r.headers.get("Content-Type", ""), r.text)
+            final = getattr(r, "url", robots_url) or robots_url
+            moved = final if urlsplit(final).path.rstrip("/").lower() != "/robots.txt" else ""
+            return parse_robots(r.status_code, r.headers.get("Content-Type", ""), r.text, redirected_to=moved)
         except requests.RequestException as err:
             return parse_robots(None, "", "", error=type(err).__name__)
 

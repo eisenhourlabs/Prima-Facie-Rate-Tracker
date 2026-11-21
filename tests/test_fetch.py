@@ -196,3 +196,21 @@ def test_load_overrides_reads_the_real_config():
     over = fetch.load_overrides()
     assert "www.osi.state.nm.us" in over and over["www.osi.state.nm.us"].startswith("2026-11-20")
     assert fetch.load_overrides("does/not/exist.csv") == {}
+
+
+def test_robots_redirected_to_an_ordinary_page_means_no_robots_file():
+    """Oregon's rules site sends /robots.txt to its home page: there is no robots file."""
+    rp, reason = fetch.parse_robots(200, "text/html", "<html><title>Welcome Page</title></html>",
+                                    redirected_to="https://sos.example.gov/Pages/default.aspx")
+    assert rp is None and reason.startswith("allow") and "redirected" in reason
+
+
+def test_robots_redirect_to_a_challenge_page_still_stops():
+    rp, reason = fetch.parse_robots(200, "text/html", "<html><title>Just a moment...</title></html>",
+                                    redirected_to="https://x.example.gov/challenge")
+    assert rp is None and "unreadable" in reason
+
+
+def test_robots_html_at_robots_path_without_redirect_still_stops():
+    c = _cache(200, "text/html", "<html><title>Home</title></html>", {})
+    assert c.check("https://x.example.gov/a.pdf")[0] == "unavailable"
