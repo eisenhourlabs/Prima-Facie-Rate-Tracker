@@ -141,3 +141,17 @@ def test_nebraska_igd_a2_link_text_prematches(keywords):
     assert detect.keyword_match("IGD - - A2", keywords).prematches
     assert detect.keyword_match("IGD -- A2", keywords).prematches
     assert not detect.keyword_match("IGD - - B4", keywords).prematches
+
+
+def test_r4_covers_download_links_without_pdf_ending(keywords):
+    """West Virginia lists bulletins as LinkClick.aspx?fileticket=... icons with no link text;
+    Iowa uses /media/N/download. Both are tested like bare PDF links (R4)."""
+    from pfrt.detect import _is_pdf_url
+    assert _is_pdf_url("https://www.wvinsurance.gov/LinkClick.aspx?fileticket=EtuNuXpNWQ4%3D&tabid=785&portalid=0&mid=5153")
+    assert _is_pdf_url("https://iid.iowa.gov/media/113/download?inline=")
+    assert _is_pdf_url("https://x.gov/docs/Bulletin.PDF")
+    assert not _is_pdf_url("https://www.wvinsurance.gov/Resources_Insurance-Bulletins")
+    old = {"links": {"https://x.gov/a": "About"}, "content_sha256": "1"}
+    new = {"https://x.gov/a": "About", "https://www.wvinsurance.gov/LinkClick.aspx?fileticket=NEW%3D&tabid=785": ""}
+    findings = detect._compare_links(old["links"], new, True, keywords)
+    assert [f.rule for f in findings] == ["R4_new_bare_pdf_link"]

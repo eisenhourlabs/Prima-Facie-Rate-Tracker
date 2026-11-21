@@ -4,7 +4,8 @@ Rules:
   R1  new_links source: a new link whose anchor text pre-matches the keywords.
   R2  any_change source: the content hash changed.
   R3  new_links source: the hash changed but no R1/R4 finding. Logged, no candidate.
-  R4  new_links source: a new link to a PDF with no (or 3-character) anchor text.
+  R4  new_links source: a new link to a PDF or file download (LinkClick.aspx, /download)
+      with no (or 3-character) anchor text.
   suspect_redesign: more than 25 new links at once. No candidates; keep old snapshot.
 
 The functions here only compare. Downloading a document and testing its text
@@ -119,7 +120,16 @@ def text_diff(old_text: str, new_text: str, max_lines: int = DIFF_MAX_LINES) -> 
 
 
 def _is_pdf_url(url: str) -> bool:
-    return urlsplit(url).path.lower().endswith(".pdf")
+    """True for a link to a PDF or to a file download that hides its type.
+
+    Some sites (DotNetNuke's LinkClick.aspx?fileticket=..., Drupal's /media/N/download)
+    link documents without a .pdf ending and often with an icon instead of link text.
+    Such links are downloaded and their text decides (R4), so a notice is not missed.
+    """
+    parts = urlsplit(url)
+    path, query = parts.path.lower(), parts.query.lower()
+    return (path.endswith(".pdf") or path.endswith("/linkclick.aspx") or "fileticket=" in query
+            or path.endswith("/download"))
 
 
 def compare(watch_mode: str, old_snapshot: dict | None, new_hash: str,
