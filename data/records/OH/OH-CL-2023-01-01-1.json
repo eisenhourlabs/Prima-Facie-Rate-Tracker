@@ -1,0 +1,75 @@
+{
+  "archived_copy": "archive/OH/2026-11-21_1d200852.pdf",
+  "archived_sha256": "1d2008527ca2d9989cd2c17261a831fe9dedf2f8c740a5266f48b93b96b48fca",
+  "candidate_id": "c-20261121-OH-01",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "2022-09-23",
+  "date_communicated_estimated": false,
+  "document_url": "https://dam.assets.ohio.gov/image/upload/insurance.ohio.gov/Company/Documents/CreditRateMemo_9.23.22.pdf",
+  "effective_date": "2023-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T00:46:17Z",
+      "batch": "batch_06",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T00:46:18Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Ohio Adm. Code 3901-1-14",
+  "origin": "seed",
+  "product": "CL",
+  "rate_items": [
+    {
+      "basis": "per $1000 per month (monthly outstanding balance)",
+      "new_rate": 0.678,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, single life"
+    },
+    {
+      "basis": "per $1000 per month (monthly outstanding balance)",
+      "new_rate": 1.187,
+      "pct_change": null,
+      "plan": "Monthly outstanding balance, joint life"
+    },
+    {
+      "basis": "per $100, single premium, gross decreasing coverage",
+      "new_rate": 0.44,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, single life"
+    },
+    {
+      "basis": "per $100, single premium, gross decreasing coverage",
+      "new_rate": 0.77,
+      "pct_change": null,
+      "plan": "Single premium, 12 months, joint life"
+    },
+    {
+      "basis": "per $100, single premium, gross decreasing coverage",
+      "new_rate": 2.07,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, single life"
+    },
+    {
+      "basis": "per $100, single premium, gross decreasing coverage",
+      "new_rate": 3.62,
+      "pct_change": null,
+      "plan": "Single premium, 60 months, joint life"
+    }
+  ],
+  "rate_table_note": "Rates are from the credit life table on page 2 of the memo (joint life is 175% of single). Old rates not recorded: the memo for January 1, 2020 was not found.",
+  "record_id": "OH-CL-2023-01-01-1",
+  "retrieved_at": "2026-11-21T00:46:17Z",
+  "source_title": "Ohio Department of Insurance memorandum, September 23, 2022: Credit Insurance Rates Effective 1/1/2023",
+  "source_url": "https://dam.assets.ohio.gov/image/upload/insurance.ohio.gov/Company/Documents/CreditRateMemo_9.23.22.pdf",
+  "state": "OH",
+  "status": "confirmed",
+  "summary": "The Ohio Department of Insurance's triennial review under rule 3901-1-14 increased the credit life prima facie rates 8.2%, effective January 1, 2023, to $0.678 per $1,000 per month on the outstanding balance and $0.44 per $100 single premium for 12 months. Companies using prima facie rates need not refile.",
+  "verified": true
+}

@@ -1,0 +1,95 @@
+{
+  "archived_copy": "archive/OH/2026-11-21_6d07c673.pdf",
+  "archived_sha256": "6d07c673c3378046185f0c46ffd624905714943a8f1504973df0695fee589028",
+  "candidate_id": "c-20261121-OH-04",
+  "change_type": "change",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-21",
+  "date_communicated": "2025-09-24",
+  "date_communicated_estimated": false,
+  "document_url": "https://dam.assets.ohio.gov/image/upload/insurance.ohio.gov/Company/Product%20Regulation/Credit_Rate_Memo_2026_9-24-25_Final.pdf",
+  "effective_date": "2026-01-01",
+  "history": [
+    {
+      "at": "2026-11-21T00:46:17Z",
+      "batch": "batch_06",
+      "by": "seed-import",
+      "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-21T00:46:18Z",
+      "by": "owner",
+      "event": "confirmed"
+    }
+  ],
+  "legal_basis": "Ohio Adm. Code 3901-1-14",
+  "origin": "seed",
+  "product": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100",
+      "new_rate": 0.91,
+      "old_rate": 1.05,
+      "pct_change": -13.3,
+      "plan": "Single premium, 12 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.79,
+      "old_rate": 0.91,
+      "pct_change": -13.2,
+      "plan": "Single premium, 12 months, 14-day elimination (nonretroactive)"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.68,
+      "old_rate": 0.79,
+      "pct_change": -13.9,
+      "plan": "Single premium, 12 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.48,
+      "old_rate": 0.55,
+      "pct_change": -12.7,
+      "plan": "Single premium, 12 months, 30-day elimination (nonretroactive)"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 1.56,
+      "old_rate": 1.8,
+      "pct_change": -13.3,
+      "plan": "Single premium, 60 months, 14-day retroactive"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 1.44,
+      "old_rate": 1.66,
+      "pct_change": -13.3,
+      "plan": "Single premium, 60 months, 14-day elimination (nonretroactive)"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 1.07,
+      "old_rate": 1.24,
+      "pct_change": -13.7,
+      "plan": "Single premium, 60 months, 30-day retroactive"
+    },
+    {
+      "basis": "per $100",
+      "new_rate": 0.93,
+      "old_rate": 1.08,
+      "pct_change": -13.9,
+      "plan": "Single premium, 60 months, 30-day elimination (nonretroactive)"
+    }
+  ],
+  "rate_table_note": "Rates are from the credit disability table on page 2 of the memo. The memo's cover letter gives the 12-month 14-day retroactive rate as $0.90, one cent below the table (0.91); the table is used. Old rates are from the memo of September 23, 2022 (https://dam.assets.ohio.gov/image/upload/insurance.ohio.gov/Company/Documents/CreditRateMemo_9.23.22.pdf).",
+  "record_id": "OH-CD-2026-01-01-1",
+  "retrieved_at": "2026-11-21T00:46:17Z",
+  "source_title": "Ohio Department of Insurance memorandum, September 24, 2025: Credit Insurance Rates Effective 1/1/2026",
+  "source_url": "https://dam.assets.ohio.gov/image/upload/insurance.ohio.gov/Company/Product%20Regulation/Credit_Rate_Memo_2026_9-24-25_Final.pdf",
+  "state": "OH",
+  "status": "confirmed",
+  "summary": "The Ohio Department of Insurance's triennial review under rule 3901-1-14 decreased the credit disability (credit accident and health) prima facie rates 13.5%, effective January 1, 2026. Headline rates are the 12- and 60-month single premium rates per $100 from the memo's table. Companies using prima facie rates need not refile.",
+  "verified": true
+}
