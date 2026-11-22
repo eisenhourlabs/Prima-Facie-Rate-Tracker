@@ -1,15 +1,12 @@
 {
-  "ai": null,
-  "anchor_text": "18 DE Admin. Code 1701, Credit Life and Credit Health Insurance [Formerly Regulation 5] (Delaware Administrative Code, current text)",
   "archived_copy": "archive/DE/2026-11-22_51b54ac5.pdf",
   "archived_sha256": "51b54ac50e3744d6beca23053ad7dc3327f556d58ced47301103875ae17d4f6d",
-  "archived_too_large": false,
-  "batch": "batch_26",
   "candidate_id": "c-20261122-DE-01",
   "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-22",
   "date_communicated": "",
   "date_communicated_estimated": false,
-  "detected_at": "2026-11-22T00:07:18Z",
   "document_url": "https://regulations.delaware.gov/api/AdminCode/title18/1701/ebbb48fd-878b-47de-b873-fe058a9705fe",
   "effective_date": "1971-02-15",
   "history": [
@@ -18,39 +15,37 @@
       "batch": "batch_26",
       "by": "seed-import",
       "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-22T00:38:38Z",
+      "by": "owner",
+      "event": "confirmed"
     }
   ],
   "legal_basis": "18 DE Admin. Code 1701, 2.1.1; 18 Del.C. 3707(b), 3704",
-  "matched_keywords": [],
   "origin": "seed",
-  "priority": "seed",
   "product": "CL",
-  "products_hint": "CL",
   "rate_items": [
     {
       "basis": "per annum per $100 of initial indebtedness",
       "new_rate": 1.22,
+      "pct_change": null,
       "plan": "Level term, single premium"
     },
     {
       "basis": "per $1000 of outstanding unpaid insured indebtedness (monthly)",
       "new_rate": 1.0,
+      "pct_change": null,
       "plan": "Monthly outstanding balance (actuarial equivalent of decreasing term)"
     }
   ],
   "rate_table_note": "Page 1, 2.1.1.2: \"For level term credit life insurance a single premium of $1.22 per annum per $100 of initial indebtedness pursuant to 18 Del.C. §3704.\" 2.1.1.1: \"For decreasing term credit life insurance, a single premium of 650 per annum per $100 of initial insured indebtedness. A premium payable monthly at the rate of $1.00 per $1000 of outstanding unpaid insured indebtedness will be deemed the actuarial equivalent of the foregoing rate.\" The decreasing term single premium is printed \"650\" (evidently a misprint; the 2007 proposal read it as $.65) and is not recorded as a rate; the monthly outstanding balance rate of $1.00 per $1,000 is. Dating: section 8.1 (page 4) reads \"This regulation shall become effective February 15, 1971\"; the only amendment noted in the text is to reserve section 6.1.1 (order effective January 1, 1986). The 2007 proposal (11 DE Reg 727) to correct 2.1.1.1 and move the effective date to February 1, 2008 is not reflected in the current text, so it was evidently not adopted.",
+  "record_id": "DE-CL-1971-02-15-1",
   "retrieved_at": "2026-11-22T00:07:18Z",
-  "rule": "seed_import",
-  "run_id": "batch_26",
-  "seed_notes": "",
-  "seed_rows": "rows 2-3",
-  "source_id": "seed",
   "source_title": "18 DE Admin. Code 1701, Credit Life and Credit Health Insurance [Formerly Regulation 5] (Delaware Administrative Code, current text)",
   "source_url": "https://regulations.delaware.gov/api/AdminCode/title18/1701/ebbb48fd-878b-47de-b873-fe058a9705fe",
   "state": "DE",
-  "status": "candidate",
+  "status": "confirmed",
   "summary": "Rates in force: Delaware's prima facie credit life rates (Regulation 1701) are $1.00 per month per $1,000 of outstanding balance and $1.22 per annum per $100 single premium level term, in force since February 15, 1971. The decreasing term single premium is misprinted in the rule (\"650\") and not recorded.",
-  "text_diff": "",
-  "text_excerpt": "",
-  "unreadable_document": false
+  "verified": true
 }

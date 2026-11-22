@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (fifth session; probe workflow; Idaho and New York moni
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after status item 4 (2026-11-22): 89 confirmed records, plus 2 Delaware candidates (batch 26) awaiting the owner's confirm; 84 of 104 sources enabled; 224 tests pass.
+Totals after status item 4 (2026-11-22): 91 confirmed records; 84 of 104 sources enabled; 224 tests pass.
 
 ## Where each state stands
 
@@ -44,7 +44,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | AL | regulation | 3 (in force) | Yes (4) | Batch 9: Banking rule 155-2-2-.12 (CL, CD; June 1, 2018) and ALDOI 482-1-093 Exhibit B (IUI; 2003); Q4 settled from the rules; Administrative Monthly watched since 2026-11-22 (AL-aam, previous month's issue, `new_text`) |
 | CA | regulation | 0 | Yes (1) | Proposed-regulations list (`new_text`, R5); rates fixed in 10 CCR 2248.47 (2002) and 2670.6 (2006); official code host is the publisher's, so no saved copy and no records (gap) |
 | CO | regulation | 0 | Manual | Division site 403s the tool; SOS rule site's terms prohibit robots and reproduction; rates changed 2013, 2016, 2022 (gaps) |
-| DE | regulation | 2 (candidates) | Yes (1) | Batch 26 (candidates; owner confirm pending): Regulation 1701 CL and CD rates in force since February 15, 1971 (decreasing term single premium misprinted "650", not recorded); Register RSS feed (`new_text`) and the rule PDF on regulations.delaware.gov; Department site and delaware.gov reject the tool |
+| DE | regulation | 2 (in force) | Yes (1) | Batch 26: Regulation 1701 CL and CD rates in force since February 15, 1971 (decreasing term single premium misprinted "650", not recorded); Register RSS feed (`new_text`) and the rule PDF on regulations.delaware.gov; Department site and delaware.gov reject the tool |
 | FL | regulation | 2 | Yes (2) | Batch 10: CL in force since 2003; CD change effective 2019-08-15. Rule pages on flrules.org watched with `new_text`; rule files are Word (.doc), now read; IUI not researched |
 | GA | regulation | 0 | Yes (1) | Press releases (hearing notices; strong keyword "new rules and regulations"); CL rule unchanged since 1993. rules.sos.ga.gov answers GitHub's network but its robots.txt disallows every rule page (`/gac/*-.*`): no saved copy, no records (owner question in gaps); no CD table in the insurance rules |
 | HI | regulation | 0 | Manual | State terms of use prohibit automated access to every hawaii.gov site (as Colorado); rates in HAR 16-6-11 and 16-6-12 (exhibit 1988); no records (gap) |
@@ -86,7 +86,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
    Administrative Monthly issue PDF at `/api/aam/{prev_month}` (new url placeholder); the site's
    GraphQL interface is limited to the app's own queries and is not used. Delaware: DE-register-rss
    (Register RSS feed) and DE-reg-1701 (current rule PDF) enabled; batch 26 (rates in force since
-   February 15, 1971) imported as candidates, owner confirm pending.
+   February 15, 1971) confirmed.
 5. **Hosts to retry from GitHub's network: done 2026-11-21** with the probe workflow (`probe.yml`; runs
    44960357704 and 44961254333). doi.idaho.gov and the ny.gov hosts answer (Idaho and New York monitored);
    rules.sos.ga.gov answers but robots.txt disallows its rule pages (Georgia owner question); www.ilsos.gov
