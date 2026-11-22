@@ -1,7 +1,11 @@
 # Check every enabled source, save results to the repository, and notify if configured.
 #
 # Start it by hand: GitHub > Actions > check > Run workflow.
-# The schedule (3rd and 18th of each month, plan A10) is switched on in Stage 8.
+# The schedule (3rd and 18th of each month at 13:17 UTC, plan A10) is switched on at go-live
+# (Stage 8): uncomment the two schedule lines below. GitHub runs schedules in UTC on the
+# latest commit of main; the minute is off the hour because runs near the start of the
+# hour can be delayed or dropped (see README, Operations). The first run of each month
+# also runs the link check (plan 9.6).
 #
 # Notifications are OFF until configured (decision 2026-11-20); the run summary is
 # always saved to data/runs/ and shown on the run's page. To turn email on, add the
@@ -31,7 +35,7 @@ on:
         type: boolean
         default: false
   # schedule:
-  #   - cron: "17 13 3,18 * *"   # enabled in Stage 8
+  #   - cron: "17 13 3,18 * *"   # 13:17 UTC on the 3rd and 18th; enabled at go-live
 
 permissions:
   contents: write   # commit data/ and archive/
@@ -44,7 +48,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45   # check about 8 minutes, link check a few more
     steps:
       - uses: actions/checkout@v7.0.1
       - uses: actions/setup-python@v7.1.0

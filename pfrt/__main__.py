@@ -4,6 +4,8 @@
   check [--dry-run] [--offline] [--states IN,WI] [--include-disabled]
                                      check sources; without --dry-run, save snapshots,
                                      documents, candidates and a run log
+        [--link-check auto|yes|no]   monthly link check; auto = first full real run of the month
+  linkcheck                          check every source and record link now; writes nothing
   review list [--origin seed] [--batch batch_01]
                                      open candidates
   review show ID                     every field of a candidate or record
@@ -41,7 +43,7 @@ import sys
 import time
 from pathlib import Path
 
-from pfrt import check, config, detect, notify, records, review
+from pfrt import check, config, detect, linkcheck, notify, records, review
 
 MANUAL_CHECKS = "config/manual_checks.csv"   # checks made by hand in given months (Q11 option A)
 
@@ -63,6 +65,10 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--states", default="", help="comma-separated state codes, e.g. IN,WI")
     run.add_argument("--include-disabled", action="store_true",
                      help="also check disabled sources that have a URL (only with --dry-run)")
+    run.add_argument("--link-check", choices=("auto", "yes", "no"), default="auto",
+                     help="monthly link check (plan 9.6); auto = on the first full run of the month, "
+                          "never in a dry run or for --states")
+    sub.add_parser("linkcheck", help="check every source and record link now (writes nothing)")
 
     rv = sub.add_parser("review", help="review candidates and records").add_subparsers(dest="action", required=True)
     lst = rv.add_parser("list")
@@ -142,6 +148,12 @@ def cmd_check(args, root: Path) -> int:
     scope = wanted or {s.state for s in states}
     print_summary(results, sources, scope, time.monotonic() - start)
     log = check.build_run_log(results, sources, scope, ctx, started)
+    if link_check_wanted(args, root, ctx.now.date(), bool(wanted)):
+        print("\nLink check (plan 9.6): every enabled source and confirmed record link.")
+        found = linkcheck.run(sources, records.load_all(root), ctx.now.date(),
+                              ctx.session, ctx.throttle, ctx.robots)
+        log["link_check"] = linkcheck.summary_lines(found)
+        print(log["link_check"][0])
     email = compose_summary(log, results, states, root)
     path = check.write_run_log(log, f"{email.subject}\n\n{email.body}", ctx)
     write_step_summary(email)
@@ -158,6 +170,24 @@ def cmd_check(args, root: Path) -> int:
         print(f"Notify failed: {err}", file=sys.stderr)
         return 3
     return 0
+
+
+def link_check_wanted(args, root: Path, today: dt.date, some_states: bool) -> bool:
+    """--link-check yes always; no never; auto on the first full, real run of the month."""
+    if args.link_check != "auto":
+        return args.link_check == "yes" and not args.offline
+    if args.dry_run or args.offline or some_states:
+        return False
+    return linkcheck.due(root / "data" / "runs", today)
+
+
+def cmd_linkcheck(root: Path) -> int:
+    """pfrt linkcheck: check every link now and print the results. Writes nothing."""
+    states = config.load_states(root / "config/states.csv")
+    sources = config.load_sources(root / "config/sources.csv", {s.state for s in states})
+    found = linkcheck.run(sources, records.load_all(root), dt.date.today())
+    print("\n".join(linkcheck.summary_lines(found)))
+    return 1 if any(r.status != linkcheck.OK for r in found) else 0
 
 
 def repo_url() -> str:
@@ -332,6 +362,8 @@ def main(argv: list[str] | None = None) -> int:
             return cmd_config_check(args, root)
         if args.command == "check":
             return cmd_check(args, root)
+        if args.command == "linkcheck":
+            return cmd_linkcheck(root)
         if args.command == "review":
             return cmd_review(args, root)
         if args.command == "validate":

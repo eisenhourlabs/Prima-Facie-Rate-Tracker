@@ -5,7 +5,7 @@ section 10); every decision and its reason is in `docs/decisions.md`; open items
 `docs/gaps.md`; the method for onboarding a state in `docs/onboarding.md`. Update this file
 at each stage gate and at the end of each session.
 
-Last updated: 2026-11-21 (fifth session; probe workflow; Idaho and New York monitored; Georgia and Illinois Register results).
+Last updated: 2026-11-22 (sixth session; Stage 6 gate approved; Stage 8 built, schedule not yet live).
 
 ## Stages
 
@@ -17,11 +17,11 @@ Last updated: 2026-11-21 (fifth session; probe workflow; Idaho and New York moni
 | 3. Run summary and check workflow | Done, pushed | Notifications built but off (owner choice) |
 | 4. The page | Done, pushed, gate approved | Live at https://eisenhourlabs.github.io/Prima-Facie-Rate-Tracker/ |
 | 5. Seed import | Done, pushed, gate approved | Seed tools; batches 1 to 8 (see below) |
-| 6. All states | **In progress** | Combined onboarding and seeding, state by state (`docs/onboarding.md`) |
+| 6. All states | Done, pushed, gate approved 2026-11-22 | Second noise-test dry run due on or after 2026-11-23 03:20 UTC (see next steps) |
 | 7. AI annotation | Not started | Optional; after Q2 |
-| 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
+| 8. Scheduled production run | **Built; not live** | Link check, README operations, schedule prepared (commented out until the owner says "go live"); email tests wait for the secrets |
 
-Totals after status item 6 (2026-11-22): 92 confirmed records; 84 of 104 sources enabled; 224 tests pass.
+Totals after the Stage 6 gate (2026-11-22): 92 confirmed records; 84 of 104 sources enabled; 33 states monitored; 234 tests pass.
 
 ## Where each state stands
 
@@ -100,7 +100,20 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 7. **Gaps without hand saves: worked 2026-11-22** (see the decision of that date; no new records).
    Remaining gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
    for blocked states).
-8. Stage 6 gate, then Stage 8.
+8. **Stage 6 gate: approved 2026-11-22.** One row per state in `docs/research_log.md`; noise test run 1
+   (run-20261122-0320; only VA-code-3730 changed, by a print date: selector `#va_code`); current
+   documents listed for the owner (one item to check: Nebraska IGD-C1, "Credit Insurance", October 20, 2022).
+   **Still due:** the second noise-test dry run, all states locally and `gh workflow run check.yml -f
+   dry_run=true -f states=ID,NY` (ask the owner first), on or after 2026-11-23 03:20 UTC; compare hashes
+   with `run-20261122-0320` and GitHub runs 44962368413 and 44980543352.
+9. **Stage 8 (built 2026-11-22).** `pfrt/linkcheck.py` and tests; README Operations; schedule
+   `17 13 3,18 * *` prepared in `check.yml` but commented out. To go live (only on the owner's "go live"):
+   uncomment the two schedule lines, commit, push. Then acceptance tests 1 (two scheduled runs on time,
+   email each), 2 (first run of a month has link check results) and 5 (one real candidate from email to
+   page) follow; 1 and 5 need the email secrets. Tests 3 and 4 passed (decisions, 2026-11-22).
+   Owner items from the first link check: NH hosts moved to gc.nh.gov and the Idaho rule PDF to
+   files.dfm.idaho.gov (check terms and robots.txt before repointing). The first real run will report
+   VA-code-3730 as changed once (new selector), which is expected.
 
 ## Seed batches
 
