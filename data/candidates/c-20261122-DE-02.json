@@ -1,0 +1,106 @@
+{
+  "ai": null,
+  "anchor_text": "18 DE Admin. Code 1701, Credit Life and Credit Health Insurance [Formerly Regulation 5] (Delaware Administrative Code, current text)",
+  "archived_copy": "archive/DE/2026-11-22_51b54ac5.pdf",
+  "archived_sha256": "51b54ac50e3744d6beca23053ad7dc3327f556d58ced47301103875ae17d4f6d",
+  "archived_too_large": false,
+  "batch": "batch_26",
+  "candidate_id": "c-20261122-DE-02",
+  "change_type": "initial",
+  "date_communicated": "",
+  "date_communicated_estimated": false,
+  "detected_at": "2026-11-22T00:07:18Z",
+  "document_url": "https://regulations.delaware.gov/api/AdminCode/title18/1701/ebbb48fd-878b-47de-b873-fe058a9705fe",
+  "effective_date": "1971-02-15",
+  "history": [
+    {
+      "at": "2026-11-22T00:07:18Z",
+      "batch": "batch_26",
+      "by": "seed-import",
+      "event": "candidate_created"
+    }
+  ],
+  "legal_basis": "18 DE Admin. Code 1701, 2.1.2; 18 Del.C. 3707(b)",
+  "matched_keywords": [],
+  "origin": "seed",
+  "priority": "seed",
+  "product": "CD",
+  "products_hint": "CD",
+  "rate_items": [
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 2.0,
+      "plan": "Single premium, 12 months, benefits not retroactive, 7 days elimination period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 1.4,
+      "plan": "Single premium, 12 months, benefits not retroactive, 14 days elimination period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 0.8,
+      "plan": "Single premium, 12 months, benefits not retroactive, 30 days elimination period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 3.0,
+      "plan": "Single premium, 12 months, retroactive benefits, 7 days waiting period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 2.2,
+      "plan": "Single premium, 12 months, retroactive benefits, 14 days waiting period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 1.7,
+      "plan": "Single premium, 12 months, retroactive benefits, 30 days waiting period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 5.3,
+      "plan": "Single premium, 60 months, benefits not retroactive, 7 days elimination period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 3.9,
+      "plan": "Single premium, 60 months, benefits not retroactive, 14 days elimination period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 3.3,
+      "plan": "Single premium, 60 months, benefits not retroactive, 30 days elimination period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 6.3,
+      "plan": "Single premium, 60 months, retroactive benefits, 7 days waiting period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 4.7,
+      "plan": "Single premium, 60 months, retroactive benefits, 14 days waiting period"
+    },
+    {
+      "basis": "per $100 initial insured indebtedness (single premium)",
+      "new_rate": 4.2,
+      "plan": "Single premium, 60 months, retroactive benefits, 30 days waiting period"
+    }
+  ],
+  "rate_table_note": "2.1.2.1 (page 1): \"For credit health insurance the following single premium rates per $100 initial insured indebtedness\", by number of months in which the indebtedness is repayable in equal installments (2 to 60), headed \"Benefits Not Retroactive Elimination Period\" and \"Retroactive Benefits Waiting Period\", each 7, 14 and 30 Days. Rows: \"12 2.00 1.40 .80 3.00 2.20 1.70\" (page 1) and \"60 5.30 3.90 3.30 6.30 4.70 4.20\" (page 2). Other premium bases must be actuarially consistent (2.1.2.2). Dating: section 8.1 (page 4) reads \"This regulation shall become effective February 15, 1971\"; the only amendment noted in the text is to reserve section 6.1.1 (order effective January 1, 1986). The 2007 proposal (11 DE Reg 727) to correct 2.1.1.1 and move the effective date to February 1, 2008 is not reflected in the current text, so it was evidently not adopted.",
+  "retrieved_at": "2026-11-22T00:07:18Z",
+  "rule": "seed_import",
+  "run_id": "batch_26",
+  "seed_notes": "",
+  "seed_rows": "rows 4-15",
+  "source_id": "seed",
+  "source_title": "18 DE Admin. Code 1701, Credit Life and Credit Health Insurance [Formerly Regulation 5] (Delaware Administrative Code, current text)",
+  "source_url": "https://regulations.delaware.gov/api/AdminCode/title18/1701/ebbb48fd-878b-47de-b873-fe058a9705fe",
+  "state": "DE",
+  "status": "candidate",
+  "summary": "Rates in force: Delaware's prima facie credit health single premium rates per $100 (Regulation 1701), for example 12 months $0.80 (not retroactive, 30-day elimination) to $3.00 (retroactive, 7-day waiting) and 60 months $3.30 to $6.30, in force since February 15, 1971.",
+  "text_diff": "",
+  "text_excerpt": "",
+  "unreadable_document": false
+}

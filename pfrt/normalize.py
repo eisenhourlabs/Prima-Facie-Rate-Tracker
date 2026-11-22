@@ -9,9 +9,14 @@ from __future__ import annotations
 
 import hashlib
 import re
+import warnings
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, XMLParsedAsHTMLWarning
+
+# RSS feeds (Delaware's Register) are read with the HTML parser on purpose: their
+# titles and descriptions come out as plain text, which is all new_text needs.
+warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
 
 # Elements that are never content. The plan also lists "form", but ASP.NET and
 # SharePoint sites (for example oci.wi.gov) wrap the whole page in one <form>,

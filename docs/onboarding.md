@@ -52,7 +52,7 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
 6. **Seed records** from saved public documents only:
    - Copy each document into `seed/documents/` (git-ignored); give it a clear name.
    - Write `seed/batch_NN.csv` with a small script (keeps repeated plan/basis text identical).
-     Next batch number: see `seed/` (batch_25 is the last used).
+     Next batch number: see `seed/` (batch_26 is the last used).
    - Headline rates (A5): credit life per-annum and outstanding-balance rates as published;
      12- and 60-month rates where the state publishes rates by term (for credit disability,
      and for credit life where a term table exists). Never compute a rate (formulas,
@@ -150,6 +150,13 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
   against the saved robots.txt before planning a source.
 - A state may make a posted web document the governing publication (Idaho 18.03.05.014: "The
   Director will post on the Department's website the prima facie rates"): watch that file itself.
+- A document published under a new address each month (Alabama Administrative Monthly,
+  `/api/aam/YYYY-MM`) is watched with the url placeholder `{prev_month}` (`config.resolve_url`);
+  watch it as `new_text`, so each new issue's whole text is tested, and test the keywords on a few
+  past issues first. The size floor is skipped when the address changed.
+- Single-page apps: look in the app's JavaScript for plain document addresses and feeds (Delaware's
+  `register/regs-rss.xml`) before anything else; a GraphQL interface limited to the app's own
+  queries ("PersistedQueryOnly") is not imitated.
 - UTF-16 pages (South Dakota) pass a UTF-8 decode with zero bytes between letters;
   `seed scan` now checks for UTF-16 first.
 

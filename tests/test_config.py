@@ -125,3 +125,33 @@ def test_bad_manual_check_names_row_and_column(tmp_path, row, column):
     path.write_text("state,months,what\n" + row + "\n", encoding="utf-8")
     with pytest.raises(config.ConfigError, match=f"row 2, column '{column}'"):
         config.load_manual_checks(path, {"LA"})
+
+
+# --- URL placeholders (decision 2026-11-21) ----------------------------------
+
+@pytest.mark.parametrize("today, expected", [
+    ("2026-12-03", "https://example.gov/aam/2026-11"),
+    ("2026-12-18", "https://example.gov/aam/2026-11"),
+    ("2027-01-03", "https://example.gov/aam/2026-12"),   # January reads December of the year before
+    ("2026-03-01", "https://example.gov/aam/2026-02"),
+])
+def test_prev_month_placeholder(today, expected):
+    import datetime as dt
+    assert config.resolve_url("https://example.gov/aam/{prev_month}", dt.date.fromisoformat(today)) == expected
+
+
+def test_url_without_placeholder_is_unchanged():
+    import datetime as dt
+    url = "https://example.gov/x?a=1"
+    assert config.resolve_url(url, dt.date(2026, 12, 3)) == url
+
+
+def test_prev_month_placeholder_is_accepted(tmp_path):
+    path = write(tmp_path, source_line(url="https://example.gov/aam/{prev_month}"))
+    assert config.load_sources(path, {"ZZ"})[0].url.endswith("{prev_month}")
+
+
+def test_unknown_placeholder_is_refused(tmp_path):
+    path = write(tmp_path, source_line(url="https://example.gov/aam/{month}"))
+    with pytest.raises(config.ConfigError, match="placeholder"):
+        config.load_sources(path, {"ZZ"})

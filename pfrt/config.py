@@ -12,11 +12,18 @@ the column, so it can be fixed in the CSV by hand.
 from __future__ import annotations
 
 import csv
+import datetime as dt
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
 # Allowed values, taken from plan section 2.3.
 ROLES = {"leading", "lagging"}
+
+# Placeholders a source url may contain, for documents published under a new address
+# each period (decision 2026-11-21, Alabama Administrative Monthly). The check replaces
+# them with the run date's value before fetching; see resolve_url.
+URL_PLACEHOLDERS = {"{prev_month}"}   # the month before the run, as YYYY-MM
 WATCH_MODES = {"new_links", "any_change", "new_text"}
 YES_NO = {"yes", "no"}
 
@@ -68,6 +75,19 @@ class Source:
     @property
     def is_enabled(self) -> bool:
         return self.enabled == "yes"
+
+
+def resolve_url(url: str, today: dt.date) -> str:
+    """Fill in the url placeholders for a run on `today`.
+
+    "{prev_month}" becomes the month before today as YYYY-MM: a run on
+    2026-12-03 reads ".../aam/2026-11". A url without placeholders is unchanged.
+    """
+    if "{prev_month}" in url:
+        first = today.replace(day=1)
+        prev = first - dt.timedelta(days=1)
+        url = url.replace("{prev_month}", f"{prev.year:04d}-{prev.month:02d}")
+    return url
 
 
 def _read_rows(path: Path, required: list[str]) -> list[tuple[int, dict[str, str]]]:
@@ -151,6 +171,9 @@ def _check_source_row(path: Path, line: int, row: dict[str, str],
         raise _fail(path, line, "enabled", f"'{row['enabled']}' must be 'yes' or 'no'")
     if row["enabled"] == "yes" and not row["url"]:
         raise _fail(path, line, "url", "source is enabled but its url is blank")
+    unknown = set(re.findall(r"\{[^}]*\}", row["url"])) - URL_PLACEHOLDERS
+    if unknown:
+        raise _fail(path, line, "url", f"unknown placeholder {sorted(unknown)}; allowed: {sorted(URL_PLACEHOLDERS)}")
 
 
 MANUAL_CHECK_COLUMNS = ["state", "months", "what"]

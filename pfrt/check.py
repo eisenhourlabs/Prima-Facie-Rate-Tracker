@@ -12,12 +12,12 @@ from __future__ import annotations
 
 import datetime as dt
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from pfrt import candidates, detect, documents, fetch, normalize, records
-from pfrt.config import Source
+from pfrt.config import Source, resolve_url
 
 NEEDS_BROWSER_CHARS = 500   # an HTML page with less visible text than this probably needs JavaScript
 OK_STATUSES = {"ok", "baseline", "unchanged", "changed"}
@@ -207,7 +207,7 @@ def update_snapshot(res: SourceResult, snapshot: dict | None, ctx: RunContext) -
     snap["last_status"] = res.status
     if res.status in OK_STATUSES:
         snap.update(last_ok=ctx.stamp, consecutive_failures=0, content_sha256=res.content_sha256,
-                    byte_count=res.byte_count, links=res.links, text=res.text)
+                    byte_count=res.byte_count, links=res.links, text=res.text, url=res.source.url)
     else:
         snap["consecutive_failures"] = snap.get("consecutive_failures", 0) + 1
     records.save_json(snapshot_path(ctx.root, res.source.source_id), snap)
@@ -222,12 +222,19 @@ def run(sources: list[Source], ctx: RunContext) -> list[SourceResult]:
         ctx.robots = fetch.RobotsCache(ctx.session, ctx.throttle)
     results = []
     for source in sorted(sources, key=lambda s: (s.state, s.source_id)):
+        # A url with a placeholder ({prev_month}) names a new document each period:
+        # fill it in for this run; everything below then sees the real address.
+        source = replace(source, url=resolve_url(source.url, ctx.now.date()))
         snapshot = load_snapshot(source.source_id, ctx.root)
         start = time.monotonic()
+        # The size floor compares like with like: when the address changed since the
+        # last good check (a new monthly issue), the old size says nothing.
+        last_url = (snapshot or {}).get("url", source.url)
+        last_size = (snapshot or {}).get("byte_count") if last_url == source.url else None
         if ctx.offline:
             fr = read_fixture(source, ctx.fixtures)
         else:
-            fr = fetch.get(source, ctx.session, (snapshot or {}).get("byte_count"), ctx.robots, ctx.throttle)
+            fr = fetch.get(source, ctx.session, last_size, ctx.robots, ctx.throttle)
         res = check_source(source, fr, snapshot, ctx.keywords)
         act_on_findings(res, fr, snapshot, ctx)
         update_snapshot(res, snapshot, ctx)

@@ -111,3 +111,43 @@ def test_run_logs_older_than_24_months_are_pruned(tmp_path):
         (folder / f"{name}.json").write_text("{}")
     check.prune_run_logs(folder, dt.date(2026, 11, 20))
     assert sorted(p.stem for p in folder.glob("*.json")) == ["run-20241120-0900", "run-20261120-0900"]
+
+
+def _monthly_source(sources):
+    """A copy of a real source pointed at a monthly address with {prev_month}."""
+    from dataclasses import replace
+    return replace(sources["WI-bulletin-2026"], source_id="ZZ-monthly", url="https://example.gov/aam/{prev_month}")
+
+
+def test_prev_month_url_is_filled_in_and_size_floor_skipped_for_a_new_address(sources, keywords, tmp_path, monkeypatch):
+    seen = []
+
+    def fake_get(source, session, last_byte_count, robots, throttle):
+        seen.append((source.url, last_byte_count))
+        return fetch.FetchResult(status="failed", error="test")
+
+    monkeypatch.setattr(fetch, "get", fake_get)
+    src = _monthly_source(sources)
+    snaps = tmp_path / "data" / "snapshots"
+    snaps.mkdir(parents=True)
+    c = check.RunContext(root=tmp_path, keywords=keywords, now=NOW, dry_run=True, session=object(), echo=lambda _: None)
+    # Last good check was October's issue, 2.8 MB: November's (run of December 3) is a new address.
+    (snaps / "ZZ-monthly.json").write_text('{"url": "https://example.gov/aam/2026-10", "byte_count": 2800000}')
+    results = check.run([src], c)
+    assert seen[-1] == ("https://example.gov/aam/2026-11", None)
+    assert results[0].source.url == "https://example.gov/aam/2026-11"
+    # The same address as last time keeps the size floor.
+    (snaps / "ZZ-monthly.json").write_text('{"url": "https://example.gov/aam/2026-11", "byte_count": 2800000}')
+    check.run([src], c)
+    assert seen[-1] == ("https://example.gov/aam/2026-11", 2800000)
+
+
+def test_snapshot_without_url_keeps_the_size_floor(sources, keywords, tmp_path, monkeypatch):
+    seen = []
+    monkeypatch.setattr(fetch, "get", lambda s, *a, **k: seen.append(a[1]) or fetch.FetchResult(status="failed", error="t"))
+    src = sources["WI-bulletin-2026"]
+    snaps = tmp_path / "data" / "snapshots"
+    snaps.mkdir(parents=True)
+    (snaps / f"{src.source_id}.json").write_text('{"byte_count": 1234}')
+    check.run([src], check.RunContext(root=tmp_path, keywords=keywords, now=NOW, session=object(), echo=lambda _: None))
+    assert seen == [1234]
