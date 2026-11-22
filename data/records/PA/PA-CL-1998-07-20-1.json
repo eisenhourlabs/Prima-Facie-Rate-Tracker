@@ -1,15 +1,12 @@
 {
-  "ai": null,
-  "anchor_text": "Insurance Department, Credit Insurance, final rulemaking, 31 Pa. Code ch. 73, Annex A (28 Pa.B. 1401; Doc. No. 98-447a)",
   "archived_copy": "archive/PA/2026-11-22_4aae5939.html",
   "archived_sha256": "4aae593964c8961527e9cc6c75b8f072f446e626315ffd52b1a550fe19367850",
-  "archived_too_large": false,
-  "batch": "batch_27",
   "candidate_id": "c-20261122-PA-01",
   "change_type": "initial",
+  "confirmed_by": "owner",
+  "confirmed_on": "2026-11-22",
   "date_communicated": "",
   "date_communicated_estimated": false,
-  "detected_at": "2026-11-22T01:12:03Z",
   "document_url": "https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol28/28-12/447a.html",
   "effective_date": "1998-07-20",
   "history": [
@@ -18,39 +15,37 @@
       "batch": "batch_27",
       "by": "seed-import",
       "event": "candidate_created"
+    },
+    {
+      "at": "2026-11-22T01:14:44Z",
+      "by": "owner",
+      "event": "confirmed"
     }
   ],
   "legal_basis": "31 Pa. Code 73.106(d)",
-  "matched_keywords": [],
   "origin": "seed",
-  "priority": "seed",
   "product": "CL",
-  "products_hint": "CL",
   "rate_items": [
     {
       "basis": "per $1,000 of outstanding balance (monthly)",
       "new_rate": 0.705,
+      "pct_change": null,
       "plan": "Monthly outstanding balance, single life"
     },
     {
       "basis": "per $1,000 of outstanding balance (monthly)",
       "new_rate": 0.844,
+      "pct_change": null,
       "plan": "Monthly outstanding balance, single life, with TPD benefit"
     }
   ],
   "rate_table_note": "Annex A, 73.106(d): \"If premiums are payable on a monthly outstanding balance basis, the monthly prima facie premium rate for credit life insurance on a single life shall be $.705 per $1,000 of outstanding balance, and shall be $.844 per $1,000 of outstanding balance for credit life insurance with TPD benefit on a single life.\" Single premium rates come from the formulas in 73.106(e) to (i) (not computed here); joint is 175% of single (73.106(j)). Dating: the order (Doc. No. 98-447, paragraph (d)) reads \"The regulations adopted by this order shall take effect July 20, 1998\"; the current Pennsylvania Code gives June 19, 1998 for sections 73.101 to 73.143 (the difference, possibly a correction at 28 Pa.B. 1941, was not resolved). The current text of 73.106(d) (read 2026-11-22) prints the same figures and no later amendment of 73.106; it is not saved here because the Code pages carry the Bureau's editorial notes, which 1 Pa. Code 3.44 lets be reproduced only with its consent. The Department reviews the rates at least every 3 years (73.106(l)); no adjustment notice was found for 2001 to 2026 (the Department's notice library lists none for 2020 to 2026). Date communicated left blank: the issue date is not printed in the saved pages (28 Pa.B. 1401 is Volume 28, Number 12). Also saved: archive/PA/2026-11-22_bdeaa1c5.html (PA-28PaB1401-order-98-447.html).",
+  "record_id": "PA-CL-1998-07-20-1",
   "retrieved_at": "2026-11-22T01:12:03Z",
-  "rule": "seed_import",
-  "run_id": "batch_27",
-  "seed_notes": "",
-  "seed_rows": "rows 2-3",
-  "source_id": "seed",
   "source_title": "Insurance Department, Credit Insurance, final rulemaking, 31 Pa. Code ch. 73, Annex A (28 Pa.B. 1401; Doc. No. 98-447a)",
   "source_url": "https://www.pacodeandbulletin.gov/secure/pabulletin/data/vol28/28-12/447a.html",
   "state": "PA",
-  "status": "candidate",
+  "status": "confirmed",
   "summary": "Rates in force: Pennsylvania's prima facie credit life rate on a monthly outstanding balance basis is $.705 per $1,000 ($.844 with total and permanent disability benefit), set in 31 Pa. Code 73.106(d) by the 1998 credit insurance rulemaking (effective 1998) and unchanged in the current Code. Credit A&H and IUI rates are published in separate notices and are not recorded.",
-  "text_diff": "",
-  "text_excerpt": "",
-  "unreadable_document": false
+  "verified": true
 }
