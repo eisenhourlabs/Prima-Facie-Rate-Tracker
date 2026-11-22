@@ -86,6 +86,12 @@ def build_page(tmp_path, records, last=None):
     return BeautifulSoup(path.read_text(encoding="utf-8"), "html.parser")
 
 
+def state_counts(page) -> dict[str, str]:
+    """{state name: its record count text} from the History lines ("2 records", "No records")."""
+    return {d.select_one("summary .sname").get_text(): d.select_one("summary .count").get_text()
+            for d in page.select("details.state")}
+
+
 def test_acceptance_2_four_records_two_states(tmp_path):
     records = [
         rec("WI", "CL", "2027-01-01", "2026-10-16"),
@@ -97,9 +103,10 @@ def test_acceptance_2_four_records_two_states(tmp_path):
                                           "states_not_fully_checked": [], "not_monitored": ["VA"]})
     rows = page.select("table.recent tbody tr.row")
     assert [r.find("td").get_text(" ", strip=True) for r in rows] == ["1 December 2026 Upcoming", "1 January 2027 Upcoming"]
-    names = [d.summary.get_text() for d in page.select("details.state")]
+    names = [d.select_one("summary .sname").get_text() for d in page.select("details.state")]
     assert len(names) == 44 and names == sorted(names)
-    assert "Wisconsin (2)" in names and "Indiana (2)" in names and "Alabama (0)" in names
+    counts = state_counts(page)
+    assert counts["Wisconsin"] == "2 records" and counts["Indiana"] == "2 records" and counts["Alabama"] == "No records"
     text = page.get_text(" ")
     assert text.count("Unverified") == 1
     assert text.count("Reviewed, no change") == 1
@@ -156,7 +163,7 @@ def test_real_records_build(tmp_path):
     assert shown < len(wi) or not wi                 # the 2009 records are hidden
     out = build_site.build(REPO, tmp_path / "site", TODAY)
     page = BeautifulSoup(out.read_text(encoding="utf-8"), "html.parser")
-    assert f"Wisconsin ({shown})" in [d.summary.get_text() for d in page.select("details.state")]
+    assert state_counts(page)["Wisconsin"] == f"{shown} records"
 
 
 def test_each_change_is_its_own_collapsed_line(tmp_path):
@@ -197,6 +204,57 @@ def test_rates_in_force_record_always_in_history_never_in_recent(tmp_path):
     assert build_site.select_history([in_force], TODAY) == {"IA": [in_force]}
     page = build_page(tmp_path, [in_force])
     ia = next(d for d in page.select("details.state") if d.summary.get_text().startswith("Iowa"))
-    assert ia.summary.get_text() == "Iowa (1)"
+    assert state_counts(page)["Iowa"] == "1 record"
     line = " ".join(ia.select_one("details.rec").summary.get_text(" ").split())
     assert line == "Rates in force since 30 March 2001 · Credit life · 1 rate"
+
+
+# --- Coverage labels in History by state (added 2026-11-22) --------------------------------
+
+def _src(state, role, enabled="yes"):
+    return config.Source(source_id=f"{state}-{role}", state=state, products="CL", role=role, watch_mode="any_change",
+                         url="https://x.gov/", format="html", selector="", must_contain="", citation="",
+                         enabled=enabled, verification="fetched", verified_on="", notes="")
+
+
+def test_coverage_labels_follow_sources_and_manual_checks():
+    states = [config.State("WI", "Wisconsin", "yes", "yes", "unknown", "notice", "3", "", "", "Bulletins checked.", ""),
+              config.State("LA", "Louisiana", "yes", "yes", "unknown", "statute", "", "", "", "Statutes checked.", ""),
+              config.State("AZ", "Arizona", "yes", "yes", "yes", "notice", "3", "", "", "Site blocks checks.",
+                           "No records: the orders could not be saved.")]
+    sources = [_src("WI", "leading"), _src("WI", "lagging"), _src("LA", "lagging"), _src("AZ", "leading", enabled="no")]
+    manual = [config.ManualCheck("LA", (5, 9), "Look for bills")]
+    cov = build_site.coverage(states, sources, manual)
+    assert (cov["WI"]["label"], cov["WI"]["manual"]) == ("Monitored", False)
+    assert (cov["LA"]["label"], cov["LA"]["manual"]) == ("Partly monitored", True)
+    assert cov["AZ"]["label"] == "Not monitored"                      # a disabled source does not count
+    assert cov["AZ"]["incomplete"] == "The orders could not be saved."   # prefix dropped on the page
+    assert build_site.coverage_counts(cov) == {"Monitored": 1, "Partly monitored": 1, "Not monitored": 1}
+
+
+def test_real_page_shows_each_state_status(tmp_path):
+    from bs4 import BeautifulSoup
+    out = build_site.build(REPO, tmp_path / "site", TODAY)
+    page = BeautifulSoup(out.read_text(encoding="utf-8"), "html.parser")
+    for d in page.select("details.state"):
+        labels = [t.get_text() for t in d.select("summary .labels .tag")]
+        assert labels and labels[0] in ("Monitored", "Partly monitored", "Not monitored"), d.summary.get_text()
+        assert d.select_one(".coverage") is not None                 # every state says how it is checked
+        if d.select_one("summary .count").get_text() == "No records":
+            assert "Why no records:" in d.select_one(".coverage").get_text()
+    text = " ".join(page.select_one(".status").get_text(" ").split())
+    assert "Coverage:" in text and "states monitored" in text
+
+
+def test_every_state_has_a_site_note():
+    """Transparency: each state's line on the page says how it is checked."""
+    states = config.load_states(REPO / "config/states.csv")
+    assert [s.state for s in states if not s.site_note] == []
+
+
+def test_partial_run_is_named_in_status_line():
+    log = {"finished_at": "2026-11-20T16:03:00Z", "monitored_state_count": 2, "states_not_fully_checked": [],
+           "not_monitored": [], "states_in_scope": ["ID", "IL", "IN", "VA", "WI"]}
+    assert build_site.run_status(log, TODAY, 44)["partial"] == 5
+    full = dict(log, states_in_scope=[f"S{i}" for i in range(44)])
+    assert build_site.run_status(full, TODAY, 44)["partial"] == 0

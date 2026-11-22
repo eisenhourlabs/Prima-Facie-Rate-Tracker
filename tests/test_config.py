@@ -96,7 +96,7 @@ def test_row_with_unquoted_comma_is_refused(tmp_path):
     from tests.conftest import REPO
     shutil.copy(REPO / "config" / "states.csv", tmp_path / "states.csv")
     with open(tmp_path / "states.csv", "a", encoding="utf-8") as f:
-        f.write("ZZ,Test State,yes,yes,no,notice,3,,A note, with a comma\n")
+        f.write("ZZ,Test State,yes,yes,no,notice,3,,A note, with a comma,how it is checked,\n")
     import pytest
     with pytest.raises(config.ConfigError, match="more cells than columns"):
         config.load_states(tmp_path / "states.csv")

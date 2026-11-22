@@ -10,12 +10,14 @@
     --bg: #ffffff; --fg: #1b1f24; --muted: #4a5360; --line: #d0d7de; --panel: #f6f8fa;
     --link: #0a58ca; --warn-bg: #fff4d6; --warn-fg: #5c3c00; --warn-line: #d4a72c;
     --tag-bg: #e7f0ff; --tag-fg: #0a3a8c; --unv-bg: #ffe9e9; --unv-fg: #7a1010;
+    --mon-bg: #dff3e4; --mon-fg: #145226; --off-bg: #eceef1; --off-fg: #3d4550;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #0d1117; --fg: #e6edf3; --muted: #9da7b3; --line: #30363d; --panel: #161b22;
       --link: #79b8ff; --warn-bg: #3a2c00; --warn-fg: #ffe28a; --warn-line: #9e7a00;
       --tag-bg: #12294d; --tag-fg: #b8d4ff; --unv-bg: #4a1414; --unv-fg: #ffd0d0;
+      --mon-bg: #12361d; --mon-fg: #b4ecc4; --off-bg: #262c34; --off-fg: #c9d1d9;
     }
   }
   * { box-sizing: border-box; }
@@ -41,6 +43,18 @@
   .tag { display: inline-block; font-size: .78rem; font-weight: 600; padding: 0 .4rem; border-radius: 4px;
          background: var(--tag-bg); color: var(--tag-fg); }
   .unverified { background: var(--unv-bg); color: var(--unv-fg); }
+  /* Monitoring labels on each state's line in History by state. */
+  .st-mon { background: var(--mon-bg); color: var(--mon-fg); }
+  .st-part { background: var(--warn-bg); color: var(--warn-fg); }
+  .st-off { background: var(--off-bg); color: var(--off-fg); }
+  .st-inc { background: var(--unv-bg); color: var(--unv-fg); }
+  .sname { margin-right: .35rem; }
+  .count { font-weight: 400; color: var(--muted); margin-right: .35rem; }
+  .labels { display: inline-flex; flex-wrap: wrap; gap: .25rem; vertical-align: middle; }
+  .coverage { padding: 0 .25rem .5rem; margin: 0; color: var(--muted); font-size: .92rem; }
+  .coverage p { margin: .25rem 0; }
+  .key { font-size: .9rem; }
+  .key p { margin: .3rem 0; }
   details { border-bottom: 1px solid var(--line); }
   summary { cursor: pointer; padding: .7rem .25rem; min-height: 44px; font-weight: 600; }
   /* One collapsed line per change inside an open state. */
@@ -82,14 +96,20 @@
 
 <div class="status{% if status.stale %} warn{% endif %}">
 {% if status.date %}
+  {% if status.partial %}
+  <p class="when">Last checked: {{ status.date }}, in a partial run covering {{ status.partial }} of {{ n_states }} states; {{ status.checked }} of {{ status.monitored }} monitored states in it were checked.</p>
+  {% else %}
   <p class="when">Last checked: {{ status.date }}. {{ status.checked }} of {{ status.monitored }} monitored states checked.</p>
+  {% endif %}
   {% if status.unchecked %}<p>Not checked in the last run: {{ status.unchecked | join(", ") }}.</p>{% endif %}
   {% if status.stale %}<p><strong>Warning:</strong> when this page was built ({{ build_date }}), the last check was more than {{ stale_days }} days old. The information below may be out of date.</p>{% endif %}
   <p>Checks run on the 3rd and 18th of each month. If the date above is more than {{ stale_days }} days ago, the checks have stopped and this page may be out of date.</p>
 {% else %}
   <p class="when"><strong>Warning:</strong> no check has run yet.</p>
 {% endif %}
-  {% if status.not_monitored %}<p>Not monitored automatically (checked by hand or not yet set up): {{ status.not_monitored | join(", ") }}.</p>{% endif %}
+  {% if cov_counts %}
+  <p>Coverage: {{ cov_counts["Monitored"] }} states monitored, {{ cov_counts["Partly monitored"] }} partly monitored, {{ cov_counts["Not monitored"] }} not monitored. Each state's status is shown under <a href="#history-h">History by state</a>.</p>
+  {% elif status.not_monitored %}<p>Not monitored automatically (checked by hand or not yet set up): {{ status.not_monitored | join(", ") }}.</p>{% endif %}
 </div>
 
 <section class="box" aria-labelledby="recent-h">
@@ -121,11 +141,27 @@
 
 <section class="box" aria-labelledby="history-h">
   <h2 id="history-h">History by state</h2>
-  <p class="sub">Changes with effective dates in the last 15 years, newest first. Where no change was found in that time, the rates in force are shown with the date they took effect. Select a state to see its list, then select an entry to see its rates and sources.</p>
+  <p class="sub">Changes with effective dates in the last 15 years, newest first. Where no change was found in that time, the rates in force are shown with the date they took effect. Select a state to see how it is checked and its list, then select an entry to see its rates and sources.</p>
+  {% if cov %}
+  <div class="key sub">
+    <p><span class="tag st-mon">Monitored</span> The state's bulletins, notices or rule proposals are checked automatically twice a month.</p>
+    <p><span class="tag st-part">Partly monitored</span> Only the rule or statute text is checked, so a change shows only after it is adopted.</p>
+    <p><span class="tag st-off">Not monitored</span> The state's sites cannot be checked automatically; changes must be looked up by hand.</p>
+    <p><span class="tag">Manual check</span> Also checked by hand each May and September. <span class="tag st-inc">Incomplete</span> Some of the state's history is known to be missing.</p>
+    <p>Involuntary unemployment (IUI) rates are shown only where the state sets one and it was found.</p>
+  </div>
+  {% endif %}
   {% for s in states %}
   {% set recs = history.get(s.state, []) %}
   <details class="state">
-    <summary>{{ s.name }} ({{ recs | length }})</summary>
+    {% set c = cov.get(s.state) %}
+    <summary><span class="sname">{{ s.name }}</span> <span class="count">{% if recs %}{{ recs | length }} record{{ "s" if (recs | length) != 1 }}{% else %}No records{% endif %}</span>{% if c %} <span class="labels"><span class="tag st-{{ c.css }}">{{ c.label }}</span>{% if c.manual %} <span class="tag">Manual check</span>{% endif %}{% if c.incomplete and recs %} <span class="tag st-inc">Incomplete</span>{% endif %}</span>{% endif %}</summary>
+    {% if c and (c.note or c.incomplete) %}
+    <div class="coverage">
+      {% if c.note %}<p><strong>Status:</strong> {{ c.note }}</p>{% endif %}
+      {% if c.incomplete %}<p><strong>{{ "Known gap" if recs else "Why no records" }}:</strong> {{ c.incomplete }}</p>{% endif %}
+    </div>
+    {% endif %}
     {% if not recs %}<p class="record">No changes recorded.</p>{% endif %}
     {# Each change is its own collapsed line, so a state's list fits on one screen. #}
     {% for r in recs %}

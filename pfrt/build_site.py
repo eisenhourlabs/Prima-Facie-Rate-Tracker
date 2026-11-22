@@ -141,32 +141,78 @@ def last_run(root: Path) -> dict | None:
     return None
 
 
-def run_status(log: dict | None, today: dt.date) -> dict:
-    """What the 'Last checked' line says, including whether the data looks stale at build time."""
+def run_status(log: dict | None, today: dt.date, n_states: int = 0) -> dict:
+    """What the 'Last checked' line says, including whether the data looks stale at build time.
+
+    `partial` is the number of states a run covered when that is fewer than all `n_states`
+    (a run limited with --states), so the line does not read as if every state was checked."""
     if not log:
-        return {"date": None, "stale": True, "checked": 0, "monitored": 0, "unchecked": [], "not_monitored": []}
+        return {"date": None, "stale": True, "checked": 0, "monitored": 0, "unchecked": [],
+                "not_monitored": [], "partial": 0}
     finished = dt.date.fromisoformat(log["finished_at"][:10])
     monitored = log.get("monitored_state_count", 0)
     unchecked = log.get("states_not_fully_checked", [])
+    scope = len(log.get("states_in_scope", []))
     return {"date": long_date(log["finished_at"]), "stale": (today - finished).days > STALE_DAYS,
             "checked": monitored - len(unchecked), "monitored": monitored,
-            "unchecked": unchecked, "not_monitored": log.get("not_monitored", [])}
+            "unchecked": unchecked, "not_monitored": log.get("not_monitored", []),
+            "partial": scope if n_states and 0 < scope < n_states else 0}
+
+
+# --- Coverage of each state (History by state) --------------------------------------------
+
+MONITORED, PARTLY, NOT_MONITORED = "Monitored", "Partly monitored", "Not monitored"
+
+
+def coverage(states, sources, manual_checks=()) -> dict[str, dict]:
+    """How each state is watched, for the label next to its name on the page.
+
+    Monitored         at least one enabled leading source (bulletins, notices, proposals)
+    Partly monitored  only lagging sources (the rule or statute text): a change shows only
+                      after it is adopted
+    Not monitored     no enabled source
+    The labels come from sources.csv and manual_checks.csv, so they follow the config.
+    The words (site_note, incomplete) come from states.csv.
+    """
+    manual = {c.state for c in manual_checks}
+    out = {}
+    for st in states:
+        mine = [s for s in sources if s.state == st.state and s.is_enabled]
+        if any(s.role == "leading" for s in mine):
+            label = MONITORED
+        elif mine:
+            label = PARTLY
+        else:
+            label = NOT_MONITORED
+        # "No records: ..." in states.csv reads well in the file; on the page the line
+        # is headed "Why no records", so the prefix is dropped there.
+        gap = st.incomplete.removeprefix("No records:").strip()
+        out[st.state] = {"label": label, "css": {MONITORED: "mon", PARTLY: "part"}.get(label, "off"),
+                         "manual": st.state in manual, "note": st.site_note,
+                         "incomplete": gap[:1].upper() + gap[1:]}
+    return out
+
+
+def coverage_counts(cov: dict[str, dict]) -> dict[str, int]:
+    return {label: sum(c["label"] == label for c in cov.values()) for label in (MONITORED, PARTLY, NOT_MONITORED)}
 
 
 # --- Rendering ---------------------------------------------------------------------------
 
 def render(recent: list[dict], history: dict[str, list[dict]], states, last: dict | None,
-           out_dir: Path, root: Path, today: dt.date) -> Path:
-    """Write out_dir/index.html and copy every saved copy the page links to."""
+           out_dir: Path, root: Path, today: dt.date, cov: dict[str, dict] | None = None) -> Path:
+    """Write out_dir/index.html and copy every saved copy the page links to.
+    `cov` (from coverage) adds each state's monitoring label; without it no labels are shown."""
     env = Environment(loader=FileSystemLoader(TEMPLATES), autoescape=select_autoescape(["html", "j2"]),
                       trim_blocks=True, lstrip_blocks=True)
     env.filters.update(long_date=long_date, rate=rate, pct=pct, change=change_text, doc_label=doc_label,
                        note_html=note_html)
     by_name = sorted(states, key=lambda s: s.name)
     html = env.get_template("index.html.j2").render(
-        recent=recent, history=history, states=by_name, status=run_status(last, today),
+        recent=recent, history=history, states=by_name, status=run_status(last, today, len(states)), n_states=len(states),
         products=PRODUCT_NAMES, today=today.isoformat(), repo_url=REPO_URL,
-        stale_days=STALE_DAYS, build_date=long_date(today.isoformat()))
+        stale_days=STALE_DAYS, build_date=long_date(today.isoformat()),
+        cov=cov or {}, cov_counts=coverage_counts(cov) if cov else {})
     out_dir = Path(out_dir)
     if out_dir.exists():
         shutil.rmtree(out_dir)
@@ -197,5 +243,8 @@ def build(root: Path, out_dir: Path | None = None, today: dt.date | None = None)
     today = today or dt.date.today()
     recs = records.load_all(root)
     states = config.load_states(root / "config/states.csv")
+    codes = {s.state for s in states}
+    sources = config.load_sources(root / "config/sources.csv", codes)
+    manual = config.load_manual_checks(root / "config/manual_checks.csv", codes)
     return render(select_recent(recs, today), select_history(recs, today), states,
-                  last_run(root), out_dir or root / "site", root, today)
+                  last_run(root), out_dir or root / "site", root, today, coverage(states, sources, manual))

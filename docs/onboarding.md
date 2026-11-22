@@ -73,7 +73,10 @@ and their reasons are in `docs/decisions.md`; open items in `docs/gaps.md`; prog
    `review confirm ID --values FILE` when the warnings are genuine.
 9. **Set `next_notice_expected_by`** in `config/states.csv` when the state has a regular
    cycle (`review.set_next_expected`); leave it blank when it does not (it would warn
-   every year).
+   every year). Update the page notes in `config/states.csv`: `site_note` (one plain
+   sentence: what is checked, or why the state cannot be) and `incomplete` (a known gap in
+   the records, or "No records: why"; blank if none). The page's Monitored / Partly
+   monitored / Not monitored label is worked out from `sources.csv` by itself.
 10. **Document:** a row per decision in `docs/decisions.md`; any gap in `docs/gaps.md`;
     the state in the Stage 6 line of `docs/status.md`.
 11. **Check and commit:** `config check`, `validate`, `pytest` — **check pytest's real exit

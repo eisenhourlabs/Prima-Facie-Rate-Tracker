@@ -31,6 +31,10 @@ STATE_COLUMNS = [
     "state", "name", "cl", "cd", "iui", "group",
     "cycle_years", "next_notice_expected_by", "notes",
 ]
+# Optional columns shown on the page (History by state), in plain words for readers:
+# site_note   how the state is checked, or why it cannot be (one sentence)
+# incomplete  a known gap in the state's records, or why it has none (blank if none)
+STATE_OPTIONAL_COLUMNS = ["site_note", "incomplete"]
 SOURCE_COLUMNS = [
     "source_id", "state", "products", "role", "watch_mode", "url", "format",
     "selector", "must_contain", "citation", "enabled", "verification",
@@ -53,6 +57,8 @@ class State:
     cycle_years: str
     next_notice_expected_by: str
     notes: str
+    site_note: str = ""
+    incomplete: str = ""
 
 
 @dataclass(frozen=True)
@@ -131,7 +137,7 @@ def load_states(path: str | Path) -> list[State]:
         if code in seen:
             raise _fail(path, line, "state", f"state '{code}' appears more than once")
         seen.add(code)
-        states.append(State(**{c: row[c] for c in STATE_COLUMNS}))
+        states.append(State(**{c: row.get(c, "") for c in STATE_COLUMNS + STATE_OPTIONAL_COLUMNS}))
     return states
 
 
