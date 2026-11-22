@@ -97,7 +97,8 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
    for the Bulletin approved; batch 27 (credit life outstanding balance rates of 31 Pa. Code 73.106(d))
    confirmed; A&H and IUI notices after 1998 not found (gap; owner chose to scan the 2001-2019 Bulletin
    issue contents later).
-7. Gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
+7. **Gaps without hand saves: worked 2026-11-22** (see the decision of that date; no new records).
+   Remaining gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
    for blocked states).
 8. Stage 6 gate, then Stage 8.
 
