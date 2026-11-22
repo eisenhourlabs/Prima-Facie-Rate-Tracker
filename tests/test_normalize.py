@@ -78,3 +78,22 @@ def test_duplicate_link_keeps_longer_text():
     html = '<a href="b.pdf"><img src="i.png"></a><a href="b.pdf">Bulletin 278</a>'
     assert normalize.extract_links(html, "https://example.gov/") == {
         "https://example.gov/b.pdf": "Bulletin 278"}
+
+
+def test_virginia_print_date_is_not_a_change():
+    # Stage 6 noise test, 2026-11-22: law.lis.virginia.gov prints the day's date in a
+    # print header (div#printDate) outside the statute. The registered selector keeps
+    # only the statute text, so the next day's copy gives the same hash.
+    import csv
+    from conftest import FIXTURES, REPO
+
+    with open(REPO / "config" / "sources.csv", encoding="utf-8", newline="") as f:
+        selector = next(r["selector"] for r in csv.DictReader(f) if r["source_id"] == "VA-code-3730")
+    today = (FIXTURES / "VA-code-3730.html").read_text(encoding="utf-8")
+    assert "<div id='printDate'>11/20/2026</div>" in today
+    tomorrow = today.replace("<div id='printDate'>11/20/2026</div>", "<div id='printDate'>11/21/2026</div>")
+    text = normalize.html_to_text(today, selector)
+    assert "38.2-3730" in text and "prima facie rates" in text
+    assert normalize.sha256_hex(text) == normalize.sha256_hex(normalize.html_to_text(tomorrow, selector))
+    # Without the selector the date leaks into the text and the hash changes.
+    assert normalize.html_to_text(today) != normalize.html_to_text(tomorrow)

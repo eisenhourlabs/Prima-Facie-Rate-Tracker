@@ -318,3 +318,60 @@ documents.
 | insurance.ky.gov | 200; home page lists latest bulletins (ppc/Documents/...pdf); ppc/kar.aspx (proposed regulations, one 806 KAR 17 item); new_laws.aspx redirects to home |
 | csimt.gov | 200; laws-rules-3 stable over two dry runs |
 | Montana Administrative Register | search found older issues on courts.mt.gov (to 1998) and sosmt.gov (2001 on); the 2022 adoption of MAR 6-271 was not located |
+
+## Stage 6 gate, 2026-11-22: one row per state
+
+Acceptance test 1 of Stage 6. One row for every state in `config/states.csv`, compiled from the
+entries above, the `notes` of `config/sources.csv` and `docs/decisions.md` (no new fetching).
+States onboarded before this log had per-state entries (NE, NM, SC, OH, IA, OR, ND, MN, UT, WV,
+AZ, PA) and states finished later (AL, DE, GA, ID, IL, NY) are summarized here; the source notes
+hold each fetch's details. "Monitored" means at least one enabled leading source. Robots:
+"allows" means robots.txt was read and permits the page; "none" means no robots.txt (404, or
+the site's app page); "override" means an owner-approved entry in `config/robots_overrides.csv`.
+
+| State | URLs fetched (hosts of enabled sources; others tried) | Status | Robots | Open issues |
+|---|---|---|---|---|
+| AL | banking.alabama.gov, www.aldoi.gov, admincode.legislature.state.al.us (AL-aam) | Monitored (4 leading, 3 lagging) | allows; admincode: none | 2018 Monthly issues not served (history of 155-2-2-.12 from the 2025 certified chapter) |
+| AZ | difi.az.gov, publicmeetings.az.gov: HTTP 403 | Manual (no source enabled) | not reached | Orders and hearing notices refuse the tool; no records (gap) |
+| CA | legaldocs.insurance.ca.gov; www.insurance.ca.gov 200; leginfo 403; Westlaw not fetched | Monitored (1 leading) | allows | Code on the publisher's host: no saved copy, no records (gap) |
+| CO | doi.colorado.gov 403; www.coloradosos.gov (terms prohibit robots) | Manual | SOS allows, but terms rule it out | No records; changes of 2013, 2016, 2022 (gap); owner chose no permission request |
+| DE | regulations.delaware.gov (DE-register-rss, DE-reg-1701); insurance.delaware.gov, delaware.gov rejected | Monitored (1 leading, 1 lagging) | none (app page) | Terms page unreadable (firewall); "650" misprint not recorded |
+| FL | www.flrules.org; dos.myflorida.com 403 | Monitored (2 leading) | allows | IUI not researched |
+| GA | oci.georgia.gov; rules.sos.ga.gov answers GitHub only | Monitored (1 leading) | oci allows; rules.sos.ga.gov disallows `/gac/*-.*` | No records: rule page not saveable (owner question: hand save or override; hand saves deferred) |
+| HI | cca.hawaii.gov, portal.ehawaii.gov (terms only) | Manual | not used: State terms prohibit automated access | No records (gap) |
+| IA | iid.iowa.gov, www.legis.iowa.gov | Monitored (1 leading, 2 lagging) | allows | None |
+| ID | doi.idaho.gov (GitHub's network only), adminrules.idaho.gov | Monitored (2 leading, 1 lagging) | doi: empty robots.txt (allowed); adminrules: none | Local dry runs fail for doi.idaho.gov (expected) |
+| IL | www.ilga.gov, idoi.illinois.gov; www.ilsos.gov (Register) does not answer | Monitored (1 leading, 1 lagging) | allows (Crawl-delay 10) | Old rates of the 2025 change (Register unreachable; manual); IL-bulletins-2026 address changes each January |
+| IN | www.in.gov | Monitored (1 leading) | allows | Official copy of 760 IAC 1-5.1 still to save |
+| KS | insurance.ks.gov (frozen former site); www.insurance.kansas.gov 403; rules.ks.gov human check | Manual | old site none; Kansas Register disallowed | No live source (gap) |
+| KY | apps.legislature.ky.gov, insurance.ky.gov | Monitored (1 leading); manual check May, September | allows | IUI not researched |
+| LA | legis.la.gov; www.ldi.la.gov bot challenge | Lagging only; manual check May, September | allows | Department site unreachable |
+| MD | insurance.maryland.gov, regs.maryland.gov | Monitored (2 leading, 1 lagging) | allows | 2016 CD outstanding balance change has no old rates (gap) |
+| ME | www.maine.gov, www11.maine.gov: 403 | Manual | not reached | No records (gap) |
+| MI | ars.apps.lara.state.mi.us; www.michigan.gov 403 | Monitored (1 leading, 1 lagging) | none | CD appendices are images (gap) |
+| MN | www.revisor.mn.gov; Commerce bulletins page is a CAPTCHA | Lagging only | allows | No leading source; IUI factor history (gap) |
+| MO | revisor.mo.gov, www.sos.mo.gov; insurance.mo.gov 429 | Lagging only; manual check May, September | allows | Department site unreachable |
+| MS | www.mid.ms.gov | Monitored (2 leading); manual check May, September | allows | Code on the publisher's host: no records |
+| MT | csimt.gov; rules.mt.gov human check | Monitored (1 leading) | allows | ARM 6.6.1101 rate undated; no records (gap) |
+| NC | www.ncleg.gov, www.ncdoi.gov | Monitored (1 leading); manual check May, September | allows | None |
+| ND | www.insurance.nd.gov, ndlegis.gov | Monitored (2 leading, 1 lagging) | allows | None |
+| NE | doi.nebraska.gov | Monitored (3 leading) | allows | Next step expected 2027-01-01 (IGD-A2) |
+| NH | gencourt.state.nh.us; www.insurance.nh.gov 403 | Monitored (1 leading) | allows | Register page shows the latest week only (gap) |
+| NJ | www.nj.gov | Monitored (1 leading) | allows | Code on the publisher's host: no records |
+| NM | www.osi.state.nm.us, www.srca.nm.gov | Monitored (1 leading, 1 lagging) | OSI: override (2026-11-20); SRCA allows | Bulletin posts link a staging host (watched as text) |
+| NV | doi.nv.gov, www.leg.state.nv.us | Monitored (1 leading, 1 lagging) | allows | None |
+| NY | www.dfs.ny.gov (GitHub's network only) | Monitored (1 leading) | allows | Code on the publisher's host: no records; local dry runs fail (expected) |
+| OH | codes.ohio.gov; insurance.ohio.gov 404s the tool | Lagging only | allows | No leading source; next memo expected by 2028-09-30 |
+| OK | www.oid.ok.gov; rules.ok.gov bot challenge | Monitored (1 leading) | allows | Appendix E (CD) not saved (gap) |
+| OR | dfr.oregon.gov, secure.sos.state.or.us | Monitored (2 leading, 2 lagging) | none | Adjusted-rate channel not confirmed |
+| PA | www.pa.gov; www.pacodeandbulletin.gov (override 2026-11-22, not watched) | Monitored (1 leading) | pa.gov allows; Bulletin override | A&H and IUI notices after 1998 not found; 2001-2019 Bulletin scan deferred |
+| SC | doi.sc.gov | Monitored (2 leading) | allows | None |
+| SD | dlr.sd.gov, sdlegislature.gov | Monitored (1 leading, 2 lagging) | allows | None |
+| TN | www.tn.gov, Secretary of State hosts: 403 | Manual | not reached | 2026 rulemaking on 0780-01-04 unread (gap) |
+| TX | www.tdi.texas.gov | Monitored (2 leading) | allows | TX-rules-2026 address changes each January |
+| UT | insurance.utah.gov, adminrules.utah.gov | Monitored (2 leading, 1 lagging) | allows | Date the current rates took effect (before 2022) not found (gap) |
+| VA | law.lis.virginia.gov; scc.virginia.gov disallowed | Manual (statute lagging only) | SCC: search engines only, not overridden | No leading source; no records |
+| WA | www.insurance.wa.gov, lawfilesext.leg.wa.gov; app.leg.wa.gov 403 | Monitored (1 leading, 2 lagging) | allows; lawfilesext none | None |
+| WI | oci.wi.gov | Monitored (4 leading) | none (allowed) | None |
+| WV | www.wvinsurance.gov | Monitored (1 leading, 2 lagging) | allows | Rule file is a scanned image (gap) |
+| WY | doi.wyo.gov; rules.wyo.gov needs a form postback | Monitored (1 leading) | doi allows; rules.wyo.gov none | No records (gap) |
