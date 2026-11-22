@@ -21,7 +21,7 @@ Last updated: 2026-11-21 (fifth session; probe workflow; Idaho and New York moni
 | 7. AI annotation | Not started | Optional; after Q2 |
 | 8. Scheduled production run | Not started | The schedule in `check.yml` is commented out until then |
 
-Totals after status item 4 (2026-11-22): 91 confirmed records; 84 of 104 sources enabled; 224 tests pass.
+Totals after status item 6 (2026-11-22): 91 confirmed records, plus 1 Pennsylvania candidate (batch 27) awaiting the owner's confirm; 84 of 104 sources enabled; 224 tests pass.
 
 ## Where each state stands
 
@@ -72,7 +72,7 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
 | VA | notice | 0 | Manual | SCC robots.txt admits search engines only; not overridden |
 | AZ | notice | 0 | Manual | 403 / Cloudflare bot check |
 | ID | notice | 2 (in force) | Yes (3) | Batch 25: CL and CD rates in force since July 1, 1993, posted by the Director since 2022 (IDAPA 18.03.05.014; attachment dated 6/1/2022); rates PDF and rules page (doi.idaho.gov, GitHub's network only; local dry runs fail) and the rule on adminrules.idaho.gov; triennial review (next 2028) |
-| PA | notice | 0 | Yes (1) | Department notice library on pa.gov (`new_text`); rate notices are in the Pennsylvania Bulletin, whose robots.txt disallows all robots: no records (owner question) |
+| PA | notice | 1 (candidate) | Yes (1) | Batch 27 (candidate; owner confirm pending): CL outstanding balance rates $.705 and $.844 per $1,000 (31 Pa. Code 73.106(d), 1998); Bulletin robots override approved 2026-11-22; A&H and IUI notices after 1998 not found; Department notice library on pa.gov (`new_text`) |
 
 ## Next steps, in order
 
@@ -92,10 +92,10 @@ Monitored = at least one enabled **leading** source. Records = confirmed records
    rules.sos.ga.gov answers but robots.txt disallows its rule pages (Georgia owner question); www.ilsos.gov
    does not answer (Illinois Register: manual check). Batch 25 confirmed and IL-CL-2025-05-22-1 amended;
    `check` dry run on GitHub for ID and NY (run 44962368413): all 4 sources baseline, HTTP 200.
-6. **Owner choices that would add records** (see `docs/gaps.md`): Colorado (written
-   permission from the Secretary of State, or another host; rates changed 2013, 2016, 2022);
-   California (Department copy of the 2002 and 2006 rules saved by hand, or the Westlaw text);
-   Delaware (2008 final order or current text, once regulations.delaware.gov sources exist).
+6. **Owner choices: done 2026-11-22.** Colorado: no permission request (manual check). California and
+   Georgia: no hand saves for now (gaps kept). Delaware: done under item 4. Pennsylvania: robots override
+   for the Bulletin approved; batch 27 (credit life outstanding balance rates of 31 Pa. Code 73.106(d))
+   imported as a candidate, owner confirm pending; A&H and IUI notices after 1998 not found (gap).
 7. Gaps in `docs/gaps.md` (scanned documents need a hand-checked import; `review add --file`
    for blocked states).
 8. Stage 6 gate, then Stage 8.

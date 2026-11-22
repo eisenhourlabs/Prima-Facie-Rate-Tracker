@@ -1,2 +1,3 @@
 host,approved_on,reason
 www.osi.state.nm.us,2026-11-20,"New Mexico OSI: robots.txt disallows all; no terms of use or other barrier; public bulletins. Owner decision."
+www.pacodeandbulletin.gov,2026-11-22,"Pennsylvania Code and Bulletin (Legislative Reference Bureau): robots.txt disallows all robots (and search engines from /Display/); no technical barrier seen; terms (1 Pa. Code 3.44) restrict only the Bureau editorial matter, nothing on automated access. Owner decision 2026-11-22."
